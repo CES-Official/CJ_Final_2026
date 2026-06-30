@@ -1,0 +1,42 @@
+ <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <!-- <h1 class="sitename">COMPUDON Junior</h1> -->
+        <img src="assets/img/COMPUDON-JUNIOR-Transparent.png" style="width: 200%;" title="COMPUDON Junior"  alt="COMPUDON Junior"/>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+            <li class="dropdown"><a href="#"><span>Winners</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                 <ul>
+              <li><a href="regional_winners.html">Regional Winners</a></li>
+              <li><a href="international_winners.html">International Winners</a></li>
+              <li><a href="rankholders.html">National Rank Holders</a></li>
+               <li><a href="finalists.html">Finalists</a></li>
+                <li><a href="past_winners.html">Past Winners</a></li>
+                  </ul>
+          <li><a href="prizes.html">Prizes</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="hall_of_fame.html">Hall of Fame</a></li>
+             <li><a href="advisory_board.html">Advisory Board</a></li>
+          <li><a href="assets/docs/CJ-Season-V-FAQs.pdf">FAQs</a></li>
+            <li><a href="past_seasons.html">Past Seasons</a></li>
+           <li><a href="about.html">About Us</a></li>
+          <!-- <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li> -->
+         
+          <!-- <li><a href="#contact">Contact</a></li> -->
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <!-- <a class="btn-getstarted" href="#about">Get Started</a> -->
+
+    </div>
+  </header>

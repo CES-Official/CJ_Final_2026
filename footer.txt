@@ -1,0 +1,101 @@
+  <footer id="footer" class="footer dark-background">
+
+    <!-- <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6">
+            <h4>Join Our Newsletter</h4>
+            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+            <form action="forms/newsletter.php" method="post" class="php-email-form">
+              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-3 col-md-6 footer-about">
+          <!-- <a href="index.html" class="d-flex align-items-center">
+            <span class="sitename">COMPUDON Junior</span>
+          </a> -->
+          <img src="assets/img/CES-logo-white-300x74.png" width="70%" alt="CyberLearning Educational Society" />
+          <div class="footer-contact pt-3">
+            <!-- <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p> -->
+            <p>CyberLearning Educational Society (CES) is a NGO arm of India CyberLearning Pvt Ltd., which is a Global Training Partner of Microsoft and is a group of committed individuals who are problem-solvers &#038; leaders, who want to create a lasting change and want to empower &#038; secure every child through digital literacy for success in 21<sup>st</sup> century global economy.</p>
+            <p>For more than 15 years, CES has contributed to the cause of digital literacy through partnerships with National and Global NGOs and Foundations.</p>
+         
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h3>Featured Links</h3>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="index.html">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="legal.html">Legal</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="privacy_cookies.html">Privacy & Cookies</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="terms_service.html">Terms of service</a></li>
+             <li><i class="bi bi-chevron-right"></i> <a href="press_releases.html">Press Releases</a></li>
+          </ul>
+        </div>
+
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+          </ul>
+        </div> -->
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <!-- <h4>Follow Us</h4>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+          <div class="social-links d-flex">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div> -->
+          <h3>Information</h3>
+             <p class="mt-3"><strong>Phone:</strong> <span>+91 83830 46545</span></p>
+            <p><strong>Email:</strong> <span>support-team@compudonjunior.co.in</span></p>
+            <img src="assets/img/GTP-High-Resolution.png" width="70%" alt="Microsoft Global Training Partner" />
+        </div>
+
+  <div class="col-lg-3 col-md-3 footer-link">
+        <h3><a href="https://www.flickr.com/photos/compudon_memoirs" style="color: white">COMPUDON Flickr Photos</a></h3>
+
+<a href="https://www.flickr.com/photos/compudon_memoirs"><img src="assets/img/flickr/pic1.jpg" width="100px" /></a>
+<a href="https://www.flickr.com/photos/compudon_memoirs"><img src="assets/img/flickr/pic2.jpg" width="100px" /></a>
+<br />
+<a href="https://www.flickr.com/photos/compudon_memoirs"><img src="assets/img/flickr/pic3.jpg" width="100px" /></a>
+<a href="https://www.flickr.com/photos/compudon_memoirs"><img src="assets/img/flickr/pic4.jpg" width="100px" /></a>
+ <!-- data-srcset="https://compudonjunior.in/wp-content/uploads/2022/10/DSC_7963-2-1030x687.jpg 1030w, https://compudonjunior.in/wp-content/uploads/2022/10/DSC_7963-2-300x200.jpg 300w, https://compudonjunior.in/wp-content/uploads/2022/10/DSC_7963-2-768x512.jpg 768w, https://compudonjunior.in/wp-content/uploads/2022/10/DSC_7963-2-705x470.jpg 705w, https://compudonjunior.in/wp-content/uploads/2022/10/DSC_7963-2.jpg 1200w" data-sizes="(max-width: 1030px) 100vw, 1030px"  aria-label="image image with no title" title="" alt=""    itemprop="thumbnailUrl" > -->
+  
+</div>
+      </div>
+    </div>
+<!-- 
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Arsha</strong> <span>All Rights Reserved</span></p>
+      <div class="credits"> -->
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+   <!--   </div>
+    </div> -->
+<div class="col-lg-12 col-md-12 footer-link" style="text-align: center;">
+  <br />
+  <br />
+    	  <span class='copyright'>© 2025 India CyberLearning Pvt. Ltd. All Rights Reserved.</span>
+</div>
+  </footer>

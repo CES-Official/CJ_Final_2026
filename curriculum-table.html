@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPUDON Modules Alignment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0052CC;
+            --primary-dark: #003D99;
+            --primary-light: #E8F0FF;
+            --accent: #10B981;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border: #E5E7EB;
+            --bg: #F9FAFB;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #F9FAFB 0%, #E6F0FF 100%);
+            /* padding: 2rem 1rem; */
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            /* margin: 0 auto; */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .header h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: var(--text-light);
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+        }
+
+        .table-wrapper {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 10px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            position: relative;
+        }
+
+        thead::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            animation: slideRight 1s ease-out 0.3s both;
+        }
+
+        th {
+            color: white;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            text-align: left;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        th:first-child {
+            padding-left: clamp(1rem, 4vw, 2rem);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeIn 0.6s ease-out backwards;
+        }
+
+        tbody tr:nth-child(1) { animation-delay: 0.4s; }
+        tbody tr:nth-child(2) { animation-delay: 0.5s; }
+        tbody tr:nth-child(3) { animation-delay: 0.6s; }
+        tbody tr:nth-child(4) { animation-delay: 0.7s; }
+
+        tbody tr:hover {
+            background: var(--primary-light);
+            transform: translateX(4px);
+            box-shadow: inset 4px 0 0 var(--accent);
+        }
+
+        td {
+            padding: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--text-dark);
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            line-height: 1.6;
+        }
+
+        td:first-child {
+            padding-left: clamp(1rem, 4vw, 2rem);
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(5, 82, 204, 0.03);
+        }
+
+        td:last-child {
+            padding-right: clamp(1rem, 4vw, 2rem);
+        }
+
+        .signifier {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            font-size: 1rem;
+            margin-right: 0.75rem;
+            font-weight: 700;
+            animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+        }
+
+        tbody tr:nth-child(1) .signifier { animation-delay: 0.5s; }
+        tbody tr:nth-child(2) .signifier { animation-delay: 0.6s; }
+        tbody tr:nth-child(3) .signifier { animation-delay: 0.7s; }
+        tbody tr:nth-child(4) .signifier { animation-delay: 0.8s; }
+
+        .module-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-right: 0.5rem;
+            animation: scaleIn 0.5s ease-out backwards;
+            background: rgba(0, 82, 204, 0.15);
+            color: var(--primary);
+            border: 1px solid rgba(0, 82, 204, 0.3);
+        }
+
+        tbody tr:nth-child(1) .badge { animation-delay: 0.6s; }
+        tbody tr:nth-child(2) .badge { animation-delay: 0.7s; }
+        tbody tr:nth-child(3) .badge { animation-delay: 0.8s; }
+        tbody tr:nth-child(4) .badge { animation-delay: 0.9s; }
+
+        .critical {
+            background: rgba(0, 82, 204, 0.15);
+            color: var(--primary);
+            border: 1px solid rgba(0, 82, 204, 0.3);
+        }
+
+        .central {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .required {
+            background: rgba(0, 82, 204, 0.15);
+            color: var(--primary);
+            border: 1px solid rgba(0, 82, 204, 0.3);
+        }
+
+        .emerging {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .relevance-text {
+            color: var(--text-light);
+            display: block;
+            margin-top: 0.35rem;
+            font-size: 0.9em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+
+            .table-wrapper {
+                border-radius: 12px;
+            }
+
+            th, td {
+                padding: clamp(0.75rem, 2vw, 1.25rem);
+            }
+
+            .header {
+                margin-bottom: 2rem;
+            }
+
+            .header h1 {
+                margin-bottom: 0.35rem;
+            }
+
+            thead {
+                font-size: 0.85rem;
+            }
+
+            .signifier {
+                width: 24px;
+                height: 24px;
+                font-size: 0.85rem;
+                margin-right: 0.5rem;
+            }
+
+            .badge {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.65rem;
+                margin-right: 0.35rem;
+            }
+
+            .relevance-text {
+                margin-top: 0.25rem;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .container {
+                padding: 0;
+            }
+
+            .table-wrapper {
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+            }
+
+            th, td {
+                padding: clamp(0.6rem, 1.5vw, 1rem);
+                font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+            }
+
+            th {
+                font-size: clamp(0.7rem, 2vw, 0.85rem);
+            }
+
+            .header h1 {
+                font-size: clamp(1.2rem, 4vw, 1.8rem);
+                margin-bottom: 0.25rem;
+            }
+
+            .header p {
+                font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+            }
+
+            .signifier {
+                width: 22px;
+                height: 22px;
+                font-size: 0.75rem;
+                margin-right: 0.4rem;
+            }
+
+            .badge {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.6rem;
+                margin-right: 0.3rem;
+            }
+
+            .module-label {
+                gap: 0.35rem;
+            }
+
+            .relevance-text {
+                margin-top: 0.2rem;
+                font-size: 0.8em;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.4);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #F3F4F6;
+                --text-light: #D1D5DB;
+                --bg: #111827;
+                --border: #374151;
+            }
+
+            body {
+                background: linear-gradient(135deg, #111827 0%, #0A2540 100%);
+            }
+
+            .table-wrapper {
+                background: #1F2937;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            tbody tr:hover {
+                background: rgba(0, 82, 204, 0.15);
+            }
+
+            td:first-child {
+                background: rgba(0, 82, 204, 0.08);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <div class="" >
+            <h1 style="margin-left: 25%;">COMPUDON Modules Alignment</h1>
+            </br>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modules</th>
+                        <th>Curriculum Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="module-label">
+                                <span class="signifier">1</span>
+                                Harmful Interactions, Digital Content, Privacy
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge critical">Critical</span>
+                            <span class="relevance-text">NCF 2023 digital citizenship mandate; CBSE cyber safety (Grade 6+)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="module-label">
+                                <span class="signifier">2</span>
+                                Creativity, Learning Design, Thinking Skills
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge central">Central</span>
+                            <span class="relevance-text">NCF critical thinking, problem-solving, creativity core competencies</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="module-label">
+                                <span class="signifier">3</span>
+                                Disinformation, Misinformation Resistance
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge required">Required</span>
+                            <span class="relevance-text">NEP 2020 media literacy & AI ethics; information evaluation skills</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="module-label">
+                                <span class="signifier">4</span>
+                                AI Systems, Data Fundamentals, AI Tools, AI Ethics
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge emerging">Emerging</span>
+                            <span class="relevance-text">NEP 2020 digital literacy, coding, computational thinking, AI exposure</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

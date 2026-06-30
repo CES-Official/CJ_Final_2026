@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPUDON Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #37517e;
+            --primary-dark: #37517e;
+            --accent: #10B981;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border: #E5E7EB;
+            --bg: #F9FAFB;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #F9FAFB 0%, #E8F0FF 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            /* margin-bottom: 4rem; */
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 10px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        th {
+            color: white;
+            padding: clamp(0.75rem, 2vw, 1.25rem);
+            text-align: left;
+            font-weight: 600;
+            font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+            letter-spacing: 0.3px;
+        }
+
+        th:first-child {
+            padding-left: clamp(1rem, 3vw, 1.5rem);
+        }
+
+        th:last-child {
+            padding-right: clamp(1rem, 3vw, 1.5rem);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: all 0.25s ease;
+            animation: fadeIn 0.5s ease-out backwards;
+        }
+
+        tbody tr:hover {
+            background: rgba(0, 82, 204, 0.04);
+            transform: translateX(2px);
+        }
+
+        tbody tr:nth-child(n) { animation-delay: calc(0.05s * var(--row-index, 1)); }
+
+        td {
+            padding: clamp(0.9rem, 2.5vw, 1.25rem);
+            color: var(--text-dark);
+            font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+            line-height: 1.5;
+        }
+
+        td:first-child {
+            padding-left: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 500;
+            color: var(--primary);
+            background: rgba(0, 82, 204, 0.02);
+        }
+
+        td:last-child {
+            padding-right: clamp(1rem, 3vw, 1.5rem);
+        }
+
+        /* Coverage table specific */
+        .coverage-table tbody td:not(:first-child) {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .coverage-table tbody td.check {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .coverage-table tbody tr:hover td.check {
+            background: rgba(16, 185, 129, 0.25);
+            transform: scale(1.05);
+        }
+
+        .x {
+            color: #999;
+        }
+
+        .partial {
+            color: var(--primary);
+        }
+
+        /* Gaps table specific */
+        .gaps-table tbody td:first-child {
+            font-weight: 600;
+            color: var(--primary-dark);
+            width: 25%;
+        }
+
+        .gaps-table tbody td:last-child {
+            background: rgba(16, 185, 129, 0.05);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .coverage-table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: clamp(0.6rem, 1.5vw, 1rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .section {
+                margin-bottom: 3rem;
+            }
+
+            .section h2 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .table-wrapper {
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 600px;
+            }
+
+            th, td {
+                padding: clamp(0.5rem, 1.2vw, 0.9rem);
+                font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+            }
+
+            .coverage-table tbody td:not(:first-child) {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .section h2 {
+                font-size: 1.1rem;
+                margin-bottom: 0.75rem;
+            }
+
+            th, td {
+                padding: clamp(0.4rem, 1vw, 0.75rem);
+                font-size: 0.75rem;
+            }
+
+            .table-wrapper {
+                border-radius: 8px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #111827 0%, #0A2540 100%);
+            }
+
+            .table-wrapper {
+                background: #1F2937;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            td:first-child {
+                background: rgba(0, 82, 204, 0.08);
+            }
+
+            tbody tr:hover {
+                background: rgba(0, 82, 204, 0.1);
+            }
+
+            th {
+                color: #F3F4F6;
+            }
+
+            td {
+                color: #E5E7EB;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Critical Gaps Table -->
+        <div class="section">
+            <h2 style="text-align: center;">Critical Gaps Filled</h2>
+            <div class="table-wrapper">
+                <table class="gaps-table">
+                    <thead>
+                        <tr>
+                            <th>Gap</th>
+                            <th>Competitions Miss</th>
+                            <th>COMPUDON Provides</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Digital Citizenship</td>
+                            <td>Technical skills only</td>
+                            <td>Safety, privacy, responsible use framework</td>
+                        </tr>
+                        <tr>
+                            <td>AI Literacy & Ethics</td>
+                            <td>No AI coverage (Grades 3–8)</td>
+                            <td>AI systems, ethics, impact evaluation</td>
+                        </tr>
+                        <tr>
+                            <td>Media Literacy</td>
+                            <td>No disinformation coverage</td>
+                            <td>Content evaluation, manipulation awareness</td>
+                        </tr>
+                        <tr>
+                            <td>Holistic Competency</td>
+                            <td>Assessment-based (test only)</td>
+                            <td>Embedded curriculum (habits, mindsets)</td>
+                        </tr>
+                        <tr>
+                            <td>Universal Reach</td>
+                            <td>Selective/optional (high performers)</td>
+                            <td>All students (Grades 3–8)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 style="text-align: center;">Detailed comparison of cyber competitions</h2>
+            <div class="table-wrapper">
+                <table class="coverage-table">
+                    <thead>
+                        <tr>
+                            <th>Topic</th>
+                            <th>COMPUDON </br> Junior</th>
+                            <th>ICSO - SOF</th>
+                            <th>ICO - ITO </th>
+                            <th> Coding </br> Olympiads</th>
+                            <th>Informatics </br> Olympiads</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Comprehensive Digital Privacy</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Cybersecurity for child-specific issues</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Media Literacy</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Responsible Use</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Academic Coding & Logic</td>
+                            <td class="x">✗</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Academic Computer Fundamentals</td>
+                            <td class="x">✗</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="partial">◐</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Algorithmic Thinking</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Data Fundamentals</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="partial">◐</td>
+                            <td class="x">✗</td>
+                            <td class="partial">◐</td>
+                        </tr>
+                        <tr>
+                            <td>AI Systems & Awareness</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                        <tr>
+                            <td>AI Ethics & Impact</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Responsible AI Use</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Detailed Instruction for </br> Critical Thinking</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Detailed Instruction for </br> Creative Thinking</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Learning Skills</td>
+                            <td class="check">✓</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                            <td class="x">✗</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(16, 185, 129, 0.08); border-left: 4px solid var(--accent); border-radius: 8px; animation: slideUp 0.8s ease-out 0.3s backwards;">
+                <p style="color: var(--text-dark); font-size: clamp(0.9rem, 2vw, 1.1rem); line-height: 1.6; font-weight: 500;">
+                    <span style="color: var(--accent); font-weight: 700;">In our opinion,</span> COMPUDON Junior is the much-needed <bold style="font-weight: 900;"> support and complement </bold> to existing competitions, and not in competition. The others provide academic rigour,
+                    but COMPUDON Junior is the <bold style="font-weight: 900;"> only </bold> simulation/sandbox of how well your child will fare in the real world
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
