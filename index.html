@@ -82,6 +82,13 @@
         }
     </style>
 <style>
+  #compliances > div > div {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+#compliances > div > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
   .btn-enroll {
   color: var(--contrast-color);
   /* background: var(--accent-color); */
@@ -199,13 +206,27 @@
         })
         .catch(err => console.error("Footer load error:", err));
 
+      fetch("index-cards.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("index-cards").innerHTML = data;
+        })
+        .catch(err => console.error("index-cards load error:", err));
+    });
+      fetch("pillar-cards.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("pillar-cards").innerHTML = data;
+        })
+        .catch(err => console.error("pillar-cards load error:", err));
+
       fetch("compliances.html")
         .then(response => response.text())
         .then(data => {
           document.getElementById("compliances").innerHTML = data;
         })
         .catch(err => console.error("Compliances load error:", err));
-    });
+
   </script>
 </head>
 
@@ -304,10 +325,11 @@
     </div>
   </div>
 </section>
-      <!--Slider Start -->
-      <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
 
+   
+<div id="index-cards"> </div>
+<div id="pillar-cards" class="light-background"> </div>
+ <section id="portfolio" class="portfolio section ">
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Compudon Journey</h2>
@@ -479,6 +501,10 @@
         }
       </style>
 
+<div>
+
+</div>
+
       <div class="container">
 
 
@@ -497,7 +523,7 @@
               <div class="col-lg-4 col-md-6">
               <div class="vc-card">
                 <div class="vc-thumb-wrap" onclick="vcPlay(this, '7ZjNMnIuc04')">
-                  <img src="https://img.youtube.com/vi/7ZjNMnIuc04/hqdefault.jpg" alt="Certiport Partnership Highlights" loading="lazy">
+                  <img src="https://img.youtube.com/vi/7ZjNMnIuc04/hqdefault.jpg" alt="Vinnie Jauhari" loading="lazy">
                   <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
                 </div>
                 <div class="vc-iframe-wrap"></div>
@@ -508,7 +534,7 @@
             <div class="col-lg-4 col-md-6">
               <div class="vc-card">
                 <div class="vc-thumb-wrap" onclick="vcPlay(this, 'wWF-6BtUtWY')">
-                  <img src="https://img.youtube.com/vi/wWF-6BtUtWY/hqdefault.jpg" alt="Certiport Partnership Highlights" loading="lazy">
+                  <img src="https://img.youtube.com/vi/wWF-6BtUtWY/hqdefault.jpg" alt="David Saedi" loading="lazy">
                   <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
                 </div>
                 <div class="vc-iframe-wrap"></div>
@@ -519,7 +545,7 @@
             <div class="col-lg-4 col-md-6">
               <div class="vc-card">
                 <div class="vc-thumb-wrap" onclick="vcPlay(this, 'sdMh31dKmXM')">
-                  <img src="https://img.youtube.com/vi/sdMh31dKmXM/hqdefault.jpg" alt="Rotary Club Collaboration" loading="lazy">
+                  <img src="https://img.youtube.com/vi/sdMh31dKmXM/hqdefault.jpg" alt="Andrew Williams" loading="lazy">
                   <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
                 </div>
                 <div class="vc-iframe-wrap"></div>
@@ -530,7 +556,7 @@
             <div class="col-lg-4 col-md-6">
               <div class="vc-card">
                 <div class="vc-thumb-wrap" onclick="vcPlay(this, 'CiTYtS_h32M')">
-                  <img src="https://img.youtube.com/vi/CiTYtS_h32M/hqdefault.jpg" alt="Certiport Moments — Part III" loading="lazy">
+                  <img src="https://img.youtube.com/vi/CiTYtS_h32M/hqdefault.jpg" alt="Umang Das" loading="lazy">
                   <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
                 </div>
                 <div class="vc-iframe-wrap"></div>
@@ -566,68 +592,6 @@
 
           </div>
         </div>
-        <!-- End Tab: Compudon Original -->
-
-        <!-- Tab: Compudon Junior -->
-        <div class="vc-tab-panel" id="vc-panel-junior" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-4">
-            
-
-            <div class="col-lg-4 col-md-6">
-              <div class="vc-card">
-                <div class="vc-thumb-wrap" onclick="vcPlay(this, '6ScTiPot3jk')">
-                  <img src="https://img.youtube.com/vi/6ScTiPot3jk/hqdefault.jpg" alt="COMPUDON Champions — Season VI" loading="lazy">
-                  <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-                </div>
-                <div class="vc-iframe-wrap"></div>
-                <div class="vc-card-title">Arjit Kansal: World Champion, Certiport Microsoft Office Championships</div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div class="vc-card">
-                <div class="vc-thumb-wrap" onclick="vcPlay(this, 'd-3ar9qXhJY')">
-                  <img src="https://img.youtube.com/vi/d-3ar9qXhJY/hqdefault.jpg" alt="DAV CPS — Regional Round" loading="lazy">
-                  <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-                </div>
-                <div class="vc-iframe-wrap"></div>
-                <div class="vc-card-title">Rohan Sethi: Silver Medalist, Certiport Microsoft Office Championships</div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div class="vc-card">
-                <div class="vc-thumb-wrap" onclick="vcPlay(this, 'u4YzhmjLD6Q')">
-                  <img src="https://img.youtube.com/vi/u4YzhmjLD6Q/hqdefault.jpg" alt="COMPUDON Award Ceremony" loading="lazy">
-                  <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-                </div>
-                <div class="vc-iframe-wrap"></div>
-                <div class="vc-card-title">Jeffrey Lewis: VP, Business Development, Certiport </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div class="vc-card">
-                <div class="vc-thumb-wrap" onclick="vcPlay(this, 'ATsKzwWeYYs')">
-                  <img src="https://img.youtube.com/vi/ATsKzwWeYYs/hqdefault.jpg" alt="COMPUDON Ceremony Highlights" loading="lazy">
-                  <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-                </div>
-                <div class="vc-iframe-wrap"></div>
-                <div class="vc-card-title">Fiona Collins: VP, Business Development, Pearson</div>
-              </div>
-            </div>
-
-                        <div class="col-lg-4 col-md-6">
-              <div class="vc-card">
-                <div class="vc-thumb-wrap" onclick="vcPlay(this, 'BR-eqIif6Bw')">
-                  <img src="https://img.youtube.com/vi/BR-eqIif6Bw/hqdefault.jpg" alt="Elvis Special Coverage" loading="lazy">
-                  <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-                </div>
-                <div class="vc-iframe-wrap"></div>
-                <div class="vc-card-title">Mr Pankaj Rai: CEO, CyberLearning India</div>
-              </div>
-            </div>
-            
 
           </div>
         </div>
@@ -656,11 +620,12 @@
       </script>
 
     </section>
-
-<section id="compliances"></section>
-
+<section id="compliances" class="light-background"></section>
+   <!--Slider Start -->
+      <!-- Portfolio Section -->
+   
         <!-- Services Section -->
-    <section id="services" class="services section light-background"> 
+    <section id="services" class="services section"> 
 
       <!-- Section Title -->
      <div class="container section-title" data-aos="fade-up">
@@ -714,97 +679,7 @@
       </div>
 
     </section>
-    <!-- /Services Section -->
-     <!-- <div class="container" data-aos="zoom-in"> -->
-        <div class="container">
-
-        <div class="row gy-5">
-<div class="" style="text-align: CENTER;" data-aos="fade-up" data-aos-delay="200">
-</br>
-        <h5><span style="color: #08063c; font-size: 25px;">Registration for Season VII  - To be Announced</span></h5>
-        <!-- <h5 style="text-align: left;"><span style="color: #08063c; font-size: 20px;">Fee Rs. 499/ per student (all inclusive)</span></h5> -->
-        <!-- <h5 style="text-align: left;"><span style="color: #ffffff; font-size: medium;">Fee Rs. 499/ per student (all inclusive)</span></h5> -->
-          <!-- <div class="d-flex">
-              <a href="https://courses.cyberlearning.in/" class="btn-enroll" color="#ffffff">Enroll Now</a>
-              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
-            </div> 
-</div>
-<div class="" data-aos="fade-up" data-aos-delay="200">
-<div class="countdown-container">
-        <!-- <h1>Countdown to October 5, 2025</h1> -->
-        <div class="countdown">
-            <div class="time-block">
-                <span id="weeks">0</span>
-                <label>Weeks</label>
-            </div>
-            <div class="time-block">
-                <span id="days">0</span>
-                <label>Days</label>
-            </div>
-            <div class="time-block">
-                <span id="hours">0</span>
-                <label>Hours</label>
-            </div>
-            <div class="time-block">
-                <span id="minutes">0</span>
-                <label>Minutes</label>
-            </div>
-            <div class="time-block">
-                <span id="seconds">0</span>
-                <label>Seconds</label>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-
-    <script>
-        // Set the target date: August 15, 2025, 00:00:00
-        // const targetDate = new Date('October 31, 2025 00:00:00').getTime();
-
-        // Update the countdown every second
-        const countdown = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            // Calculate time components
-            const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
-            const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the values
-            document.getElementById('weeks').textContent = weeks;
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
-            document.getElementById('seconds').textContent = seconds;
-
-            // If the countdown is over, display a message
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.querySelector('.countdown-container h1').textContent = 'Countdown Ended!';
-                document.getElementById('weeks').textContent = 0;
-                document.getElementById('days').textContent = 0;
-                document.getElementById('hours').textContent = 0;
-                document.getElementById('minutes').textContent = 0;
-                document.getElementById('seconds').textContent = 0;
-            }
-        }, 1000);
-    </script>
-
-
-
-
-
-</div>
-</section>
-</br>
-</br>
-</br>
-    
-    </section><!-- /Why Us Section -->
+   
 
     <!-- Skills Section -->
     <!-- <section id="skills" class="skills section">

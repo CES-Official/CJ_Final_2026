@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefits Cards Section</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Primary Colors */
+--primary-blue: #37517e;
+--primary-blue-deep: #253c62;
+--accent: #47b2e4;
+--white: #FFFFFF;
+--light-gray: #F8F9FA;
+--gray: #E9ECEF;
+--text-dark: #37517e;
+--text-medium: #37517e;
+--shadow: rgba(55,81,126,0.10);
+            
+            /* Typography */
+            --font-display: 'Sora', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2.5rem;
+            --spacing-xl: 4rem;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Lexend", sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #F0F4F8 100%);
+            min-height: 100vh;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            /* -webkit-text-fill-color: transparent; */
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ===== BENEFITS SECTION ===== */
+        .benefits-section {
+            padding-top: var(--spacing-xl);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-left: var(--spacing-md);
+            padding-right: var(--spacing-md);
+        }
+
+        .benefits-grid
+         { 
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-xl); }
+
+@media (max-width: 900px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+        .benefit-card {
+
+
+               background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+
+    transition: all var(--transition-medium);
+    animation: fadeInScale 0.6s ease backwards;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+
+        }
+
+        .benefit-subline {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    line-height: 1.6;
+}
+
+.benefit-citation {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    color: #98a1b3;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .benefit-card:nth-child(1) { animation-delay: 0.4s; }
+        .benefit-card:nth-child(2) { animation-delay: 0.5s; }
+        .benefit-card:nth-child(3) { animation-delay: 0.6s; }
+        .benefit-card:nth-child(4) { animation-delay: 0.7s; }
+        .benefit-card:nth-child(5) { animation-delay: 0.8s; }
+        .benefit-card:nth-child(6) { animation-delay: 0.9s; }
+
+        .benefit-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 48px #37517e;
+        }
+
+        .benefit-card:hover .benefit-image {
+            transform: scale(1.08) rotate(1deg);
+            filter: brightness(1.1);
+        }
+
+        .benefit-card:hover .benefit-stat-number {
+            transform: scale(1.12) rotate(-2deg);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0) 0%, rgba(107, 203, 119, 0.05) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+            pointer-events: none;
+            border-radius: 16px;
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Image Container */
+        .benefit-image-container {
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #E8EEF5 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefit-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-medium);
+        }
+
+        .benefit-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+            color: var(--white);
+            transition: all var(--transition-medium);
+        }
+
+        /* Content Container */
+        .benefit-content {
+            padding: var(--spacing-lg);
+            color: var(--white);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefit-header {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .benefit-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .benefit-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            transition: all var(--transition-medium);
+            font-family: "Sora", sans-serif;
+        }
+
+        .benefit-stat-unit {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-weight: 600;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.3;
+        }
+
+        .benefit-description {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .benefit-citation {
+            padding-top: var(--spacing-md);
+            font-size: 0.5rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .benefit-citation::before {
+            content: "Citation: ";
+        }
+
+        /* Color Variants for Benefit Cards */
+        .benefit-card:nth-child(1) .benefit-image-placeholder {
+            background: linear-gradient(135deg, #FFD93D 0%, #FFE66D 100%);
+        }
+
+        .benefit-card:nth-child(2) .benefit-image-placeholder {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
+        }
+
+        .benefit-card:nth-child(3) .benefit-image-placeholder {
+            background: linear-gradient(135deg, #6BCB77 0%, #85E597 100%);
+        }
+
+        .benefit-card:nth-child(4) .benefit-image-placeholder {
+            background: linear-gradient(135deg, #4A90E2 0%, #6BA3F5 100%);
+        }
+
+        .benefit-card:nth-child(5) .benefit-image-placeholder {
+            background: linear-gradient(135deg, #A78BFA 0%, #C7B3FF 100%);
+        }
+
+        .benefit-card:nth-child(6) .benefit-image-placeholder {
+            background: linear-gradient(135deg, #FF9F45 0%, #FFB86C 100%);
+        }
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .benefits-section {
+                padding-left: var(--spacing-md);
+                padding-right: var(--spacing-md);
+            }
+
+            .benefit-content {
+                padding: var(--spacing-lg);
+            }
+        }
+
+        @media (max-width: 992px) {
+            :root {
+                --spacing-lg: 2rem;
+                --spacing-xl: 3rem;
+            }
+
+            .benefit-image-container {
+                height: 180px;
+            }
+
+            .benefit-stat-number {
+                font-size: 2.2rem;
+            }
+
+            .benefit-title {
+                font-size: 1.2rem;
+            }
+
+            .benefit-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --spacing-lg: 1.5rem;
+                --spacing-xl: 2.5rem;
+                --spacing-md: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-header p {
+                font-size: 0.95rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .benefit-image-container {
+                height: 160px;
+            }
+
+            .benefit-stat-number {
+                font-size: 2rem;
+            }
+
+            .benefit-title {
+                    font-family: 'Sora', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary-blue-deep);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+            }
+
+            .benefit-description {
+                font-size: 0.85rem;
+            }
+
+            .benefit-content {
+                padding: var(--spacing-md);
+            }
+        }
+        #blue-header {
+            color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="section-header">
+            <h2 id="blue-header">Four Pillars of COMPUDON Junior Syllabus</h2>
+            <!-- <p>Discover why the skills we teach matter, and the powerful benefits every committed participant in our championship gains</p> -->
+        </div>
+
+        <div class="benefits-grid">
+                        <!-- Benefit 4: High Order Thinking -->
+<div class="benefit-card">
+    <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/index-cards/pillars.jpg" alt=""></div>
+    </br>
+    <div class="benefit-title">Cyber Safety</div>
+</div>
+<div class="benefit-card">
+    <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/index-cards/pillars.jpg" alt=""></div>
+</br>
+    <div class="benefit-title">Creativity &amp; Critical Thinking</div>
+</div>
+<div class="benefit-card">
+    <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/index-cards/pillars.jpg" alt=""></div>
+    </br>
+<div class="benefit-title">Media Literacy</div>
+</div>
+<div class="benefit-card">
+    <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/index-cards/pillars.jpg" alt=""></div>
+    </br>
+<div class="benefit-title">AI Literacy</div>
+</div>
+
+
+
+
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section-header').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
