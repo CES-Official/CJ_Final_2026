@@ -1,0 +1,22 @@
+You are a professional graphic designer. Create a visually polished infographic using the branding of COMPUDON Junior — a 21st-century digital literacy championship for school students worldwide, run by CyberLearning India.
+
+BRAND IDENTITY
+- Name: COMPUDON Junior
+- Primary colours: Deep navy blue (#0A1F5C or similar), grey, white
+- Logo style: Bold, tech-forward, child-friendly. The logo features "COMPUDON" in uppercase with "Junior" as a subtitle badge.
+- Tone: Authoritative yet approachable
+
+INFOGRAPHIC CONTENT
+[ENTER CONTENT]
+
+
+DESIGN REQUIREMENTS
+- Include the COMPUDON Junior name prominently at the top (treat it as the logo/header)
+- Use the navy + grey colour scheme throughout; white backgrounds for readability
+- Use clean icons (outline style) next to each point
+- Layout: card-grid or vertical flow, suitable for A4 / 1080×1350px (Instagram portrait)
+- Include a footer with: compudonjunior.com | #COMPUDONJunior | Season VII
+- Professional, print-ready quality — no clip art, no gradients unless subtle
+- Output as a single image
+
+OUTPUT FORMAT: PNG, 1080×1350px, 150dpi minimum

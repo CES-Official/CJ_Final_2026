@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>COMPUDON Junior — Privacy Resources for Parents</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="./assets/img/favicon.png" rel="icon">
+  <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800&family=Sora:wght@400;500;600;700&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+
+  <style>
+    #header { background-color: #37517e; }
+
+    :root {
+      --primary-blue: #37517e;
+      --primary-blue-deep: #253c62;
+      --accent: #47b2e4;
+      --white: #FFFFFF;
+      --light-gray: #F8F9FA;
+      --text-medium: #37517e;
+      --shadow: rgba(55,81,126,0.10);
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2.5rem;
+      --spacing-xl: 4rem;
+      --transition-medium: 0.3s ease;
+    }
+
+    .benefits-section {
+      padding: var(--spacing-xl) 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-left: var(--spacing-md);
+      padding-right: var(--spacing-md);
+    }
+
+    .section-header { text-align: center; margin-bottom: var(--spacing-lg); padding: 0 var(--spacing-md); }
+    .section-header h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; color: var(--primary-blue); margin-bottom: 0.5rem; }
+    .section-header p { font-size: 1.1rem; color: var(--text-medium); max-width: 640px; margin: 0 auto; }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-xl);
+    }
+    @media (max-width: 900px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+    .benefit-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: all var(--transition-medium);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      animation: fadeInScale 0.6s ease backwards;
+    }
+    .benefit-card:nth-child(1) { animation-delay: 0.1s; }
+    .benefit-card:nth-child(2) { animation-delay: 0.2s; }
+    .benefit-card:nth-child(3) { animation-delay: 0.3s; }
+    .benefit-card:nth-child(4) { animation-delay: 0.4s; }
+    .benefit-card:nth-child(5) { animation-delay: 0.5s; }
+    .benefit-card:nth-child(6) { animation-delay: 0.6s; }
+
+    .benefit-card:hover { transform: translateY(-10px); box-shadow: 0 18px 44px rgba(55,81,126,0.22); }
+    .benefit-card:hover .benefit-image { transform: scale(1.06); }
+
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.96) translateY(20px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .benefit-image-container {
+      height: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--light-gray) 0%, #E8EEF5 100%);
+      position: relative;
+    }
+    .benefit-image { width: 100%; height: 100%; object-fit: cover; transition: all var(--transition-medium); display: block; }
+
+    .benefit-content { padding: var(--spacing-md) var(--spacing-lg); flex: 1; display: flex; flex-direction: column; }
+    .benefit-title { font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--primary-blue-deep); line-height: 1.3; margin: 0 0 0.4rem; }
+    .benefit-subline { font-size: 0.9rem; color: var(--text-medium); line-height: 1.55; margin: 0; opacity: 0.85; }
+    .benefit-cta { font-family: 'Sora', sans-serif; font-size: 0.85rem; font-weight: 600; color: #37517e; display: inline-flex; align-items: center; gap: 6px; }
+    .benefit-cta i { transition: transform var(--transition-medium); }
+    .benefit-card:hover .benefit-cta i { transform: translateX(4px); }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("header.html").then(r => r.text()).then(d => document.getElementById("header").innerHTML = d).catch(e => console.error("Header load error:", e));
+      fetch("footer.html").then(r => r.text()).then(d => document.getElementById("footer").innerHTML = d).catch(e => console.error("Footer load error:", e));
+    });
+  </script>
+</head>
+
+<body class="index-page">
+
+  <main class="main">
+    <div id="header"></div>
+
+    <section class="benefits-section" style="margin-top: 10%;">
+      <div class="section-header">
+        <h2>Privacy Infographics</h2>
+        <p>Quick, visual guides to help you keep your child safe online. Tap any card to open the full infographic.</p>
+      </div>
+
+      <div class="benefits-grid">
+
+        <a class="benefit-card" href="./assets/img/privacy/instagram.png"  rel="noopener">
+          <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/privacy/ig.avif" alt=""></div>
+          <div class="benefit-content">
+            <h3 class="benefit-title">Instagram</h3>
+            <span class="benefit-cta">View infographic <i class="bi bi-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <a class="benefit-card" href="./assets/img/privacy/YouTube.png" target="_blank" rel="noopener">
+          <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/privacy/outube.jpg" alt=""></div>
+          <div class="benefit-content">
+            <h3 class="benefit-title">YouTube</h3>
+            <span class="benefit-cta">View infographic <i class="bi bi-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <a class="benefit-card" href="./assets/img/privacy/whatsapp.png" target="_blank" rel="noopener">
+          <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/privacy/wa.jpg" alt=""></div>
+          <div class="benefit-content">
+            <h3 class="benefit-title">WhatsApp</h3>
+            <span class="benefit-cta">View infographic <i class="bi bi-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <a class="benefit-card" href="./assets/img/privacy/Snap.png" target="_blank" rel="noopener">
+          <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/privacy/snap.jpg" alt=""></div>
+          <div class="benefit-content">
+            <h3 class="benefit-title">Snapchat</h3>
+            <span class="benefit-cta">View infographic <i class="bi bi-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <a class="benefit-card" href="./assets/img/privacy/Threads.png" target="_blank" rel="noopener">
+          <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/privacy/threads.jpg" alt=""></div>
+          <div class="benefit-content">
+            <h3 class="benefit-title">Threads</h3>
+            <span class="benefit-cta">View infographic <i class="bi bi-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <a class="benefit-card" href="./assets/img/privacy/Parents.png" target="_blank" rel="noopener">
+          <div class="benefit-image-container"><img class="benefit-image" src="./assets/img/privacy/communication.jpg" alt=""></div>
+          <div class="benefit-content">
+            <h3 class="benefit-title">Talking about Privacy</h3>
+            <span class="benefit-cta">View infographic <i class="bi bi-arrow-right"></i></span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/php-email-form/validate.js"></script>
+  <script src="./assets/vendor/aos/aos.js"></script>
+  <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="./assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="./assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="./assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="./assets/js/main.js"></script>
+
+</body>
+
+</html>
