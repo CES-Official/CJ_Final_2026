@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPUDON Modules Alignment</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #0052CC;
+            --primary-dark: #003D99;
+            --primary-light: #E8F0FF;
+            --accent: #10B981;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border: #E5E7EB;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .table-wrapper {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+
+        th {
+            color: #fff;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        th:first-child { padding-left: 2rem; }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s ease;
+        }
+
+        tbody tr:last-child { border-bottom: none; }
+
+        tbody tr:hover { background: var(--primary-light); }
+
+        td {
+            padding: 1.25rem 1.5rem;
+            color: var(--text-dark);
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        td:first-child {
+            padding-left: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .signifier { display: none; }
+
+        .module-label {
+            display: flex;
+            align-items: center;
+        }
+
+        .relevance-cell {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .critical {
+            background: #FDECEC;
+            color: #B42318;
+            box-shadow: inset 0 0 0 1px rgba(180, 35, 24, 0.18);
+        }
+
+        .required {
+            background: #EAF0FF;
+            color: var(--primary-dark);
+            box-shadow: inset 0 0 0 1px rgba(0, 82, 204, 0.2);
+        }
+
+        .central {
+            background: #FFF4E5;
+            color: #B45F06;
+            box-shadow: inset 0 0 0 1px rgba(180, 95, 6, 0.2);
+        }
+
+        .emerging {
+            background: #E7F9F0;
+            color: #05603A;
+            box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.25);
+        }
+
+        .relevance-text {
+            color: var(--text-dark);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            th, td { padding: 0.875rem 1rem; }
+            th:first-child, td:first-child { padding-left: 1rem; }
+            .header h1 { font-size: 1.375rem; }
+        }
+
+        @media (max-width: 480px) {
+            th, td { padding: 0.75rem 0.75rem; font-size: 0.8125rem; }
+            th { font-size: 0.75rem; }
+            .badge { padding: 0.2rem 0.5rem; font-size: 0.625rem; }
+            .relevance-text { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <div class="" >
+            <h1 style="margin-left: 25%;">COMPUDON Modules Alignment</h1>
+            </br>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modules</th>
+                        <th>Priority</th>
+                        <th>Curriculum Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="module-label">
+                                <span class="signifier">1</span>
+                                Harmful Interactions, Digital Content, Privacy
+                            </div>
+                        </td>
+                        <td><span class="badge critical">Critical</span></td>
+                        <td>
+                            <div class="relevance-cell"><span class="relevance-text">NCF 2023 digital citizenship mandate; CBSE cyber safety (Grade 6+)</span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="module-label">
+                                <span class="signifier">2</span>
+                                Creativity, Learning Design, Thinking Skills
+                            </div>
+                        </td>
+                        <td><span class="badge central">Central</span></td>
+                        <td>
+                            <div class="relevance-cell"><span class="relevance-text">NCF critical thinking, problem-solving, creativity core competencies</span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="module-label">
+                                <span class="signifier">3</span>
+                                Disinformation, Misinformation Resistance
+                            </div>
+                        </td>
+                        <td><span class="badge required">Required</span></td>
+                        <td>
+                            <div class="relevance-cell"><span class="relevance-text">NEP 2020 media literacy &amp; AI ethics; information evaluation skills</span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="module-label">
+                                <span class="signifier">4</span>
+                                AI Systems, Data Fundamentals, AI Tools, AI Ethics
+                            </div>
+                        </td>
+                        <td><span class="badge emerging">Emerging</span></td>
+                        <td>
+                            <div class="relevance-cell"><span class="relevance-text">NEP 2020 digital literacy, coding, computational thinking, AI exposure</span></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

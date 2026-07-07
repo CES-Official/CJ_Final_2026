@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Prizes | COMPUDON Junior</title>
+  <meta name="description" content="Explore the many categories of prizes, awards and recognitions at COMPUDON Junior.">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="./assets/img/favicon.png" rel="icon">
+  <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- =======================================================
+  * Template Name: Arsha
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  ======================================================== -->
+
+  <style>
+    body {
+      background-color: #fff;
+    }
+    #header { background-color: #37517e; }
+
+
+    .btn-enroll {
+      color: var(--contrast-color);
+      background-color: #4CAF50;
+      font-family: var(--heading-font);
+      font-weight: 500; font-size: 15px; letter-spacing: 1px;
+      display: inline-block; padding: 10px 28px 12px 28px;
+      border-radius: 50px; transition: 0.5s;
+    }
+
+    #services, #portfolio { background-color: transparent !important; }
+
+    /* Prize cards reuse the service-item look with a lift on hover */
+    .prizes .service-item {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      height: 100%;
+    }
+    .prizes .service-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+    .prizes .service-item .icon i { font-size: 36px; }
+
+    /* Tier ribbon on headline prizes */
+    .prize-tier {
+      display: inline-block;
+      font-family: var(--heading-font, 'Poppins', sans-serif);
+      font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #0f6e56; background: #e1f5ee;
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 12px;
+    }
+    .prize-tier.gold   { color: #8a6d00; background: #fdf3d6; }
+    .prize-tier.silver { color: #4a5568; background: #edf1f6; }
+    .prize-tier.bronze { color: #8a4b1f; background: #f7e9dd; }
+
+    /* Podium row */
+    .podium-card {
+      border-radius: 16px; padding: 32px 24px;
+      text-align: center; height: 100%;
+      border: 1px solid var(--color-border-tertiary, #eee);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .podium-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+    .podium-medal { font-size: 46px; line-height: 1; margin-bottom: 14px; }
+    .podium-card h3 { font-size: 20px; margin-bottom: 8px; color: #08063c; }
+    .podium-card p  { color: var(--color-text-secondary, #556); margin: 0; }
+
+    .prizes-note {
+      background: #f6f9ff; border: 1px dashed #b9cdf2; border-radius: 16px;
+      padding: 24px 28px; color: #37517e;
+    }
+          #levels .service-item,
+#services .service-item {
+    background-color: #fff;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.06);
+
+}
+  </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Load Header
+      fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header").innerHTML = data;
+        })
+        .catch(err => console.error("Header load error:", err));
+
+      // Load Footer
+      fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer").innerHTML = data;
+        })
+        .catch(err => console.error("Footer load error:", err));
+
+    fetch("curriculum-tableV2.html")
+      .then(response=> response.text())
+      .then(data => {
+        document.getElementById("curriculum-table").innerHTML = data;
+      })
+      .catch(err => console.error("Table load error:", err));
+
+    // fetch("cbse-alignment-table.html")
+    //   .then(response=> response.text())
+    //   .then(data => {
+    //     document.getElementById("cbse-alignment-table").innerHTML = data;
+    //   })
+    //   .catch(err => console.error("Table load error:", err));
+    });
+    
+  </script>
+</head>
+
+<body class="index-page">
+
+  <main class="main">
+    <div id="header"></div>
+
+    <section id="hero" class="hero section dark-background">
+  <div class="container">
+    <div class="row gy-4">
+
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+        <h2 id="special-h2">Inspired by the World's Leading Research Bodies. Designed to prepare every child for Life.</h2>
+        <p style="font-weight: 600;">COMPUDON Junior is a 21st century life skills global championship for school students worldwide.</p>
+        <div class="d-flex">
+          <button class="btn-get-started" onclick="document.getElementById('ageGroupModal').style.display='flex'" style="border:none;cursor:pointer;">Know More</button>
+        </div>
+
+        <!-- Age Group Modal -->
+        <div id="ageGroupModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,6,60,0.55);backdrop-filter:blur(6px);align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+          <div style="background:#fff;border-radius:24px;padding:48px 40px 40px;max-width:520px;width:90%;box-shadow:0 24px 80px rgba(8,6,60,0.30);text-align:center;position:relative;animation:modalPop 0.28s cubic-bezier(.34,1.56,.64,1) both;">
+            <!-- Close button -->
+            <button onclick="document.getElementById('ageGroupModal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;color:#888;cursor:pointer;line-height:1;" aria-label="Close">&times;</button>
+
+            <p style="font-family:var(--heading-font,'Poppins',sans-serif);font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#0f6e56;background:#e1f5ee;display:inline-block;padding:4px 16px;border-radius:20px;margin-bottom:14px;">Select Age Group</p>
+            <h3 style="font-family:var(--heading-font,'Poppins',sans-serif);font-size:20px;font-weight:600;color:#08063c;margin:0 0 32px;">Which category are you exploring?</h3>
+
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <a href="./assets/pdf/Objectives_3to5.pdf" style="
+                font-family:var(--heading-font,'Poppins',sans-serif);
+                font-weight:600;
+                font-size:18px;
+                letter-spacing:0.04em;
+                display:flex;align-items:center;justify-content:center;gap:12px;
+                padding:22px 36px;
+                border-radius:50px;
+                background:linear-gradient(135deg,#4CAF50 0%,#2e7d32 100%);
+                color:#fff;
+                text-decoration:none;
+                box-shadow:0 6px 24px rgba(76,175,80,0.40);
+                transition:transform 0.22s,box-shadow 0.22s;
+              " onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(76,175,80,0.50)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 24px rgba(76,175,80,0.40)'">
+                <i class="fa-duotone fa-solid fa-cube" style="display: inline;"></i>
+                <span>Grades 3 to 5</span>
+              </a>
+
+              <a href="./assets/pdf/Objectives_6&above.pdf" style="
+                font-family:var(--heading-font,'Poppins',sans-serif);
+                font-weight:600;
+                font-size:18px;
+                letter-spacing:0.04em;
+                display:flex;align-items:center;justify-content:center;gap:12px;
+                padding:22px 36px;
+                border-radius:50px;
+                background:linear-gradient(135deg,#08063c 0%,#1a1780 100%);
+                color:#fff;
+                text-decoration:none;
+                box-shadow:0 6px 24px rgba(8,6,60,0.35);
+                transition:transform 0.22s,box-shadow 0.22s;
+              " onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(8,6,60,0.50)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 24px rgba(8,6,60,0.35)'">
+                <i class="fa-duotone fa-solid fa-cubes" style="display: inline;"></i>
+                <span> Grade 6 &amp; Above </span></a>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          @keyframes modalPop {
+            from { opacity:0; transform:scale(0.88) translateY(16px); }
+            to   { opacity:1; transform:scale(1) translateY(0); }
+          }
+        </style>
+      </div>
+
+      <div class="col-lg-6 order-1 order-lg-2 hero-img d-flex align-items-center justify-content-center" data-aos="zoom-out" data-aos-delay="200">
+        <div style="
+          width: 100%;
+          border-radius: 16px;
+          overflow: hidden;
+          border: 1px solid rgba(255,255,255,0.1);
+          background: #000;
+        ">
+          <video
+            style="width: 100%; height: auto; display: block;"
+            controls
+            poster="./assets/video/thumbnail.png"
+          >
+            <source src="https://github.com/CES-Official/Compudon_Junior2026/releases/download/video/cj_final_8.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+    <!-- Age-Group / Category Prizes -->
+    <section id="agegroups" class="prizes section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Age-Group Category Prizes</h2>
+        <p>Every category competes on a level field &mdash; and every category has champions</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-box icon"></i></div>
+              <h4><a class="stretched-link">Grades 3 to 5</a></h4>
+              <p>Dedicated junior-category champion, runner-up and merit awards with age-appropriate trophies and medals.</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-boxes icon"></i></div>
+              <h4><a class="stretched-link">Grade 6 &amp; Above</a></h4>
+              <p>Senior-category champion, runner-up and merit awards with premium trophies, medals and scholarships.</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-people icon"></i></div>
+              <h4><a class="stretched-link">School Awards</a></h4>
+              <p>We recognize the sacrifice and effort of our dear school partners with special awards categories.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Grand Championship Podium -->
+    <section id="podium" class="prizes section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Grand Championship Prizes</h2>
+        <p>The pinnacle of COMPUDON Junior &mdash; the world's finest young minds on one global podium</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4 justify-content-center l">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="podium-card light-background">
+              <div class="podium-medal">🥇</div>
+              <span class="prize-tier gold">Global Champion</span>
+              <h3>World Champion Trophy</h3>
+              <p>Championship trophy, gold medal, cash scholarship, global winner certificate and feature on the COMPUDON Wall of Fame.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="podium-card">
+              <div class="podium-medal">🥈</div>
+              <span class="prize-tier silver">1st Runner-Up</span>
+              <h3>Global Silver Award</h3>
+              <p>Silver medal, scholarship grant, runner-up certificate and premium COMPUDON merchandise hamper.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="podium-card">
+              <div class="podium-medal">🥉</div>
+              <span class="prize-tier bronze">2nd Runner-Up</span>
+              <h3>Global Bronze Award</h3>
+              <p>Bronze medal, scholarship grant, achievement certificate and exclusive digital winner badge.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Level-wise Prizes -->
+    <section id="levels" class="services section" style="--background-color:#fff !important;">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Celebrated List </h2>
+        <p>Recognition of the runner ups and the mavericks destined to win next time (Ranks #4-100)</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-xl-5 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-geo-alt icon"></i></div>
+              <h4><a class="stretched-link">Special Medals</a></h4>
+              <p>Zonal champion trophies and merit certificates for the highest scorers across each city and region.</p>
+            </div>
+          </div>
+          <div class="col-xl-5 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300" style="margin-left: 10%;">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-flag icon"></i></div>
+              <h4><a class="stretched-link">Special Certificates</a></h4>
+              <p>National title, medal and scholarship for the top-ranked student representing each country.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Excellence by Module -->
+    <!-- <section id="excellence" class="services section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Excellence Awards by Module</h2>
+        <p>Standout mastery in the skills that define the 21st-century learner</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-robot icon"></i></div>
+              <h4><a class="stretched-link">AI Excellence</a></h4>
+              <p>For the sharpest understanding of AI systems, tools and ethics.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-shield-check icon"></i></div>
+              <h4><a class="stretched-link">Digital Safety Star</a></h4>
+              <p>For excellence in privacy, cyber-safety and responsible digital citizenship.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-lightbulb icon"></i></div>
+              <h4><a class="stretched-link">Creative Thinker</a></h4>
+              <p>For outstanding creativity, design thinking and problem-solving.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-search icon"></i></div>
+              <h4><a class="stretched-link">Truth Seeker</a></h4>
+              <p>For the best resistance to misinformation and disinformation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Special Recognition -->
+    <!-- <section id="special" class="prizes section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Special Recognition Awards</h2>
+        <p>Celebrating spirit, growth and the stories behind the scores</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-stars icon"></i></div>
+              <h4><a class="stretched-link">Rising Star</a></h4>
+              <p>For the most promising first-time participant of the season.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-graph-up-arrow icon"></i></div>
+              <h4><a class="stretched-link">Most Improved</a></h4>
+              <p>For the greatest leap in performance across rounds and seasons.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-heart icon"></i></div>
+              <h4><a class="stretched-link">Spirit Award</a></h4>
+              <p>For sportsmanship, perseverance and championing peers.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-gender-ambiguous icon"></i></div>
+              <h4><a class="stretched-link">Young Achiever</a></h4>
+              <p>For the standout performer in the youngest age bracket.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Scholarships -->
+    <section id="scholarships" class="services section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Teacher Awards</h2>
+        <p>Recognising the effort and sacrifice of our educators of raising our champions</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-cash-coin icon"></i></div>
+              <h4><a class="stretched-link">21st Century Life Skills Catalyst</a></h4>
+              <ul>
+                <li>Specialized Plaque of Appreciation</li>
+                <li>Invitation to present at special COMPUDON global event of education </li>
+                <li>Official Microsoft Goodies and Hampers </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-journal-bookmark icon"></i></div>
+              <h4><a class="stretched-link">21st Century Life Skills Visionary</a></h4>
+              <ul>
+                <li>Specialized Plaque of Appreciation</li>
+                <li>Invitation to present at 2 special COMPUDON global event of education </li>
+                <li>Official Microsoft Goodies and Hampers </li>
+              </ul>           
+             </div>
+          </div>
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-mortarboard-fill icon"></i></div>
+              <h4><a class="stretched-link">21st Century Life Skills Leader</a></h4>
+              <ul>
+                <li>Specialized Trophy and Plaque of Appreciation</li>
+                <li>Invitation to present at all quarterly special COMPUDON global event of education </li>
+                <li>Official Microsoft Goodies and Hampers </li>
+              </ul>                       </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="services" class="services section" style="background:#fff;"> 
+    <!-- Note -->
+    <section class="prizes section">
+      <div class="container" data-aos="fade-up">
+        <div class="prizes-note text-center">
+          <p style="margin:0;font-weight:600;">Prize categories, values and eligibility may vary by season and region. Final prize details are confirmed at the time of each season's announcement.</p>
+        </div>
+      </div>
+    </section>
+     <div class="container section-title" data-aos="fade-up">
+        <h2>Season VII</h2>
+        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
+     </div>
+      <!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="https://courses.cyberlearning.in/" class="stretched-link">Registration</a></h4>
+              <p>Links to LMS for registration</p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <h4><a href="/resources.html" class="stretched-link">Resources</a></h4>
+              <p>Explore variety of related learning resources here</p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <h4><a href="/objectives.html" class="stretched-link">Learning Objectives</a></h4>
+              <p>Check out COMPUDON Junior Season VII Learning Objectives here</p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <h4><a href="/workshops.html" class="stretched-link">Workshops</a></h4>
+              <p>Learn about the workshop schedule for Season VII and explore previous seasons workshops here</p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- /Services Section -->
+    <!-- Teacher & School Awards -->
+    <!-- <section id="mentors" class="prizes section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Teacher &amp; School Awards</h2>
+        <p>Behind every young champion is a mentor and an institution that believed</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-person-badge icon"></i></div>
+              <h4><a class="stretched-link">Mentor of the Season</a></h4>
+              <p>Recognition and certificate for the teacher guiding the most successful students.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-award icon"></i></div>
+              <h4><a class="stretched-link">Excellence in Coaching</a></h4>
+              <p>Awards for educators demonstrating outstanding preparation and support.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-building icon"></i></div>
+              <h4><a class="stretched-link">Champion School</a></h4>
+              <p>Institutional trophy for the school with the strongest overall performance.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-people-fill icon"></i></div>
+              <h4><a class="stretched-link">Highest Participation</a></h4>
+              <p>Recognition for schools championing the widest student participation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Participation Rewards -->
+    <!-- <section id="participation" class="services section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Participation Rewards</h2>
+        <p>Every single participant walks away a winner</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-patch-check icon"></i></div>
+              <h4><a class="stretched-link">Certificates</a></h4>
+              <p>Official participation certificate for every registered student.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-award-fill icon"></i></div>
+              <h4><a class="stretched-link">Medals</a></h4>
+              <p>Commemorative COMPUDON Junior medals for finalists and merit holders.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-window-stack icon"></i></div>
+              <h4><a class="stretched-link">Digital Badges</a></h4>
+              <p>Shareable digital badges to showcase achievements online.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bag-heart icon"></i></div>
+              <h4><a class="stretched-link">Goodie Hampers</a></h4>
+              <p>Branded merchandise and surprise goodies for standout participants.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+
+  </main>
+
+  <div id="footer"></div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/php-email-form/validate.js"></script>
+  <script src="./assets/vendor/aos/aos.js"></script>
+  <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="./assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="./assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="./assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="./assets/js/main.js"></script>
+
+</body>
+
+</html>
