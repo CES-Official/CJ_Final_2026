@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guides — COMPUDON Junior</title>
+  <meta name="description" content="Free guides for parents and teachers on AI literacy, cyber safety, gaming, social media, fake news, privacy, and digital citizenship for children aged 8-14.">
+  <link rel="canonical" href="https://compudonjunior.com/guides.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Guides — COMPUDON Junior">
+  <meta property="og:description" content="Free guides for parents and teachers on helping children navigate the digital world safely and confidently.">
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/compudon.css">
+  <style>
+  /* ── Guides page ── */
+  .guides-hero {
+    padding: 80px 0 48px;
+    background: var(--paper-2);
+  }
+  .guides-hero .wrap {
+    max-width: 780px;
+  }
+  .guides-hero .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--green);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .guides-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin-bottom: 18px;
+  }
+  .guides-hero .lede {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 60ch;
+  }
+
+  /* Featured guide (Parent Guides) */
+  .featured-guide {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .featured-guide .wrap {
+    max-width: 780px;
+  }
+  .featured-guide .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: var(--green-tint);
+    padding: 5px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 18px;
+  }
+  .featured-guide h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin-bottom: 20px;
+  }
+  .featured-guide .body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.12rem;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+  .featured-guide .body p {
+    margin-bottom: 20px;
+  }
+  .featured-guide .body p.short {
+    margin-bottom: 6px;
+  }
+  .featured-guide .body p.last-short {
+    margin-bottom: 24px;
+  }
+  .featured-guide .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .featured-guide .cta-row a {
+    font-family: var(--body);
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--green);
+    border: 1px solid var(--green);
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    transition: all .2s var(--ease);
+  }
+  .featured-guide .cta-row a:hover {
+    background: var(--green);
+    color: #fff;
+  }
+
+  /* Guide grid */
+  .guides-grid-section {
+    padding: 64px 0 80px;
+  }
+  .guides-grid-section .section-intro {
+    max-width: 780px;
+    margin: 0 auto 40px;
+    padding: 0 24px;
+  }
+  .guides-grid-section .section-intro h2 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-bottom: 12px;
+  }
+  .guides-grid-section .section-intro p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .guides-grid {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .guide-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    background: #fff;
+    transition: all .25s var(--ease);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+  .guide-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--green);
+    transform: translateY(-2px);
+  }
+  .guide-card h3 {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .guide-card .guide-subtitle {
+    font-family: var(--body);
+    font-size: .85rem;
+    color: var(--green);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .guide-card .guide-summary {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: .95rem;
+    line-height: 1.7;
+    color: var(--muted);
+    flex: 1;
+  }
+  .guide-card .guide-link {
+    font-family: var(--body);
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--green);
+    margin-top: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .guides-grid { grid-template-columns: 1fr; }
+    .featured-guide .cta-row { flex-direction: column; }
+    .featured-guide .cta-row a { text-align: center; }
+  }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a class="brand" href="/index.html" aria-label="COMPUDON Junior home">
+        <img src="/assets/img/COMPUDON-JUNIOR-Transparent.png" alt="COMPUDON Junior"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+        <span class="brand-fallback">COMPUDON <b>Junior</b></span>
+      </a>
+      <ul class="nav-links">
+        <li><a id="nav-home" class="active" href="/index.html">Home</a></li>
+        <li class="has-drop">
+          <a href="#" aria-haspopup="true">Statistics</a>
+          <ul class="drop">
+            <li><a href="https://map.compudonjunior.com">Cyberbullying map</a></li>
+            <li><a href="/gaming_chart.html">Gaming &amp; data</a></li>
+            <li><a href="/time_spent.html">Social media</a></li>
+          </ul>
+        </li>
+        <li><a id="nav-objectives" href="/objectives.html">Objectives</a></li>
+        <li><a id="nav-schools" href="/schools.html">Schools</a></li>
+        <li><a id="nav-parents" href="/parents.html">Parents</a></li>
+        <li><a id="nav-hall" href="/hall_of_fame.html">Hall of Fame</a></li>
+        <li><a id="nav-advisory" href="/advisory_board_new.html">Advisory Board</a></li>
+        <li><a id="nav-prizes" href="/prizes.html">Prizes</a></li>
+      </ul>
+      <a class="btn btn-primary nav-cta" href="/registration.html">Register</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="guides-hero">
+    <div class="wrap">
+      <span class="eyebrow">Free Resources</span>
+      <h1>Guides for Parents and Teachers</h1>
+      <p class="lede">No generation of parents has had to raise children in a world quite like this one. No generation of teachers has been asked to prepare students for a future changing this fast. These guides are here to help.</p>
+    </div>
+  </section>
+
+  <!-- Featured: Parent Guides -->
+  <section class="featured-guide">
+    <div class="wrap">
+      <span class="label">Featured Guide</span>
+      <h2>Helping Families Navigate the Digital World</h2>
+      <div class="body">
+        <p>No generation of parents has had to raise children in a world quite like this one.</p>
+
+        <p>Artificial Intelligence, social media, online gaming, instant messaging, and an endless stream of digital content have become part of everyday childhood. While these technologies create remarkable opportunities for learning and creativity, they also raise new questions that many families are navigating for the first time.</p>
+
+        <p class="short">How much screen time is healthy?</p>
+        <p class="short">How do we talk about online safety without creating fear?</p>
+        <p class="short">How can children use AI responsibly?</p>
+        <p class="last-short">What should they do if they encounter cyberbullying, misinformation, or inappropriate content?</p>
+
+        <p>There are rarely simple answers. What children often need most is not another rule, but a trusted adult who is willing to listen, ask questions, and learn alongside them.</p>
+
+        <p>That is why meaningful conversations at home matter.</p>
+
+        <p>Our Parent Guides are designed to support those conversations. Each guide explores a real-world digital challenge in clear, practical language, offering ideas that help parents build confidence rather than expertise. The goal is not to turn parents into technology specialists, but to help families create habits of openness, trust, and responsible decision-making.</p>
+
+        <p>When schools and families reinforce the same values — critical thinking, responsible technology use, digital citizenship, and online safety — children receive a consistent message that extends far beyond the classroom.</p>
+
+        <p>This shared approach lies at the heart of the COMPUDON Junior initiative: helping schools and families work together to prepare children not only for academic success, but for life in an increasingly digital world.</p>
+      </div>
+      <div class="cta-row">
+        <a href="#">Explore the guides</a>
+        <a href="#">Join a parent webinar</a>
+        <a href="#">Want us to talk to your child's school?</a>
+        <a href="/about.html">Learn about COMPUDON Junior</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Guides Grid -->
+  <section class="guides-grid-section">
+    <div class="section-intro">
+      <h2>Explore All Guides</h2>
+      <p>Each guide addresses a real-world digital challenge that children, parents, and educators face today. Written in clear, practical language — no jargon, no fear.</p>
+    </div>
+    <div class="guides-grid">
+
+        <a href="#" class="guide-card reveal">
+          <h3>AI and Children</h3>
+          <p class="guide-subtitle">Helping the Next Generation Navigate an Intelligent World</p>
+          <p class="guide-summary">Children ask AI questions instead of search engines. They use it to complete homework, explore ideas, create stories, and solve problems. Learning when to trust AI, when to question it, and when to verify information may become one of the most valuable skills of this generation.</p>
+          <span class="guide-link">Read the guide →</span>
+        </a>
+
+        <a href="#" class="guide-card reveal">
+          <h3>Gaming</h3>
+          <p class="guide-subtitle">Helping Children Play Smart</p>
+          <p class="guide-summary">For today's children, gaming is more than entertainment. It is where they compete, collaborate, communicate, and spend time with friends. Helping children develop healthy gaming habits is about making informed choices, not banning games.</p>
+          <span class="guide-link">Read the guide →</span>
+        </a>
+
+        <a href="#" class="guide-card reveal">
+          <h3>Cyber Safety</h3>
+          <p class="guide-subtitle">Building Confidence in a Connected World</p>
+          <p class="guide-summary">The internet has opened extraordinary opportunities for learning, creativity, and connection. Cyber safety is not simply about protecting devices — it is about helping children build confidence, recognise risks, and make responsible decisions.</p>
+          <span class="guide-link">Read the guide →</span>
+        </a>
+
+        <a href="#" class="guide-card reveal">
+          <h3>Social Media</h3>
+          <p class="guide-subtitle">Helping Children Connect with Confidence</p>
+          <p class="guide-summary">Social media has changed the way young people communicate, express themselves, and build relationships. Helping children navigate it is not about discouraging participation — it is about developing confidence, empathy, and good judgement.</p>
+          <span class="guide-link">Read the guide →</span>
+        </a>
+
+        <a href="#" class="guide-card reveal">
+          <h3>Fake News</h3>
+          <p class="guide-subtitle">Learning to Question Before Believing</p>
+          <p class="guide-summary">Never before has so much information been available so quickly. In a world where anyone can create and share content within seconds, the ability to question information has become just as important as the ability to find it.</p>
+          <span class="guide-link">Read the guide →</span>
+        </a>
+
+        <a href="#" class="guide-card reveal">
+          <h3>Privacy</h3>
+          <p class="guide-subtitle">Helping Children Understand the Value of Personal Information</p>
+          <p class="guide-summary">Children begin sharing information long before they understand its value. Learning about privacy is not simply about protecting passwords — it is about understanding that personal information has value and deserves thoughtful care.</p>
+          <span class="guide-link">Read the guide →</span>
+        </a>
+
+        <a href="#" class="guide-card reveal">
+          <h3>Teacher Resources</h3>
+          <p class="guide-subtitle">Supporting Teachers in Preparing Students for a Digital World</p>
+          <p class="guide-summary">Every generation asks teachers to prepare students for a changing world. Today, that world is changing faster than ever before. Teachers deserve practical support, trusted resources, and the time to do what they do best — teach.</p>
+          <span class="guide-link">Read the guide →</span>
+        </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img src="/assets/img/CES-logo-white-300x74.png" alt="CyberLearning Educational Society" style="height:52px;width:auto;margin-bottom:14px;" onerror="this.style.display='none'">
+        <p>CyberLearning Educational Society (CES) is the NGO arm of India CyberLearning Pvt. Ltd., a Microsoft Global Training Partner. For over 17 years, CES has advanced digital literacy in partnership with national and global foundations — empowering and protecting every child for the connected world.</p>
+        <img class="footer-badge" src="/assets/img/GTP-High-Resolution.png" alt="Microsoft Global Training Partner" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/schools.html">For Schools</a></li>
+          <li><a href="/parents.html">For Parents</a></li>
+          <li><a href="/students.html">For Students</a></li>
+          <li><a href="/guides.html">Guides</a></li>
+          <li><a href="/hall_of_fame.html">Hall of Fame</a></li>
+          <li><a href="/advisory_board_new.html">Advisory Board</a></li>
+          <li><a href="/beliefs.html">Our Beliefs</a></li>
+          <li><a href="/legal.html">Legal</a></li>
+          <li><a href="/privacy_cookies.html">Privacy &amp; Cookies</a></li>
+          <li><a href="/child-safety.html">Child Safety</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Get in touch</h4>
+        <p><strong style="color:#fff;">Email</strong><br><a href="mailto:support-team@compudonjunior.co.in">support-team@compudonjunior.co.in</a></p>
+        <p style="margin-top:10px;"><strong style="color:#fff;">Phone</strong><br>+91 83830 46545</p>
+        <p style="margin-top:14px;"><a href="https://calendly.com/cyberlearningindia" style="color:var(--sky);font-weight:600;">Book a meeting →</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="year"></span> India CyberLearning Pvt. Ltd. All Rights Reserved. · COMPUDON Junior is based on Microsoft Digital Literacy courseware but is neither endorsed by nor affiliated with Microsoft.
+    </div>
+  </div>
+</footer>
+<script>
+  // Year
+  var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  // Mobile nav
+  var nav = document.getElementById('nav'), navToggle = document.getElementById('navToggle');
+  if (navToggle) navToggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open'); navToggle.setAttribute('aria-expanded', open);
+  });
+  // Age modal
+  function openModal(){ var m=document.getElementById('ageModal'); if(m) m.classList.add('open'); }
+  function closeModal(){ var m=document.getElementById('ageModal'); if(m) m.classList.remove('open'); }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+  // Hero video — load only on click
+  function loadHeroVideo(){
+    var poster = document.getElementById('heroPoster'); if(!poster) return;
+    var v = document.createElement('video');
+    v.setAttribute('controls',''); v.setAttribute('autoplay',''); v.setAttribute('playsinline','');
+    v.poster = '/assets/video/thumbnail.png';
+    v.innerHTML = '<source src="https://github.com/CES-Official/Compudon_Junior2026/releases/download/video/cj_final_8.mp4" type="video/mp4">';
+    poster.replaceWith(v);
+  }
+  // Endorsement videos — click to embed
+  function vcPlay(thumb, id){
+    var card = thumb.closest('.vcard');
+    card.querySelector('.vframe').innerHTML =
+      '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1" title="COMPUDON Junior video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    card.classList.add('playing');
+  }
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+
+</body>
+</html>
