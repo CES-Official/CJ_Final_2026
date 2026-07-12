@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy — COMPUDON Junior</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1F3A5F;
+    --orange: #D2502A;
+    --teal:   #2C7A7B;
+    --cream:  #F4F1EC;
+    --green:  #2E7D32;
+    --navy-light: #E8EDF4;
+    --text:   #1a1a2e;
+    --muted:  #5a6272;
+    --border: #d5dce8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 18px 40px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .site-header .logo-mark {
+    width: 42px; height: 42px;
+    background: var(--orange); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: #fff; font-size: 13px; letter-spacing: -0.5px;
+    flex-shrink: 0;
+  }
+  .site-header .brand { color: #fff; }
+  .site-header .brand strong { font-size: 17px; font-weight: 700; display: block; }
+  .site-header .brand span  { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a4d78 100%);
+    padding: 56px 40px 52px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 50%, rgba(44,122,123,0.18) 0%, transparent 60%);
+  }
+  .hero .eyebrow {
+    display: inline-block;
+    background: rgba(210,80,42,0.18);
+    color: #f0a080;
+    border: 1px solid rgba(210,80,42,0.3);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 20px; position: relative;
+  }
+  .hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600; color: #fff;
+    line-height: 1.2; margin-bottom: 18px; position: relative;
+  }
+  .hero p {
+    font-size: 15px; color: rgba(255,255,255,0.78);
+    max-width: 600px; margin: 0 auto 10px; position: relative;
+  }
+  .hero .meta {
+    margin-top: 24px; display: flex; gap: 28px;
+    justify-content: center; flex-wrap: wrap; position: relative;
+  }
+  .hero .meta span { font-size: 12px; color: rgba(255,255,255,0.55); }
+  .hero .meta strong { color: rgba(255,255,255,0.85); }
+
+  /* ── COOKIE TYPES STRIP ── */
+  .cookie-types {
+    background: var(--cream);
+    border-top: 3px solid var(--orange);
+    border-bottom: 1px solid var(--border);
+    padding: 44px 40px;
+    text-align: center;
+  }
+  .cookie-types h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px; font-weight: 600; color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .cookie-types .sub { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+  .cookie-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px; max-width: 900px; margin: 0 auto;
+  }
+  .cookie-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 18px;
+    text-align: left;
+  }
+  .cookie-card .ct-icon { font-size: 24px; margin-bottom: 10px; }
+  .cookie-card .ct-label { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .cookie-card .ct-desc  { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  .badge-required {
+    display: inline-block; margin-top: 10px;
+    background: #e8f0e8; color: var(--green);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
+  }
+  .badge-optional {
+    display: inline-block; margin-top: 10px;
+    background: var(--navy-light); color: var(--navy);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .page-wrap {
+    max-width: 1020px; margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: linear-gradient(to right, var(--navy-light), #f0f4f9);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 44px 0 40px;
+    font-size: 15px; color: var(--navy);
+    font-style: italic;
+  }
+  .intro-box strong { font-style: normal; }
+
+  /* ── DOC META ── */
+  .doc-meta {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden; margin-bottom: 44px;
+  }
+  .doc-meta table { width: 100%; border-collapse: collapse; }
+  .doc-meta td { padding: 10px 18px; font-size: 13px; border-bottom: 1px solid var(--border); }
+  .doc-meta tr:last-child td { border-bottom: none; }
+  .doc-meta td:first-child { font-weight: 600; color: var(--navy); width: 38%; background: rgba(255,255,255,0.6); }
+  .doc-meta td:last-child  { color: var(--muted); }
+
+  /* ── SECTIONS ── */
+  .policy-section { margin-bottom: 44px; }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-num {
+    background: var(--navy); color: #fff;
+    font-size: 11px; font-weight: 700;
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-label h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px; font-weight: 600; color: var(--navy);
+  }
+  .rule { border: none; border-top: 1px solid var(--border); margin: 0 0 18px; }
+
+  .policy-section p  { margin-bottom: 14px; color: #2a2a3e; font-size: 14.5px; }
+  .policy-section ul { margin: 10px 0 16px 20px; }
+  .policy-section li { margin-bottom: 6px; font-size: 14.5px; color: #2a2a3e; }
+
+  .subsection { margin: 20px 0; }
+  .subsection h3 {
+    font-size: 14px; font-weight: 700;
+    color: var(--teal); text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 10px;
+    padding-bottom: 5px; border-bottom: 1px solid var(--border);
+  }
+
+  .highlight-box {
+    background: #fff8f6;
+    border: 1px solid rgba(210,80,42,0.25);
+    border-left: 3px solid var(--orange);
+    border-radius: 6px;
+    padding: 16px 20px; margin: 16px 0; font-size: 14px;
+  }
+  .highlight-box ul { margin: 8px 0 0 16px; }
+
+  /* ── PRIVACY LINK BOX ── */
+  .related-box {
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 20px 24px; margin: 40px 0;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .related-box .rb-icon { font-size: 28px; flex-shrink: 0; }
+  .related-box p { font-size: 14px; color: var(--navy); margin: 0; }
+  .related-box a { color: var(--teal); font-weight: 600; }
+
+  /* ── CONTACT BOX ── */
+  .contact-box {
+    background: var(--navy); color: #fff;
+    border-radius: 10px; padding: 28px 32px;
+    margin-top: 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .contact-box h3 { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .contact-box p  { font-size: 14.5px; margin-bottom: 6px; }
+  .contact-box a  { color: #80c8c9; }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 12.5px; color: var(--muted);
+  }
+  .page-footer strong { color: var(--navy); }
+  .footer-links { margin-top: 10px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .footer-links a { color: var(--teal); font-size: 12.5px; text-decoration: none; }
+  .footer-links a:hover { text-decoration: underline; }
+  .footer-sep { color: var(--border); }
+
+  @media (max-width: 680px) {
+    .site-header, .hero, .cookie-types, .page-wrap, .page-footer { padding-left: 20px; padding-right: 20px; }
+    .cookie-cards { grid-template-columns: 1fr 1fr; }
+    .contact-box { grid-template-columns: 1fr; }
+  }
+
+  /* ── CREDIBILITY BAR (matches homepage) ── */
+  .cred-bar { background: #0B1F3A; color: #fff; padding: 26px 40px; }
+  .cred-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px; max-width: 1160px; margin: 0 auto; }
+  .cred-stat { display: flex; flex-direction: column; }
+  .cred-stat b { font-family: 'Inter', sans-serif; font-size: 1.9rem; font-weight: 700; line-height: 1; }
+  .cred-stat span { font-size: 13px; color: rgba(255,255,255,.66); margin-top: 5px; }
+  .cred-div { width: 1px; height: 40px; background: rgba(255,255,255,.14); }
+  .cred-partners { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .04em; color: rgba(255,255,255,.7); line-height: 1.7; }
+  @media (max-width: 680px) {
+    .cred-bar { padding: 20px; }
+    .cred-div { display: none; }
+    .cred-wrap { justify-content: flex-start; gap: 16px 24px; }
+    .cred-stat b { font-size: 1.4rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo-mark">CJ</div>
+  <div class="brand">
+    <strong>COMPUDON Junior</strong>
+    <span>A Programme of CyberLearning Educational Society (Regd.)</span>
+  </div>
+</header>
+
+<!-- CREDIBILITY BAR -->
+<div class="cred-bar">
+  <div class="cred-wrap">
+    <div class="cred-stat"><b>Season VII</b><span>Launching soon</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>100,000+</b><span>Students across COMPUDON &amp; COMPUDON Junior</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>500+</b><span>Institutions</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>Expanding Internationally</b><span>Season VII</span></div>
+    <div class="cred-div"></div>
+    <p class="cred-partners">Microsoft Global Training Partner<br>Partner · National Digital Literacy Mission</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Season VII · 2026</div>
+  <h1>Cookie Policy</h1>
+  <p>How CyberLearning Educational Society (Regd.) uses cookies and similar technologies on the COMPUDON Junior website and related online services.</p>
+  <div class="meta">
+    <span><strong>Effective:</strong> 15 July 2026</span>
+    <span><strong>Last Updated:</strong> 12 July 2026</span>
+    <span><strong>Version:</strong> 1.0</span>
+    <span><strong>Next Review:</strong> 12 July 2027</span>
+  </div>
+</section>
+
+<!-- COOKIE TYPES OVERVIEW -->
+<section class="cookie-types">
+  <h2>Types of Cookies We Use</h2>
+  <p class="sub">We use four categories of cookies, each with a specific purpose.</p>
+  <div class="cookie-cards">
+    <div class="cookie-card">
+      <div class="ct-icon">🔒</div>
+      <div class="ct-label">Essential Cookies</div>
+      <div class="ct-desc">Necessary for the operation, security, and functionality of the website. Cannot be disabled without affecting core features.</div>
+      <span class="badge-required">Always Active</span>
+    </div>
+    <div class="cookie-card">
+      <div class="ct-icon">⚙️</div>
+      <div class="ct-label">Functional Cookies</div>
+      <div class="ct-desc">Remember your preferences and settings to improve your experience across visits.</div>
+      <span class="badge-optional">Optional</span>
+    </div>
+    <div class="cookie-card">
+      <div class="ct-icon">📊</div>
+      <div class="ct-label">Analytics Cookies</div>
+      <div class="ct-desc">Help us understand how visitors use our website using aggregated, non-identifying statistical information.</div>
+      <span class="badge-optional">Optional</span>
+    </div>
+    <div class="cookie-card">
+      <div class="ct-icon">🔗</div>
+      <div class="ct-label">Third-Party Cookies</div>
+      <div class="ct-desc">Used by trusted third-party services for embedded videos, social integrations, and content delivery.</div>
+      <span class="badge-optional">Optional</span>
+    </div>
+  </div>
+</section>
+
+<div class="page-wrap">
+
+  <!-- INTRO BOX -->
+  <div class="intro-box">
+    This Cookie Policy should be read together with the <strong><a href="privacy-policy.html" style="color: var(--teal); font-style: normal;">COMPUDON Junior Privacy Policy</a></strong>, which explains how Personal Data is collected, processed, shared, retained, and protected.
+  </div>
+
+  <!-- DOC META -->
+  <div class="doc-meta">
+    <table>
+      <tr><td>Document Title</td><td>Cookie Policy — COMPUDON Junior Digital Citizenship &amp; Cyber Safety Championship</td></tr>
+      <tr><td>Approved By</td><td>Executive Committee, CyberLearning Educational Society (Regd.)</td></tr>
+      <tr><td>Document Owner</td><td>CyberLearning Educational Society (Regd.)</td></tr>
+      <tr><td>Review Frequency</td><td>Annual, or earlier if required</td></tr>
+      <tr><td>Contact</td><td><a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a></td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">1</div>
+      <h2>Purpose</h2>
+    </div>
+    <hr class="rule">
+    <p>This Cookie Policy explains how CyberLearning Educational Society (Regd.) ("CyberLearning," "we," "our," or "us") uses cookies and similar technologies when you visit the COMPUDON Junior website or use related online services.</p>
+    <p>This Cookie Policy should be read together with the COMPUDON Junior <a href="privacy-policy.html">Privacy Policy</a>, which explains how Personal Data is collected, processed, shared, retained, and protected.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">2</div>
+      <h2>What Are Cookies?</h2>
+    </div>
+    <hr class="rule">
+    <p>Cookies are small text files placed on your computer, mobile device, or other internet-enabled device when you visit a website.</p>
+    <p>Cookies help websites function efficiently, improve user experience, remember user preferences, enhance website security, support embedded educational content, and provide information that helps improve website performance.</p>
+    <p>Cookies do not generally identify an individual directly. However, where cookies are associated with Personal Data, they are processed in accordance with the COMPUDON Junior Privacy Policy and the applicable provisions of the Digital Personal Data Protection Act, 2023.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">3</div>
+      <h2>Types of Cookies We Use</h2>
+    </div>
+    <hr class="rule">
+    <p>Depending on how you use our website, we may use one or more of the following categories of cookies.</p>
+
+    <div class="subsection">
+      <h3>Essential Cookies</h3>
+      <p>Essential cookies are necessary for the operation, security, and functionality of the website. These cookies may be used to:</p>
+      <ul>
+        <li>Maintain secure user sessions</li>
+        <li>Authenticate users</li>
+        <li>Protect against fraudulent or unauthorised activity</li>
+        <li>Enable essential website functions</li>
+      </ul>
+      <p>These cookies are necessary for the website to operate correctly and generally cannot be disabled without affecting website functionality.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>Functional Cookies</h3>
+      <p>Functional cookies remember user preferences and settings in order to improve the user experience. These cookies may remember:</p>
+      <ul>
+        <li>Language preferences</li>
+        <li>Previously selected options</li>
+        <li>User interface settings</li>
+        <li>Other preferences that improve website usability</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>Analytics Cookies</h3>
+      <p>Where enabled, analytics cookies help us understand how visitors use our website by collecting statistical or aggregated information. The information collected helps us:</p>
+      <ul>
+        <li>Improve website performance</li>
+        <li>Identify technical issues</li>
+        <li>Enhance user experience</li>
+        <li>Improve educational services</li>
+      </ul>
+      <p>Analytics information is used to improve our services and is not intended to identify individual users.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>Third-Party Cookies and Similar Technologies</h3>
+      <p>Certain features available on the COMPUDON Junior website may be provided through trusted third-party services. These services may use cookies or similar technologies in connection with:</p>
+      <ul>
+        <li>Embedded educational videos</li>
+        <li>Social media integrations</li>
+        <li>Content delivery services</li>
+        <li>Communication tools</li>
+        <li>Other website functionality</li>
+      </ul>
+      <p>CyberLearning Educational Society (Regd.) does not control the cookies or similar technologies used by independent third-party services. Users are encouraged to review the privacy policies of such providers before interacting with those services.</p>
+      <p>Certain embedded videos or social media features may not function correctly if cookies associated with those services are disabled.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">4</div>
+      <h2>How We Use Cookies</h2>
+    </div>
+    <hr class="rule">
+    <p>The cookies and similar technologies may be used for the following purposes:</p>
+    <ul>
+      <li>Operating and securing the website</li>
+      <li>Maintaining user sessions</li>
+      <li>Remembering user preferences</li>
+      <li>Supporting embedded educational content</li>
+      <li>Improving website functionality</li>
+      <li>Measuring website performance</li>
+      <li>Understanding visitor interactions</li>
+      <li>Detecting technical problems</li>
+      <li>Supporting the delivery of educational services</li>
+    </ul>
+    <div class="highlight-box">
+      <strong>We do not use cookies or similar technologies to:</strong>
+      <ul>
+        <li>Behaviourally profile children</li>
+        <li>Serve targeted advertising to children</li>
+        <li>Commercially exploit children's Personal Data</li>
+        <li>Process children's Personal Data in any manner prohibited under applicable law</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">5</div>
+      <h2>Cookie Preferences</h2>
+    </div>
+    <hr class="rule">
+    <p>Where required by applicable law or where non-essential cookies are used, users may be provided with options to manage their cookie preferences through the website.</p>
+    <p>Users may also control cookies through the settings of their internet browser.</p>
+    <p>Please note that disabling certain cookies may affect the availability or functionality of some features of the website.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">6</div>
+      <h2>Third-Party Websites</h2>
+    </div>
+    <hr class="rule">
+    <p>The COMPUDON Junior website may contain links to third-party websites or provide access to third-party services. CyberLearning Educational Society (Regd.) is not responsible for the privacy practices, cookie practices, or content of independent third-party websites or services.</p>
+    <p>Users are encouraged to review the privacy policies and cookie policies of those organisations before providing Personal Data or interacting with their services.</p>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">7</div>
+      <h2>Changes to this Cookie Policy</h2>
+    </div>
+    <hr class="rule">
+    <p>CyberLearning Educational Society (Regd.) may update this Cookie Policy from time to time to reflect changes in technology, website functionality, operational practices, legal requirements, or regulatory guidance.</p>
+    <p>The revised version will be published on the COMPUDON Junior website together with the updated "Last Updated" date. Where required by applicable law, appropriate notice of material changes will be provided.</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">8</div>
+      <h2>Contact</h2>
+    </div>
+    <hr class="rule">
+    <p>If you have any questions regarding this Cookie Policy or our use of cookies and similar technologies, please contact us:</p>
+    <p><strong>CyberLearning Educational Society (Regd.)</strong><br>
+    Grievance Officer: Ms. Shital Rai<br>
+    Email: <a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a><br>
+    Website: <a href="https://www.compudonjunior.com" target="_blank">www.compudonjunior.com</a></p>
+  </div>
+
+  <!-- RELATED POLICY LINK -->
+  <div class="related-box">
+    <div class="rb-icon">🔏</div>
+    <p>This Cookie Policy forms part of a broader privacy governance framework. Please also read our <a href="privacy-policy.html">Privacy Policy</a> for full details of how Personal Data is collected, processed, shared, retained, and protected across the COMPUDON Junior programme.</p>
+  </div>
+
+  <!-- CONTACT BOX -->
+  <div class="contact-box">
+    <div>
+      <h3>Grievance Officer</h3>
+      <p><strong>Ms. Shital Rai</strong></p>
+      <p><a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a></p>
+    </div>
+    <div>
+      <h3>Copyright</h3>
+      <p style="font-size:13px; color: rgba(255,255,255,0.7);">Copyright © 2026 CyberLearning Educational Society (Regd.). All rights reserved. This Cookie Policy forms part of the privacy governance framework for the COMPUDON Junior program.</p>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p><strong>CyberLearning Educational Society (Regd.)</strong> · Cookie Policy v1.0 · Effective 15 July 2026</p>
+  <div class="footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <span class="footer-sep">|</span>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <span class="footer-sep">|</span>
+    <a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a>
+    <span class="footer-sep">|</span>
+    <a href="https://www.compudonjunior.com" target="_blank">www.compudonjunior.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
