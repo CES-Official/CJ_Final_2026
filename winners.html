@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Season Winners — COMPUDON Junior</title>
+  <meta name="description" content="COMPUDON Junior Season VI national winners — Celebrated List and top performers across Explorers (Grades 3–5) and Navigators (Grades 6+) categories.">
+  <link rel="canonical" href="https://compudonjunior.com/winners.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/compudon.css">
+  <style>
+    .winners-hero { background:linear-gradient(135deg,var(--navy,#1F3A5F) 0%,#0d2240 100%); padding:64px 0 48px; }
+    .winners-hero h1 { color:#fff; margin:12px 0 16px; }
+
+    /* Season tabs */
+    .season-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:36px; }
+    .season-tab { padding:9px 20px; border-radius:6px; font-size:.85rem; font-weight:600; cursor:pointer; border:1px solid var(--border,#E5E7EB); background:#fff; color:var(--muted); transition:all .15s; }
+    .season-tab.active { background:var(--navy,#1F3A5F); color:#fff; border-color:var(--navy); }
+
+    /* Category tabs */
+    .cat-tabs { display:flex; gap:10px; margin-bottom:28px; }
+    .cat-tab { padding:10px 22px; border-radius:6px; font-size:.88rem; font-weight:700; cursor:pointer; border:none; transition:all .15s; }
+    .cat-tab.explorers { background:#E8F0FE; color:var(--navy,#1F3A5F); }
+    .cat-tab.explorers.active { background:var(--navy,#1F3A5F); color:#fff; }
+    .cat-tab.navigators { background:#E8F5E9; color:var(--green,#2E7D32); }
+    .cat-tab.navigators.active { background:var(--green,#2E7D32); color:#fff; }
+
+    /* Top 3 podium */
+    .podium { display:flex; align-items:flex-end; justify-content:center; gap:16px; margin-bottom:48px; }
+    .podium-card { text-align:center; flex:1; max-width:220px; }
+    .podium-card .rank-badge { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; font-weight:800; font-size:.9rem; margin-bottom:12px; }
+    .rank-1 .rank-badge { background:#FFD700; color:#000; width:44px; height:44px; font-size:1.1rem; }
+    .rank-2 .rank-badge { background:#C0C0C0; color:#000; }
+    .rank-3 .rank-badge { background:#CD7F32; color:#fff; }
+    .podium-card .photo-ph { width:80px; height:80px; border-radius:50%; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.1rem; font-family:Arial,sans-serif; }
+    .rank-1 .photo-ph { width:96px; height:96px; font-size:1.3rem; background:#E8F0FE; color:var(--navy,#1F3A5F); border:3px solid #FFD700; }
+    .rank-2 .photo-ph { background:#F0F0F0; color:#555; border:2px solid #C0C0C0; }
+    .rank-3 .photo-ph { background:#FFF3E0; color:#E65100; border:2px solid #CD7F32; }
+    .podium-card .winner-name { font-weight:700; font-size:.95rem; color:var(--ink,#13243B); margin-bottom:3px; }
+    .podium-card .winner-school { font-size:.78rem; color:var(--muted); margin-bottom:2px; }
+    .podium-card .winner-city { font-size:.75rem; color:var(--teal,#2C7A7B); font-weight:600; }
+    .podium-card .winner-score { display:inline-block; background:var(--navy,#1F3A5F); color:#fff; font-size:.72rem; font-weight:700; padding:3px 10px; border-radius:20px; margin-top:6px; }
+
+    /* Celebrated list table */
+    .cel-table { width:100%; border-collapse:collapse; }
+    .cel-table thead th { background:var(--navy,#1F3A5F); color:#fff; padding:12px 16px; text-align:left; font-size:.78rem; font-weight:700; letter-spacing:.04em; }
+    .cel-table thead th:first-child { border-radius:8px 0 0 0; width:60px; text-align:center; }
+    .cel-table thead th:last-child { border-radius:0 8px 0 0; }
+    .cel-table tbody tr { border-bottom:1px solid var(--border,#E5E7EB); transition:background .12s; }
+    .cel-table tbody tr:hover { background:#F8FAFC; }
+    .cel-table tbody td { padding:12px 16px; font-size:.88rem; color:var(--ink,#13243B); vertical-align:middle; }
+    .cel-table tbody td:first-child { text-align:center; font-weight:700; color:var(--muted); font-size:.82rem; }
+    .cel-table .winner-avatar { width:36px; height:36px; border-radius:50%; background:#E8F0FE; display:inline-flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700; color:var(--navy,#1F3A5F); font-family:Arial,sans-serif; }
+    .cel-table .name-cell { display:flex; align-items:center; gap:10px; }
+    .cel-badge { display:inline-block; font-size:.68rem; font-weight:700; padding:2px 8px; border-radius:10px; margin-left:6px; }
+    .cel-badge.celebrated { background:#FFF3E0; color:#E65100; }
+    .score-pill { background:var(--paper-2,#F6F8FA); border:1px solid var(--border); border-radius:4px; padding:2px 8px; font-size:.78rem; font-weight:600; color:var(--ink); }
+
+    /* Section divider */
+    .list-section-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+    .list-section-head h3 { font-size:1.1rem; color:var(--ink,#13243B); margin:0; }
+    .list-count { font-size:.8rem; color:var(--muted); }
+
+    /* Archive strip -->
+    .archive-strip { display:flex; gap:10px; flex-wrap:wrap; }
+    .archive-btn { padding:8px 16px; border-radius:6px; background:var(--paper-2,#F6F8FA); border:1px solid var(--border); font-size:.82rem; font-weight:600; color:var(--ink); cursor:pointer; text-decoration:none; }
+    .archive-btn:hover { background:var(--navy,#1F3A5F); color:#fff; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a class="brand" href="index.html" aria-label="COMPUDON Junior home">
+          <img src="assets/img/COMPUDON-JUNIOR-Transparent.png" alt="COMPUDON Junior" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+          <span class="brand-fallback">COMPUDON <b>Junior</b></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="schools.html" target="_blank" rel="noopener">Schools</a></li>
+          <li><a href="parents.html" target="_blank" rel="noopener">Parents</a></li>
+          <li><a href="hall_of_fame.html" target="_blank" rel="noopener">Hall of Fame</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="https://courses.cyberlearning.in/" target="_blank" rel="noopener">Register</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="winners-hero">
+      <div class="wrap">
+        <span class="eyebrow" style="color:#7ecfcf;">National Results</span>
+        <h1>Season Winners</h1>
+        <p style="color:rgba(255,255,255,.78);max-width:56ch;font-size:1.05rem;">Recognising exceptional students who demonstrated digital citizenship, cyber safety, and AI literacy at the national level.</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:28px;">
+          <div style="text-align:center;">
+            <div style="font-size:1.8rem;font-weight:800;color:#7ecfcf;">Rank 1–3</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.6);margin-top:2px;">National Champions</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.15);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:1.8rem;font-weight:800;color:#7ecfcf;">Ranks 4–100</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.6);margin-top:2px;">National Celebrated List</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.15);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:1.8rem;font-weight:800;color:#7ecfcf;">2 Tracks</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.6);margin-top:2px;">Explorers &amp; Navigators</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:48px 0;">
+      <div class="wrap">
+
+        <!-- Season tabs -->
+        <div class="season-tabs">
+          <button class="season-tab active" onclick="showSeason('s6')">Season VI</button>
+          <button class="season-tab" onclick="showSeason('s5')">Season V</button>
+          <button class="season-tab" onclick="showSeason('s4')">Season IV</button>
+          <button class="season-tab" onclick="showSeason('s3')">Season III</button>
+          <button class="season-tab" style="opacity:.5;cursor:default;">Season VII — Results pending</button>
+        </div>
+
+        <!-- Season VI -->
+        <div id="season-s6">
+
+          <!-- Category tabs -->
+          <div class="cat-tabs">
+            <button class="cat-tab explorers active" onclick="showCat('s6','explorers')">🔵 Explorers · Grades 3–5</button>
+            <button class="cat-tab navigators" onclick="showCat('s6','navigators')">🟢 Navigators · Grades 6+</button>
+          </div>
+
+          <!-- Explorers -->
+          <div id="s6-explorers">
+            <!-- Podium -->
+            <div style="background:var(--paper-2,#F6F8FA);border-radius:12px;padding:36px;margin-bottom:40px;">
+              <div style="text-align:center;margin-bottom:28px;">
+                <span class="eyebrow">National Champions · Season VI · Explorers</span>
+              </div>
+              <div class="podium">
+                <div class="podium-card rank-2">
+                  <div class="rank-badge">2</div>
+                  <div class="photo-ph"><!-- Replace with img -->[Photo]</div>
+                  <div class="winner-name">Student Name</div>
+                  <div class="winner-school">School Name</div>
+                  <div class="winner-city">City</div>
+                  <div class="winner-score">Score: XX%</div>
+                </div>
+                <div class="podium-card rank-1">
+                  <div class="rank-badge">🏆</div>
+                  <div class="photo-ph"><!-- Replace with img -->[Photo]</div>
+                  <div class="winner-name">Student Name</div>
+                  <div class="winner-school">School Name</div>
+                  <div class="winner-city">City</div>
+                  <div class="winner-score">Score: XX%</div>
+                </div>
+                <div class="podium-card rank-3">
+                  <div class="rank-badge">3</div>
+                  <div class="photo-ph"><!-- Replace with img -->[Photo]</div>
+                  <div class="winner-name">Student Name</div>
+                  <div class="winner-school">School Name</div>
+                  <div class="winner-city">City</div>
+                  <div class="winner-score">Score: XX%</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Celebrated List -->
+            <div class="list-section-head">
+              <h3>National Celebrated List <span class="cel-badge celebrated">Ranks 4–100</span></h3>
+              <span class="list-count">97 students · Season VI · Explorers</span>
+            </div>
+            <table class="cel-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Student</th>
+                  <th>School</th>
+                  <th>City / State</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Placeholder rows — replace with real data -->
+                <tr>
+                  <td>4</td>
+                  <td><div class="name-cell"><div class="winner-avatar">ST</div> Student Name</div></td>
+                  <td>School Name</td>
+                  <td>City, State</td>
+                  <td><span class="score-pill">XX%</span></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td><div class="name-cell"><div class="winner-avatar">ST</div> Student Name</div></td>
+                  <td>School Name</td>
+                  <td>City, State</td>
+                  <td><span class="score-pill">XX%</span></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td><div class="name-cell"><div class="winner-avatar">ST</div> Student Name</div></td>
+                  <td>School Name</td>
+                  <td>City, State</td>
+                  <td><span class="score-pill">XX%</span></td>
+                </tr>
+                <tr>
+                  <td colspan="5" style="text-align:center;padding:24px;color:var(--muted);font-style:italic;font-size:.88rem;">
+                    Full results data to be added · Ranks 7–100 pending
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Navigators -->
+          <div id="s6-navigators" style="display:none;">
+            <div style="background:var(--paper-2,#F6F8FA);border-radius:12px;padding:36px;margin-bottom:40px;">
+              <div style="text-align:center;margin-bottom:28px;">
+                <span class="eyebrow">National Champions · Season VI · Navigators</span>
+              </div>
+              <div class="podium">
+                <div class="podium-card rank-2">
+                  <div class="rank-badge">2</div>
+                  <div class="photo-ph" style="background:#E8F5E9;color:var(--green);border-color:#C0C0C0;">[Photo]</div>
+                  <div class="winner-name">Student Name</div>
+                  <div class="winner-school">School Name</div>
+                  <div class="winner-city">City</div>
+                  <div class="winner-score">Score: XX%</div>
+                </div>
+                <div class="podium-card rank-1">
+                  <div class="rank-badge">🏆</div>
+                  <div class="photo-ph" style="background:#E8F5E9;color:var(--green);border-color:#FFD700;">[Photo]</div>
+                  <div class="winner-name">Student Name</div>
+                  <div class="winner-school">School Name</div>
+                  <div class="winner-city">City</div>
+                  <div class="winner-score">Score: XX%</div>
+                </div>
+                <div class="podium-card rank-3">
+                  <div class="rank-badge">3</div>
+                  <div class="photo-ph" style="background:#E8F5E9;color:var(--green);border-color:#CD7F32;">[Photo]</div>
+                  <div class="winner-name">Student Name</div>
+                  <div class="winner-school">School Name</div>
+                  <div class="winner-city">City</div>
+                  <div class="winner-score">Score: XX%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="list-section-head">
+              <h3>National Celebrated List <span class="cel-badge celebrated">Ranks 4–100</span></h3>
+              <span class="list-count">97 students · Season VI · Navigators</span>
+            </div>
+            <table class="cel-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Student</th>
+                  <th>School</th>
+                  <th>City / State</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>4</td>
+                  <td><div class="name-cell"><div class="winner-avatar" style="background:#E8F5E9;color:var(--green);">ST</div> Student Name</div></td>
+                  <td>School Name</td>
+                  <td>City, State</td>
+                  <td><span class="score-pill">XX%</span></td>
+                </tr>
+                <tr>
+                  <td colspan="5" style="text-align:center;padding:24px;color:var(--muted);font-style:italic;font-size:.88rem;">
+                    Full results data to be added · Ranks 5–100 pending
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- Earlier seasons placeholder -->
+        <div id="season-s5" style="display:none;">
+          <div style="text-align:center;padding:64px 0;color:var(--muted);">
+            <div style="font-size:2rem;margin-bottom:12px;">📋</div>
+            <h3 style="color:var(--ink);">Season V Results</h3>
+            <p>Results data to be added. Please share Season V winner lists to populate this section.</p>
+          </div>
+        </div>
+        <div id="season-s4" style="display:none;">
+          <div style="text-align:center;padding:64px 0;color:var(--muted);">
+            <div style="font-size:2rem;margin-bottom:12px;">📋</div>
+            <h3 style="color:var(--ink);">Season IV Results</h3>
+            <p>Results data to be added. Please share Season IV winner lists to populate this section.</p>
+          </div>
+        </div>
+        <div id="season-s3" style="display:none;">
+          <div style="text-align:center;padding:64px 0;color:var(--muted);">
+            <div style="font-size:2rem;margin-bottom:12px;">📋</div>
+            <h3 style="color:var(--ink);">Season III Results</h3>
+            <p>Results data to be added. Please share Season III winner lists to populate this section.</p>
+          </div>
+        </div>
+
+        <!-- Horizontal rule -->
+        <hr style="border:none;border-top:1px solid var(--border);margin:56px 0 40px;">
+
+        <!-- CTA for Season VII -->
+        <div style="background:var(--navy,#1F3A5F);border-radius:12px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+          <div>
+            <div style="font-size:.8rem;font-weight:700;color:#7ecfcf;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;">Season VII · Launching Soon</div>
+            <h3 style="color:#fff;margin:0 0 6px;">Will your student be on this list next season?</h3>
+            <p style="color:rgba(255,255,255,.7);margin:0;font-size:.92rem;">Register your school for Season VII — results will be announced at season end.</p>
+          </div>
+          <a class="btn btn-primary" href="https://courses.cyberlearning.in/" target="_blank" rel="noopener" style="flex-shrink:0;">Register your school</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-bottom" style="text-align:center;">
+        © <span id="year"></span> India CyberLearning Pvt. Ltd. All Rights Reserved. · COMPUDON Junior is based on Microsoft Digital Literacy courseware but is neither endorsed by nor affiliated with Microsoft.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    var nav = document.getElementById('nav'), navToggle = document.getElementById('navToggle');
+    navToggle.addEventListener('click', function(){ var open = nav.classList.toggle('open'); navToggle.setAttribute('aria-expanded', open); });
+
+    var seasons = ['s6','s5','s4','s3'];
+
+    function showSeason(s) {
+      seasons.forEach(function(id) {
+        var el = document.getElementById('season-'+id);
+        if (el) el.style.display = id === s ? 'block' : 'none';
+      });
+      document.querySelectorAll('.season-tab').forEach(function(t,i) {
+        t.classList.toggle('active', seasons[i] === s);
+      });
+    }
+
+    function showCat(season, cat) {
+      ['explorers','navigators'].forEach(function(c) {
+        var el = document.getElementById(season+'-'+c);
+        if (el) el.style.display = c === cat ? 'block' : 'none';
+      });
+      document.querySelectorAll('.cat-tab').forEach(function(t) {
+        t.classList.toggle('active', t.classList.contains(cat));
+      });
+    }
+  </script>
+</body>
+</html>

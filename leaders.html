@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Leaders Say — COMPUDON Junior</title>
+  <meta name="description" content="Hear from leaders across Microsoft, the Indian Telecom Industry, Rotary International, NGOs, and Education on why COMPUDON Junior matters for every school.">
+  <link rel="canonical" href="https://compudonjunior.com/leaders.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/compudon.css">
+  <style>
+    .leader-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; padding:48px 0; }
+    .leader-card { background:#fff; border:1px solid var(--border,#E5E7EB); border-radius:12px; overflow:hidden; }
+    .leader-video { position:relative; }
+    .leader-video img { width:100%; display:block; aspect-ratio:16/9; object-fit:cover; }
+    .leader-video .play-badge { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:52px; height:52px; background:rgba(0,0,0,.55); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s; }
+    .leader-video .play-badge:hover { background:var(--green,#2E7D32); }
+    .leader-video .vframe { display:none; }
+    .leader-video.playing .play-badge { display:none; }
+    .leader-video.playing .vframe { display:block; }
+    .leader-video .vframe iframe { width:100%; aspect-ratio:16/9; border:none; display:block; }
+    .leader-photo-placeholder { width:100%; aspect-ratio:16/9; background:linear-gradient(135deg,#E8F0FE,#C5D8F8); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
+    .leader-photo-placeholder .initials { width:72px; height:72px; border-radius:50%; background:var(--navy,#1F3A5F); color:#fff; font-size:1.5rem; font-weight:700; display:flex; align-items:center; justify-content:center; font-family:Arial,sans-serif; }
+    .leader-photo-placeholder .ph-label { font-size:.72rem; color:var(--muted,#5E6E7E); font-family:Arial,sans-serif; }
+    .leader-info { padding:20px; }
+    .leader-quote { font-size:.88rem; color:var(--ink,#13243B); line-height:1.65; font-style:italic; margin-bottom:14px; border-left:3px solid var(--teal,#2C7A7B); padding-left:12px; }
+    .leader-name { font-weight:700; font-size:.95rem; color:var(--ink,#13243B); margin-bottom:3px; }
+    .leader-title { font-size:.78rem; color:var(--teal,#2C7A7B); font-weight:600; margin-bottom:4px; }
+    .leader-bio { font-size:.78rem; color:var(--muted,#5E6E7E); line-height:1.5; }
+
+    .founder-section { background:var(--navy,#1F3A5F); padding:72px 0; }
+    .founder-grid { display:grid; grid-template-columns:280px 1fr; gap:56px; align-items:start; }
+    @media(max-width:720px){ .founder-grid { grid-template-columns:1fr; } .leader-grid { grid-template-columns:1fr; } }
+    .founder-photo { width:100%; aspect-ratio:1/1; background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.04)); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; border:1px solid rgba(255,255,255,.15); }
+    .founder-photo .initials { width:100px; height:100px; border-radius:50%; background:var(--orange,#D2502A); color:#fff; font-size:2.2rem; font-weight:800; display:flex; align-items:center; justify-content:center; font-family:Arial,sans-serif; }
+    .founder-photo .ph-label { font-size:.75rem; color:rgba(255,255,255,.45); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a class="brand" href="index.html" aria-label="COMPUDON Junior home">
+          <img src="assets/img/COMPUDON-JUNIOR-Transparent.png" alt="COMPUDON Junior" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+          <span class="brand-fallback">COMPUDON <b>Junior</b></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="schools.html" target="_blank" rel="noopener">Schools</a></li>
+          <li><a href="parents.html" target="_blank" rel="noopener">Parents</a></li>
+          <li><a href="objectives.html" target="_blank" rel="noopener">Objectives</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="https://courses.cyberlearning.in/" target="_blank" rel="noopener">Register</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section style="background:var(--navy,#1F3A5F);padding:56px 0 40px;">
+      <div class="wrap">
+        <span class="eyebrow" style="color:#7ecfcf;">Trusted Voices</span>
+        <h1 style="color:#fff;margin:12px 0 16px;">What leaders say about<br>COMPUDON Junior</h1>
+        <p style="color:rgba(255,255,255,.78);max-width:58ch;font-size:1.05rem;">Hear directly from leaders across Microsoft, the Indian Telecom Industry, Rotary International, NGOs, and Education — in their own words.</p>
+      </div>
+    </section>
+
+    <!-- Leader cards with video + photo placeholder + quote -->
+    <section>
+      <div class="wrap">
+        <div class="leader-grid">
+
+          <!-- Dr. Vinnie Jauhari -->
+          <div class="leader-card reveal">
+            <div class="leader-video" id="vc1">
+              <img src="https://img.youtube.com/vi/7ZjNMnIuc04/hqdefault.jpg" alt="Dr. Vinnie Jauhari" loading="lazy">
+              <div class="play-badge" onclick="vcPlay('vc1','7ZjNMnIuc04')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc1','7ZjNMnIuc04')}">
+                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+              </div>
+              <div class="vframe"></div>
+            </div>
+            <div class="leader-info">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                <div style="width:52px;height:52px;border-radius:50%;background:#E8F0FE;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:var(--navy,#1F3A5F);flex-shrink:0;font-family:Arial,sans-serif;">VJ</div>
+                <div>
+                  <div class="leader-name">Dr. Vinnie Jauhari</div>
+                  <div class="leader-title">Worldwide Public Sector Senior Education Industry Advisor, Microsoft</div>
+                </div>
+              </div>
+              <div class="leader-quote">"In India, COMPUDON Junior has taken remarkable initiatives to empower children, help them stay safe online, become responsible digital citizens, and is fostering skills that will make students and teachers future ready."</div>
+              <div class="leader-bio">A global education leader and senior advisor to governments and institutions, championing digital skills, technology-enabled learning, and future-ready education.</div>
+            </div>
+          </div>
+
+          <!-- Umang Das -->
+          <div class="leader-card reveal">
+            <div class="leader-video" id="vc2">
+              <img src="https://img.youtube.com/vi/CiTYtS_h32M/hqdefault.jpg" alt="Umang Das" loading="lazy">
+              <div class="play-badge" onclick="vcPlay('vc2','CiTYtS_h32M')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc2','CiTYtS_h32M')}">
+                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+              </div>
+              <div class="vframe"></div>
+            </div>
+            <div class="leader-info">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                <div style="width:52px;height:52px;border-radius:50%;background:#E8F5E9;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:var(--green,#2E7D32);flex-shrink:0;font-family:Arial,sans-serif;">UD</div>
+                <div>
+                  <div class="leader-name">Mr. Umang Das</div>
+                  <div class="leader-title">Chair, Standing Committee of Chairmen, Broadband India Forum</div>
+                </div>
+              </div>
+              <div class="leader-quote">"Academic excellence remains essential. Equally important is preparing students to navigate an increasingly digital world with sound judgment, critical thinking, and responsible technology habits. Initiatives such as COMPUDON Junior help build these future-ready capabilities."</div>
+              <div class="leader-bio">One of the early architects of India's mobile communications industry, with over three decades shaping the nation's telecommunications and digital infrastructure landscape.</div>
+            </div>
+          </div>
+
+          <!-- Sanjay Khanna -->
+          <div class="leader-card reveal">
+            <div class="leader-video" id="vc3">
+              <img src="https://img.youtube.com/vi/RZfM0TeDOdQ/hqdefault.jpg" alt="Sanjay Khanna" loading="lazy">
+              <div class="play-badge" onclick="vcPlay('vc3','RZfM0TeDOdQ')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc3','RZfM0TeDOdQ')}">
+                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+              </div>
+              <div class="vframe"></div>
+            </div>
+            <div class="leader-info">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                <div style="width:52px;height:52px;border-radius:50%;background:#FFF3E0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:#E65100;flex-shrink:0;font-family:Arial,sans-serif;">SK</div>
+                <div>
+                  <div class="leader-name">Mr. Sanjay Khanna</div>
+                  <div class="leader-title">Past District Governor, Rotary International</div>
+                </div>
+              </div>
+              <div class="leader-quote">"COMPUDON Junior is doing critical work in building the next generation of responsible digital citizens. The championship model makes learning engaging and measurable — exactly what schools need."</div>
+              <div class="leader-bio">A distinguished Rotary leader with decades of service, championing education, community development, and youth empowerment across India.</div>
+            </div>
+          </div>
+
+          <!-- David Saedi -->
+          <div class="leader-card reveal">
+            <div class="leader-video" id="vc4">
+              <img src="https://img.youtube.com/vi/wWF-6BtUtWY/hqdefault.jpg" alt="David Saedi" loading="lazy">
+              <div class="play-badge" onclick="vcPlay('vc4','wWF-6BtUtWY')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc4','wWF-6BtUtWY')}">
+                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+              </div>
+              <div class="vframe"></div>
+            </div>
+            <div class="leader-info">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                <div style="width:52px;height:52px;border-radius:50%;background:#E8F0FE;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:var(--navy,#1F3A5F);flex-shrink:0;font-family:Arial,sans-serif;">DS</div>
+                <div>
+                  <div class="leader-name">Mr. David Saedi</div>
+                  <div class="leader-title">Founder &amp; CEO, Certiport, Inc.</div>
+                </div>
+              </div>
+              <div class="leader-quote">"Digital literacy isn't just about understanding gadgets or software; it's about unlocking the doors to innovation and opportunity, making the intricacies of technology accessible to all. I commend COMPUDON Junior for empowering young minds with digital literacy."</div>
+              <div class="leader-bio">A pioneer in digital credentialing and skills certification, who has helped shape assessment and certification frameworks used by millions of learners worldwide.</div>
+            </div>
+          </div>
+
+          <!-- Andrew Blandford-Williams -->
+          <div class="leader-card reveal">
+            <div class="leader-video" id="vc5">
+              <img src="https://img.youtube.com/vi/sdMh31dKmXM/hqdefault.jpg" alt="Andrew Blandford-Williams" loading="lazy">
+              <div class="play-badge" onclick="vcPlay('vc5','sdMh31dKmXM')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc5','sdMh31dKmXM')}">
+                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+              </div>
+              <div class="vframe"></div>
+            </div>
+            <div class="leader-info">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                <div style="width:52px;height:52px;border-radius:50%;background:#E8F5E9;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:var(--green,#2E7D32);flex-shrink:0;font-family:Arial,sans-serif;">AB</div>
+                <div>
+                  <div class="leader-name">Mr. Andrew Blandford-Williams</div>
+                  <div class="leader-title">GRC Leader · ex-US Navy · Capgemini, Dell</div>
+                </div>
+              </div>
+              <div class="leader-quote">"Teaching children to navigate the digital world safely and critically is one of the most important investments a school can make. COMPUDON Junior provides the structured, measurable framework to do exactly that."</div>
+              <div class="leader-bio">A global risk and governance leader with experience across the US Navy, Capgemini, and Dell. A strong advocate for digital literacy as a core life skill.</div>
+            </div>
+          </div>
+
+          <!-- Sudip Mukherjee -->
+          <div class="leader-card reveal">
+            <div class="leader-video" id="vc6">
+              <img src="https://img.youtube.com/vi/O54pmUwToDI/hqdefault.jpg" alt="Sudip Mukherjee" loading="lazy">
+              <div class="play-badge" onclick="vcPlay('vc6','O54pmUwToDI')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc6','O54pmUwToDI')}">
+                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+              </div>
+              <div class="vframe"></div>
+            </div>
+            <div class="leader-info">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                <div style="width:52px;height:52px;border-radius:50%;background:#FFF3E0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:#E65100;flex-shrink:0;font-family:Arial,sans-serif;">SM</div>
+                <div>
+                  <div class="leader-name">Mr. Sudip Mukherjee</div>
+                  <div class="leader-title">Asst. Head Master, Sarala Birla Academy, Bengaluru</div>
+                </div>
+              </div>
+              <div class="leader-quote">"We're thrilled to see our students participate in COMPUDON Junior in great numbers. This championship is a truly great event, shaping students' lives."</div>
+              <div class="leader-bio">A senior educator at one of India's leading schools, committed to holistic student development and preparing children for a complex, connected world.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder section -->
+    <section class="founder-section">
+      <div class="wrap">
+        <span class="eyebrow" style="color:#7ecfcf;">About the Founder</span>
+        <div class="founder-grid" style="margin-top:32px;">
+          <div>
+            <div class="founder-photo">
+              <div class="initials">PR</div>
+              <div class="ph-label">Photo placeholder · Pankaj Rai</div>
+            </div>
+          </div>
+          <div>
+            <h2 style="color:#fff;font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 8px;">Pankaj Rai</h2>
+            <div style="color:var(--orange,#D2502A);font-weight:700;font-size:1rem;margin-bottom:20px;">Founder &amp; President, COMPUDON Junior · CyberLearning Educational Society</div>
+            <p style="color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:16px;font-size:1.02rem;">Pankaj Rai is the founder of COMPUDON Junior and the driving force behind India's national digital citizenship championship. With over 17 years in digital education and technology literacy, he created COMPUDON Junior out of a conviction that every child deserves structured, deliberate preparation for the digital world — not just access to it.</p>
+            <p style="color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:16px;">Under his leadership, COMPUDON Junior has grown to reach 100,000+ students across 500+ institutions, spanning India and beyond. The programme is aligned to CBSE, NEP 2020, and the Microsoft Digital Literacy Standard, and is operated by CyberLearning Educational Society (CES) — the NGO arm of India CyberLearning Pvt. Ltd., a Microsoft Global Training Partner.</p>
+            <p style="color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:28px;">He is also the co-author of <em style="color:rgba(255,255,255,.85);">Log In to Your Life</em> — a values-meets-digital-wisdom companion book for children, offered free to every Season VII COMPUDON Junior registrant.</p>
+            <blockquote style="border-left:3px solid var(--orange,#D2502A);padding-left:18px;margin:0;">
+              <p style="color:rgba(255,255,255,.88);font-style:italic;font-size:1.05rem;line-height:1.7;margin:0;">"We would never expect a child to drive on the highway without first learning the rules. Yet every day, we expect children to navigate the information highway with almost no preparation. That needs to change."</p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="final-cta">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="eyebrow" style="color:var(--sky);">Ready to join them?</span>
+          <h2>Register your school for Season VII</h2>
+          <p>CBSE compliance. Zero teacher workload. One registration link to share with parents.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://courses.cyberlearning.in/" target="_blank" rel="noopener">Register your school</a>
+            <a class="btn btn-on-dark" href="https://calendly.com/cyberlearningindia" target="_blank" rel="noopener">Book a 20-minute call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-bottom" style="text-align:center;">
+        © <span id="year"></span> India CyberLearning Pvt. Ltd. All Rights Reserved. · COMPUDON Junior is based on Microsoft Digital Literacy courseware but is neither endorsed by nor affiliated with Microsoft.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    var nav = document.getElementById('nav'), navToggle = document.getElementById('navToggle');
+    navToggle.addEventListener('click', function(){ var open = nav.classList.toggle('open'); navToggle.setAttribute('aria-expanded', open); });
+
+    function vcPlay(cardId, ytId) {
+      var card = document.getElementById(cardId);
+      card.querySelector('.vframe').innerHTML = '<iframe src="https://www.youtube.com/embed/'+ytId+'?autoplay=1" title="COMPUDON Junior endorsement" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+      card.classList.add('playing');
+    }
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  </script>
+</body>
+</html>
