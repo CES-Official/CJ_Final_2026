@@ -37,14 +37,7 @@
     align-items: center;
     gap: 14px;
   }
-  .site-header .logo-mark {
-    width: 42px; height: 42px;
-    background: var(--orange);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; color: #fff; font-size: 13px; letter-spacing: -0.5px;
-    flex-shrink: 0;
-  }
+  .site-header .logo-mark { display: none; }
   .site-header .brand { color: #fff; }
   .site-header .brand strong { font-size: 17px; font-weight: 700; display: block; }
   .site-header .brand span  { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
@@ -341,11 +334,13 @@
 
 <!-- HEADER -->
 <header class="site-header">
-  <div class="logo-mark">CJ</div>
-  <div class="brand">
-    <strong>COMPUDON Junior</strong>
-    <span>A Programme of CyberLearning Educational Society (Regd.)</span>
-  </div>
+  <a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+    <img src="assets/img/COMPUDON_Junior.png" alt="COMPUDON Junior" style="height:52px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.15));">
+    <div class="brand">
+      <strong>COMPUDON Junior</strong>
+      <span>A Programme of CyberLearning Educational Society (Regd.)</span>
+    </div>
+  </a>
 </header>
 
 <!-- CREDIBILITY BAR -->
@@ -359,7 +354,7 @@
     <div class="cred-div"></div>
     <div class="cred-stat"><b>Expanding Internationally</b><span>Season VII</span></div>
     <div class="cred-div"></div>
-    <p class="cred-partners">Microsoft Global Training Partner<br>Partner · National Digital Literacy Mission</p>
+    <p class="cred-partners">Powered by a Microsoft Global Training Partner<br>Partner · National Digital Literacy Mission</p>
   </div>
 </div>
 
@@ -917,6 +912,19 @@
 </div><!-- /page-wrap -->
 
 <!-- FOOTER -->
+<div style="background:#0B1F3A;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+  <div>
+    <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);margin-bottom:6px;font-weight:600;">Presented by</p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:0;font-weight:500;">CyberLearning Educational Society (CES)</p>
+  </div>
+  <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:24px;">
+    <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);margin-bottom:10px;font-weight:600;">Knowledge, Technology &amp; Innovation Partner</p>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <img src="assets/img/CyberLearning_Logo.png" alt="CyberLearning" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+      <img src="assets/img/GTP_Landscape.png" alt="Microsoft in Education Global Training Partner" style="height:80px;width:auto;background:#fff;border-radius:8px;padding:8px 14px;">
+    </div>
+  </div>
+</div>
 <footer class="page-footer">
   <p><strong>CyberLearning Educational Society (Regd.)</strong> · Privacy Policy v1.0 · Effective 15 July 2026<br>
   Copyright © 2026 CyberLearning Educational Society (Regd.). All rights reserved. COMPUDON Junior is a programme of CyberLearning Educational Society (Regd.), a Global Training Partner of Microsoft.</p>
