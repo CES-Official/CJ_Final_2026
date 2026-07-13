@@ -3,10 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="COMPUDON Junior — Digital citizenship and cyber safety championship for students aged 8–14. Season VII now open.">
-<title>Home — COMPUDON Junior</title>
+<meta name="description" content="Register your school for COMPUDON Junior Season VII. DPDP Act compliant. Download bulk registration template.">
+<title>Register Your School — COMPUDON Junior</title>
 <link rel="stylesheet" href="/assets/css/compudon.css">
-
+<style>
+.reg-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px;}
+.step-card{background:#EDF1F6;border-radius:12px;padding:20px 18px;text-align:center;}
+.step-num{width:36px;height:36px;border-radius:50%;background:#D2502A;color:#fff;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;}
+.step-card h3{font-size:.92rem;font-weight:600;color:#1F3A5F;margin:0 0 6px;}
+.step-card p{font-size:.82rem;color:#555;margin:0;line-height:1.5;}
+.form-card{background:#fff;border:1px solid #e5e3dc;border-radius:14px;overflow:hidden;margin-bottom:32px;}
+.form-card-hdr{background:#1F3A5F;padding:18px 28px;display:flex;align-items:center;gap:10px;}
+.form-card-hdr span{font-size:13px;font-weight:500;color:#fff;letter-spacing:.04em;text-transform:uppercase;}
+.form-card-hdr .dot{width:8px;height:8px;border-radius:50%;background:#D2502A;flex-shrink:0;}
+.form-card-body{padding:28px;}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field-full{grid-column:1/-1;}
+.field label{display:block;font-size:.82rem;font-weight:600;color:#1F3A5F;margin-bottom:5px;}
+.field label em{color:#D2502A;font-style:normal;margin-left:2px;}
+.field input,.field select{width:100%;padding:10px 13px;border:1px solid #ccc;border-radius:8px;font-size:.92rem;font-family:inherit;color:#1a1a18;background:#fff;box-sizing:border-box;}
+.field input:focus,.field select:focus{outline:none;border-color:#2C7A7B;box-shadow:0 0 0 3px rgba(44,122,123,.15);}
+.field .hint{font-size:.78rem;color:#777;margin-top:4px;}
+.privacy-wrap{background:#EDF1F6;border:1px solid rgba(31,58,95,.2);border-radius:8px;padding:16px;margin:24px 0 0;}
+.privacy-wrap h4{font-size:.88rem;font-weight:600;color:#1F3A5F;margin:0 0 10px;}
+.privacy-scroll{background:#fff;border:1px solid #e5e3dc;border-radius:6px;padding:14px;max-height:180px;overflow-y:auto;font-size:.8rem;line-height:1.7;color:#444;margin-bottom:14px;}
+.privacy-scroll p{margin:0 0 9px;}
+.privacy-scroll p:last-child{margin:0;}
+.go-block{background:#EDF1F6;border-left:2px solid #2C7A7B;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;font-size:.8rem;}
+.go-block a{color:#2C7A7B;}
+.cb-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.cb-row input[type=checkbox]{margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:#2C7A7B;}
+.cb-row label{font-size:.83rem;color:#1a1a18;line-height:1.5;}
+.form-actions{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:#f8f8f6;border-top:1px solid #e5e3dc;}
+.lock-note{font-size:.78rem;color:#777;}
+.btn-submit{background:#D2502A;color:#fff;border:none;border-radius:8px;padding:11px 28px;font-size:.95rem;font-weight:600;cursor:pointer;}
+.btn-submit:hover{background:#b84420;}
+.confirm-state{display:none;padding:40px 28px;text-align:center;}
+.next-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:24px 0;text-align:left;}
+.nc{background:#f8f8f6;border:1px solid #e5e3dc;border-radius:10px;padding:14px;}
+.nc-dot{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+.nc h4{font-size:.83rem;font-weight:600;color:#1a1a18;margin:0 0 3px;}
+.nc p{font-size:.78rem;color:#666;margin:0;line-height:1.45;}
+.dl-card{background:#1F3A5F;border-radius:14px;padding:32px;text-align:center;color:#fff;margin-top:32px;}
+.dl-card h3{color:#fff;margin-bottom:8px;}
+.dl-card p{opacity:.8;font-size:.88rem;max-width:420px;margin:0 auto 20px;}
+.btn-dl{display:inline-flex;align-items:center;gap:8px;background:#D2502A;color:#fff;border-radius:8px;padding:11px 24px;font-size:.92rem;font-weight:600;text-decoration:none;}
+@media(max-width:600px){.reg-steps,.field-grid,.next-grid{grid-template-columns:1fr;}.field-full{grid-column:auto;}}
+</style>
 </head>
 <body>
 
@@ -20,140 +63,131 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="primary-nav" id="nav">
-      <a href="/index.html" class="active">Home</a>
+      <a href="/index.html" >Home</a>
       <a href="/about.html" >About</a>
       <a href="/schools.html" >Schools</a>
       <a href="/parents.html" >Parents</a>
       <a href="/students.html" >Students</a>
       <a href="/cbse-mapping.html" >CBSE</a>
       <a href="/leaders.html" >Leaders</a>
-      <a href="/schools/register" class="nav-cta" >Register School</a>
+      <a href="/schools/register" class="nav-cta" class="active">Register School</a>
     </nav>
   </div>
 </header>
 
-<main>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge">🏆 Season VII — Expanding Internationally</div>
-      <h1>Think First.<br>Stay Safe Online.</h1>
-      <p class="hero-sub">India's foremost digital citizenship and cyber safety championship for students aged 8–14. Aligned to NEP 2020, CBSE circulars Skill-81/2025 and Acad-39/2026.</p>
-      <div class="hero-btns">
-        <a href="/schools/register" class="btn btn-primary btn-lg">Register Your School</a>
-        <a href="/about.html" class="btn btn-white btn-lg">Learn More</a>
-      </div>
-    </div>
-    <div class="hero-img" style="background:rgba(255,255,255,.1);border-radius:16px;padding:32px;text-align:center;">
-      <img src="/assets/img/CJ_Logo.jpg" alt="COMPUDON Junior Championship" style="max-width:260px;margin:0 auto;border-radius:50%;">
-    </div>
-  </div>
-</section>
-
-<!-- STAT STRIP -->
-<div class="stat-strip">
-  <div class="inner">
-    <div class="stat-item"><div class="stat-num">100,000+</div><div class="stat-label">Students across COMPUDON &amp; COMPUDON Junior</div></div>
-    <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Schools &amp; Institutions</div></div>
-    <div class="stat-item"><div class="stat-num">Season VII</div><div class="stat-label">Expanding Internationally</div></div>
-    <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Curriculum Modules</div></div>
-  </div>
-</div>
-
-<!-- THINK FIRST -->
-<section class="section" style="background:var(--cream);">
+<section style="background:linear-gradient(135deg,#1F3A5F 0%,#2C7A7B 100%);padding:56px 0 48px;text-align:center;color:#fff;">
   <div class="container">
-    <div class="feature-row">
-      <div>
-        <div class="section-label">Our Master Tagline</div>
-        <h2 class="section-title" style="font-size:2.8rem;font-weight:800;">Think First.</h2>
-        <p style="font-size:1.1rem;">Before you share, click, trust, or react online — pause. Think First is not just a slogan. It is the single habit that underpins every module of COMPUDON Junior: digital safety, media literacy, AI literacy, privacy, creativity, and responsible interaction.</p>
-        <p>Students who Think First become protectors — of themselves, their families, and their communities. That is the graduate outcome of COMPUDON Junior.</p>
-        <a href="/about.html" class="btn btn-primary" style="margin-top:16px;">About the Programme</a>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:center;">
-        <div style="background:var(--navy);color:#fff;border-radius:20px;padding:48px 40px;text-align:center;max-width:340px;">
-          <div style="font-size:3.5rem;font-weight:900;color:var(--orange);margin-bottom:8px;">Think<br>First.</div>
-          <p style="opacity:.8;font-size:.95rem;margin:0;">The foundational habit for every safe, responsible, and creative digital citizen.</p>
-        </div>
-      </div>
+    <img src="/assets/img/CJ_Logo.jpg" alt="COMPUDON Junior" style="width:72px;height:72px;border-radius:50%;background:#fff;padding:3px;margin:0 auto 20px;">
+    <h1 style="color:#fff;margin-bottom:10px;">School Registration — Season VII</h1>
+    <p style="font-size:1.05rem;opacity:.85;max-width:580px;margin:0 auto 24px;">Register your school for India's foremost digital citizenship and cyber safety championship for students aged 8–14.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:.82rem;">Grades 3–8</span>
+      <span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:.82rem;">CBSE Aligned</span>
+      <span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:.82rem;">Microsoft Global Training Partner</span>
+      <span style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:.82rem;">NEP 2020 Mapped</span>
     </div>
   </div>
 </section>
 
-<!-- SIX MODULES -->
 <section class="section">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:48px;">
-      <div class="section-label">Curriculum</div>
-      <h2 class="section-title">Six Modules. One Outcome.</h2>
-      <p class="section-sub" style="margin:0 auto;">Comprehensive digital citizenship education built on the Microsoft Digital Literacy Standard and aligned to ISTE, UNESCO MIL, and EU DigComp 2.2.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card"><div style="font-size:1.8rem;margin-bottom:12px;">🛡️</div><h3>Digital Safety &amp; Online Protection</h3><p style="color:var(--muted);font-size:.9rem;margin-top:8px;">Online harassment, safe behaviour, pressure tactics, the bystander effect.</p></div>
-      <div class="card"><div style="font-size:1.8rem;margin-bottom:12px;">🎯</div><h3>Manipulation &amp; Media Literacy</h3><p style="color:var(--muted);font-size:.9rem;margin-top:8px;">Spotting disinformation, fake news, psychological biases, inoculation theory.</p></div>
-      <div class="card"><div style="font-size:1.8rem;margin-bottom:12px;">🔐</div><h3>Privacy &amp; Identity</h3><p style="color:var(--muted);font-size:.9rem;margin-top:8px;">Digital footprint, personal data protection, identity as the first perimeter of cybersecurity.</p></div>
-      <div class="card"><div style="font-size:1.8rem;margin-bottom:12px;">💡</div><h3>Critical Thinking &amp; Creativity</h3><p style="color:var(--muted);font-size:.9rem;margin-top:8px;">First principles thinking, active recall, spaced repetition, creative problem-solving.</p></div>
-      <div class="card"><div style="font-size:1.8rem;margin-bottom:12px;">🤖</div><h3>AI Literacy &amp; Responsibilities</h3><p style="color:var(--muted);font-size:.9rem;margin-top:8px;">How AI works, hallucinations, responsible AI principles, prompt engineering, data types.</p></div>
-      <div class="card"><div style="font-size:1.8rem;margin-bottom:12px;">🌐</div><h3>Harmful Interactions</h3><p style="color:var(--muted);font-size:.9rem;margin-top:8px;">Managing cyberbullying, manipulation, recognising unsafe online behaviour.</p></div>
-    </div>
-  </div>
-</section>
+  <div class="container" style="max-width:800px;">
 
-<!-- CBSE ALIGNMENT STRIP -->
-<section class="section-sm" style="background:var(--navy);">
-  <div class="container">
-    <div class="grid-2" style="gap:28px;">
-      <div style="background:rgba(255,255,255,.08);border-radius:12px;padding:24px;">
-        <div class="badge badge-orange" style="margin-bottom:12px;">CBSE Skill-81/2025</div>
-        <h3 style="color:#fff;margin-bottom:8px;">Cyber Safety Competencies</h3>
-        <p style="color:rgba(255,255,255,.75);font-size:.9rem;">COMPUDON Junior directly addresses the cyber safety competency framework mandated for all CBSE schools under Circular Skill-81/2025.</p>
-        <a href="/cbse-mapping.html" class="btn btn-white btn-sm" style="margin-top:12px;">View Mapping →</a>
-      </div>
-      <div style="background:rgba(255,255,255,.08);border-radius:12px;padding:24px;">
-        <div class="badge badge-teal" style="margin-bottom:12px;">CBSE Acad-39/2026</div>
-        <h3 style="color:#fff;margin-bottom:8px;">Cyber Safety Pledge</h3>
-        <p style="color:rgba(255,255,255,.75);font-size:.9rem;">The COMPUDON Junior Cyber Safety Pledge incorporates CBSE Acad-39/2026 verbatim in Section A, ensuring full compliance with school-level pledge requirements.</p>
-        <a href="/pledge.html" class="btn btn-white btn-sm" style="margin-top:12px;">Download Pledge →</a>
-      </div>
+    <div class="reg-steps">
+      <div class="step-card"><div class="step-num">1</div><h3>Register your school</h3><p>Fill in school and coordinator details below. No student data needed at this stage.</p></div>
+      <div class="step-card"><div class="step-num">2</div><h3>Download the template</h3><p>After submitting, download the bulk registration Excel template and fill in your students' details.</p></div>
+      <div class="step-card"><div class="step-num">3</div><h3>Submit student data</h3><p>Email the completed template to register@compudonjunior.com to complete enrolment.</p></div>
     </div>
-  </div>
-</section>
 
-<!-- ENDORSEMENT -->
-<section class="section" style="background:var(--cream);">
-  <div class="container" style="text-align:center;">
-    <div class="section-label">Leadership Endorsement</div>
-    <h2 class="section-title">Trusted by Industry Leaders</h2>
-    <div class="card" style="max-width:680px;margin:32px auto 0;text-align:left;">
-      <p style="font-size:1.1rem;font-style:italic;color:var(--navy);line-height:1.7;">"COMPUDON Junior addresses exactly what every school needs today — a structured, assessed pathway for digital citizenship. The curriculum's alignment to global standards while remaining rooted in Indian educational realities is commendable."</p>
-      <div style="display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
-        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0;">VJ</div>
-        <div>
-          <div style="font-weight:700;color:var(--navy);">Dr Vinnie Jauhari</div>
-          <div style="font-size:.85rem;color:var(--muted);">Worldwide Public Sector Industry Advisor – Education, Microsoft India</div>
+    <div class="form-card" id="form-card">
+      <div class="form-card-hdr"><div class="dot"></div><span>School registration form</span></div>
+      <div class="form-card-body" id="form-body">
+
+        <div class="alert alert-info" style="margin-bottom:24px;">
+          <strong>Student details are not required at this stage.</strong> After submitting this form you will download the bulk registration template to submit student information separately.
         </div>
+
+        <p style="font-size:.8rem;font-weight:600;color:#2C7A7B;text-transform:uppercase;letter-spacing:.07em;margin:0 0 14px;border-bottom:1px solid #e5e3dc;padding-bottom:8px;">School information</p>
+        <div class="field-grid">
+          <div class="field field-full"><label>School name <em>*</em></label><input type="text" id="f_school" placeholder="e.g. Delhi Public School, Vasant Kunj"></div>
+          <div class="field"><label>Board / affiliation <em>*</em></label><select id="f_board"><option value="">Select board</option><option>CBSE</option><option>ICSE / ISC</option><option>IB</option><option>State board</option><option>Other</option></select></div>
+          <div class="field"><label>City <em>*</em></label><input type="text" id="f_city" placeholder="e.g. Mumbai"></div>
+          <div class="field"><label>State <em>*</em></label><input type="text" id="f_state" placeholder="e.g. Maharashtra"></div>
+          <div class="field"><label>Pin code <em>*</em></label><input type="text" id="f_pin" placeholder="e.g. 400001"></div>
+        </div>
+
+        <p style="font-size:.8rem;font-weight:600;color:#2C7A7B;text-transform:uppercase;letter-spacing:.07em;margin:24px 0 14px;border-bottom:1px solid #e5e3dc;padding-bottom:8px;">Programme coordinator</p>
+        <div class="field-grid">
+          <div class="field"><label>Coordinator full name <em>*</em></label><input type="text" id="f_cname" placeholder="e.g. Ms Ananya Sharma"></div>
+          <div class="field"><label>Designation <em>*</em></label><input type="text" id="f_desig" placeholder="e.g. ICT Teacher"></div>
+          <div class="field"><label>Email address <em>*</em></label><input type="email" id="f_email" placeholder="coordinator@school.edu.in"><div class="hint">All programme communications go here</div></div>
+          <div class="field"><label>Mobile number <em>*</em></label><input type="tel" id="f_phone" placeholder="+91 98XXX XXXXX"></div>
+        </div>
+
+        <div class="privacy-wrap">
+          <h4>🔒 Privacy terms and data use</h4>
+          <div class="privacy-scroll">
+            <p><strong>1. Who we are</strong><br>COMPUDON Junior is operated by CyberLearning Educational Society (CES), the Data Fiduciary under the DPDP Act, 2023.</p>
+            <p><strong>2. What we collect and why</strong><br>This form collects school and coordinator details solely for administering Season VII. Student data is collected separately via the bulk template, used exclusively for competition administration, result processing, and certificate issuance.</p>
+            <p><strong>3. Data minimisation</strong><br>No biometric data, behavioural analytics, device identifiers, or location data are collected from students at any stage.</p>
+            <p><strong>4. Parental consent — school's responsibility</strong><br>All students are under 18. Under Section 9 of the DPDP Act, processing a child's data requires verifiable parental or guardian consent. By submitting the bulk template the school warrants it has obtained such consent for each student. The school accepts full responsibility for student data submitted without requisite parental consent.</p>
+            <p><strong>5. No tracking or profiling of students</strong><br>CES does not engage in behavioural tracking, monitoring, psychological profiling, or targeted advertising directed at students.</p>
+            <p><strong>6. Third-party sharing</strong><br>Data is not sold or shared except where required by programme partners (Microsoft, Certiport, Broadband India Forum) for certification and recognition, under equivalent data protection obligations.</p>
+            <p><strong>7. Data retention</strong><br>School and coordinator data retained for active season + 12 months. Student data deleted or anonymised within 6 months of season close.</p>
+            <p><strong>8. Your rights</strong><br>Access, correct, or request erasure at any time. Requests processed within 14 working days.</p>
+            <p><strong>9. Data breach notification</strong><br>CES will notify affected parties and the Data Protection Board of India without undue delay in the event of a breach.</p>
+            <p><strong>10. Grievances</strong></p>
+            <div class="go-block"><strong>Ms Shital Rai</strong> — Grievance Officer, CyberLearning Educational Society<br><a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a> &nbsp;·&nbsp; +91 83830 56545<br>Unresolved matters may be escalated to the <strong>Data Protection Board of India</strong>.</div>
+            <p>Full Privacy Policy: <a href="/privacy-policy.html" style="color:#2C7A7B;">compudonjunior.com/privacy-policy</a></p>
+          </div>
+          <div class="cb-row"><input type="checkbox" id="cb1"><label for="cb1">I have read and accept the privacy terms above and confirm I am authorised to register this school for COMPUDON Junior Season VII.</label></div>
+          <div class="cb-row"><input type="checkbox" id="cb2"><label for="cb2">I confirm that my school will obtain verifiable parental or guardian consent for each student before submitting their details via the bulk registration template, in compliance with the DPDP Act, 2023.</label></div>
+        </div>
+
+      </div>
+      <div class="form-actions" id="form-actions">
+        <span class="lock-note">🔒 Secured under India's DPDP Act, 2023</span>
+        <button class="btn-submit" onclick="submitForm()">Submit registration &rarr;</button>
+      </div>
+
+      <!-- CONFIRMATION STATE -->
+      <div class="confirm-state" id="confirm-state">
+        <div style="width:64px;height:64px;border-radius:50%;background:#EAF4F4;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:2rem;">✅</div>
+        <h2 style="color:#1F3A5F;margin-bottom:8px;">Registration received!</h2>
+        <p style="color:#555;max-width:440px;margin:0 auto 28px;">Thank you for registering your school for COMPUDON Junior Season VII. Check your coordinator's inbox within a few minutes.</p>
+        <div class="next-grid">
+          <div class="nc"><div class="nc-dot" style="background:#EAF4F4;">📧</div><h4>Confirmation email</h4><p>Sent to your coordinator with school reference number and programme calendar.</p></div>
+          <div class="nc"><div class="nc-dot" style="background:#FAF0EC;">📦</div><h4>Coordinator welcome pack</h4><p>Orientation guide, student handbook, and parent communication kit — in the same email.</p></div>
+          <div class="nc"><div class="nc-dot" style="background:#EDF1F6;">📊</div><h4>Bulk registration template</h4><p>Download below. Fill in student details and email back to complete enrolment.</p></div>
+        </div>
+        <a href="/assets/downloads/CJ_S7_School_Registration_Template.xlsx" class="btn btn-primary btn-lg" download>⬇ Download Bulk Registration Template</a>
+        <p style="font-size:.8rem;color:#666;margin-top:14px;">Email completed template to <strong>register@compudonjunior.com</strong> with subject: <em>Bulk Upload — [Your School Name]</em></p>
       </div>
     </div>
-    <a href="/leaders.html" class="btn btn-primary" style="margin-top:28px;">Meet All Leaders</a>
-  </div>
-</section>
 
-<!-- CTA -->
-<section class="section" style="background:var(--navy);">
-  <div class="container" style="text-align:center;">
-    <h2 style="color:#fff;margin-bottom:16px;">Ready to Join Season VII?</h2>
-    <p style="color:rgba(255,255,255,.8);max-width:520px;margin:0 auto 32px;font-size:1.05rem;">Register your school today. Student details are submitted separately — school registration takes under 5 minutes.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="/schools/register" class="btn btn-primary btn-lg">Register Your School</a>
-      <a href="/parents.html" class="btn btn-white btn-lg">Parent Information</a>
+    <div class="dl-card" id="dl-card">
+      <h3>Already registered? Download the bulk template</h3>
+      <p>If you have already submitted your school registration, download the Excel template and email it back with your students' details.</p>
+      <a href="/assets/downloads/CJ_S7_School_Registration_Template.xlsx" class="btn-dl" download>⬇ Download Bulk Registration Template</a>
+      <p style="font-size:.78rem;opacity:.65;margin-top:14px;">Microsoft Excel (.xlsx) · Requires Excel 2016+ or Google Sheets</p>
     </div>
+
   </div>
 </section>
 
-</main>
+<script>
+function submitForm(){
+  var fields=['f_school','f_board','f_city','f_state','f_pin','f_cname','f_desig','f_email','f_phone'];
+  var ok=true;
+  fields.forEach(function(id){var el=document.getElementById(id);if(!el.value.trim()){el.style.borderColor='#D2502A';ok=false;}else el.style.borderColor='';});
+  if(!document.getElementById('cb1').checked||!document.getElementById('cb2').checked){alert('Please accept both consent declarations before submitting.');return;}
+  if(!ok){alert('Please fill in all required fields marked with *.');return;}
+  document.getElementById('form-body').style.display='none';
+  document.getElementById('form-actions').style.display='none';
+  document.getElementById('confirm-state').style.display='block';
+  document.getElementById('dl-card').style.display='none';
+  window.scrollTo({top:document.getElementById('form-card').offsetTop-80,behavior:'smooth'});
+}
+</script>
 
 <footer class="site-footer">
   <div class="footer-grid">
