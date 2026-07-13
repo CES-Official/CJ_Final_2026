@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://compudonjunior.com/index.html</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://compudonjunior.com/about.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://compudonjunior.com/schools.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://compudonjunior.com/schools/register</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://compudonjunior.com/parents.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://compudonjunior.com/students.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://compudonjunior.com/cbse-mapping.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://compudonjunior.com/leaders.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://compudonjunior.com/winners.html</loc><priority>0.7</priority><changefreq>seasonal</changefreq></url>
+  <url><loc>https://compudonjunior.com/pledge.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://compudonjunior.com/beliefs.html</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://compudonjunior.com/guides.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://compudonjunior.com/child-safety.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://compudonjunior.com/privacy-policy.html</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://compudonjunior.com/cookie-policy.html</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+</urlset>
