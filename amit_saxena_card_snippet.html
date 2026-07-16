@@ -1,0 +1,46 @@
+<!--
+  ADVISORY BOARD CARD — Dr. Amit Saxena
+  CORRECTED to match the exact structure of advisory_board_new.html
+  (verified against the live page: Nayak / Williams / Sistla / Peters / Umang Das cards)
+
+  Insert this card into the MAIN grid — right after Mr. Umang Das,
+  as the 6th card in the "Academic & Policy Advisory Board" section.
+  (Not the "Content & Curriculum" section — that's Aashi Gaba's separate
+  discipline, reserved for the clinical/content voice, not policy/institution advisors.)
+
+  IMAGE PATH — matches the live site's actual folder:
+  assets/img/adv_board/amit_saxena.jpg
+  (NOT assets/img/advisors/ — that was my error in the earlier draft, corrected here)
+-->
+
+<div class="card">
+  <img src="assets/img/adv_board/amit_saxena.jpg" alt="Dr. Amit Saxena">
+  AS
+
+  <h3>Dr. Amit Saxena</h3>
+  <p class="role">Education Strategist &amp; Institution Builder</p>
+
+  <p>Nearly three decades building institutions across K–12, higher education, and corporate learning. Architect of the "KG to Corporate" philosophy and the 3C Model — Character, Competencies, Careerism. Leads a school and higher-education ecosystem recognised by NAAC, NBA, and QS I-GAUGE, and led India's first AI-powered Robo Teacher initiative, IRIS.</p>
+
+  <a href="amit_saxena.html">Know more</a>
+</div>
+
+<!--
+  ═══════════════════════════════════════════════════════════════
+  NOTE ON THE "AS" LINE ABOVE:
+  Every card on the live page shows a two-letter monogram
+  (AN, DW, KS, LP, UD, AG) directly after the photo — this is
+  almost certainly a fallback avatar (shows if the image fails
+  to load, or a decorative badge overlaid on the photo).
+  I've matched the pattern exactly as "AS" for Amit Saxena so the
+  markup is structurally identical to every sibling card.
+
+  Your developer should paste this snippet using the EXACT tag
+  structure (div class, h3, p.role, p, a) already used in the
+  other five cards in advisory_board_new.html — I've matched the
+  content order, but the precise CSS classes/wrapper divs should
+  be copied directly from an existing card (e.g. Umang Das's) to
+  guarantee pixel-identical spacing, since I don't have the full
+  source file's exact class names.
+  ═══════════════════════════════════════════════════════════════
+-->
