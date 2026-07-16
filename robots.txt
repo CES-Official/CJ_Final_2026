@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /assets/downloads/
+
 Sitemap: https://compudonjunior.com/sitemap.xml
