@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Version 1.0 (Archived) — COMPUDON Junior</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1F3A5F;
+    --orange: #D2502A;
+    --teal:   #2C7A7B;
+    --cream:  #F4F1EC;
+    --green:  #2E7D32;
+    --navy-light: #E8EDF4;
+    --text:   #1a1a2e;
+    --muted:  #5a6272;
+    --border: #d5dce8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .site-header .logo-mark { display: none; }
+  .site-header .brand { color: #fff; }
+  .site-header .brand strong { font-size: 17px; font-weight: 700; display: block; }
+  .site-header .brand span  { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── PAGE HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a4d78 100%);
+    padding: 56px 40px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 50%, rgba(44,122,123,0.18) 0%, transparent 60%);
+  }
+  .hero .eyebrow {
+    display: inline-block;
+    background: rgba(210,80,42,0.18);
+    color: #f0a080;
+    border: 1px solid rgba(210,80,42,0.3);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 20px; position: relative;
+  }
+  .hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600; color: #fff;
+    line-height: 1.2; margin-bottom: 18px; position: relative;
+  }
+  .hero p {
+    font-size: 15px; color: rgba(255,255,255,0.78);
+    max-width: 640px; margin: 0 auto 10px; position: relative;
+  }
+  .hero .meta {
+    margin-top: 24px; display: flex; gap: 28px;
+    justify-content: center; flex-wrap: wrap; position: relative;
+  }
+  .hero .meta span {
+    font-size: 12px; color: rgba(255,255,255,0.55);
+  }
+  .hero .meta strong { color: rgba(255,255,255,0.85); }
+
+  /* ── COMMITMENT STRIP ── */
+  .commitment-strip {
+    background: var(--cream);
+    border-top: 3px solid var(--orange);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .commitment-strip h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px; font-weight: 600; color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .commitment-strip .intro-statement {
+    font-size: 14.5px; color: var(--muted);
+    max-width: 640px; margin: 0 auto 36px;
+  }
+  .commitment-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px; max-width: 900px; margin: 0 auto;
+  }
+  .commitment-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 16px;
+    text-decoration: none;
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 12px;
+  }
+  .commitment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(31,58,95,0.12);
+    border-color: var(--teal);
+  }
+  .commitment-card .icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .commitment-card .label {
+    font-size: 12.5px; font-weight: 600; color: var(--navy);
+    text-align: center; line-height: 1.35;
+  }
+
+  /* icon bg colours */
+  .ic-consent  { background: #e8f4f4; }
+  .ic-design   { background: #fff0eb; }
+  .ic-minimal  { background: #e8f0e8; }
+  .ic-children { background: #eef2f8; }
+  .ic-secure   { background: #fdf4e8; }
+  .ic-rights   { background: #f0e8f4; }
+
+  /* ── MAIN LAYOUT ── */
+  .page-wrap {
+    max-width: 1020px; margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: linear-gradient(to right, var(--navy-light), #f0f4f9);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 44px 0 40px;
+    font-size: 15px; color: var(--navy);
+    font-style: italic;
+  }
+  .intro-box strong { font-style: normal; }
+
+  /* ── DOCUMENT META TABLE ── */
+  .doc-meta {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 44px;
+  }
+  .doc-meta table { width: 100%; border-collapse: collapse; }
+  .doc-meta td {
+    padding: 10px 18px; font-size: 13px;
+    border-bottom: 1px solid var(--border);
+  }
+  .doc-meta tr:last-child td { border-bottom: none; }
+  .doc-meta td:first-child { font-weight: 600; color: var(--navy); width: 38%; background: rgba(255,255,255,0.6); }
+  .doc-meta td:last-child  { color: var(--muted); }
+
+  /* ── SECTION HEADINGS ── */
+  .policy-section { margin-bottom: 44px; }
+  .section-label {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-num {
+    background: var(--navy);
+    color: #fff; font-size: 11px; font-weight: 700;
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-label h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px; font-weight: 600; color: var(--navy);
+  }
+  .rule { border: none; border-top: 1px solid var(--border); margin: 0 0 18px; }
+
+  /* ── BODY TEXT ── */
+  .policy-section p { margin-bottom: 14px; color: #2a2a3e; font-size: 14.5px; }
+  .policy-section ul, .policy-section ol {
+    margin: 10px 0 16px 20px;
+  }
+  .policy-section li { margin-bottom: 6px; font-size: 14.5px; color: #2a2a3e; }
+
+  /* ── SUBSECTION ── */
+  .subsection { margin: 20px 0; }
+  .subsection h3 {
+    font-size: 14px; font-weight: 700;
+    color: var(--teal); text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 10px;
+    padding-bottom: 5px; border-bottom: 1px solid var(--border);
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: #fff8f6;
+    border: 1px solid rgba(210,80,42,0.25);
+    border-left: 3px solid var(--orange);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .highlight-box ul { margin: 8px 0 0 16px; }
+
+  /* ── ANNEXURES ── */
+  .annexures-section { margin-top: 56px; }
+  .annexures-section h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px; font-weight: 600; color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .annexures-section .sub-note {
+    font-size: 13px; color: var(--muted); margin-bottom: 28px;
+  }
+
+  .annexure {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .annexure-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    background: var(--navy-light);
+    cursor: pointer;
+    user-select: none;
+    gap: 12px;
+  }
+  .annexure-header:hover { background: #dce5f0; }
+  .annexure-title {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .ann-badge {
+    background: var(--navy); color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+    padding: 3px 10px; border-radius: 4px; flex-shrink: 0;
+  }
+  .ann-name { font-weight: 600; font-size: 14.5px; color: var(--navy); }
+  .ann-chevron {
+    font-size: 11px; color: var(--teal);
+    transition: transform 0.2s; flex-shrink: 0;
+  }
+  .annexure.open .ann-chevron { transform: rotate(180deg); }
+  .annexure-body {
+    display: none; padding: 24px 28px;
+    background: #fff; font-size: 14px; color: #2a2a3e;
+    border-top: 1px solid var(--border);
+  }
+  .annexure.open .annexure-body { display: block; }
+  .annexure-body p { margin-bottom: 12px; }
+  .annexure-body ul, .annexure-body ol { margin: 8px 0 14px 20px; }
+  .annexure-body li { margin-bottom: 5px; }
+  .annexure-body h3 {
+    font-size: 13.5px; font-weight: 700; color: var(--teal);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin: 18px 0 10px; padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Retention table */
+  .ret-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+  .ret-table th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .ret-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .ret-table tr:nth-child(even) td { background: var(--cream); }
+
+  /* ── GRIEVANCE OFFICER BOX ── */
+  .grievance-box {
+    background: var(--navy);
+    color: #fff; border-radius: 10px;
+    padding: 28px 32px; margin-top: 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .grievance-box h3 { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .grievance-box p  { font-size: 14.5px; margin-bottom: 6px; }
+  .grievance-box a  { color: #80c8c9; }
+  .grievance-box .col { }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 12.5px; color: var(--muted);
+  }
+  .page-footer strong { color: var(--navy); }
+
+  @media (max-width: 680px) {
+    .site-header, .hero, .commitment-strip, .page-wrap, .page-footer { padding-left: 20px; padding-right: 20px; }
+    .commitment-cards { grid-template-columns: repeat(2, 1fr); }
+    .grievance-box { grid-template-columns: 1fr; }
+    .doc-meta td:first-child { width: 46%; }
+  }
+
+  /* ── CREDIBILITY BAR (matches homepage) ── */
+  .cred-bar { background: #0B1F3A; color: #fff; padding: 26px 40px; }
+  .cred-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px; max-width: 1160px; margin: 0 auto; }
+  .cred-stat { display: flex; flex-direction: column; }
+  .cred-stat b { font-family: 'Inter', sans-serif; font-size: 1.9rem; font-weight: 700; line-height: 1; }
+  .cred-stat span { font-size: 13px; color: rgba(255,255,255,.66); margin-top: 5px; }
+  .cred-div { width: 1px; height: 40px; background: rgba(255,255,255,.14); }
+  .cred-partners { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .04em; color: rgba(255,255,255,.7); line-height: 1.7; }
+  @media (max-width: 680px) {
+    .cred-bar { padding: 20px; }
+    .cred-div { display: none; }
+    .cred-wrap { justify-content: flex-start; gap: 16px 24px; }
+    .cred-stat b { font-size: 1.4rem; }
+  }
+
+</style>
+</head>
+<body>
+<div style="background:#1F3A5F;color:#fff;text-align:center;padding:12px 20px;font-family:Inter,sans-serif;font-size:13px;">
+  📌 This is an <strong>archived snapshot</strong> of Privacy Policy <strong>Version 1.0</strong> (Effective 15 July 2026), preserved exactly as it was published. It will never be edited. <a href="privacy-policy.html" style="color:#8ecae6;font-weight:600;">View the current live policy →</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+    <img src="assets/img/COMPUDON_Junior.png" alt="COMPUDON Junior" style="height:52px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.15));">
+    <div class="brand">
+      <strong>COMPUDON Junior</strong>
+      <span>A Programme of CyberLearning Educational Society (Regd.)</span>
+    </div>
+  </a>
+</header>
+
+<!-- CREDIBILITY BAR -->
+<div class="cred-bar">
+  <div class="cred-wrap">
+    <div class="cred-stat"><b>Season VII</b><span>Launching soon</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>100,000+</b><span>Students across COMPUDON &amp; COMPUDON Junior</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>500+</b><span>Institutions</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>Expanding Internationally</b><span>Season VII</span></div>
+    <div class="cred-div"></div>
+    <p class="cred-partners">Powered by a Microsoft Global Training Partner<br>Partner · National Digital Literacy Mission</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Season VII · 2026</div>
+  <h1>Privacy Policy</h1>
+  <p>CyberLearning Educational Society (Regd.) is committed to protecting the privacy of students, parents, teachers, and schools. Personal Data is processed in accordance with the applicable provisions of the Digital Personal Data Protection Act, 2023.</p>
+  <div class="meta">
+    <span><strong>Effective:</strong> 15 July 2026</span>
+    <span><strong>Last Updated:</strong> 12 July 2026</span>
+    <span><strong>Version:</strong> 1.0</span>
+    <span><strong>Next Review:</strong> 12 July 2027</span>
+  </div>
+</section>
+
+<!-- OUR PRIVACY COMMITMENTS -->
+<section class="commitment-strip">
+  <h2>Our Privacy Commitments</h2>
+  <p class="intro-statement">Six principles that guide how we collect, use, and protect every individual's personal data.</p>
+  <div class="commitment-cards">
+    <a href="#section-6" class="commitment-card">
+      <div class="icon ic-consent">🔐</div>
+      <span class="label">Verifiable Parent Consent</span>
+    </a>
+    <a href="#section-1" class="commitment-card">
+      <div class="icon ic-design">🏗️</div>
+      <span class="label">Privacy by Design</span>
+    </a>
+    <a href="#section-3" class="commitment-card">
+      <div class="icon ic-minimal">⚖️</div>
+      <span class="label">Data Minimisation</span>
+    </a>
+    <a href="#section-6" class="commitment-card">
+      <div class="icon ic-children">🛡️</div>
+      <span class="label">Children's Data Protection</span>
+    </a>
+    <a href="#section-9" class="commitment-card">
+      <div class="icon ic-secure">🔒</div>
+      <span class="label">Secure Processing</span>
+    </a>
+    <a href="#section-11" class="commitment-card">
+      <div class="icon ic-rights">📋</div>
+      <span class="label">Your Privacy Rights</span>
+    </a>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
+
+  <!-- FRAMEWORK NOTE -->
+  <div class="intro-box">
+    This Privacy Policy forms part of the privacy governance framework of <strong>CyberLearning Educational Society (Regd.)</strong> and should be read together with the applicable Parent Consent Form, Terms of Use, Annexures to this Privacy Policy, and other privacy-related policies, standards, or notices published by CyberLearning Educational Society (Regd.) from time to time, where applicable.
+  </div>
+
+  <!-- DOC META -->
+  <div class="doc-meta">
+    <table>
+      <tr><td>Document Title</td><td>Privacy Policy — COMPUDON Junior Digital Citizenship &amp; Cyber Safety Championship</td></tr>
+      <tr><td>Approved By</td><td>Executive Committee, CyberLearning Educational Society (Regd.)</td></tr>
+      <tr><td>Document Owner</td><td>CyberLearning Educational Society (Regd.)</td></tr>
+      <tr><td>Review Frequency</td><td>Annual, or earlier if required</td></tr>
+      <tr><td>Grievance Officer</td><td>Ms. Shital Rai — <a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a></td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="policy-section" id="section-1">
+    <div class="section-label">
+      <div class="section-num">1</div>
+      <h2>Introduction</h2>
+    </div>
+    <hr class="rule">
+    <p>CyberLearning Educational Society (Regd.) ("CES", "we", "our", or "us") is committed to protecting the privacy and personal data of every participant, parent, guardian, educator, school, volunteer, and visitor who interacts with COMPUDON Junior.</p>
+    <p>COMPUDON Junior is an educational initiative developed and operated by CyberLearning Educational Society (Regd.) to promote digital citizenship, cyber safety, media literacy, critical thinking, responsible technology use, and related educational competencies among school students.</p>
+    <p>This Privacy Policy explains how we collect, use, store, share, protect, retain, and otherwise process Personal Data in connection with the COMPUDON Junior platform, championship, educational programs, assessments, certifications, events, communications, websites, mobile applications, and associated services (collectively referred to as the "Services").</p>
+    <p>We recognise that children deserve the highest standards of privacy protection. Accordingly, we are committed to processing children's Personal Data responsibly, transparently, fairly, and only for legitimate educational purposes in accordance with applicable law.</p>
+    <p>This Privacy Policy has been prepared primarily in accordance with the Digital Personal Data Protection Act, 2023 ("DPDP Act"), together with applicable rules, regulations, governmental notifications, and other applicable laws in force in India. Where appropriate, this Policy also reflects internationally recognised privacy principles commonly adopted by educational institutions and child-focused digital platforms.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="policy-section" id="section-2">
+    <div class="section-label">
+      <div class="section-num">2</div>
+      <h2>Identity of the Data Fiduciary</h2>
+    </div>
+    <hr class="rule">
+    <p>For the purposes of the Digital Personal Data Protection Act, 2023, the Data Fiduciary responsible for determining the purposes and means of processing Personal Data under the COMPUDON Junior program is:</p>
+    <p><strong>CyberLearning Educational Society (Regd.)</strong><br>
+    Email: <a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a><br>
+    Website: <a href="https://compudonjunior.com" target="_blank">compudonjunior.com</a></p>
+    <p>Unless expressly stated otherwise, references in this Privacy Policy to "COMPUDON Junior," "we," "our," or "us" refer to CyberLearning Educational Society (Regd.) acting in its capacity as the Data Fiduciary.</p>
+    <p>Certain technical, hosting, payment processing, communication, certification, cloud infrastructure, or other operational services may be provided by carefully selected third-party service providers acting on our behalf under appropriate contractual, confidentiality, security, and data protection obligations. Such service providers process Personal Data only for the purposes authorised by us and only to the extent necessary for providing the relevant services.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="policy-section" id="section-3">
+    <div class="section-label">
+      <div class="section-num">3</div>
+      <h2>Scope of this Privacy Policy</h2>
+    </div>
+    <hr class="rule">
+    <p>This Privacy Policy applies to the processing of Personal Data relating to:</p>
+    <ul>
+      <li>Student participants</li>
+      <li>Parents and lawful guardians</li>
+      <li>Teachers</li>
+      <li>School administrators and management representatives</li>
+      <li>Competition judges and evaluators</li>
+      <li>Mentors and trainers</li>
+      <li>Volunteers</li>
+      <li>Website visitors</li>
+      <li>Event participants</li>
+      <li>Individuals communicating with us by email, telephone, online forms, social media, or other official communication channels</li>
+    </ul>
+    <p>This Privacy Policy applies whenever Personal Data is collected through the COMPUDON Junior website, registration forms, online learning platforms, assessments and quizzes, competitions and championships, certification activities, school participation programs, educational workshops, parent communications, customer support, official surveys, and promotional activities conducted with appropriate consent.</p>
+    <p>This Privacy Policy applies only to the collection and processing of Personal Data by CyberLearning Educational Society (Regd.) in connection with the COMPUDON Junior Services. Where participants access third-party websites, applications, payment platforms, or services through links or integrations provided as part of the Services, the privacy practices of those third parties will be governed by their respective privacy policies.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="policy-section" id="section-4">
+    <div class="section-label">
+      <div class="section-num">4</div>
+      <h2>Definitions</h2>
+    </div>
+    <hr class="rule">
+    <p>For the purposes of this Privacy Policy, the following terms shall have the meanings assigned below:</p>
+    <div class="subsection">
+      <h3>Applicable Law</h3>
+      <p>The Digital Personal Data Protection Act, 2023, the rules framed thereunder, and any other applicable laws, regulations, governmental notifications, or judicial decisions governing the processing of Personal Data in India.</p>
+    </div>
+    <div class="subsection">
+      <h3>Child</h3>
+      <p>An individual who has not attained the age specified under the Digital Personal Data Protection Act, 2023, or such other age as may be prescribed under applicable law.</p>
+    </div>
+    <div class="subsection">
+      <h3>Data Fiduciary</h3>
+      <p>CyberLearning Educational Society (Regd.), which determines the purpose and means of processing Personal Data for the COMPUDON Junior Services.</p>
+    </div>
+    <div class="subsection">
+      <h3>Data Processor</h3>
+      <p>Any person or organisation that processes Personal Data on behalf of the Data Fiduciary under appropriate contractual obligations.</p>
+    </div>
+    <div class="subsection">
+      <h3>Parent</h3>
+      <p>Includes a parent, lawful guardian, or any individual legally authorised to provide consent on behalf of a Child.</p>
+    </div>
+    <div class="subsection">
+      <h3>Personal Data</h3>
+      <p>Any data about an individual who is identifiable by or in relation to such data.</p>
+    </div>
+    <div class="subsection">
+      <h3>Processing</h3>
+      <p>Includes every operation performed on Personal Data, whether wholly or partly by automated means, including collection, recording, organisation, storage, adaptation, retrieval, consultation, use, disclosure, sharing, transmission, restriction, deletion, or destruction.</p>
+    </div>
+    <div class="subsection">
+      <h3>Services</h3>
+      <p>The COMPUDON Junior championship, educational programs, learning modules, assessments, quizzes, certifications, events, websites, mobile applications, communications, and associated educational activities.</p>
+    </div>
+    <p>Where terms used in this Privacy Policy are not expressly defined herein, they shall have the meanings assigned to them under the applicable provisions of the Digital Personal Data Protection Act, 2023.</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="policy-section" id="section-5">
+    <div class="section-label">
+      <div class="section-num">5</div>
+      <h2>Legal Basis for Processing</h2>
+    </div>
+    <hr class="rule">
+    <p>CyberLearning Educational Society (Regd.) processes Personal Data only where there is a lawful basis for doing so under the Digital Personal Data Protection Act, 2023, and other applicable laws.</p>
+    <div class="subsection">
+      <h3>A. Verifiable Consent</h3>
+      <p>Where required by applicable law, including for the processing of a Child's Personal Data, we process Personal Data only after obtaining valid, informed, specific, unconditional, and verifiable consent from the Parent or lawful guardian. Parents or lawful guardians may withdraw their consent at any time in accordance with this Privacy Policy. Withdrawal of consent shall not affect the lawfulness of processing undertaken prior to such withdrawal.</p>
+    </div>
+    <div class="subsection">
+      <h3>B. Legitimate Educational Activities</h3>
+      <p>Personal Data is processed only to the extent reasonably necessary for delivering educational programs, conducting assessments, evaluating performance, issuing certificates, communicating with participants and schools, and administering the COMPUDON Junior Services.</p>
+    </div>
+    <div class="subsection">
+      <h3>C. Compliance with Legal Obligations</h3>
+      <p>We may process Personal Data where necessary to comply with applicable legal obligations, governmental directions, judicial orders, regulatory requirements, accounting obligations, audit requirements, or law enforcement requests, to the extent permitted under applicable law.</p>
+    </div>
+    <div class="subsection">
+      <h3>D. Protection of Rights and Security</h3>
+      <p>Personal Data may also be processed where reasonably necessary to protect the security and integrity of our Services; prevent fraud, misuse, unauthorised access, or unlawful activities; investigate complaints or security incidents; establish, exercise, or defend legal claims; or protect the rights, safety, or property of participants, schools, CyberLearning Educational Society (Regd.), or other stakeholders.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="policy-section" id="section-6">
+    <div class="section-label">
+      <div class="section-num">6</div>
+      <h2>Children's Personal Data and Verifiable Parental Consent</h2>
+    </div>
+    <hr class="rule">
+    <p>COMPUDON Junior is designed primarily for school students. We recognise that children require enhanced privacy protections, and we are committed to processing their Personal Data responsibly and in accordance with applicable law.</p>
+    <p>Before collecting or processing the Personal Data of a Child, we obtain verifiable consent from the Parent or lawful guardian. Such verification may include one or more of the following methods:</p>
+    <ul>
+      <li>Verification through the participating school</li>
+      <li>One-Time Password (OTP) verification</li>
+      <li>Verification using official contact details provided by the Parent or school</li>
+      <li>Digitally authenticated consent mechanisms</li>
+      <li>Any other reasonable verification method permitted under applicable law</li>
+    </ul>
+    <div class="highlight-box">
+      <strong>We do not knowingly:</strong>
+      <ul>
+        <li>Undertake behavioural monitoring of children</li>
+        <li>Profile children for commercial purposes</li>
+        <li>Serve targeted advertising to children</li>
+        <li>Sell or commercially exploit children's Personal Data</li>
+        <li>Process children's Personal Data in any manner prohibited under applicable law</li>
+      </ul>
+    </div>
+    <p>If we become aware that Personal Data has been collected without the required parental authorisation, we will take reasonable steps to verify the circumstances and, where appropriate, delete such Personal Data in accordance with applicable law.</p>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="policy-section" id="section-7">
+    <div class="section-label">
+      <div class="section-num">7</div>
+      <h2>Sharing of Personal Data</h2>
+    </div>
+    <hr class="rule">
+    <p>CyberLearning Educational Society (Regd.) respects the confidentiality of Personal Data and does not sell, rent, license, trade, or otherwise commercially exploit Personal Data collected through the COMPUDON Junior Services.</p>
+    <p>Personal Data may be shared only where reasonably necessary for the purposes described in this Privacy Policy and only with appropriate safeguards.</p>
+    <div class="subsection">
+      <h3>A. Participating Schools</h3>
+      <p>We may share relevant information relating to participating students with their respective schools for legitimate educational purposes, including registration verification, coordination of championship activities, performance reports, certificates and awards, and academic administration.</p>
+    </div>
+    <div class="subsection">
+      <h3>B. Authorised Service Providers</h3>
+      <p>We may engage carefully selected third-party service providers to perform services on our behalf, including cloud hosting, email and communication services, learning management platforms, certificate generation, payment processing, technical support, cybersecurity services, and other operational support services. Such service providers process Personal Data only under written contractual obligations requiring appropriate confidentiality, security, and data protection measures. (See Annexure C for categories of service providers.)</p>
+    </div>
+    <div class="subsection">
+      <h3>C. Legal and Regulatory Authorities</h3>
+      <p>We may disclose Personal Data where disclosure is required under applicable law, pursuant to a lawful governmental request, in compliance with a judicial order, to comply with regulatory requirements, to establish, exercise, or defend legal claims, or to protect the rights, safety, property, or security of participants, schools, or CyberLearning Educational Society (Regd.).</p>
+    </div>
+    <div class="subsection">
+      <h3>D. Business Reorganisation</h3>
+      <p>If CyberLearning Educational Society (Regd.) undergoes a lawful merger, amalgamation, demerger, reorganisation, or similar organisational change, Personal Data may be transferred to the successor entity, subject to applicable legal requirements and appropriate safeguards.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="policy-section" id="section-8">
+    <div class="section-label">
+      <div class="section-num">8</div>
+      <h2>International Transfer of Personal Data</h2>
+    </div>
+    <hr class="rule">
+    <p>CyberLearning Educational Society (Regd.) primarily processes Personal Data within India. However, certain technology infrastructure, cloud services, software platforms, communication systems, or other operational services used in connection with the COMPUDON Junior Services may involve the processing or storage of Personal Data outside the territory of India where permitted under applicable law.</p>
+    <p>Where Personal Data is transferred outside India, we will take reasonable steps to ensure that such transfers are carried out in accordance with applicable legal requirements and that appropriate contractual, technical, and organisational safeguards are implemented to protect Personal Data.</p>
+    <p>We do not intentionally transfer Personal Data to jurisdictions that are prohibited or restricted under applicable Indian law.</p>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="policy-section" id="section-9">
+    <div class="section-label">
+      <div class="section-num">9</div>
+      <h2>Security of Personal Data</h2>
+    </div>
+    <hr class="rule">
+    <p>Protecting children's Personal Data is a fundamental responsibility of CyberLearning Educational Society (Regd.). We implement reasonable administrative, technical, physical, and organisational measures designed to safeguard Personal Data against unauthorised access, disclosure, alteration, destruction, accidental loss, misuse, or other unauthorised processing.</p>
+    <p>Our information security measures may include, where appropriate:</p>
+    <ul>
+      <li>Access controls based on business need</li>
+      <li>Authentication mechanisms for authorised users</li>
+      <li>Encryption of Personal Data during transmission and, where appropriate, while stored</li>
+      <li>Secure hosting environments</li>
+      <li>Periodic security reviews</li>
+      <li>Monitoring of systems for unauthorised activities</li>
+      <li>Backup and recovery procedures</li>
+      <li>Staff awareness and confidentiality obligations</li>
+      <li>Incident response procedures</li>
+    </ul>
+    <p>Although we strive to use commercially reasonable measures to protect Personal Data, no method of electronic transmission, storage, or processing can be guaranteed to be completely secure. Users are also responsible for protecting their own login credentials, devices, and account information where applicable.</p>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="policy-section" id="section-10">
+    <div class="section-label">
+      <div class="section-num">10</div>
+      <h2>Data Retention and Deletion</h2>
+    </div>
+    <hr class="rule">
+    <p>CyberLearning Educational Society (Regd.) retains Personal Data only for as long as reasonably necessary to fulfil the purposes described in this Privacy Policy, comply with applicable legal obligations, resolve disputes, enforce legal rights, maintain academic records, or satisfy legitimate administrative requirements.</p>
+    <p>The applicable retention periods for different categories of Personal Data are described in <strong>Annexure B — Data Retention Schedule</strong>, which forms an integral part of this Privacy Policy.</p>
+    <p>At the end of the applicable retention period, Personal Data will be securely deleted, permanently anonymised, or retained only where continued retention is required or permitted under applicable law.</p>
+    <p>Where a Parent or Data Principal exercises a valid right to erasure, we will delete the relevant Personal Data unless continued retention is required or permitted under applicable law.</p>
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="policy-section" id="section-11">
+    <div class="section-label">
+      <div class="section-num">11</div>
+      <h2>Rights of Data Principals</h2>
+    </div>
+    <hr class="rule">
+    <p>Subject to applicable law, Data Principals may exercise the rights available under the Digital Personal Data Protection Act, 2023, including:</p>
+    <ul>
+      <li>Obtain information regarding the Personal Data being processed by us</li>
+      <li>Request correction, completion, or updating of inaccurate or incomplete Personal Data</li>
+      <li>Request erasure of Personal Data where such erasure is required or permitted under applicable law</li>
+      <li>Withdraw previously provided consent, where processing is based on consent</li>
+      <li>Seek redressal of grievances relating to the processing of Personal Data</li>
+      <li>Nominate another individual to exercise rights on their behalf, where permitted under applicable law</li>
+    </ul>
+    <p>The exercise of these rights may be subject to reasonable verification of identity and any limitations, exceptions, or obligations prescribed under applicable law. Requests relating to Personal Data may be submitted to the Grievance Officer. We will acknowledge and respond to such requests within the timelines prescribed under applicable law or, where no statutory timeline exists, within a reasonable period.</p>
+    <p>The procedure for exercising these rights is set out in <strong>Annexure D</strong>.</p>
+  </div>
+
+  <!-- SECTION 12 -->
+  <div class="policy-section" id="section-12">
+    <div class="section-label">
+      <div class="section-num">12</div>
+      <h2>Withdrawal of Consent</h2>
+    </div>
+    <hr class="rule">
+    <p>Where Personal Data is processed based on consent, the Parent or lawful guardian may withdraw such consent at any time. Withdrawal of consent shall not affect the lawfulness of any processing undertaken before such withdrawal.</p>
+    <p>Upon receiving a valid request for withdrawal of consent, we will:</p>
+    <ul>
+      <li>Discontinue further processing of Personal Data to the extent required by applicable law</li>
+      <li>Discontinue the Child's participation in the Services where continued processing is necessary for participation</li>
+      <li>Securely delete or anonymise the relevant Personal Data in accordance with this Privacy Policy and our Data Retention Schedule, unless continued retention is required or permitted under applicable law</li>
+      <li>Notify the Parent where any requested action cannot be fully implemented due to applicable legal, regulatory, academic, or contractual obligations</li>
+    </ul>
+    <p>Withdrawal of consent may affect our ability to provide certain Services or educational activities.</p>
+  </div>
+
+  <!-- SECTION 13 -->
+  <div class="policy-section" id="section-13">
+    <div class="section-label">
+      <div class="section-num">13</div>
+      <h2>Personal Data Breach Response</h2>
+    </div>
+    <hr class="rule">
+    <p>CyberLearning Educational Society (Regd.) maintains procedures designed to identify, assess, manage, and respond to incidents involving Personal Data. If we become aware of a Personal Data breach that requires notification under applicable law, we will take appropriate steps to:</p>
+    <ul>
+      <li>Investigate the incident</li>
+      <li>Contain and mitigate the impact of the incident</li>
+      <li>Assess the nature and scope of the breach</li>
+      <li>Notify the appropriate authorities where required under applicable law</li>
+      <li>Notify affected individuals where required under applicable law</li>
+      <li>Implement corrective measures designed to reduce the likelihood of similar incidents occurring in the future</li>
+    </ul>
+    <p>Our internal incident response procedures are periodically reviewed and updated to reflect changes in technology, operational practices, and applicable legal requirements.</p>
+  </div>
+
+  <!-- SECTION 14 -->
+  <div class="policy-section" id="section-14">
+    <div class="section-label">
+      <div class="section-num">14</div>
+      <h2>Grievance Redressal</h2>
+    </div>
+    <hr class="rule">
+    <p>CyberLearning Educational Society (Regd.) is committed to addressing privacy-related concerns promptly, fairly, and transparently. All privacy-related requests, grievances, and notices should be submitted electronically to the Grievance Officer at <a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a>.</p>
+    <p>We encourage individuals to first contact the Grievance Officer so that concerns may be resolved promptly. Where an individual remains dissatisfied after completion of our internal grievance process, they may exercise any remedies available under applicable law, including those before the appropriate statutory authority.</p>
+  </div>
+
+  <!-- SECTION 15 -->
+  <div class="policy-section" id="section-15">
+    <div class="section-label">
+      <div class="section-num">15</div>
+      <h2>Changes to this Privacy Policy</h2>
+    </div>
+    <hr class="rule">
+    <p>We may amend or update this Privacy Policy from time to time to reflect changes in applicable law, regulatory guidance, technology, our Services, or our data processing practices. The revised version will be published on the COMPUDON Junior website together with the updated "Last Updated" date.</p>
+    <p>Where required by applicable law, we will provide appropriate notice of material changes and obtain fresh consent where legally necessary. Continued use of the Services after the effective date of the revised Privacy Policy shall constitute acceptance of the revised Policy to the extent permitted by applicable law.</p>
+  </div>
+
+  <!-- SECTION 16 -->
+  <div class="policy-section" id="section-16">
+    <div class="section-label">
+      <div class="section-num">16</div>
+      <h2>Contact Information</h2>
+    </div>
+    <hr class="rule">
+    <p>If you have any questions regarding this Privacy Policy or our processing of Personal Data, please contact us:</p>
+    <p><strong>CyberLearning Educational Society (Regd.)</strong><br>
+    Email: <a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a><br>
+    Website: <a href="https://compudonjunior.com" target="_blank">compudonjunior.com</a><br>
+    Grievance Officer: Ms. Shital Rai</p>
+  </div>
+
+  <!-- LEGAL DISCLAIMER -->
+  <div class="highlight-box" style="margin-top: 8px;">
+    <strong>Legal Disclaimer</strong><br>
+    This Privacy Policy shall be governed by the laws of India. Any dispute relating to the processing of Personal Data shall be subject to the jurisdiction of the competent courts and authorities in India, unless otherwise required by applicable law. Annexures A–D form an integral part of this Policy. Unauthorised reproduction, modification, or distribution of this document is prohibited without prior written permission from CyberLearning Educational Society (Regd.).<br><br>
+    <em>Copyright © 2026 CyberLearning Educational Society (Regd.). All rights reserved.</em>
+  </div>
+
+  <!-- ── ANNEXURES ── -->
+  <div class="annexures-section">
+    <h2>Annexures</h2>
+    <p class="sub-note">The following Annexures form an integral part of this Privacy Policy. Click any Annexure to expand it.</p>
+
+    <!-- ANNEXURE A -->
+    <div class="annexure" id="annexure-a">
+      <div class="annexure-header" onclick="toggleAnnex(this)">
+        <div class="annexure-title">
+          <span class="ann-badge">Annexure A</span>
+          <span class="ann-name">Categories of Personal Data</span>
+        </div>
+        <span class="ann-chevron">▼</span>
+      </div>
+      <div class="annexure-body">
+        <p>We are committed to the principle of data minimisation. We collect only such Personal Data as is reasonably necessary for providing our Services and fulfilling legitimate educational and administrative purposes.</p>
+        <h3>A. Student Information</h3>
+        <ul>
+          <li>Full name</li>
+          <li>Grade or class</li>
+          <li>Age or age group</li>
+          <li>School name</li>
+          <li>Student identification number assigned for the championship, where applicable</li>
+          <li>Responses submitted during quizzes, assessments, competitions, projects, and learning activities</li>
+          <li>Scores, rankings, certifications, badges, awards, and academic performance relating to the Services</li>
+          <li>Participation history within COMPUDON Junior</li>
+        </ul>
+        <h3>B. Parent or Lawful Guardian Information</h3>
+        <ul>
+          <li>Name</li>
+          <li>Relationship with the student</li>
+          <li>Mobile number</li>
+          <li>Email address</li>
+          <li>Information necessary to verify parental consent</li>
+          <li>Communications relating to participation, certificates, support requests, and educational updates</li>
+        </ul>
+        <h3>C. School Information</h3>
+        <ul>
+          <li>School name and address</li>
+          <li>School contact details</li>
+          <li>Name and designation of the authorised school representative</li>
+          <li>Teacher or coordinator details</li>
+        </ul>
+        <h3>D. Technical Information</h3>
+        <p>When users access our online platform, certain technical information may be collected automatically to maintain platform security, improve service quality, and investigate technical issues. Such information may include Internet Protocol (IP) address, browser type and version, and device type.</p>
+      </div>
+    </div>
+
+    <!-- ANNEXURE B -->
+    <div class="annexure" id="annexure-b">
+      <div class="annexure-header" onclick="toggleAnnex(this)">
+        <div class="annexure-title">
+          <span class="ann-badge">Annexure B</span>
+          <span class="ann-name">Data Retention Schedule</span>
+        </div>
+        <span class="ann-chevron">▼</span>
+      </div>
+      <div class="annexure-body">
+        <p>Retention periods for different categories of Personal Data collected in connection with the COMPUDON Junior Services:</p>
+        <table class="ret-table">
+          <thead>
+            <tr><th>Category</th><th>Retention Period</th><th>Reason</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Student Registration</td><td>3 years</td><td>Audit and dispute resolution</td></tr>
+            <tr><td>Parent Consent</td><td>7 years</td><td>Evidence of lawful consent</td></tr>
+            <tr><td>Quiz Results</td><td>5 years</td><td>Academic record</td></tr>
+            <tr><td>Certificates</td><td>Permanently (unless deletion is requested and legally permissible)</td><td>Verification of achievements</td></tr>
+            <tr><td>Financial Records</td><td>As required by applicable law</td><td>Statutory compliance</td></tr>
+            <tr><td>Security Logs</td><td>180 days</td><td>Cybersecurity investigations</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ANNEXURE C -->
+    <div class="annexure" id="annexure-c">
+      <div class="annexure-header" onclick="toggleAnnex(this)">
+        <div class="annexure-title">
+          <span class="ann-badge">Annexure C</span>
+          <span class="ann-name">Categories of Third-Party Service Providers</span>
+        </div>
+        <span class="ann-chevron">▼</span>
+      </div>
+      <div class="annexure-body">
+        <p>From time to time, we may engage the following categories of third-party service providers in connection with the COMPUDON Junior Services. All such providers are engaged under appropriate contractual, confidentiality, and data protection obligations.</p>
+        <ul>
+          <li>Cloud hosting providers</li>
+          <li>Email service providers</li>
+          <li>Payment gateway providers</li>
+          <li>Learning Management Systems</li>
+          <li>Certificate generation services</li>
+          <li>Printing services</li>
+          <li>Video conferencing platforms</li>
+          <li>SMS and notification providers</li>
+          <li>Security monitoring services</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ANNEXURE D -->
+    <div class="annexure" id="annexure-d">
+      <div class="annexure-header" onclick="toggleAnnex(this)">
+        <div class="annexure-title">
+          <span class="ann-badge">Annexure D</span>
+          <span class="ann-name">Procedure for Exercising Data Principal Rights</span>
+        </div>
+        <span class="ann-chevron">▼</span>
+      </div>
+      <div class="annexure-body">
+        <h3>1. Purpose</h3>
+        <p>This Annexure explains the procedure by which Data Principals, Parents, or lawful guardians may exercise their rights under the Digital Personal Data Protection Act, 2023, in relation to Personal Data processed by CyberLearning Educational Society (Regd.) for the COMPUDON Junior Services.</p>
+
+        <h3>2. Who May Submit a Request</h3>
+        <p>Requests under this Annexure may be submitted by:</p>
+        <ul>
+          <li>A Data Principal</li>
+          <li>A Parent or lawful guardian acting on behalf of a Child</li>
+          <li>A person lawfully nominated or otherwise authorised to act on behalf of a Data Principal, where permitted under applicable law</li>
+        </ul>
+
+        <h3>3. Rights That May Be Exercised</h3>
+        <p>Subject to applicable law, requests may relate to one or more of the following:</p>
+        <ul>
+          <li>Request access to information regarding Personal Data being processed</li>
+          <li>Request correction, completion, or updating of inaccurate or incomplete Personal Data</li>
+          <li>Request erasure of Personal Data where such erasure is required or permitted under applicable law</li>
+          <li>Withdraw previously provided consent</li>
+          <li>Submit a grievance regarding the processing of Personal Data</li>
+          <li>Exercise any other right available under the Digital Personal Data Protection Act, 2023</li>
+        </ul>
+
+        <h3>4. How to Submit a Request</h3>
+        <p>Requests should be submitted by email to: <a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a></p>
+        <p>To enable timely processing, the request should include, where applicable:</p>
+        <ul>
+          <li>Full name of the requester</li>
+          <li>Relationship with the student (if applicable)</li>
+          <li>Student name and school</li>
+          <li>Contact details</li>
+          <li>Description of the request</li>
+          <li>Any supporting information reasonably necessary to identify the relevant records</li>
+        </ul>
+        <p>We may request additional information where reasonably necessary to verify the identity or authority of the requester before processing the request.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRIEVANCE OFFICER BOX -->
+  <div class="grievance-box">
+    <div class="col">
+      <h3>Grievance Officer</h3>
+      <p><strong>Ms. Shital Rai</strong></p>
+      <p><a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a></p>
+    </div>
+    <div class="col">
+      <h3>General Enquiries</h3>
+      <p>For questions about this Privacy Policy or your data rights, please contact the Grievance Officer. For all other COMPUDON Junior enquiries, visit <a href="https://compudonjunior.com" target="_blank">compudonjunior.com</a>.</p>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<div style="background:#0B1F3A;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+  <div>
+    <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);margin-bottom:6px;font-weight:600;">Presented by</p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:0;font-weight:500;">CyberLearning Educational Society (CES)</p>
+  </div>
+  <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:24px;">
+    <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);margin-bottom:10px;font-weight:600;">Knowledge, Technology &amp; Innovation Partner</p>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <img src="assets/img/CyberLearning_Logo.png" alt="CyberLearning" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+      <img src="assets/img/GTP_Landscape.png" alt="Microsoft in Education Global Training Partner" style="height:80px;width:auto;background:#fff;border-radius:8px;padding:8px 14px;">
+    </div>
+  </div>
+</div>
+<footer class="page-footer">
+  <p><strong>CyberLearning Educational Society (Regd.)</strong> · Privacy Policy v1.0 · Effective 15 July 2026<br>
+  Copyright © 2026 CyberLearning Educational Society (Regd.). All rights reserved. COMPUDON Junior is a programme of CyberLearning Educational Society (Regd.), a Global Training Partner of Microsoft.</p>
+  <div style="margin-top: 12px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+    <a href="privacy-policy.html" style="color: var(--teal); font-size: 12.5px; text-decoration: none;">Privacy Policy</a>
+    <span style="color: var(--border);">|</span>
+    <a href="cookie-policy.html" style="color: var(--teal); font-size: 12.5px; text-decoration: none;">Cookie Policy</a>
+    <span style="color: var(--border);">|</span>
+    <a href="mailto:privacy@compudonjunior.com" style="color: var(--teal); font-size: 12.5px; text-decoration: none;">privacy@compudonjunior.com</a>
+    <span style="color: var(--border);">|</span>
+    <a href="https://www.compudonjunior.com" target="_blank" style="color: var(--teal); font-size: 12.5px; text-decoration: none;">www.compudonjunior.com</a>
+  </div>
+</footer>
+
+<script>
+  function toggleAnnex(header) {
+    const annexure = header.parentElement;
+    annexure.classList.toggle('open');
+  }
+
+  // Smooth scroll for commitment card links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

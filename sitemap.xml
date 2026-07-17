@@ -13,6 +13,7 @@
   <url><loc>https://compudonjunior.com/pledge.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://compudonjunior.com/resources.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://compudonjunior.com/registration.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://compudonjunior.com/register-school.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://compudonjunior.com/hall_of_fame.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://compudonjunior.com/advisory_board_new.html</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://compudonjunior.com/about.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
@@ -20,4 +21,6 @@
   <url><loc>https://compudonjunior.com/guides.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://compudonjunior.com/students.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://compudonjunior.com/child-safety.html</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://compudonjunior.com/privacy-policy-v1.0.html</loc><priority>0.3</priority><changefreq>never</changefreq></url>
+  <url><loc>https://compudonjunior.com/invitation-kit.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 </urlset>
