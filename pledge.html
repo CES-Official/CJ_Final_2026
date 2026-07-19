@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/compudon.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     .pledge-hero { background: var(--navy, #1F3A5F); color: #fff; padding: 56px 0 48px; }
     .pledge-hero .eyebrow { color: #7ecfcf; }
@@ -85,8 +86,8 @@
 
       <!-- Download bar -->
       <div class="download-bar">
-        <p>Print this pledge, sign it at home, and return it to your school as part of COMPUDON Junior Season VII registration.</p>
-        <a class="btn-dl" href="assets/pdf/CyberSafetyPledge_COMPUDON_Junior_S7.pdf" target="_blank" rel="noopener">Download Printable PDF →</a>
+        <p>Print this blank pledge now, or scroll down to fill in your name and download a personalized copy instead.</p>
+        <a class="btn-dl" href="assets/pdf/CyberSafetyPledge_COMPUDON_Junior_S7.pdf" target="_blank" rel="noopener">Download Blank PDF →</a>
       </div>
 
       <!-- Section A: CBSE -->
@@ -124,24 +125,29 @@
         <div class="sig-grid">
           <div class="sig-field">
             <label>Student Full Name</label>
-            <input class="sig-line" type="text" placeholder="&nbsp;" aria-label="Student full name">
+            <input class="sig-line" type="text" id="pledge-student-name" placeholder="&nbsp;" aria-label="Student full name">
             <span class="sig-note">Class &amp; Section: _______________</span>
           </div>
           <div class="sig-field">
             <label>Student Signature</label>
-            <input class="sig-line" type="text" placeholder="&nbsp;" aria-label="Student signature">
+            <input class="sig-line" type="text" id="pledge-student-sig" placeholder="&nbsp;" aria-label="Student signature">
             <span class="sig-note">Date: _______________</span>
           </div>
           <div class="sig-field">
             <label>Parent / Guardian Full Name</label>
-            <input class="sig-line" type="text" placeholder="&nbsp;" aria-label="Parent name">
+            <input class="sig-line" type="text" id="pledge-parent-name" placeholder="&nbsp;" aria-label="Parent name">
             <span class="sig-note">Relationship: _______________</span>
           </div>
           <div class="sig-field">
             <label>Parent / Guardian Signature</label>
-            <input class="sig-line" type="text" placeholder="&nbsp;" aria-label="Parent signature">
+            <input class="sig-line" type="text" id="pledge-parent-sig" placeholder="&nbsp;" aria-label="Parent signature">
             <span class="sig-note">Date: _______________</span>
           </div>
+        </div>
+
+        <div style="margin-top:24px;text-align:center;">
+          <button class="btn-dl" onclick="downloadPersonalizedPledge()" type="button" style="border:none;cursor:pointer;">Download My Pledge (with my name) →</button>
+          <p id="pledge-name-hint" style="font-size:.8rem;color:#999;margin-top:10px;">Enter your name above first, then download your personalized copy.</p>
         </div>
 
       </div>
@@ -222,6 +228,116 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     var nav = document.getElementById('nav'), navToggle = document.getElementById('navToggle');
     navToggle.addEventListener('click', function(){ var open = nav.classList.toggle('open'); navToggle.setAttribute('aria-expanded', open); });
+
+    function downloadPersonalizedPledge() {
+      var studentName = document.getElementById('pledge-student-name').value.trim();
+      var studentSig = document.getElementById('pledge-student-sig').value.trim();
+      var parentName = document.getElementById('pledge-parent-name').value.trim();
+      var parentSig = document.getElementById('pledge-parent-sig').value.trim();
+      var hint = document.getElementById('pledge-name-hint');
+
+      if (!studentName) {
+        hint.style.color = '#C0392B';
+        hint.textContent = 'Please enter the student\'s name above before downloading.';
+        document.getElementById('pledge-student-name').focus();
+        return;
+      }
+      hint.style.color = '#999';
+      hint.textContent = 'Enter your name above first, then download your personalized copy.';
+
+      var jsPDFLib = window.jspdf.jsPDF;
+      var doc = new jsPDFLib({ unit: 'mm', format: 'a4' });
+      var pageWidth = 210, margin = 20, y = 20;
+
+      doc.setFillColor(31, 58, 95);
+      doc.rect(0, 0, pageWidth, 26, 'F');
+      doc.setTextColor(255, 255, 255);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(15);
+      doc.text('Cyber Safety Pledge', margin, 14);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.text('COMPUDON Junior Season VII', margin, 20.5);
+
+      y = 34;
+      doc.setTextColor(60, 60, 60);
+      doc.setFont('helvetica', 'italic');
+      doc.setFontSize(10.5);
+      doc.text('I, ' + studentName + ', pledge to follow these commitments:', margin, y);
+      y += 9;
+
+      function section(label, items) {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.setTextColor(31, 58, 95);
+        doc.text(label, margin, y);
+        y += 6;
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9.5);
+        doc.setTextColor(40, 40, 40);
+        items.forEach(function(item, i) {
+          var lines = doc.splitTextToSize((i + 1 + (label.indexOf('Additional') > -1 ? 5 : 0)) + '. ' + item, pageWidth - margin * 2 - 4);
+          doc.text(lines, margin + 2, y);
+          y += lines.length * 4.6 + 1.6;
+        });
+        y += 4;
+      }
+
+      section('CBSE Cyber Safety Pledge (Circular Acad-39/2026)', [
+        'I will always install mobile apps only from official websites or the Play Store.',
+        'I will not blindly trust social media groups or advertisements.',
+        'I will not trust calls from unknown numbers without verification.',
+        'I will always follow the principle of "Stop. Think. Then Take Action." for digital safety.',
+        'I will follow the Ministry of Home Affairs social media handle "Cyberdost" today and immediately.',
+      ]);
+
+      section('COMPUDON Junior Additional Commitments', [
+        'Think First. Before I click, before I share, before I trust anything I see online — I will stop and think.',
+        'I will protect my personal information and never share passwords — not even with close friends.',
+        'I will speak to a trusted adult immediately if I see or experience anything online that makes me uncomfortable.',
+        'I will question what I read and watch online — checking sources before I believe or share anything.',
+        'I will use AI tools honestly, verify what they tell me, and never use them to cheat or deceive.',
+        'I will be kind online and will never take part in, or stay silent about, bullying or harassment of any kind.',
+      ]);
+
+      y += 4;
+      doc.setDrawColor(210, 210, 210);
+      doc.line(margin, y, pageWidth - margin, y);
+      y += 10;
+
+      function sigLine(label, value) {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9.5);
+        doc.setTextColor(31, 58, 95);
+        doc.text(label, margin, y);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(40, 40, 40);
+        var labelW = doc.getTextWidth(label) + 3;
+        doc.text(value || '', margin + labelW, y);
+        doc.setDrawColor(150, 150, 150);
+        doc.line(margin + labelW, y + 1, pageWidth - margin, y + 1);
+        y += 10;
+      }
+
+      sigLine('Student Full Name:', studentName);
+      sigLine('Student Signature:', studentSig);
+      sigLine('Parent / Guardian Full Name:', parentName);
+      sigLine('Parent / Guardian Signature:', parentSig);
+      sigLine('Date:', new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' }));
+
+      y += 6;
+      doc.setDrawColor(230, 230, 230);
+      doc.line(margin, y, pageWidth - margin, y);
+      y += 7;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7.5);
+      doc.setTextColor(170, 170, 170);
+      doc.text('Pledge content prescribed by CBSE Circular Acad-39/2026 and the I4C / Ministry of Home Affairs Cybercrime Awareness Initiative.', margin, y);
+      y += 4;
+      doc.text('Prepared by COMPUDON Junior — compudonjunior.com', margin, y);
+
+      doc.save('Cyber_Safety_Pledge_' + studentName.replace(/\s+/g, '_') + '.pdf');
+    }
   </script>
 </body>
 </html>
