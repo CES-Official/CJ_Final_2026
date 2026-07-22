@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use — COMPUDON Junior</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1F3A5F;
+    --orange: #D2502A;
+    --teal:   #2C7A7B;
+    --cream:  #F4F1EC;
+    --green:  #2E7D32;
+    --navy-light: #E8EDF4;
+    --text:   #1a1a2e;
+    --muted:  #5a6272;
+    --border: #d5dce8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 18px 40px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .site-header .logo-mark {
+    width: 42px; height: 42px;
+    background: var(--orange); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: #fff; font-size: 13px; letter-spacing: -0.5px;
+    flex-shrink: 0;
+  }
+  .site-header .brand { color: #fff; }
+  .site-header .brand strong { font-size: 17px; font-weight: 700; display: block; }
+  .site-header .brand span  { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a4d78 100%);
+    padding: 56px 40px 52px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 50%, rgba(44,122,123,0.18) 0%, transparent 60%);
+  }
+  .hero .eyebrow {
+    display: inline-block;
+    background: rgba(210,80,42,0.18);
+    color: #f0a080;
+    border: 1px solid rgba(210,80,42,0.3);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 20px; position: relative;
+  }
+  .hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600; color: #fff;
+    line-height: 1.2; margin-bottom: 18px; position: relative;
+  }
+  .hero p {
+    font-size: 15px; color: rgba(255,255,255,0.78);
+    max-width: 600px; margin: 0 auto 10px; position: relative;
+  }
+  .hero .meta {
+    margin-top: 24px; display: flex; gap: 28px;
+    justify-content: center; flex-wrap: wrap; position: relative;
+  }
+  .hero .meta span { font-size: 12px; color: rgba(255,255,255,0.55); }
+  .hero .meta strong { color: rgba(255,255,255,0.85); }
+
+  /* ── COOKIE TYPES STRIP ── */
+  .cookie-types {
+    background: var(--cream);
+    border-top: 3px solid var(--orange);
+    border-bottom: 1px solid var(--border);
+    padding: 44px 40px;
+    text-align: center;
+  }
+  .cookie-types h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px; font-weight: 600; color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .cookie-types .sub { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+  .cookie-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px; max-width: 900px; margin: 0 auto;
+  }
+  .cookie-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 18px;
+    text-align: left;
+  }
+  .cookie-card .ct-icon { font-size: 24px; margin-bottom: 10px; }
+  .cookie-card .ct-label { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .cookie-card .ct-desc  { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  .badge-required {
+    display: inline-block; margin-top: 10px;
+    background: #e8f0e8; color: var(--green);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
+  }
+  .badge-optional {
+    display: inline-block; margin-top: 10px;
+    background: var(--navy-light); color: var(--navy);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .page-wrap {
+    max-width: 1020px; margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: linear-gradient(to right, var(--navy-light), #f0f4f9);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 44px 0 40px;
+    font-size: 15px; color: var(--navy);
+    font-style: italic;
+  }
+  .intro-box strong { font-style: normal; }
+
+  /* ── DOC META ── */
+  .doc-meta {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden; margin-bottom: 44px;
+  }
+  .doc-meta table { width: 100%; border-collapse: collapse; }
+  .doc-meta td { padding: 10px 18px; font-size: 13px; border-bottom: 1px solid var(--border); }
+  .doc-meta tr:last-child td { border-bottom: none; }
+  .doc-meta td:first-child { font-weight: 600; color: var(--navy); width: 38%; background: rgba(255,255,255,0.6); }
+  .doc-meta td:last-child  { color: var(--muted); }
+
+  /* ── SECTIONS ── */
+  .policy-section { margin-bottom: 44px; }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-num {
+    background: var(--navy); color: #fff;
+    font-size: 11px; font-weight: 700;
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-label h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px; font-weight: 600; color: var(--navy);
+  }
+  .rule { border: none; border-top: 1px solid var(--border); margin: 0 0 18px; }
+
+  .policy-section p  { margin-bottom: 14px; color: #2a2a3e; font-size: 14.5px; }
+  .policy-section ul { margin: 10px 0 16px 20px; }
+  .policy-section li { margin-bottom: 6px; font-size: 14.5px; color: #2a2a3e; }
+
+  .subsection { margin: 20px 0; }
+  .subsection h3 {
+    font-size: 14px; font-weight: 700;
+    color: var(--teal); text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 10px;
+    padding-bottom: 5px; border-bottom: 1px solid var(--border);
+  }
+
+  .highlight-box {
+    background: #fff8f6;
+    border: 1px solid rgba(210,80,42,0.25);
+    border-left: 3px solid var(--orange);
+    border-radius: 6px;
+    padding: 16px 20px; margin: 16px 0; font-size: 14px;
+  }
+  .highlight-box ul { margin: 8px 0 0 16px; }
+
+  /* ── PRIVACY LINK BOX ── */
+  .related-box {
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 20px 24px; margin: 40px 0;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .related-box .rb-icon { font-size: 28px; flex-shrink: 0; }
+  .related-box p { font-size: 14px; color: var(--navy); margin: 0; }
+  .related-box a { color: var(--teal); font-weight: 600; }
+
+  /* ── CONTACT BOX ── */
+  .contact-box {
+    background: var(--navy); color: #fff;
+    border-radius: 10px; padding: 28px 32px;
+    margin-top: 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .contact-box h3 { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .contact-box p  { font-size: 14.5px; margin-bottom: 6px; }
+  .contact-box a  { color: #80c8c9; }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 12.5px; color: var(--muted);
+  }
+  .page-footer strong { color: var(--navy); }
+  .footer-links { margin-top: 10px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .footer-links a { color: var(--teal); font-size: 12.5px; text-decoration: none; }
+  .footer-links a:hover { text-decoration: underline; }
+  .footer-sep { color: var(--border); }
+
+  @media (max-width: 680px) {
+    .site-header, .hero, .cookie-types, .page-wrap, .page-footer { padding-left: 20px; padding-right: 20px; }
+    .cookie-cards { grid-template-columns: 1fr 1fr; }
+    .contact-box { grid-template-columns: 1fr; }
+  }
+
+  /* ── CREDIBILITY BAR (matches homepage) ── */
+  .cred-bar { background: #0B1F3A; color: #fff; padding: 26px 40px; }
+  .cred-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px; max-width: 1160px; margin: 0 auto; }
+  .cred-stat { display: flex; flex-direction: column; }
+  .cred-stat b { font-family: 'Inter', sans-serif; font-size: 1.9rem; font-weight: 700; line-height: 1; }
+  .cred-stat span { font-size: 13px; color: rgba(255,255,255,.66); margin-top: 5px; }
+  .cred-div { width: 1px; height: 40px; background: rgba(255,255,255,.14); }
+  .cred-partners { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .04em; color: rgba(255,255,255,.7); line-height: 1.7; }
+  @media (max-width: 680px) {
+    .cred-bar { padding: 20px; }
+    .cred-div { display: none; }
+    .cred-wrap { justify-content: flex-start; gap: 16px 24px; }
+    .cred-stat b { font-size: 1.4rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+    <img src="assets/img/COMPUDON_Junior.png" alt="COMPUDON Junior" style="height:52px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.15));">
+    <div class="brand">
+      <strong>COMPUDON Junior</strong>
+      <span>A Programme of CyberLearning Educational Society (Regd.)</span>
+    </div>
+  </a>
+</header>
+
+<!-- CREDIBILITY BAR -->
+<div class="cred-bar">
+  <div class="cred-wrap">
+    <div class="cred-stat"><b>Season VII</b><span>Registrations Now Open</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>100,000+</b><span>Championship participants to date</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>500+</b><span>Institutions</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>Expanding Internationally</b><span>Season VII</span></div>
+    <div class="cred-div"></div>
+    <p class="cred-partners">Powered by a Microsoft Global Training Partner<br>Partner · National Digital Literacy Mission</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Season VII &middot; 2026</div>
+  <h1>Terms of Use</h1>
+  <p>Governing access to and use of the COMPUDON Junior platform, website, learning management system, assessments, competitions and related Services.</p>
+  <div class="meta">
+    <span><strong>Effective:</strong> 22 July 2026</span>
+    <span><strong>Last Updated:</strong> 22 July 2026</span>
+    <span><strong>Version:</strong> 1.0</span>
+    <span><strong>Next Review:</strong> 22 July 2027</span>
+  </div>
+</section>
+
+<div class="page-wrap">
+
+  <!-- INTRO BOX -->
+  <div class="intro-box">
+    These Terms of Use should be read together with the <strong><a href="privacy-policy.html" style="color: var(--teal); font-style: normal;">COMPUDON Junior Privacy Policy</a></strong> and <strong><a href="cookie-policy.html" style="color: var(--teal); font-style: normal;">Cookie Policy</a></strong>, which explain how Personal Data is collected, processed, shared, retained, and protected.
+  </div>
+
+  <!-- DOC META -->
+  <div class="doc-meta">
+    <table>
+      <tr><td>Document Title</td><td>Terms of Use &mdash; COMPUDON Junior Digital Citizenship &amp; Cyber Safety Championship</td></tr>
+      <tr><td>Approved By</td><td>Executive Committee, CyberLearning Educational Society (Regd.)</td></tr>
+      <tr><td>Document Owner</td><td>CyberLearning Educational Society (Regd.)</td></tr>
+      <tr><td>Review Frequency</td><td>Annual, or earlier if required</td></tr>
+      <tr><td>Contact</td><td><a href="mailto:connect@compudonjunior.com">connect@compudonjunior.com</a></td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">1</div>
+      <h2>Introduction and Platform Ownership</h2>
+    </div>
+    <hr class="rule">
+    <p>Welcome to COMPUDON Junior ("Platform"). These Terms of Use ("Terms") govern your access to and use of the COMPUDON Junior platform, website, learning management system (LMS), mobile applications, assessments, competitions, examinations, certifications, digital content, educational resources, and related services (collectively, the "Services").</p>
+    <p>COMPUDON Junior is an educational initiative designed to promote digital literacy, cyber safety, responsible use of technology, critical thinking, media literacy, artificial intelligence awareness, and digital citizenship among school students.</p>
+    <div class="subsection">
+      <h3>Platform Ownership, Infrastructure &amp; Strategic Partnership</h3>
+      <p>The COMPUDON Junior initiative and platform are owned, managed, and operated primarily by CyberLearning Educational Society ("Society" / "CES"), a registered society under applicable laws. India CyberLearning Pvt. Ltd. acts solely as a Knowledge, Innovation, and Technology Partner to the Society, assisting with curriculum design, platform innovation, technical infrastructure, and programme delivery.</p>
+    </div>
+    <div class="subsection">
+      <h3>Disclaimer on LMS Platform Ownership</h3>
+      <p>The Learning Management System (LMS) and associated assessment engine used to deliver online courses, quizzes, and examinations are third-party products operated and maintained by independent technology providers. The LMS platform is NOT owned, developed, or directly controlled by CyberLearning Educational Society (CES). Access to and performance of the LMS platform are subject to third-party technical availability and operational standards. Nothing in these Terms transfers ownership of third-party LMS software to CES, nor creates a legal partnership or joint venture between CES and third-party software vendors.</p>
+    </div>
+    <p>By accessing, registering for, or using the Platform, you acknowledge that you have read, understood, and agree to be legally bound by these Terms. If you do not agree with these Terms, you must not access or use the Platform.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">2</div>
+      <h2>Applicability</h2>
+    </div>
+    <hr class="rule">
+    <p>These Terms apply to every person or organisation accessing or using the Platform, including but not limited to:</p>
+    <ul>
+      <li>Students and Minors</li>
+      <li>Parents and Legal Guardians</li>
+      <li>Schools, Educational Institutions, and Boards</li>
+      <li>Teachers, Principals, and Coordinators</li>
+      <li>Corporate Sponsors and CSR Partners</li>
+      <li>Government Agencies and Authorities</li>
+      <li>Educational Partners, Volunteers, and Visitors</li>
+    </ul>
+    <p>Different services, competitions, or examinations may be subject to additional specific guidelines, competition rulebooks, or schedules. Where such additional terms apply, they form an integral part of these Terms.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">3</div>
+      <h2>Definitions</h2>
+    </div>
+    <hr class="rule">
+    <p><strong>&ldquo;User ID&rdquo;</strong> means a registered user account created for accessing the Platform or participating in Services.</p>
+    <p><strong>&ldquo;Competition&rdquo;</strong> means any district, state, national, international, or school-level championship, challenge, Olympiad, examination, assessment, quiz, or contest conducted through the Platform.</p>
+    <p><strong>&ldquo;Content&rdquo;</strong> means all text, graphics, test papers, question banks, videos, audio, images, software, assessment modules, learning material, reports, certificates, badges, logos, trademarks, designs, source code, and databases available through the Platform.</p>
+    <p><strong>&ldquo;LMS Platform&rdquo;</strong> means the third-party Learning Management System software, examination portal, and hosting infrastructure used by CES to deliver digital learning and assessments. The LMS platform is owned and maintained by third-party service providers and is not owned by CES.</p>
+    <p><strong>&ldquo;Minor&rdquo;</strong> means any individual who has not attained eighteen (18) years of age.</p>
+    <p><strong>&ldquo;Parent&rdquo;</strong> includes a natural parent, adoptive parent, legal guardian, or any person authorised under applicable law to provide consent on behalf of a Minor.</p>
+    <p><strong>&ldquo;Platform&rdquo;</strong> means the COMPUDON Junior website, mobile applications (when available), third-party LMS platform, assessment portal, and associated digital services operated or used by the Society.</p>
+    <p><strong>&ldquo;School&rdquo;</strong> includes any school, educational institution, coaching organisation, trust, government body, or educational authority using the Platform.</p>
+    <p><strong>&ldquo;User&rdquo;</strong> means every individual or organisation accessing or using the Platform.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">4</div>
+      <h2>Acceptance of Terms</h2>
+    </div>
+    <hr class="rule">
+    <p>By using the Platform, each User represents and warrants that:</p>
+    <ul>
+      <li>(a) They have the legal capacity and authority to enter into and abide by these Terms;</li>
+      <li>(b) They will comply with all applicable local, national, and international laws and regulations;</li>
+      <li>(c) They will use the Platform exclusively for lawful educational purposes;</li>
+      <li>(d) All information provided during registration is accurate, true, and complete; and</li>
+      <li>(e) They will promptly update any information that becomes outdated or inaccurate.</li>
+    </ul>
+    <p>Where the User is a Minor, these Terms shall be accepted by the Parent or the School acting with express authority before the Minor is permitted to access the Services.</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">5</div>
+      <h2>Eligibility and User ID Creation</h2>
+    </div>
+    <hr class="rule">
+    <p>The Platform is designed primarily for school students. A User may access the Platform only if they meet the eligibility criteria established for specific competitions or programmes.</p>
+    <p>Users are responsible for maintaining the confidentiality of their account credentials (usernames and passwords). Any activity conducted under a user account is the sole responsibility of the registered user, school, or parent. The Society reserves the right to suspend or terminate accounts that fail to satisfy eligibility requirements or that provide false information.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">6</div>
+      <h2>Parent Consent, School Authorisation, and DPDP Compliance</h2>
+    </div>
+    <hr class="rule">
+    <p>In compliance with the Digital Personal Data Protection (DPDP) Act, 2023 and other applicable data privacy laws, the processing of personal data of Minors requires verifiable parental consent.</p>
+    <div class="subsection">
+      <h3>School-Led Registration</h3>
+      <p>Where a student is registered through a participating School, the School acts as an authorised entity and represents that it has obtained verifiable written or digital consent from the student's Parent or legal guardian for participation and data processing. The Society reserves the right to inspect or request proof of such parental authorisations at any time.</p>
+    </div>
+    <div class="subsection">
+      <h3>Direct Registration</h3>
+      <p>Where a student registers directly, the Parent or legal guardian must provide direct verifiable consent as prescribed on the Platform.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">7</div>
+      <h2>Examination Rules, Fair Play, and Technical Disclaimers</h2>
+    </div>
+    <hr class="rule">
+    <p>To maintain academic integrity and a consistent standard of evaluation across all Competitions and assessments, all Users must adhere strictly to fair play guidelines:</p>
+    <ul>
+      <li>(a) <strong>Integrity:</strong> Impersonation, use of unauthorised help, artificial intelligence assistance, browser manipulation, screen sharing, or copying test materials is strictly prohibited.</li>
+      <li>(b) <strong>Proctored Examinations:</strong> Competitions may use automated or live proctoring. By participating, Users consent to video, audio, or system logging strictly for anti-cheating verification.</li>
+      <li>(c) <strong>Technical Disclaimers (User &amp; Third-Party LMS):</strong> CES and its Knowledge Partner are not responsible for exam interruptions, submission failures, or score losses resulting from user-side hardware faults, local internet outages, power cuts, or unforeseen third-party LMS server downtime.</li>
+      <li>(d) <strong>Finality of Results:</strong> Evaluation methodologies, rankings, cut-off scores, and award allocations determined by CES are final, non-negotiable, and binding on all participants.</li>
+      <li>(e) <strong>Disqualification:</strong> Any breach of examination rules shall lead to immediate disqualification, withholding of certificates, and potential bar from future events.</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">8</div>
+      <h2>Payment, Fees, and Refund Policy</h2>
+    </div>
+    <hr class="rule">
+    <p>Certain examinations, learning modules, or certifications may require payment of registration or processing fees. All fees are payable in advance through authorised payment gateways.</p>
+    <div class="highlight-box">
+      <strong>Non-Refundability:</strong> Registration fees paid for competitions, assessments, or resources are strictly non-refundable once paid, including in cases of non-attendance, disqualification, or technical difficulties on third-party LMS platforms. In the event of a double payment due to a payment gateway error, refunds shall be processed upon verification.
+    </div>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">9</div>
+      <h2>Intellectual Property Rights</h2>
+    </div>
+    <hr class="rule">
+    <p>All original Content available on the Platform, including question banks, curriculum designs, competition materials, logos, and trade names, is the intellectual property of CyberLearning Educational Society (CES) and/or its Knowledge Partner, India CyberLearning Pvt. Ltd. The underlying software, source code, and user interfaces of the third-party LMS platform remain the exclusive intellectual property of their respective third-party owners.</p>
+    <p>Users are granted a limited, non-exclusive, non-transferable licence to access material strictly for personal, non-commercial educational use. No part of the Content or third-party LMS software may be reproduced, reverse-engineered, scraped, distributed, or republished without prior written authorisation.</p>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">10</div>
+      <h2>Limitation of Liability and Disclaimers</h2>
+    </div>
+    <hr class="rule">
+    <p>The Platform and Services are provided on an &ldquo;AS IS&rdquo; and &ldquo;AS AVAILABLE&rdquo; basis. CES, its Knowledge Partner, and third-party LMS vendors make no warranties regarding uninterrupted platform availability, zero technical errors, or complete system uptime.</p>
+    <p>To the maximum extent permitted by law, CyberLearning Educational Society, India CyberLearning Pvt. Ltd., third-party LMS software providers, and their respective officers shall not be liable for any indirect, incidental, special, or consequential damages resulting from third-party LMS outages, server failure, or loss of examination data. The total monetary liability of CES to any user shall not exceed the exact fee amount paid by that user for the specific service.</p>
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">11</div>
+      <h2>Modifications to the Terms</h2>
+    </div>
+    <hr class="rule">
+    <p>The Society reserves the right to revise or update these Terms periodically to reflect changes in legal, technical, or educational standards. Updated Terms become effective immediately upon publication on the Platform. In case of material changes affecting user data or rights, appropriate notification will be provided on the Platform.</p>
+  </div>
+
+  <!-- SECTION 12 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">12</div>
+      <h2>Governing Law and Jurisdiction</h2>
+    </div>
+    <hr class="rule">
+    <p>These Terms shall be governed by and construed in accordance with the laws of India. Any legal dispute, controversy, or claim arising out of or in connection with these Terms, the Platform, or the Services shall be subject to the exclusive jurisdiction of the competent courts in New Delhi / Uttar Pradesh, India.</p>
+  </div>
+
+  <!-- SECTION 13 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">13</div>
+      <h2>Severability and Entire Agreement</h2>
+    </div>
+    <hr class="rule">
+    <p>If any provision of these Terms is found to be unlawful, void, or unenforceable by a court of competent jurisdiction, that provision shall be deemed severable and shall not affect the validity and enforceability of the remaining provisions. These Terms, together with specific competition rules, constitute the entire agreement between the User and CyberLearning Educational Society regarding the Platform.</p>
+  </div>
+
+  <!-- SECTION 14 -->
+  <div class="policy-section">
+    <div class="section-label">
+      <div class="section-num">14</div>
+      <h2>Contact</h2>
+    </div>
+    <hr class="rule">
+    <p>If you have any questions regarding these Terms of Use, please contact us:</p>
+    <p><strong>CyberLearning Educational Society (Regd.)</strong><br>
+    Grievance Officer: Ms. Shital Rai<br>
+    Email: <a href="mailto:connect@compudonjunior.com">connect@compudonjunior.com</a><br>
+    Website: <a href="https://www.compudonjunior.com" target="_blank">www.compudonjunior.com</a></p>
+  </div>
+
+  <!-- RELATED POLICY LINK -->
+  <div class="related-box">
+    <div class="rb-icon">&#128220;</div>
+    <p>These Terms of Use form part of a broader legal framework. Please also read our <a href="privacy-policy.html">Privacy Policy</a> and <a href="cookie-policy.html">Cookie Policy</a> for full details of how Personal Data is collected, processed, shared, retained, and protected across the COMPUDON Junior programme.</p>
+  </div>
+
+  <!-- CONTACT BOX -->
+  <div class="contact-box">
+    <div>
+      <h3>Grievance Officer</h3>
+      <p><strong>Ms. Shital Rai</strong></p>
+      <p><a href="mailto:connect@compudonjunior.com">connect@compudonjunior.com</a></p>
+    </div>
+    <div>
+      <h3>Copyright</h3>
+      <p style="font-size:13px; color: rgba(255,255,255,0.7);">Copyright &copy; 2026 CyberLearning Educational Society (Regd.). All rights reserved. These Terms of Use form part of the legal framework for the COMPUDON Junior programme.</p>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<div style="background:#0B1F3A;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+  <div>
+    <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);margin-bottom:6px;font-weight:600;">Presented by</p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:0;font-weight:500;">CyberLearning Educational Society (CES)</p>
+  </div>
+  <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:24px;">
+    <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);margin-bottom:10px;font-weight:600;">Knowledge, Technology &amp; Innovation Partner</p>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <img src="assets/img/CyberLearning_Logo.png" alt="CyberLearning" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+      <img src="assets/img/GTP_Landscape.png" alt="Microsoft in Education Global Training Partner" style="height:80px;width:auto;background:#fff;border-radius:8px;padding:8px 14px;">
+    </div>
+  </div>
+</div>
+<footer class="page-footer">
+  <p><strong>CyberLearning Educational Society (Regd.)</strong> · Terms of Use · Effective 22 July 2026</p>
+  <div class="footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <span class="footer-sep">|</span>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <span class="footer-sep">|</span>
+    <a href="terms.html">Terms of Use</a>
+    <span class="footer-sep">|</span>
+    <a href="mailto:connect@compudonjunior.com">connect@compudonjunior.com</a>
+    <span class="footer-sep">|</span>
+    <a href="https://www.compudonjunior.com" target="_blank">www.compudonjunior.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
