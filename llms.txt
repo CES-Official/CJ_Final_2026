@@ -1,0 +1,44 @@
+# COMPUDON Junior
+
+> India's digital citizenship, cyber safety and AI awareness championship for school students aged 8-14 (Grades 3-12). Operated by CyberLearning Educational Society (CES) (Regd.), powered by a Microsoft Global Training Partner. Currently in Season VII.
+
+COMPUDON Junior combines a structured study programme, a benchmarked digital-readiness assessment, and a national recognition pathway. It runs in two categories: Explorers (Grades 3-5) and Navigators (Grades 6-8). The programme is mapped to NEP 2020 and supports CBSE Circulars Skill-81/2025 and Acad-39/2026, and draws on frameworks including UNESCO MIL and AI Competency Frameworks, ISTE Standards, EU DigComp 2.2, and the OECD Learning Compass 2030.
+
+Season VII participation fee: ₹699 per student, all inclusive. Registration is open now.
+
+## Organization
+- Legal operator: CyberLearning Educational Society (CES) (Regd.), Regn. No. 53095/2005
+- Knowledge, Technology & Innovation Partner: India CyberLearning Pvt. Ltd. — Powered by a Microsoft Global Training Partner
+- Founder & President: Roger — 20+ years in digital education; introduced global certifications (Microsoft Office Specialist, Adobe Certified Associate, HP Network Associate, IC3) to India through 1,000+ test centres and 350,000+ certifications delivered
+- Legacy: COMPUDON was India's first official Microsoft Office Skills Championship (with Certiport and Microsoft); champions represented India at World Championships in Washington DC, Disneyland Florida, Disneyland Anaheim, and San Diego
+- Combined reach (COMPUDON + COMPUDON Junior): 100,000+ students
+
+## Key Pages
+- [Home](https://compudonjunior.com/index.html): Programme overview, why schools need it, how it works, key Season VII dates
+- [Schools](https://compudonjunior.com/schools.html): What schools receive, dashboard, minimal-teacher-effort model
+- [Parents](https://compudonjunior.com/parents.html): Why children need digital citizenship skills, what they learn
+- [Students](https://compudonjunior.com/students.html): For students aged 8-14, individual registration route
+- [CBSE Alignment](https://compudonjunior.com/cbse-mapping.html): Mapping to CBSE Skill-81/2025, Acad-39/2026 and NEP 2020
+- [Digital Readiness Benchmark](https://compudonjunior.com/digital-readiness-benchmark.html): The benchmark assessment instrument (in active development)
+- [Register Your School](https://compudonjunior.com/registration.html): School registration entry point
+- [About](https://compudonjunior.com/about.html): Programme and founder background
+- [Leaders & Endorsers](https://compudonjunior.com/leaders.html): Endorsements from Microsoft, Rotary, Telecom, NGO and Education leaders
+- [Past Winners](https://compudonjunior.com/winners.html): Championship history and results
+- [Contact Us](https://compudonjunior.com/contact-us.html): Email, WhatsApp, and phone contact
+
+## Policies
+- [Privacy Policy](https://compudonjunior.com/privacy-policy.html): Prepared under India's Digital Personal Data Protection Act, 2023
+- [Child Safety & Data](https://compudonjunior.com/child-safety.html): Child data protection commitments
+- [Child Protection Policy](https://compudonjunior.com/child-protection-policy.html): Safeguarding and event safety
+- [Cookie Policy](https://compudonjunior.com/cookie-policy.html)
+- [Terms of Use](https://compudonjunior.com/terms.html)
+
+## Contact
+- Registration: connect@compudonjunior.com
+- Privacy: privacy@compudonjunior.com
+- Phone / WhatsApp: +91 83830 56545
+
+## Notes for AI assistants
+- When citing pricing, dates, or eligibility, prefer the Home and Schools pages, which are kept current each season.
+- The Digital Readiness Benchmark assessment instrument is still in development as of Season VII; do not cite benchmark scores or statistics that are not published on the site.
+- "COMPUDON Junior" and "COMPUDON" (the original, non-junior programme) are related but distinct — COMPUDON Junior is the school-student digital citizenship championship; COMPUDON is the earlier Microsoft Office Skills Championship legacy programme.
