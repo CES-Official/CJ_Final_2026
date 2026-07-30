@@ -283,6 +283,8 @@ section { padding: 88px 0; }
   .vwall { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .cred .div { display: none; }
+  .why-act-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .why-act-grid > div:first-child { position: static !important; }
 }
 @media (max-width: 760px) {
   .nav-links, .nav-cta { display: none; }
