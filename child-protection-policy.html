@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Child Protection, Safeguarding &amp; Event Safety Policy — COMPUDON Junior</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1F3A5F;
+    --orange: #D2502A;
+    --teal:   #2C7A7B;
+    --cream:  #F4F1EC;
+    --green:  #2E7D32;
+    --navy-light: #E8EDF4;
+    --text:   #1a1a2e;
+    --muted:  #5a6272;
+    --border: #d5dce8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .site-header .logo-mark { display: none; }
+  .site-header .brand { color: #fff; }
+  .site-header .brand strong { font-size: 17px; font-weight: 700; display: block; }
+  .site-header .brand span  { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── PAGE HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a4d78 100%);
+    padding: 56px 40px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 50%, rgba(44,122,123,0.18) 0%, transparent 60%);
+  }
+  .hero .eyebrow {
+    display: inline-block;
+    background: rgba(210,80,42,0.18);
+    color: #f0a080;
+    border: 1px solid rgba(210,80,42,0.3);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 20px; position: relative;
+  }
+  .hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600; color: #fff;
+    line-height: 1.2; margin-bottom: 18px; position: relative;
+  }
+  .hero p {
+    font-size: 15px; color: rgba(255,255,255,0.78);
+    max-width: 640px; margin: 0 auto 10px; position: relative;
+  }
+  .hero .meta {
+    margin-top: 24px; display: flex; gap: 28px;
+    justify-content: center; flex-wrap: wrap; position: relative;
+  }
+  .hero .meta span {
+    font-size: 12px; color: rgba(255,255,255,0.55);
+  }
+  .hero .meta strong { color: rgba(255,255,255,0.85); }
+
+  /* ── COMMITMENT STRIP ── */
+  .commitment-strip {
+    background: var(--cream);
+    border-top: 3px solid var(--orange);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .commitment-strip h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px; font-weight: 600; color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .commitment-strip .intro-statement {
+    font-size: 14.5px; color: var(--muted);
+    max-width: 640px; margin: 0 auto 36px;
+  }
+  .commitment-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px; max-width: 900px; margin: 0 auto;
+  }
+  .commitment-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 16px;
+    text-decoration: none;
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 12px;
+  }
+  .commitment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(31,58,95,0.12);
+    border-color: var(--teal);
+  }
+  .commitment-card .icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .commitment-card .label {
+    font-size: 12.5px; font-weight: 600; color: var(--navy);
+    text-align: center; line-height: 1.35;
+  }
+
+  /* icon bg colors */
+  .ic-consent  { background: #e8f4f4; }
+  .ic-design   { background: #fff0eb; }
+  .ic-minimal  { background: #e8f0e8; }
+  .ic-children { background: #eef2f8; }
+  .ic-secure   { background: #fdf4e8; }
+  .ic-rights   { background: #f0e8f4; }
+
+  /* ── MAIN LAYOUT ── */
+  .page-wrap {
+    max-width: 1020px; margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: linear-gradient(to right, var(--navy-light), #f0f4f9);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 44px 0 40px;
+    font-size: 15px; color: var(--navy);
+    font-style: italic;
+  }
+  .intro-box strong { font-style: normal; }
+
+  /* ── DOCUMENT META TABLE ── */
+  .doc-meta {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 44px;
+  }
+  .doc-meta table { width: 100%; border-collapse: collapse; }
+  .doc-meta td {
+    padding: 10px 18px; font-size: 13px;
+    border-bottom: 1px solid var(--border);
+  }
+  .doc-meta tr:last-child td { border-bottom: none; }
+  .doc-meta td:first-child { font-weight: 600; color: var(--navy); width: 38%; background: rgba(255,255,255,0.6); }
+  .doc-meta td:last-child  { color: var(--muted); }
+
+  /* ── SECTION HEADINGS ── */
+  .policy-section { margin-bottom: 44px; }
+  .section-label {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-num {
+    background: var(--navy);
+    color: #fff; font-size: 11px; font-weight: 700;
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-label h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px; font-weight: 600; color: var(--navy);
+  }
+  .rule { border: none; border-top: 1px solid var(--border); margin: 0 0 18px; }
+
+  /* ── BODY TEXT ── */
+  .policy-section p { margin-bottom: 14px; color: #2a2a3e; font-size: 14.5px; }
+  .policy-section ul, .policy-section ol {
+    margin: 10px 0 16px 20px;
+  }
+  .policy-section li { margin-bottom: 6px; font-size: 14.5px; color: #2a2a3e; }
+
+  /* ── SUBSECTION ── */
+  .subsection { margin: 20px 0; }
+  .subsection h3 {
+    font-size: 14px; font-weight: 700;
+    color: var(--teal); text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 10px;
+    padding-bottom: 5px; border-bottom: 1px solid var(--border);
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: #fff8f6;
+    border: 1px solid rgba(210,80,42,0.25);
+    border-left: 3px solid var(--orange);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .highlight-box ul { margin: 8px 0 0 16px; }
+
+  /* ── ANNEXURES ── */
+  .annexures-section { margin-top: 56px; }
+  .annexures-section h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px; font-weight: 600; color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .annexures-section .sub-note {
+    font-size: 13px; color: var(--muted); margin-bottom: 28px;
+  }
+
+  .annexure {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .annexure-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    background: var(--navy-light);
+    cursor: pointer;
+    user-select: none;
+    gap: 12px;
+  }
+  .annexure-header:hover { background: #dce5f0; }
+  .annexure-title {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .ann-badge {
+    background: var(--navy); color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+    padding: 3px 10px; border-radius: 4px; flex-shrink: 0;
+  }
+  .ann-name { font-weight: 600; font-size: 14.5px; color: var(--navy); }
+  .ann-chevron {
+    font-size: 11px; color: var(--teal);
+    transition: transform 0.2s; flex-shrink: 0;
+  }
+  .annexure.open .ann-chevron { transform: rotate(180deg); }
+  .annexure-body {
+    display: none; padding: 24px 28px;
+    background: #fff; font-size: 14px; color: #2a2a3e;
+    border-top: 1px solid var(--border);
+  }
+  .annexure.open .annexure-body { display: block; }
+  .annexure-body p { margin-bottom: 12px; }
+  .annexure-body ul, .annexure-body ol { margin: 8px 0 14px 20px; }
+  .annexure-body li { margin-bottom: 5px; }
+  .annexure-body h3 {
+    font-size: 13.5px; font-weight: 700; color: var(--teal);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin: 18px 0 10px; padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Retention table */
+  .ret-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+  .ret-table th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .ret-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .ret-table tr:nth-child(even) td { background: var(--cream); }
+
+  /* ── GRIEVANCE OFFICER BOX ── */
+  .grievance-box {
+    background: var(--navy);
+    color: #fff; border-radius: 10px;
+    padding: 28px 32px; margin-top: 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .grievance-box h3 { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .grievance-box p  { font-size: 14.5px; margin-bottom: 6px; }
+  .grievance-box a  { color: #80c8c9; }
+  .grievance-box .col { }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 12.5px; color: var(--muted);
+  }
+  .page-footer strong { color: var(--navy); }
+
+  @media (max-width: 680px) {
+    .site-header, .hero, .commitment-strip, .page-wrap, .page-footer { padding-left: 20px; padding-right: 20px; }
+    .commitment-cards { grid-template-columns: repeat(2, 1fr); }
+    .grievance-box { grid-template-columns: 1fr; }
+    .doc-meta td:first-child { width: 46%; }
+  }
+
+  /* ── CREDIBILITY BAR (matches homepage) ── */
+  .cred-bar { background: #0B1F3A; color: #fff; padding: 26px 40px; }
+  .cred-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px; max-width: 1160px; margin: 0 auto; }
+  .cred-stat { display: flex; flex-direction: column; }
+  .cred-stat b { font-family: 'Inter', sans-serif; font-size: 1.9rem; font-weight: 700; line-height: 1; }
+  .cred-stat span { font-size: 13px; color: rgba(255,255,255,.66); margin-top: 5px; }
+  .cred-div { width: 1px; height: 40px; background: rgba(255,255,255,.14); }
+  .cred-partners { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .04em; color: rgba(255,255,255,.7); line-height: 1.7; }
+  @media (max-width: 680px) {
+    .cred-bar { padding: 20px; }
+    .cred-div { display: none; }
+    .cred-wrap { justify-content: flex-start; gap: 16px 24px; }
+    .cred-stat b { font-size: 1.4rem; }
+  }
+
+</style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Child Protection, Safeguarding & Event Safety Policy — COMPUDON Junior", "url": "https://compudonjunior.com/child-protection-policy.html", "description": "COMPUDON Junior's Child Protection, Safeguarding and Event Safety Policy for students, schools and event participants.", "isPartOf": {"@type": "EducationalOrganization", "name": "COMPUDON Junior", "url": "https://compudonjunior.com"}}
+  </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+    <img src="assets/img/COMPUDON_Junior.png" alt="COMPUDON Junior" style="height:52px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.15));">
+    <div class="brand">
+      <strong>COMPUDON Junior</strong>
+      <span>A Program of CyberLearning Educational Society (Regd.)</span>
+    </div>
+  </a>
+</header>
+
+<!-- CREDIBILITY BAR -->
+<div class="cred-bar">
+  <div class="cred-wrap">
+    <div class="cred-stat"><b>Season VII</b><span>Registrations Now Open</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>100,000+</b><span>Participants to date · both programs combined</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>500+</b><span>Institutions to date · both programs combined</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-stat"><b>Expanding Internationally</b><span>Season VII</span></div>
+    <div class="cred-div"></div>
+    <p class="cred-partners">Powered by a Microsoft Global Training Partner<br>Partner · National Digital Literacy Mission</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Season VII · 2026</div>
+  <h1>Child Protection, Safeguarding &amp; Event Safety Policy</h1>
+  <p>COMPUDON Junior is committed to providing a safe, respectful and secure environment for every participating student, whether the activity is conducted online or in person.</p>
+  <div class="meta">
+    <span><strong>Effective:</strong> 1 August 2026</span>
+    <span><strong>Version:</strong> 1.0</span>
+    <span><strong>Approved by:</strong> Managing Committee, CES</span>
+    <span><strong>Next Review:</strong> 31 July 2027</span>
+  </div>
+</section>
+
+
+<div class="page-wrap">
+
+  <div class="intro-box">
+    This Policy forms part of the safeguarding governance framework of <strong>CyberLearning Educational Society (Regd.)</strong> and should be read together with the COMPUDON Junior Privacy Policy, Terms of Use, and the consent and declaration forms referenced in the Appendices below.
+  </div>
+
+  <div class="doc-meta">
+    <table>
+      <tr><td>Document Title</td><td>Child Protection, Safeguarding &amp; Event Safety Policy — COMPUDON Junior</td></tr>
+      <tr><td>Approved By</td><td>Managing Committee, CyberLearning Educational Society (Regd.)</td></tr>
+      <tr><td>Document Owner</td><td>CyberLearning Educational Society (Regd.)</td></tr>
+      <tr><td>Review Frequency</td><td>Annual, or earlier if required</td></tr>
+      <tr><td>Report a Concern</td><td><a href="mailto:support@compudonjunior.com">support@compudonjunior.com</a></td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="policy-section" id="section-1">
+    <div class="section-label">
+      <div class="section-num">1</div>
+      <h2>Purpose</h2>
+    </div>
+    <hr class="rule">
+    <p>COMPUDON Junior is committed to providing a safe, respectful and secure environment for all participating students. This Policy establishes the safeguarding principles, responsibilities and procedures applicable to all COMPUDON Junior activities, whether conducted online or in person.</p>
+
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="policy-section" id="section-2">
+    <div class="section-label">
+      <div class="section-num">2</div>
+      <h2>Scope</h2>
+    </div>
+    <hr class="rule">
+    <p>This Policy applies to:</p>
+    <ul>
+      <li>All participating students.</li>
+      <li>Parents and guardians.</li>
+      <li>Participating schools and coordinators.</li>
+      <li>Employees, consultants, judges, volunteers and event personnel.</li>
+      <li>National, regional and other physical events organized by COMPUDON Junior.</li>
+      <li>Online registrations, assessments and related activities.</li>
+    </ul>
+
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="policy-section" id="section-3">
+    <div class="section-label">
+      <div class="section-num">3</div>
+      <h2>Guiding Principles</h2>
+    </div>
+    <hr class="rule">
+    <p>COMPUDON Junior shall:</p>
+    <ul>
+      <li>Place the safety and well-being of every student as a priority.</li>
+      <li>Treat every student with dignity, fairness and respect.</li>
+      <li>Maintain a safe and inclusive environment free from abuse, harassment, bullying and discrimination.</li>
+      <li>Protect the privacy and confidentiality of student information.</li>
+      <li>Promptly address safeguarding concerns.</li>
+    </ul>
+
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="policy-section" id="section-4">
+    <div class="section-label">
+      <div class="section-num">4</div>
+      <h2>Background Verification</h2>
+    </div>
+    <hr class="rule">
+    <p>All employees, consultants, volunteers, judges and event personnel having direct interaction with students during physical events shall undergo appropriate identity verification and background verification before assignment to such roles.</p>
+
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="policy-section" id="section-5">
+    <div class="section-label">
+      <div class="section-num">5</div>
+      <h2>Code of Conduct</h2>
+    </div>
+    <hr class="rule">
+    <p>Personnel associated with COMPUDON Junior shall:</p>
+    <ul>
+      <li>Behave professionally at all times.</li>
+      <li>Treat every student respectfully and without discrimination.</li>
+      <li>Avoid one-to-one isolated interaction with students wherever reasonably possible.</li>
+      <li>Avoid unnecessary physical contact.</li>
+      <li>Not request or exchange personal contact details with students.</li>
+      <li>Not communicate privately with students through personal social media or messaging platforms.</li>
+      <li>Immediately report any safeguarding concern.</li>
+    </ul>
+
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="policy-section" id="section-6">
+    <div class="section-label">
+      <div class="section-num">6</div>
+      <h2>Parent and School Responsibilities</h2>
+    </div>
+    <hr class="rule">
+    <p>Participating schools and parents shall:</p>
+    <ul>
+      <li>Ensure the accuracy of student information submitted.</li>
+      <li>Obtain all required parental permissions.</li>
+      <li>Inform COMPUDON Junior of any medical conditions or special assistance requirements.</li>
+      <li>Ensure that students comply with event instructions.</li>
+    </ul>
+
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="policy-section" id="section-7">
+    <div class="section-label">
+      <div class="section-num">7</div>
+      <h2>Student Supervision</h2>
+    </div>
+    <hr class="rule">
+    <p>Students attending physical events shall remain under the supervision of:</p>
+    <ul>
+      <li>Their parent or legal guardian; or</li>
+      <li>An authorized school representative.</li>
+    </ul>
+    <p>COMPUDON Junior personnel shall not assume guardianship or custodial responsibility for any participating student.</p>
+
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="policy-section" id="section-8">
+    <div class="section-label">
+      <div class="section-num">8</div>
+      <h2>Consent Requirements</h2>
+    </div>
+    <hr class="rule">
+    <p>Participation in physical events may require:</p>
+    <ul>
+      <li>Parent/guardian consent.</li>
+      <li>Medical information declaration.</li>
+      <li>Emergency contact details.</li>
+      <li>Authorized chaperone declaration.</li>
+      <li>Photography and media consent.</li>
+    </ul>
+
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="policy-section" id="section-9">
+    <div class="section-label">
+      <div class="section-num">9</div>
+      <h2>Photography and Media</h2>
+    </div>
+    <hr class="rule">
+    <p>Photographs, videos, names or achievements of participating students shall be published only where appropriate consent has been obtained.</p>
+    <p>Parents or eligible participants may withdraw publication consent by submitting a written request. Reasonable efforts shall be made to remove such content from COMPUDON Junior-controlled platforms within a reasonable period.</p>
+
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="policy-section" id="section-10">
+    <div class="section-label">
+      <div class="section-num">10</div>
+      <h2>Event Safety</h2>
+    </div>
+    <hr class="rule">
+    <p>For physical events, COMPUDON Junior shall, as appropriate:</p>
+    <ul>
+      <li>Register participants upon arrival.</li>
+      <li>Restrict access to authorized persons.</li>
+      <li>Maintain emergency contact information.</li>
+      <li>Provide access to first aid arrangements.</li>
+      <li>Maintain emergency evacuation procedures.</li>
+      <li>Record and respond to safety incidents.</li>
+    </ul>
+
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="policy-section" id="section-11">
+    <div class="section-label">
+      <div class="section-num">11</div>
+      <h2>Event Insurance</h2>
+    </div>
+    <hr class="rule">
+    <p>COMPUDON Junior shall obtain appropriate event insurance for National Finals and such other physical events as may be determined necessary. Details of such coverage may be shared with participating institutions upon request.</p>
+
+  </div>
+
+  <!-- SECTION 12 -->
+  <div class="policy-section" id="section-12">
+    <div class="section-label">
+      <div class="section-num">12</div>
+      <h2>Medical Emergencies</h2>
+    </div>
+    <hr class="rule">
+    <p>In the event of a medical emergency:</p>
+    <ul>
+      <li>Immediate assistance shall be arranged.</li>
+      <li>Parents, guardians or the authorized school representative shall be informed as soon as reasonably practicable.</li>
+      <li>Emergency medical services shall be contacted whenever considered necessary.</li>
+      <li>An incident record shall be maintained.</li>
+    </ul>
+
+  </div>
+
+  <!-- SECTION 13 -->
+  <div class="policy-section" id="section-13">
+    <div class="section-label">
+      <div class="section-num">13</div>
+      <h2>Online Safety and Privacy</h2>
+    </div>
+    <hr class="rule">
+    <p>Student information shall be collected, processed and protected in accordance with the <a href="privacy-policy.html">COMPUDON Junior Privacy Policy</a>.</p>
+    <p>COMPUDON Junior shall:</p>
+    <ul>
+      <li>Implement reasonable technical and organizational safeguards.</li>
+      <li>Restrict access to authorized personnel.</li>
+      <li>Never sell student personal data.</li>
+      <li>Use third-party service providers only for legitimate service delivery under appropriate contractual safeguards.</li>
+    </ul>
+
+  </div>
+
+  <!-- SECTION 14 -->
+  <div class="policy-section" id="section-14">
+    <div class="section-label">
+      <div class="section-num">14</div>
+      <h2>Reporting Safeguarding Concerns</h2>
+    </div>
+    <hr class="rule">
+    <p>Any person may report concerns relating to:</p>
+    <ul>
+      <li>Child safety.</li>
+      <li>Abuse or harassment.</li>
+      <li>Bullying.</li>
+      <li>Inappropriate conduct.</li>
+      <li>Safety incidents.</li>
+    </ul>
+    <p>Reports may be submitted to: <a href="mailto:support@compudonjunior.com">support@compudonjunior.com</a></p>
+    <p>All reports shall be treated confidentially and reviewed promptly.</p>
+
+  </div>
+
+  <!-- SECTION 15 -->
+  <div class="policy-section" id="section-15">
+    <div class="section-label">
+      <div class="section-num">15</div>
+      <h2>Policy Violations</h2>
+    </div>
+    <hr class="rule">
+    <p>Violation of this Policy may result in:</p>
+    <ul>
+      <li>Removal from the event.</li>
+      <li>Disqualification.</li>
+      <li>Restriction from future participation.</li>
+      <li>Termination of engagement of personnel or volunteers.</li>
+      <li>Reporting to appropriate authorities where required by law.</li>
+    </ul>
+
+  </div>
+
+  <!-- SECTION 16 -->
+  <div class="policy-section" id="section-16">
+    <div class="section-label">
+      <div class="section-num">16</div>
+      <h2>Review</h2>
+    </div>
+    <hr class="rule">
+    <p>This Policy shall be reviewed periodically and may be amended by COMPUDON Junior whenever considered necessary.</p>
+
+  </div>
+
+  <!-- APPENDICES -->
+  <div class="policy-section" id="appendices">
+    <div class="section-label">
+      <div class="section-num">A–F</div>
+      <h2>Appendices</h2>
+    </div>
+    <hr class="rule">
+    <p>The following forms and declarations are issued alongside physical event registration and are available on request from <a href="mailto:support@compudonjunior.com">support@compudonjunior.com</a>:</p>
+    <ul>
+      <li>Appendix A — Parent/Guardian Consent Form</li>
+      <li>Appendix B — Medical Information Declaration</li>
+      <li>Appendix C — Authorized Chaperone Declaration</li>
+      <li>Appendix D — Photography and Media Consent</li>
+      <li>Appendix E — Incident Report Form</li>
+      <li>Appendix F — Emergency Response Procedure</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer class="page-footer">
+  <p><strong>CyberLearning Educational Society (Regd.)</strong> · Child Protection, Safeguarding &amp; Event Safety Policy v1.0 · Effective 1 August 2026<br>
+  Copyright © 2026 CyberLearning Educational Society (Regd.). All rights reserved. COMPUDON Junior is a program of CyberLearning Educational Society (Regd.), powered by a Microsoft Global Training Partner.<br>
+  Regn. No. 53095/2005</p>
+  <div style="margin-top: 12px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+    <a href="child-safety.html" style="color: var(--teal); font-size: 12.5px; text-decoration: none;">Child Safety &amp; Data</a>
+    <span style="color: var(--border);">|</span>
+    <a href="privacy-policy.html" style="color: var(--teal); font-size: 12.5px; text-decoration: none;">Privacy Policy</a>
+    <span style="color: var(--border);">|</span>
+    <a href="terms.html" style="color: var(--teal); font-size: 12.5px; text-decoration: none;">Terms of Use</a>
+    <span style="color: var(--border);">|</span>
+    <a href="mailto:support@compudonjunior.com" style="color: var(--teal); font-size: 12.5px; text-decoration: none;">support@compudonjunior.com</a>
+  </div>
+</footer>
+
+
+</body>
+</html>

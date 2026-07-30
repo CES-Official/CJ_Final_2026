@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students — COMPUDON Junior</title>
+  <meta name="description" content="COMPUDON Junior for students aged 8-14. Learn digital citizenship, AI literacy, cyber safety, and critical thinking. Compete, earn recognition, and become a Think First champion.">
+  <link rel="canonical" href="https://compudonjunior.com/students.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Students — COMPUDON Junior">
+  <meta property="og:description" content="Think First. Compete in digital citizenship, AI literacy, and cyber safety. Ages 8-14.">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/compudon.css">
+  <style>
+  /* ── Students page extras ── */
+  .stu-hero {
+    background: linear-gradient(135deg, var(--ink) 0%, #1a3a5c 100%);
+    color: #fff;
+    padding: 80px 0 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stu-hero::after {
+    content: '';
+    position: absolute;
+    top: -60%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(15,110,86,.15);
+    pointer-events: none;
+  }
+  .stu-hero .wrap {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .stu-hero .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--sky);
+    display: block;
+    margin-bottom: 12px;
+  }
+  .stu-hero h1 {
+    color: #fff;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin-bottom: 18px;
+  }
+  .stu-hero h1 .accent {
+    color: var(--sky);
+  }
+  .stu-hero .lede {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,.8);
+    max-width: 48ch;
+    margin-bottom: 24px;
+  }
+  .stu-hero .pledge-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    text-align: center;
+  }
+  .stu-hero .pledge-card .tf {
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .stu-hero .pledge-card .tf span {
+    color: var(--sky);
+  }
+  .stu-hero .pledge-card p {
+    font-size: .92rem;
+    color: rgba(255,255,255,.7);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .stu-hero .pledge-card .steps {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .stu-hero .pledge-card .step {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    flex: 1;
+    max-width: 120px;
+  }
+  .stu-hero .pledge-card .step .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--sky);
+    letter-spacing: .08em;
+    margin-bottom: 4px;
+  }
+  .stu-hero .pledge-card .step .label {
+    font-family: var(--display);
+    font-size: .85rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .levels {
+    background: var(--paper-2);
+  }
+  .level-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .level-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .level-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .level-card.explorers::before { background: var(--sky); }
+  .level-card.navigators::before { background: var(--green); }
+  .level-card .badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .level-card.explorers .badge {
+    background: var(--sky-tint);
+    color: var(--navy);
+  }
+  .level-card.navigators .badge {
+    background: var(--green-tint);
+    color: var(--green);
+  }
+  .level-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  .level-card p {
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.7;
+  }
+  .level-card .topics {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .level-card .topic-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: var(--muted);
+  }
+
+  .journey-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    counter-reset: journey;
+  }
+  .journey-step {
+    text-align: center;
+    counter-increment: journey;
+    position: relative;
+  }
+  .journey-step::before {
+    content: counter(journey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--green-tint);
+    color: var(--green);
+    font-family: var(--display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 auto 14px;
+  }
+  .journey-step h4 {
+    font-size: .95rem;
+    margin-bottom: 6px;
+  }
+  .journey-step p {
+    font-size: .85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .ambassador {
+    background: linear-gradient(135deg, #0B1F3A 0%, #1a3a5c 100%);
+    color: #fff;
+  }
+  .ambassador .section-head h2,
+  .ambassador .section-head .eyebrow {
+    color: #fff;
+  }
+  .ambassador .section-head .eyebrow {
+    color: var(--sky);
+  }
+  .ambassador .section-head p {
+    color: rgba(255,255,255,.7);
+  }
+  .ambassador .amb-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 36px;
+  }
+  .ambassador .amb-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius);
+    padding: 24px 22px;
+  }
+  .ambassador .amb-card h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .ambassador .amb-card p {
+    color: rgba(255,255,255,.65);
+    font-size: .9rem;
+    line-height: 1.6;
+  }
+  .ambassador .amb-apply {
+    margin-top: 36px;
+    text-align: center;
+  }
+  .ambassador .amb-apply p {
+    color: rgba(255,255,255,.6);
+    font-size: .9rem;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .stu-hero .wrap { grid-template-columns: 1fr; }
+    .stu-hero .pledge-card .steps { flex-wrap: wrap; }
+    .level-grid { grid-template-columns: 1fr; }
+    .journey-steps { grid-template-columns: 1fr 1fr; }
+    .ambassador .amb-grid { grid-template-columns: 1fr; }
+  }
+  </style>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Students — COMPUDON Junior","url":"https://compudonjunior.com/students.html","description":"COMPUDON Junior for students aged 8-14. Learn digital citizenship, AI literacy, cyber safety, and critical thinking. Compete, earn recognition, and become a Think First champion.","isPartOf":{"@type":"EducationalOrganization","name":"COMPUDON Junior","url":"https://compudonjunior.com"}}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="COMPUDON Junior home">
+        <img src="assets/img/COMPUDON_Junior.png" alt="COMPUDON Junior" style="height:48px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.15));"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+        <span class="brand-fallback">COMPUDON <b>Junior</b></span>
+      </a>
+      <ul class="nav-links">
+        <li><a id="nav-home" class="active" href="index.html">Home</a></li>
+        <li class="has-drop">
+          <a href="#" aria-haspopup="true">Statistics</a>
+          <ul class="drop">
+            <li><a href="https://map.compudonjunior.com" target="_blank" rel="noopener">Cyberbullying map</a></li>
+            <li><a href="gaming_chart.html">Gaming &amp; data</a></li>
+            <li><a href="time_spent.html">Social media</a></li>
+          </ul>
+        </li>
+        <li><a id="nav-objectives" href="objectives.html">Objectives</a></li>
+        <li><a id="nav-schools" href="schools.html">Schools</a></li>
+        <li><a id="nav-parents" href="parents.html">Parents</a></li>
+        <li><a id="nav-hall" href="hall_of_fame.html">Hall of Fame</a></li>
+        <li><a id="nav-advisory" href="advisory_board_new.html">Advisory Board</a></li>
+        <li><a id="nav-prizes" href="prizes.html">Prizes</a></li>
+      </ul>
+      <a class="btn btn-primary nav-cta" href="registration.html">Register</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ════════ HERO ════════ -->
+  <section class="stu-hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">For Students · Ages 8–14</span>
+        <h1>You're the generation that <span class="accent">thinks first</span></h1>
+        <p class="lede">Fake news, online tricks, AI that makes stuff up — you'll learn to spot all of it. COMPUDON Junior is a championship that makes you the smartest person in the room when it comes to the digital world.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="registration.html" style="background:var(--green);">
+            <svg style="width:18px;height:18px;margin-right:6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Join the championship
+          </a>
+        </div>
+      </div>
+      <div class="pledge-card reveal">
+        <p class="tf">Think <span>First.</span></p>
+        <p>Three habits that make you unbeatable online:</p>
+        <div class="steps">
+          <div class="step">
+            <div class="num">01</div>
+            <div class="label">Stop</div>
+          </div>
+          <div class="step">
+            <div class="num">02</div>
+            <div class="label">Ask Why</div>
+          </div>
+          <div class="step">
+            <div class="num">03</div>
+            <div class="label">Try</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ WHAT YOU'LL LEARN ════════ -->
+  <section>
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">What you'll learn</span>
+        <h2>Six skills that change how you see the internet</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <div class="badge-ico" style="background:#FBEAEA;color:#B42318;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke-linejoin="round"/><path d="M12 8v4m0 4h.01" stroke-linecap="round"/></svg></div>
+          <h3>Online Safety</h3>
+          <p>Spot fake profiles, handle cyberbullying, and know exactly what to do when something feels wrong online.</p>
+        </div>
+        <div class="card reveal">
+          <div class="badge-ico" style="background:#EEEBFB;color:#5B4BC4;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5m0 3h.01" stroke-linecap="round"/></svg></div>
+          <h3>Fake News Detection</h3>
+          <p>Learn to question headlines, check sources, and never fall for a fake story again. Your friends will come to you for fact-checks.</p>
+        </div>
+        <div class="card reveal">
+          <div class="badge-ico" style="background:var(--sky-tint);color:var(--navy);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c1 3-1 4-1 6a3 3 0 006 0c0-1-.5-2-1-3 2 1 4 4 4 7a7 7 0 01-14 0c0-4 3-6 6-10z" stroke-linejoin="round"/></svg></div>
+          <h3>AI Literacy</h3>
+          <p>Understand how AI actually works, why it sometimes gets things wrong, and how to use it without being fooled by it.</p>
+        </div>
+        <div class="card reveal">
+          <div class="badge-ico" style="background:var(--green-tint);color:var(--green);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Privacy &amp; Identity</h3>
+          <p>Your data is yours. Learn what to share, what to keep private, and why your digital footprint matters more than you think.</p>
+        </div>
+        <div class="card reveal">
+          <div class="badge-ico" style="background:#FBF0E4;color:#B4650B;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" stroke-linejoin="round"/></svg></div>
+          <h3>Media Literacy</h3>
+          <p>Understand how content is designed to grab your attention, and learn to choose what deserves your time.</p>
+        </div>
+        <div class="card reveal">
+          <div class="badge-ico" style="background:#E8F4FB;color:#1a5276;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <h3>Critical Thinking</h3>
+          <p>The skill behind every other skill. Learn to slow down, ask better questions, and make decisions you're proud of.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TWO LEVELS ════════ -->
+  <section class="levels">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Two levels</span>
+        <h2>Pick your level</h2>
+      </div>
+      <div class="level-grid">
+        <div class="level-card explorers reveal">
+          <span class="badge">Explorers</span>
+          <h3>Grades 3–5 · Ages 8–11</h3>
+          <p>Your first step into digital citizenship. Learn through stories, puzzles, and real-life scenarios that make online safety feel natural — not scary.</p>
+          <div class="topics">
+            <span class="topic-tag">Online safety</span>
+            <span class="topic-tag">Privacy basics</span>
+            <span class="topic-tag">Spotting tricks</span>
+            <span class="topic-tag">AI basics</span>
+            <span class="topic-tag">Kind communication</span>
+          </div>
+        </div>
+        <div class="level-card navigators reveal">
+          <span class="badge">Navigators</span>
+          <h3>Grades 6+ · Ages 11–14</h3>
+          <p>Go deeper. Tackle misinformation, understand AI biases, analyze media manipulation, and build the judgment that sets you apart.</p>
+          <div class="topics">
+            <span class="topic-tag">Fake news analysis</span>
+            <span class="topic-tag">AI limitations</span>
+            <span class="topic-tag">Media manipulation</span>
+            <span class="topic-tag">Digital identity</span>
+            <span class="topic-tag">Responsible AI</span>
+            <span class="topic-tag">Psychological biases</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ HOW IT WORKS ════════ -->
+  <section>
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Your journey</span>
+        <h2>How it works</h2>
+      </div>
+      <div class="journey-steps">
+        <div class="journey-step reveal">
+          <h4>Register</h4>
+          <p>Through your school or individually with a parent. Takes two minutes.</p>
+        </div>
+        <div class="journey-step reveal">
+          <h4>Prepare</h4>
+          <p>Study with the COMPUDON Junior book, stories, and practice questions.</p>
+        </div>
+        <div class="journey-step reveal">
+          <h4>Compete</h4>
+          <p>Take the championship exam. Show what you know — school, state, national, international levels.</p>
+        </div>
+        <div class="journey-step reveal">
+          <h4>Earn recognition</h4>
+          <p>Certificates, awards, and the chance to become a COMPUDON Junior Champion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ WHAT YOU WIN ════════ -->
+  <section style="background:var(--paper-2);">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">What you earn</span>
+        <h2>More than a certificate</h2>
+      </div>
+      <div class="grid grid-4">
+        <div class="card reveal">
+          <div class="badge-ico" style="font-size:1.4rem;">🏆</div>
+          <h3>Championship titles</h3>
+          <p>School Champion, State Champion, National Champion — earn titles that go on your record.</p>
+        </div>
+        <div class="card reveal">
+          <div class="badge-ico" style="font-size:1.4rem;">📜</div>
+          <h3>Certificates</h3>
+          <p>Digital certificates for every participant. Top performers get special recognition.</p>
+        </div>
+        <div class="card reveal">
+          <div class="badge-ico" style="font-size:1.4rem;">🌍</div>
+          <h3>International stage</h3>
+          <p>Qualify for the international round and represent your country against students from five nations.</p>
+        </div>
+        <div class="card reveal">
+          <div class="badge-ico" style="font-size:1.4rem;">📖</div>
+          <h3>Free values book</h3>
+          <p>"Log In to Your Life" — an A–Z guide to digital-life character — free with every registration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ AMBASSADOR PROGRAM ════════ -->
+  <section class="ambassador">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">ICCJ Ambassador Program</span>
+        <h2>Become the voice of digital citizenship at your school</h2>
+        <p>Past champions can apply to become official ICCJ Student Ambassadors — representing the program, mentoring younger students, and building their leadership profile.</p>
+      </div>
+      <div class="amb-grid">
+        <div class="amb-card reveal">
+          <h4>🪪 Official recognition</h4>
+          <p>Ambassador ID card, enamel pin, branded merchandise, and your profile featured on the ICCJ Ambassadors page.</p>
+        </div>
+        <div class="amb-card reveal">
+          <h4>📸 Website profile</h4>
+          <p>Your photo, name, school, and ambassador bio — visible to everyone for the full year of your term.</p>
+        </div>
+        <div class="amb-card reveal">
+          <h4>✉️ Recommendation letters</h4>
+          <p>ICCJ-signed recommendation letters for college and university applications, available on request.</p>
+        </div>
+        <div class="amb-card reveal">
+          <h4>🤝 Exclusive network</h4>
+          <p>Access a private community with other ambassadors, industry mentors, and guest speakers.</p>
+        </div>
+      </div>
+      <div class="amb-apply reveal">
+        <a class="btn btn-primary" href="mailto:connect@compudonjunior.com?subject=ICCJ%20Ambassador%20Programme%20Enquiry" style="background:var(--green);">Enquire about the Ambassador Program</a>
+        <p>Applications open August 1 each year · Must be a current or past ICCJ champion</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FINAL CTA ════════ -->
+  <section class="final-cta">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--sky);">Season VII · Open now</span>
+        <h2>Ready to think first?</h2>
+        <p>Register through your school or individually. Either way, you'll join thousands of students across five countries learning to lead online — not just follow.</p>
+        <a class="btn btn-primary" href="registration.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Join the championship
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);margin-bottom:10px;font-weight:600;">Presented by</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:18px;font-weight:500;">CyberLearning Educational Society (CES)</p>
+          <div style="border-top:1px solid rgba(255,255,255,0.15);margin-bottom:18px;"></div>
+          <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);margin-bottom:12px;font-weight:600;">Knowledge, Technology &amp; Innovation Partner</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:16px;">India CyberLearning Pvt. Ltd.</p>
+          <img src="assets/img/CyberLearning_Logo.png" alt="CyberLearning" style="height:24px;width:auto;filter:brightness(0) invert(1);opacity:0.85;margin-bottom:18px;display:block;">
+          <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+            <img src="assets/img/GTP_Landscape.png" alt="Microsoft in Education Global Training Partner" style="height:44px;width:auto;background:#fff;border-radius:6px;padding:4px 9px;flex-shrink:0;">
+            <a href="mailto:connect@compudonjunior.com" title="connect@compudonjunior.com" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Register</a>
+            <a href="mailto:privacy@compudonjunior.com" title="privacy@compudonjunior.com" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Privacy</a>
+            <a href="tel:+918383056545" title="+91 83830 56545" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Phone</a>
+          </div>
+        </div>
+        <div>
+          <h4>Program</h4>
+          <ul>
+            <li><a href="about.html">About COMPUDON Junior</a></li>
+            <li><a href="cbse-mapping.html">CBSE Alignment</a></li>
+            <li><a href="winners.html">Past Winners</a></li>
+            <li><a href="pledge.html">Cyber Safety Pledge</a></li>
+            <li><a href="beliefs.html">Our Beliefs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>For Schools</h4>
+          <ul>
+            <li><a href="schools.html">Schools Overview</a></li>
+            <li><a href="returning-schools.html">Returning Schools</a></li>
+            <li><a href="registration.html">Register Your School</a></li>
+            <li><a href="digital-readiness-benchmark.html">Digital Readiness Benchmark</a></li>
+            <!-- <li><a href="guides.html">Coordinator Guides</a></li> -->
+            <li><a href="child-safety.html">Child Safety &amp; Data</a></li>
+            <li><a href="child-protection-policy.html">Child Protection Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>For Students &amp; Parents</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="parents.html">Parents</a></li>
+            <li><a href="leaders.html">Leaders &amp; Endorsers</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="year"></span> CyberLearning Educational Society (Regd.). All Rights Reserved. Powered by a Microsoft Global Training Partner.<br><span style="opacity:.75;">Regn. No. 53095/2005</span>
+        <div style="margin-top:12px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+          <a href="privacy-policy.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Privacy Policy</a>
+          <a href="cookie-policy.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Cookie Policy</a>
+          <a href="terms.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Terms of Use</a>
+          <a href="child-safety.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Child Safety</a>
+          <a href="contact-us.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Contact Us</a>
+          <a href="sitemap.xml" style="color:rgba(255,255,255,.55);font-size:12.5px;">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script>
+  // Year
+  var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  // Mobile nav
+  var nav = document.getElementById('nav'), navToggle = document.getElementById('navToggle');
+  if (navToggle) navToggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open'); navToggle.setAttribute('aria-expanded', open);
+  });
+  // Age modal
+  function openModal(){ var m=document.getElementById('ageModal'); if(m) m.classList.add('open'); }
+  function closeModal(){ var m=document.getElementById('ageModal'); if(m) m.classList.remove('open'); }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+  // Hero video — load only on click
+  function loadHeroVideo(){
+    var poster = document.getElementById('heroPoster'); if(!poster) return;
+    var v = document.createElement('video');
+    v.setAttribute('controls',''); v.setAttribute('autoplay',''); v.setAttribute('playsinline','');
+    v.poster = '/assets/video/thumbnail.png';
+    v.innerHTML = '<source src="https://github.com/CES-Official/Compudon_Junior2026/releases/download/video/cj_final_8.mp4" type="video/mp4">';
+    poster.replaceWith(v);
+  }
+  // Endorsement videos — click to embed
+  function vcPlay(thumb, id){
+    var card = thumb.closest('.vcard');
+    card.querySelector('.vframe').innerHTML =
+      '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1" title="COMPUDON Junior video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    card.classList.add('playing');
+  }
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+
+</body>
+</html>
