@@ -2,9 +2,10 @@
 /**
  * ═══════════════════════════════════════════════════════════════
  * FORM HANDLER — COMPUDON Junior
- * Verifies reCAPTCHA v3, then sends:
- *   1. Notification email  → connect@compudonjunior.com
- *   2. Auto-acknowledgement → the person who submitted the form
+ * Verifies reCAPTCHA v3, then:
+ *   1. Creates a lead in Zoho CRM (if ZOHO_ENABLED is true)
+ *   2. Sends a notification email  → connect@compudonjunior.com
+ *   3. Sends an auto-acknowledgement → the person who submitted the form
  * ═══════════════════════════════════════════════════════════════
  *
  * DEVELOPER SETUP:
@@ -16,6 +17,11 @@
  *    in any HTML/JS file. Ideally move it to an environment variable
  *    or a separate config file outside the public web root once live.
  * 4. Point every form's "action" attribute to this file's URL.
+ * 5. OPTIONAL — Zoho CRM: fill in ZOHO_CLIENT_ID, ZOHO_CLIENT_SECRET,
+ *    and ZOHO_REFRESH_TOKEN below, then set ZOHO_ENABLED to true.
+ *    See api-console.zoho.com to generate these (Self Client option).
+ *    Until these are filled in, the form works exactly as before —
+ *    Zoho is skipped silently, nothing breaks.
  * ═══════════════════════════════════════════════════════════════
  */
 
@@ -25,6 +31,16 @@ define('RECAPTCHA_SCORE_THRESHOLD', 0.5); // 0.0 = definitely bot, 1.0 = definit
 define('NOTIFY_EMAIL', 'connect@compudonjunior.com');
 define('SITE_NAME', 'COMPUDON Junior');
 define('FROM_EMAIL', 'no-reply@compudonjunior.com'); // must be a domain you control
+
+// ── Zoho CRM integration (optional — leave ZOHO_ENABLED false until you have credentials) ──
+define('ZOHO_ENABLED', true); // Zoho CRM lead creation is now live
+define('ZOHO_CLIENT_ID', '1000.1NOSOBXL3PF69VHSN1ERRDSJ50Z4CX');
+define('ZOHO_CLIENT_SECRET', 'c73dce1ae00ded3f6f09e02234886b7bbe4fd3a8ca');
+define('ZOHO_REFRESH_TOKEN', '1000.79b9b048335a4a16eddc062d16a7ca6f.eeefd71974b0f0fcb35f6c3a9238854c');
+// Use zohoapis.in if your Zoho account was created on the India data center (zoho.com/crm signup
+// redirected you to a URL starting with "crm.zoho.in"), otherwise use zohoapis.com.
+define('ZOHO_API_DOMAIN', 'https://www.zohoapis.in');
+define('ZOHO_ACCOUNTS_DOMAIN', 'https://accounts.zoho.in');
 
 // ── Only accept POST requests ──────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -118,6 +134,83 @@ foreach ($_POST as $key => $value) {
         $submitter_name = $value;
     }
 }
+
+// ── Step 5b: Push lead into Zoho CRM (best-effort — never blocks the form) ──
+function push_lead_to_zoho($form_name, $fields, $submitter_email, $submitter_name) {
+    if (!ZOHO_ENABLED || empty(ZOHO_CLIENT_ID) || empty(ZOHO_REFRESH_TOKEN)) {
+        return; // Zoho not configured yet — silently skip
+    }
+
+    // 1. Exchange the refresh token for a short-lived access token
+    $token_url = ZOHO_ACCOUNTS_DOMAIN . '/oauth/v2/token';
+    $token_params = [
+        'refresh_token' => ZOHO_REFRESH_TOKEN,
+        'client_id'      => ZOHO_CLIENT_ID,
+        'client_secret'  => ZOHO_CLIENT_SECRET,
+        'grant_type'     => 'refresh_token',
+    ];
+    $ch = curl_init($token_url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($token_params));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 8);
+    $token_response = curl_exec($ch);
+    curl_close($ch);
+
+    $token_data = json_decode($token_response, true);
+    $access_token = $token_data['access_token'] ?? null;
+    if (!$access_token) {
+        error_log('Zoho CRM: failed to obtain access token — ' . $token_response);
+        return;
+    }
+
+    // 2. Split submitter name into first/last (Zoho's Leads module requires Last_Name)
+    $name_parts = preg_split('/\s+/', trim($submitter_name), 2);
+    $last_name = $name_parts[1] ?? ($name_parts[0] ?: 'Website Lead');
+    $first_name = $name_parts[1] ? $name_parts[0] : '';
+
+    // 3. Build a readable description from every submitted field
+    $description_lines = [];
+    foreach ($fields as $k => $v) {
+        $description_lines[] = ucwords(str_replace('_', ' ', $k)) . ': ' . $v;
+    }
+
+    // 4. Try to pick up a school/organisation name if the form had one
+    $company = $fields['school_name'] ?? $fields['school'] ?? $fields['company'] ?? SITE_NAME . ' Website Lead';
+
+    $lead_payload = [
+        'data' => [[
+            'Last_Name'   => $last_name,
+            'First_Name'  => $first_name,
+            'Email'       => $submitter_email,
+            'Phone'       => $fields['phone'] ?? $fields['mobile'] ?? $fields['whatsapp'] ?? '',
+            'Company'     => $company,
+            'Lead_Source' => 'Website - ' . $form_name,
+            'Description' => implode("\n", $description_lines),
+        ]],
+    ];
+
+    $ch = curl_init(ZOHO_API_DOMAIN . '/crm/v3/Leads');
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Zoho-oauthtoken ' . $access_token,
+        'Content-Type: application/json',
+    ]);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($lead_payload));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 8);
+    $lead_response = curl_exec($ch);
+    curl_close($ch);
+
+    // Log failures quietly so they can be diagnosed without affecting the visitor's experience
+    $lead_result = json_decode($lead_response, true);
+    if (!isset($lead_result['data'][0]['status']) || $lead_result['data'][0]['status'] !== 'success') {
+        error_log('Zoho CRM: lead creation failed — ' . $lead_response);
+    }
+}
+
+$clean_fields = array_diff_key($_POST, array_flip($exclude_fields));
+push_lead_to_zoho($form_name, $clean_fields, $submitter_email, $submitter_name);
 
 // ── Step 6: Send notification email to the support team ────────
 $notify_subject = "New {$form_name} Submission — " . SITE_NAME;
