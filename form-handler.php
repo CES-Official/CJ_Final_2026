@@ -138,7 +138,7 @@ foreach ($_POST as $key => $value) {
 // ── Step 5b: Push lead into Zoho CRM (best-effort — never blocks the form) ──
 function push_lead_to_zoho($form_name, $fields, $submitter_email, $submitter_name) {
     if (!ZOHO_ENABLED || empty(ZOHO_CLIENT_ID) || empty(ZOHO_REFRESH_TOKEN)) {
-        return; // Zoho not configured yet — silently skip
+        return 'SKIPPED — Zoho not enabled or credentials missing.';
     }
 
     // 1. Exchange the refresh token for a short-lived access token
@@ -154,14 +154,19 @@ function push_lead_to_zoho($form_name, $fields, $submitter_email, $submitter_nam
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($token_params));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_TIMEOUT, 8);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     $token_response = curl_exec($ch);
+    $token_curl_error = curl_error($ch);
     curl_close($ch);
+
+    if ($token_curl_error) {
+        return "FAILED at token step — cURL error: {$token_curl_error} (this usually means outbound HTTPS requests are blocked on your hosting)";
+    }
 
     $token_data = json_decode($token_response, true);
     $access_token = $token_data['access_token'] ?? null;
     if (!$access_token) {
-        error_log('Zoho CRM: failed to obtain access token — ' . $token_response);
-        return;
+        return "FAILED at token step — Zoho response: " . htmlspecialchars($token_response);
     }
 
     // 2. Split submitter name into first/last (Zoho's Leads module requires Last_Name)
@@ -199,18 +204,26 @@ function push_lead_to_zoho($form_name, $fields, $submitter_email, $submitter_nam
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($lead_payload));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_TIMEOUT, 8);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     $lead_response = curl_exec($ch);
+    $lead_curl_error = curl_error($ch);
     curl_close($ch);
 
-    // Log failures quietly so they can be diagnosed without affecting the visitor's experience
-    $lead_result = json_decode($lead_response, true);
-    if (!isset($lead_result['data'][0]['status']) || $lead_result['data'][0]['status'] !== 'success') {
-        error_log('Zoho CRM: lead creation failed — ' . $lead_response);
+    if ($lead_curl_error) {
+        return "FAILED at lead-creation step — cURL error: {$lead_curl_error}";
     }
+
+    $lead_result = json_decode($lead_response, true);
+    if (isset($lead_result['data'][0]['status']) && $lead_result['data'][0]['status'] === 'success') {
+        $lead_id = $lead_result['data'][0]['details']['id'] ?? 'unknown';
+        return "SUCCESS — Lead created with ID {$lead_id}";
+    }
+
+    return "FAILED at lead-creation step — Zoho response: " . htmlspecialchars($lead_response);
 }
 
 $clean_fields = array_diff_key($_POST, array_flip($exclude_fields));
-push_lead_to_zoho($form_name, $clean_fields, $submitter_email, $submitter_name);
+$zoho_status = push_lead_to_zoho($form_name, $clean_fields, $submitter_email, $submitter_name);
 
 // ── Step 6: Send notification email to the support team ────────
 $notify_subject = "New {$form_name} Submission — " . SITE_NAME;
@@ -226,6 +239,7 @@ $notify_body = "
     <p><strong>Submitted:</strong> " . date('d M Y, h:i A') . "</p>
     <p><strong>IP Address:</strong> {$ip}</p>
     <p><strong>Spam Score:</strong> " . htmlspecialchars($result['score'] ?? 'N/A') . " (1.0 = human, 0.0 = bot)</p>
+    <p><strong>Zoho CRM Status:</strong> " . htmlspecialchars($zoho_status) . "</p>
   </div>
   <table style='width:100%;border-collapse:collapse;margin-top:10px;'>
     {$field_rows}
