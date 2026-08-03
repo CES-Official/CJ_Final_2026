@@ -3,7 +3,7 @@
  * ═══════════════════════════════════════════════════════════════
  * FORM HANDLER — COMPUDON Junior
  * Verifies reCAPTCHA v3, then sends:
- *   1. Notification email  → support-team@compudonjunior.co.in
+ *   1. Notification email  → connect@compudonjunior.com
  *   2. Auto-acknowledgement → the person who submitted the form
  * ═══════════════════════════════════════════════════════════════
  *
@@ -22,7 +22,7 @@
 // ── Configuration ──────────────────────────────────────────────
 define('RECAPTCHA_SECRET_KEY', '6LdXvlYtAAAAABfO3OtKzTQVRzQazyNx89L9OM8Y');
 define('RECAPTCHA_SCORE_THRESHOLD', 0.5); // 0.0 = definitely bot, 1.0 = definitely human
-define('NOTIFY_EMAIL', 'support-team@compudonjunior.co.in');
+define('NOTIFY_EMAIL', 'connect@compudonjunior.com');
 define('SITE_NAME', 'COMPUDON Junior');
 define('FROM_EMAIL', 'no-reply@compudonjunior.com'); // must be a domain you control
 
@@ -60,7 +60,7 @@ $result = json_decode($response, true);
 // ── Step 2: Reject if verification failed or score too low ─────
 if (!$result || !$result['success'] || ($result['score'] ?? 0) < RECAPTCHA_SCORE_THRESHOLD) {
     http_response_code(403);
-    die('We could not verify this submission. Please try again — if this keeps happening, contact us directly at support-team@compudonjunior.co.in.');
+    die('We could not verify this submission. Please try again — if this keeps happening, contact us directly at connect@compudonjunior.com.');
 }
 
 // ── Step 3: Basic honeypot check (optional extra layer) ────────
@@ -88,7 +88,7 @@ if (file_exists($rate_limit_file)) {
 
 if (count($submissions) >= $rate_limit_max) {
     http_response_code(429);
-    die('Too many submissions from this connection. Please try again later, or email us directly at support-team@compudonjunior.co.in.');
+    die('Too many submissions from this connection. Please try again later, or email us directly at connect@compudonjunior.com.');
 }
 
 $submissions[] = time();
@@ -167,7 +167,7 @@ if (!empty($submitter_email)) {
       <div style='padding:24px;'>
         <p>Hi {$greeting},</p>
         <p>Thank you for your submission to <strong>{$form_name}</strong>. We've received it and our team will review it shortly.</p>
-        <p>If you have any urgent questions in the meantime, feel free to reach us directly at <a href='mailto:support-team@compudonjunior.co.in' style='color:#2C7A7B;'>support-team@compudonjunior.co.in</a>.</p>
+        <p>If you have any urgent questions in the meantime, feel free to reach us directly at <a href='mailto:connect@compudonjunior.com' style='color:#2C7A7B;'>connect@compudonjunior.com</a>.</p>
         <p style='margin-top:24px;'>Warm regards,<br><strong>The COMPUDON Junior Team</strong></p>
       </div>
       <div style='background:#F4F1EC;padding:16px;text-align:center;font-size:12px;color:#777;'>
@@ -202,5 +202,5 @@ if ($notify_sent) {
     echo "</body></html>";
 } else {
     http_response_code(500);
-    echo "Something went wrong sending your submission. Please try again or email us directly at support-team@compudonjunior.co.in.";
+    echo "Something went wrong sending your submission. Please try again or email us directly at connect@compudonjunior.com.";
 }
