@@ -58,7 +58,7 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="registration.html">Registration</a><span class="sep">/</span>Invitation Kit</nav>
       <span class="eyebrow" style="color:var(--sky);">For Principals & School Leaders</span>
       <h1 style="margin-top:12px;">The Principal's Invitation Kit</h1>
-      <p>A short leadership brief, an evidence-based parent checklist, and more — everything you need to evaluate COMPUDON Junior for your school. Just tell us where to send it.</p>
+      <p>A leadership brief, a due-diligence checklist for choosing a program, the full School Coordinator's Guide, a parent screen-habits checklist, and a ready-to-send invitation letter &middot; everything you need to evaluate and coordinate COMPUDON Junior at your school. Just tell us where to send it.</p>
     </div>
   </section>
 
@@ -89,10 +89,73 @@
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">
+          <div>
+            <label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Board <span style="color:var(--sky);">*</span></label>
+            <select id="ik-board" required style="width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:var(--body);background:#fff;">
+              <option value="" disabled selected>Select board</option>
+              <option>CBSE</option>
+              <option>CISCE (ICSE / ISC)</option>
+              <option>State Board</option>
+              <option>IB (International Baccalaureate)</option>
+              <option>Cambridge (CAIE / IGCSE)</option>
+              <option>NIOS</option>
+              <option>Other</option>
+            </select>
+          </div>
           <div>
             <label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Branch / Campus</label>
-            <input type="text" id="ik-branch" placeholder="Branch / campus name (if applicable)" style="width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:var(--body);">
+            <input type="text" id="ik-branch" placeholder="Branch / campus (if applicable)" style="width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:var(--body);">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">
+          <div>
+            <label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">State / UT <span style="color:var(--sky);">*</span></label>
+            <select id="ik-state" required style="width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:var(--body);background:#fff;">
+              <option value="" disabled selected>Select state / UT</option>
+              <option>Andhra Pradesh</option>
+              <option>Arunachal Pradesh</option>
+              <option>Assam</option>
+              <option>Bihar</option>
+              <option>Chhattisgarh</option>
+              <option>Goa</option>
+              <option>Gujarat</option>
+              <option>Haryana</option>
+              <option>Himachal Pradesh</option>
+              <option>Jharkhand</option>
+              <option>Karnataka</option>
+              <option>Kerala</option>
+              <option>Madhya Pradesh</option>
+              <option>Maharashtra</option>
+              <option>Manipur</option>
+              <option>Meghalaya</option>
+              <option>Mizoram</option>
+              <option>Nagaland</option>
+              <option>Odisha</option>
+              <option>Punjab</option>
+              <option>Rajasthan</option>
+              <option>Sikkim</option>
+              <option>Tamil Nadu</option>
+              <option>Telangana</option>
+              <option>Tripura</option>
+              <option>Uttar Pradesh</option>
+              <option>Uttarakhand</option>
+              <option>West Bengal</option>
+              <option>Andaman &amp; Nicobar Islands</option>
+              <option>Chandigarh</option>
+              <option>Dadra &amp; Nagar Haveli and Daman &amp; Diu</option>
+              <option>Delhi (NCT)</option>
+              <option>Jammu &amp; Kashmir</option>
+              <option>Ladakh</option>
+              <option>Lakshadweep</option>
+              <option>Puducherry</option>
+              <option>Outside India</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">City <span style="color:var(--sky);">*</span></label>
+            <input type="text" id="ik-city" required placeholder="Enter city" style="width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:var(--body);">
           </div>
         </div>
 
@@ -144,27 +207,46 @@
             <span style="font-size:28px;">📘</span>
             <span style="flex:1;">
               <span style="display:block;font-weight:700;color:var(--ink);font-size:14.5px;">School Leadership Brief</span>
-              <span style="display:block;color:var(--muted);font-size:12.5px;margin-top:2px;">An evidence brief for principals — 12 pages</span>
+              <span style="display:block;color:var(--muted);font-size:12.5px;margin-top:2px;">An evidence brief for principals &middot; 14 pages</span>
             </span>
             <span style="color:var(--green);font-weight:600;font-size:13px;">Download →</span>
+          </a>
+
+          <a href="assets/downloads/CJ_S7_11_Questions_Before_Choosing_a_Program.pdf" download class="card" style="display:flex;align-items:center;gap:14px;text-decoration:none;padding:16px;">
+            <span style="font-size:28px;">❓</span>
+            <span style="flex:1;">
+              <span style="display:block;font-weight:700;color:var(--ink);font-size:14.5px;">11 Questions Every School Should Ask Before Choosing a Digital Citizenship Program</span>
+              <span style="display:block;color:var(--muted);font-size:12.5px;margin-top:2px;">A due-diligence checklist for school leaders &mdash; 2 pages</span>
+            </span>
+            <span style="color:var(--green);font-weight:600;font-size:13px;">Download &rarr;</span>
+          </a>
+
+          <a href="assets/downloads/CJ_S7_School_Coordinators_Guide.pdf" download class="card" style="display:flex;align-items:center;gap:14px;text-decoration:none;padding:16px;">
+            <span style="font-size:28px;">🗂️</span>
+            <span style="flex:1;">
+              <span style="display:block;font-weight:700;color:var(--ink);font-size:14.5px;">School Coordinator's Guide</span>
+              <span style="display:block;color:var(--muted);font-size:12.5px;margin-top:2px;">Everything a coordinator needs, start to finish</span>
+            </span>
+            <span style="color:var(--green);font-weight:600;font-size:13px;">Download &rarr;</span>
           </a>
 
           <a href="assets/downloads/CJ_S7_15_Questions_Every_Parent_Should_Ask.pdf" download class="card" style="display:flex;align-items:center;gap:14px;text-decoration:none;padding:16px;">
             <span style="font-size:28px;">✅</span>
             <span style="flex:1;">
               <span style="display:block;font-weight:700;color:var(--ink);font-size:14.5px;">15 Questions Every Parent Should Ask</span>
-              <span style="display:block;color:var(--muted);font-size:12.5px;margin-top:2px;">A practical checklist for healthy screen habits — 3 pages</span>
+              <span style="display:block;color:var(--muted);font-size:12.5px;margin-top:2px;">A practical checklist for healthy screen habits &middot; 4 pages</span>
             </span>
-            <span style="color:var(--green);font-weight:600;font-size:13px;">Download →</span>
+            <span style="color:var(--green);font-weight:600;font-size:13px;">Download &rarr;</span>
           </a>
 
-          <div class="card" style="display:flex;align-items:center;gap:14px;padding:16px;opacity:.55;">
+          <a href="assets/downloads/CJ_S7_School_Invitation_Letter.pdf" download class="card" style="display:flex;align-items:center;gap:14px;text-decoration:none;padding:16px;">
             <span style="font-size:28px;">✉️</span>
             <span style="flex:1;">
               <span style="display:block;font-weight:700;color:var(--ink);font-size:14.5px;">Invitation Letter</span>
-              <span style="display:block;color:var(--muted);font-size:12.5px;margin-top:2px;">Coming soon</span>
+              <span style="display:block;color:var(--muted);font-size:12.5px;margin-top:2px;">A ready-to-send letter template for your management</span>
             </span>
-          </div>
+            <span style="color:var(--green);font-weight:600;font-size:13px;">Download &rarr;</span>
+          </a>
 
           <div class="card" style="display:flex;align-items:center;gap:14px;padding:16px;opacity:.55;">
             <span style="font-size:28px;">📄</span>
@@ -293,10 +375,13 @@
     var designation = document.getElementById('ik-designation').value.trim();
     var school = document.getElementById('ik-school').value.trim();
     var branch = document.getElementById('ik-branch').value.trim();
+    var board = document.getElementById('ik-board').value.trim();
+    var state = document.getElementById('ik-state').value.trim();
+    var city = document.getElementById('ik-city').value.trim();
     var email = document.getElementById('ik-email').value.trim();
     var mobile = document.getElementById('ik-mobile').value.trim();
 
-    if (!name || !designation || !school || !email || !mobile) {
+    if (!name || !designation || !school || !board || !state || !city || !email || !mobile) {
       errorEl.textContent = 'Please fill in all fields before continuing.';
       errorEl.style.display = 'block';
       return;
@@ -337,7 +422,10 @@
         formData.append('full_name', name);
         formData.append('designation', designation);
         formData.append('school_name', school);
+        formData.append('board', board);
         formData.append('branch_campus', branch);
+        formData.append('city', city);
+        formData.append('state', state);
         formData.append('email', email);
         formData.append('mobile_number', mobile);
         formData.append('request_timestamp_utc', new Date().toISOString());
