@@ -6,22 +6,24 @@
  *   1. Creates a lead in Zoho CRM (if ZOHO_ENABLED is true)
  *   2. Sends a notification email  → connect@compudonjunior.com
  *   3. Sends an auto-acknowledgement → the person who submitted the form
+ * Emails are sent via GoDaddy's SMTP server (using PHPMailer), not
+ * PHP's built-in mail() function — mail() is unreliable on most
+ * modern hosting and often "succeeds" while delivering nothing.
  * ═══════════════════════════════════════════════════════════════
  *
  * DEVELOPER SETUP:
- * 1. Upload this file to the site (e.g. /form-handler.php)
- * 2. This file must run on a server with PHP + the mail() function
- *    enabled (standard on almost all shared hosting — GoDaddy,
- *    Hostinger, Bluehost etc. all support this by default)
- * 3. The SECRET_KEY below stays on the server ONLY — never expose it
- *    in any HTML/JS file. Ideally move it to an environment variable
- *    or a separate config file outside the public web root once live.
+ * 1. Upload this file AND the /phpmailer folder next to it (e.g. both
+ *    at the site root: /form-handler.php and /phpmailer/)
+ * 2. Fill in SMTP_PASSWORD below with the real password for the
+ *    connect@compudonjunior.com mailbox. Nothing will send without it.
+ * 3. The SECRET_KEY / SMTP_PASSWORD / Zoho keys below stay on the
+ *    server ONLY — never expose them in any HTML/JS file. Ideally
+ *    move them to an environment variable or a config file outside
+ *    the public web root once live.
  * 4. Point every form's "action" attribute to this file's URL.
  * 5. OPTIONAL — Zoho CRM: fill in ZOHO_CLIENT_ID, ZOHO_CLIENT_SECRET,
  *    and ZOHO_REFRESH_TOKEN below, then set ZOHO_ENABLED to true.
  *    See api-console.zoho.com to generate these (Self Client option).
- *    Until these are filled in, the form works exactly as before —
- *    Zoho is skipped silently, nothing breaks.
  * ═══════════════════════════════════════════════════════════════
  */
 
@@ -30,7 +32,15 @@ define('RECAPTCHA_SECRET_KEY', '6LdXvlYtAAAAABfO3OtKzTQVRzQazyNx89L9OM8Y');
 define('RECAPTCHA_SCORE_THRESHOLD', 0.5); // 0.0 = definitely bot, 1.0 = definitely human
 define('NOTIFY_EMAIL', 'connect@compudonjunior.com');
 define('SITE_NAME', 'COMPUDON Junior');
-define('FROM_EMAIL', 'no-reply@compudonjunior.com'); // must be a domain you control
+define('FROM_EMAIL', 'connect@compudonjunior.com'); // must be a real, existing mailbox — see SMTP settings below
+
+// ── Outgoing email via GoDaddy SMTP (replaces the unreliable PHP mail() function) ──
+// Fill in the password for the mailbox above (FROM_EMAIL), then this just works.
+define('SMTP_HOST', 'smtpout.secureserver.net');
+define('SMTP_PORT', 465);
+define('SMTP_SECURE', 'ssl'); // GoDaddy uses SSL on port 465 (use 'tls' + port 587 if 465 is blocked)
+define('SMTP_USERNAME', 'connect@compudonjunior.com'); // the mailbox that sends these emails
+define('SMTP_PASSWORD', ''); // ← fill this in with that mailbox's actual password
 
 // ── Zoho CRM integration (optional — leave ZOHO_ENABLED false until you have credentials) ──
 define('ZOHO_ENABLED', true); // Zoho CRM lead creation is now live
@@ -41,6 +51,45 @@ define('ZOHO_REFRESH_TOKEN', '1000.79b9b048335a4a16eddc062d16a7ca6f.eeefd71974b0
 // redirected you to a URL starting with "crm.zoho.in"), otherwise use zohoapis.com.
 define('ZOHO_API_DOMAIN', 'https://www.zohoapis.in');
 define('ZOHO_ACCOUNTS_DOMAIN', 'https://accounts.zoho.in');
+
+require_once __DIR__ . '/phpmailer/Exception.php';
+require_once __DIR__ . '/phpmailer/PHPMailer.php';
+require_once __DIR__ . '/phpmailer/SMTP.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as PHPMailerException;
+
+/**
+ * Sends an email via GoDaddy's SMTP server (reliable) instead of PHP's mail()
+ * function (unreliable on most modern hosting). Returns true/false for success,
+ * and fills $error_out with the reason if it fails.
+ */
+function send_smtp_email($to, $subject, $html_body, $reply_to, &$error_out) {
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host       = SMTP_HOST;
+        $mail->SMTPAuth   = true;
+        $mail->Username   = SMTP_USERNAME;
+        $mail->Password   = SMTP_PASSWORD;
+        $mail->SMTPSecure = SMTP_SECURE === 'ssl' ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = SMTP_PORT;
+
+        $mail->setFrom(FROM_EMAIL, SITE_NAME);
+        $mail->addAddress($to);
+        if (!empty($reply_to)) {
+            $mail->addReplyTo($reply_to);
+        }
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $html_body;
+
+        $mail->send();
+        return true;
+    } catch (PHPMailerException $e) {
+        $error_out = $mail->ErrorInfo;
+        return false;
+    }
+}
 
 // ── Only accept POST requests ──────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -248,14 +297,11 @@ $notify_body = "
 </body></html>
 ";
 
-$notify_headers = "MIME-Version: 1.0\r\n";
-$notify_headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-$notify_headers .= "From: " . SITE_NAME . " <" . FROM_EMAIL . ">\r\n";
-if (!empty($submitter_email)) {
-    $notify_headers .= "Reply-To: {$submitter_email}\r\n";
+$notify_error = '';
+$notify_sent = send_smtp_email(NOTIFY_EMAIL, $notify_subject, $notify_body, $submitter_email, $notify_error);
+if (!$notify_sent) {
+    error_log('SMTP notify email failed: ' . $notify_error);
 }
-
-$notify_sent = mail(NOTIFY_EMAIL, $notify_subject, $notify_body, $notify_headers);
 
 // ── Step 7: Send auto-acknowledgement to the submitter ──────────
 $ack_sent = false;
@@ -284,12 +330,23 @@ if (!empty($submitter_email)) {
     </body></html>
     ";
 
-    $ack_headers = "MIME-Version: 1.0\r\n";
-    $ack_headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $ack_headers .= "From: " . SITE_NAME . " <" . FROM_EMAIL . ">\r\n";
-
-    $ack_sent = mail($submitter_email, $ack_subject, $ack_body, $ack_headers);
+    $ack_error = '';
+    $ack_sent = send_smtp_email($submitter_email, $ack_subject, $ack_body, '', $ack_error);
+    if (!$ack_sent) {
+        error_log('SMTP acknowledgement email failed: ' . $ack_error);
+    }
 }
+
+// ── Step 7b: Write a plain-text debug summary you can view in the browser ──
+// Visit https://compudonjunior.com/debug-log.txt after a test submission to see
+// exactly what happened. Delete this block (and the file) once everything works.
+$debug_log = "=== " . date('d M Y, h:i:s A') . " ===\n";
+$debug_log .= "Form: {$form_name}\n";
+$debug_log .= "Submitter email detected: " . ($submitter_email ?: '(none found)') . "\n";
+$debug_log .= "Zoho CRM Status: {$zoho_status}\n";
+$debug_log .= "Notify email sent: " . ($notify_sent ? 'YES' : 'NO — ' . $notify_error) . "\n";
+$debug_log .= "Acknowledgement email sent: " . ($ack_sent ? 'YES' : ($submitter_email ? 'NO — ' . ($ack_error ?? 'unknown error') : 'N/A — no submitter email')) . "\n\n";
+file_put_contents(__DIR__ . '/debug-log.txt', $debug_log, FILE_APPEND);
 
 // ── Step 8: Respond to the browser ───────────────────────────────
 // Redirect to a thank-you page, or return a simple success message.
