@@ -347,7 +347,7 @@ class PHPMailer
      *
      * @var string
      */
-    public $Password = 'ChaturKhadtal@246';
+    public $Password = '';
 
     /**
      * SMTP authentication type. Options are CRAM-MD5, LOGIN, PLAIN, XOAUTH2.

@@ -23,4 +23,6 @@
   <url><loc>https://compudonjunior.com/students.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://compudonjunior.com/child-safety.html</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://compudonjunior.com/invitation-kit.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://compudonjunior.com/faq.html</loc><priority>0.7</priority></url>
+  <url><loc>https://compudonjunior.com/trust-and-transparency.html</loc><priority>0.7</priority></url>
 </urlset>
