@@ -58,26 +58,545 @@
     </div>
   </section>
 
-  <section>
-    <div class="wrap" style="max-width:760px;">
-      <div class="card reveal" style="text-align:center; padding:56px 44px;">
-        <p style="font-size:44px; line-height:1; margin-bottom:20px;">&#127942;</p>
-        <h2 style="margin-bottom:18px;">Verification &amp; Parental Consent in Progress</h2>
-        <p style="font-weight:600; color:var(--navy-700); margin-bottom:22px;">Thank you for your enthusiastic participation in COMPUDON Junior.</p>
-        <p style="margin-bottom:16px;">To protect student privacy and comply with applicable data protection requirements, we are currently completing the parental consent and verification process for all winners.</p>
-        <p style="margin-bottom:32px;">The official Winners List will be published on this page once all required verifications and parental consents have been received.</p>
+      <style>
+    .w-hero{position:relative;overflow:hidden;}
+    .w-hero .intro{font-size:1rem;color:#5A6472;max-width:680px;margin:24px 0 0;line-height:1.6;}
+    .w-cta{background:linear-gradient(135deg,#0B2545,#1B3A5C);border-radius:12px;padding:22px 28px;margin:28px 0 32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+    .w-cta p{color:#fff;font-size:1.1rem;font-weight:700;margin:0;flex:1;min-width:200px;}
+    .w-cta p span{font-weight:400;font-size:.9rem;color:rgba(255,255,255,.75);display:block;margin-top:4px;}
+    .w-cta a{background:#1E88E5;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap;}
+    .stabs{display:flex;gap:0;margin:0 0 28px;border-bottom:2px solid #E2E8F0;flex-wrap:wrap;}
+    .stab{padding:12px 22px;font-size:.9rem;font-weight:700;color:#5A6472;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;font-family:inherit;}
+    .stab:hover{color:#0B2545;}
+    .stab.active{color:#0B2545;border-bottom-color:#1E88E5;}
+    .spanel{display:none;}
+    .spanel.active{display:block;}
+    .msec{margin-bottom:32px;}
+    .msec-head{display:flex;align-items:center;gap:10px;margin:0 0 6px;}
+    .msec-head h3{font-size:1.05rem;font-weight:800;color:#0B2545;margin:0;text-transform:uppercase;letter-spacing:.04em;}
+    .msec-sub{font-size:.85rem;color:#888;margin:0 0 16px;}
+    .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px;}
+    .cgrid.two{grid-template-columns:1fr 1fr;}
+    .cgrid.five{grid-template-columns:repeat(5,1fr);}
+    @media(max-width:900px){.cgrid{grid-template-columns:1fr 1fr;}.cgrid.five{grid-template-columns:repeat(3,1fr);}}
+    @media(max-width:600px){.cgrid,.cgrid.five{grid-template-columns:1fr 1fr;}}
+    .wcard{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:16px;text-align:center;}
+    .wcard .badge{display:inline-block;font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:10px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;}
+    .wcard .badge.gold{background:#FFF8E1;color:#B8860B;border:1px solid #FFE082;}
+    .wcard .badge.silver{background:#F5F5F5;color:#616161;border:1px solid #E0E0E0;}
+    .wcard .badge.bronze{background:#FBE9E7;color:#8D6E63;border:1px solid #FFCCBC;}
+    .wcard .badge.region{background:#E3F2FD;color:#1565C0;border:1px solid #BBDEFB;}
+    .wcard .photo{width:100px;height:100px;border-radius:50%;margin:0 auto 10px;overflow:hidden;border:3px solid #E2E8F0;background:#EFF6FF;display:flex;align-items:center;justify-content:center;}
+    .wcard .photo img{width:100%;height:100%;object-fit:cover;}
+    .wcard .photo .init{font-size:24px;font-weight:700;color:#1E88E5;}
+    .wcard h4{font-size:.9rem;font-weight:700;color:#0B2545;margin:0 0 4px;}
+    .wcard .sch{font-size:.75rem;color:#666;margin:0 0 2px;line-height:1.3;}
+    .wcard .loc{font-size:.7rem;color:#888;margin:0 0 6px;}
+    .wcard .tags{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;}
+    .wcard .tag{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:8px;text-transform:uppercase;letter-spacing:.03em;}
+    .wcard .tag.city{background:#E8F5E9;color:#2E7D32;}
+    .wcard .tag.grade{background:#F0F2F5;color:#5A6472;}
+    .wcard .viewall{font-size:.75rem;color:#1E88E5;text-decoration:none;font-weight:600;display:block;margin-top:6px;}
+    .viewlink{text-align:center;margin:8px 0 24px;}
+    .viewlink a{font-size:.85rem;color:#1E88E5;text-decoration:none;font-weight:600;}
+    .mtable{width:100%;border-collapse:collapse;margin:0 0 8px;font-size:.85rem;}
+    .mtable th{background:#1E88E5;color:#fff;padding:8px 12px;text-align:left;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+    .mtable td{padding:8px 12px;border-bottom:1px solid #F0F2F5;color:#333;}
+    .mtable tr:hover{background:#FAFBFC;}
+    .intl-card{background:linear-gradient(135deg,#0B2545,#1B3A5C);border-radius:12px;padding:28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;color:#fff;margin-top:16px;}
+    .intl-card .photo{width:120px;height:120px;border-radius:12px;overflow:hidden;flex-shrink:0;border:3px solid rgba(255,255,255,.2);}
+    .intl-card .photo img{width:100%;height:100%;object-fit:cover;}
+    .intl-card h4{font-size:1.2rem;margin:0 0 4px;}
+    .intl-card .role{color:#1E88E5;font-weight:600;font-size:.85rem;margin:0 0 8px;}
+    .intl-card .det{font-size:.85rem;color:rgba(255,255,255,.75);margin:0;}
+    .intl-card .flag{font-size:1.2rem;margin-top:8px;}
+    .thankyou{display:flex;align-items:center;gap:12px;margin:40px 0 0;padding:20px;background:#FFF8E1;border-radius:10px;border:1px solid #FFE082;}
+    .thankyou p{font-size:.9rem;color:#5D4037;margin:0;line-height:1.5;}
+    .placeholder{background:#FAFBFC;border:2px dashed #E2E8F0;border-radius:10px;padding:32px;text-align:center;color:#9CA3AF;font-size:.9rem;margin:12px 0;}
+  </style>
 
-        <div style="background:var(--navy-light); border-radius:10px; padding:24px 28px; text-align:left; margin-bottom:28px;">
-          <p style="margin-bottom:14px;"><strong>Expected Publication Date:</strong> Before end of August, 2026</p>
-          <p style="font-weight:600; margin-bottom:14px;">Questions?</p>
-          <p style="margin-bottom:0;">If you are a winning student, parent, or participating school and need assistance regarding the consent process, please contact us:<br><br><strong>Email:</strong> <a href="mailto:connect@compudonjunior.com">connect@compudonjunior.com</a><br><strong>Phone:</strong> <a href="tel:+918383056545">+91 83830 56545</a></p>
+  <section style="padding-top:0;">
+    <div class="wrap" style="max-width:1040px;">
+
+      <p class="intro" style="font-size:1rem;color:#5A6472;max-width:700px;margin:28px 0 0;line-height:1.6;">Every season, students compete to demonstrate their knowledge of cyber safety, media literacy, AI literacy, and critical thinking. Here we recognize students whose achievement, performance, and dedication have earned them national, regional, and international recognition.</p>
+
+      <div class="w-cta">
+        <p>Behind every champion is a school that made digital citizenship a priority.<span>Season VII registrations are open. Give your students the platform to learn the critical skills for life and also represent your school on the national stage.</span></p>
+        <a href="registration.html">Register Your School →</a>
+      </div>
+
+      <div class="stabs">
+        <button class="stab active" onclick="showS('s7',this)">Season VII (2026)</button>
+        <button class="stab" onclick="showS('s6',this)">Season VI (2025)</button>
+        <button class="stab" onclick="showS('s5',this)">Season V (2024)</button>
+        <button class="stab" onclick="showS('s4',this)">Season IV (2023)</button>
+        <button class="stab" onclick="showS('s3',this)">Season III (2022)</button>
+      </div>
+
+      <div class="spanel active" id="s7">
+        <div class="placeholder" style="padding:48px;">
+          <p style="font-size:1.3rem;margin:0 0 8px;">🏆</p>
+          <p style="font-size:1rem;font-weight:600;color:#5A6472;margin:0 0 8px;">Season VII Champions — Coming Soon</p>
+          <p style="font-size:.85rem;color:#9CA3AF;margin:0;">Season VII is currently underway. Winners will be announced here after the India Finals.</p>
+        </div>
+      </div>
+      <div class="spanel" id="s6">
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🏆</span><h3>India Champions &amp; Gold Medalists</h3></div>
+          <p class="msec-sub">Top national rank holders who demonstrated exceptional knowledge and skills.</p>
+          <div class="cgrid">
+            <div class="wcard reveal">
+              <span class="badge gold">National Champion</span>
+              <div class="photo"><img src="assets/img/winners/garvit.jpg" alt="Garvit Verma"></div>
+              <h4>Garvit Verma</h4>
+              <p class="sch">Gomti Nagar Extension</p>
+              <p class="loc">City Montessori School</p>
+              <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 6+</span></div>
+            </div>
+            <div class="wcard reveal">
+              <span class="badge gold">National Champion</span>
+              <div class="photo"><img src="assets/img/winners/manit.png" alt="Manit Kapur"></div>
+              <h4>Manit Kapur</h4>
+              <p class="sch">Seth Anandram Jaipuria School</p>
+              <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 3–5</span></div>
+            </div>
+            <div class="wcard reveal">
+              <span class="badge gold">Champion Digital Literacy</span>
+              <div class="photo"><img src="assets/img/winners/arnav.jpg" alt="Arnav Jain"></div>
+              <h4>Arnav Jain</h4>
+              <p class="sch">Sector 6, Vasundhara</p>
+              <p class="loc">Amity International School</p>
+              <div class="tags"><span class="tag city">Ghaziabad</span><span class="tag grade">Grade 6+</span></div>
+            </div>
+            <div class="wcard reveal">
+              <span class="badge gold">Champion Digital Literacy</span>
+              <div class="photo"><img src="assets/img/winners/zainab.jpg" alt="Zainab Khan"></div>
+              <h4>Zainab Khan</h4>
+              <p class="sch">Rajendra Nagar Campus I</p>
+              <p class="loc">City Montessori School</p>
+              <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 3–5</span></div>
+            </div>
+          </div>
+          <div class="viewlink"><a href="national-winners-s6.html">View All National Winners — Silver &amp; Bronze Medalists →</a></div>
         </div>
 
-        <p style="color:var(--muted); font-style:italic;">Thank you for your patience and cooperation in helping us maintain a safe digital environment for our students!</p>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🌍</span><h3>Regional Champions</h3></div>
+          <p class="msec-sub">Gold medalists from each region who topped their zone.</p>
+          <div class="cgrid">
+            <div class="wcard reveal">
+              <span class="badge region">North India</span>
+              <div class="photo"><img src="assets/img/winners/regional/north_1of2_6andabove-CJ.jpg" alt="Priyansh Shukla"></div>
+              <h4>Priyansh Shukla</h4>
+              <p class="sch">CMS Kanpur Road</p>
+              <p class="loc">Lucknow</p>
+              <div class="tags"><span class="tag city">North</span><span class="tag grade">Grade 6+</span></div>
+            </div>
+            <div class="wcard reveal">
+              <span class="badge region">Central India</span>
+              <div class="photo"><img src="assets/img/winners/regional/central_1_6andabove-CJ.jpg" alt="Prashast Prajapati"></div>
+              <h4>Prashast Prajapati</h4>
+              <p class="sch">The Sanskaar Valley School</p>
+              <p class="loc">Bhopal</p>
+              <div class="tags"><span class="tag city">Central</span><span class="tag grade">Grade 6+</span></div>
+            </div>
+            <div class="wcard reveal">
+              <span class="badge region">South India</span>
+              <div class="photo"><img src="assets/img/winners/regional/south_1_6andabove-CJ.jpg" alt="Kunj Vimal Bhut"></div>
+              <h4>Kunj Vimal Bhut</h4>
+              <p class="sch">Sarala Birla Academy</p>
+              <p class="loc">Bangalore</p>
+              <div class="tags"><span class="tag city">South</span><span class="tag grade">Grade 6+</span></div>
+            </div>
+            <div class="wcard reveal">
+              <span class="badge region">West India</span>
+              <div class="photo"><img src="assets/img/winners/regional/west_gold-CJ.jpg" alt="Gaurang Naidu"></div>
+              <h4>Gaurang Naidu</h4>
+              <p class="sch">Amity International School</p>
+              <p class="loc">Navi Mumbai</p>
+              <div class="tags"><span class="tag city">West</span><span class="tag grade">Grade 6+</span></div>
+            </div>
+          </div>
+          <div class="viewlink"><a href="regional-winners-s6.html">View All Regional Champions →</a></div>
+        </div>
+
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">⭐</span><h3>National Celebrated List</h3></div>
+          <p class="msec-sub">Recognizing students who demonstrated exceptional performance and achievement.</p>
+          <table class="mtable">
+            <tr><th>Name</th><th>School</th><th>City</th><th>Category / Grade</th></tr>
+            <tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:20px;">Publishing soon.</td></tr>
+          </table>
+          <div class="viewlink"><a href="celebrated-list-s6.html">View Full National Celebrated List →</a></div>
+        </div>
+
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">📋</span><h3>National Merit List</h3></div>
+          <p class="msec-sub">Students recognized for outstanding performance at the national level.</p>
+          <table class="mtable">
+            <tr><th>Name</th><th>School</th><th>City</th><th>Category / Grade</th></tr>
+            <tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:20px;">Publishing soon.</td></tr>
+          </table>
+          <div class="viewlink"><a href="merit-list-s6.html">View Full National Merit List →</a></div>
+        </div>
+
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🌐</span><h3>International Champions</h3></div>
+          <p class="msec-sub">COMPUDON Junior has also attracted outstanding young participants from outside India.</p>
+          <div class="placeholder">International Champions data will be published soon.</div>
+        </div>
+
+        <div class="thankyou">
+          <span style="font-size:1.5rem;">❤️</span>
+          <p>Thank you to all the students, teachers, and schools who continue to inspire a safer, smarter, and more responsible digital world.</p>
+        </div>
       </div>
+
+      <div class="spanel" id="s5">
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🏆</span><h3>India Champions &amp; Gold Medalists</h3></div>
+          <p class="msec-sub">Top national rank holders who demonstrated exceptional knowledge and skills.</p>
+          <div class="cgrid"><div class="wcard reveal">
+              <span class="badge gold">National Champion</span>
+              <div class="photo"><span class="init">SM</span></div>
+              <h4>Saesha Mishra</h4>
+              <p class="sch">Noida</p><p class="loc">Amity International School</p>
+              <div class="tags"><span class="tag city">Noida</span><span class="tag grade">Grade 6+</span></div>
+            </div><div class="wcard reveal">
+              <span class="badge gold">National Champion</span>
+              <div class="photo"><span class="init">AL</span></div>
+              <h4>Aarna Lalwani</h4>
+              <p class="sch">The Sanskaar Valley School</p>
+              <div class="tags"><span class="tag city">Bhopal</span><span class="tag grade">Grade 3–5</span></div>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🥈</span><h3>1st Runners-Up &amp; Silver Medalists</h3></div>
+          <div class="cgrid"><div class="wcard reveal">
+              <span class="badge silver">National Runner-Up</span>
+              <div class="photo"><span class="init">IK</span></div>
+              <h4>Ishant Kumar</h4>
+              <p class="sch">Mahanagar</p><p class="loc">City Montessori School</p>
+              <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 6+</span></div>
+            </div><div class="wcard reveal">
+              <span class="badge silver">National Runner-Up</span>
+              <div class="photo"><span class="init">NZ</span></div>
+              <h4>Nimrah Zahra</h4>
+              <p class="sch">Rajendra Nagar-I</p><p class="loc">City Montessori School</p>
+              <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 3–5</span></div>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🥉</span><h3>2nd Runners-Up &amp; Bronze Medalists</h3></div>
+          <div class="cgrid"><div class="wcard reveal">
+              <span class="badge bronze">National 3rd Place</span>
+              <div class="photo"><span class="init">AS</span></div>
+              <h4>Ananya Sharma</h4>
+              <p class="sch">Sector 46</p><p class="loc">Amity International School</p>
+              <div class="tags"><span class="tag city">Gurugram</span><span class="tag grade">Grade 6+</span></div>
+            </div><div class="wcard reveal">
+              <span class="badge bronze">National 3rd Place</span>
+              <div class="photo"><span class="init">SM</span></div>
+              <h4>Smayan Mishra</h4>
+              <p class="sch">Noida</p><p class="loc">Amity International School</p>
+              <div class="tags"><span class="tag city">Noida</span><span class="tag grade">Grade 3–5</span></div>
+            </div><div class="wcard reveal">
+              <span class="badge bronze">National 3rd Place</span>
+              <div class="photo"><span class="init">HG</span></div>
+              <h4>Hardik Goyal</h4>
+              <p class="sch">Pitampura</p><p class="loc">Maharaja Agrasen Model School</p>
+              <div class="tags"><span class="tag city">New Delhi</span><span class="tag grade">Grade 6+</span></div>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🌍</span><h3>Regional Champions</h3></div>
+          <p class="msec-sub">Students who achieved top positions at the regional level.</p>
+          <div class="cgrid five"><div class="wcard">
+              <span class="badge region">North India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">South India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">East India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">West India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">Central India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">⭐</span><h3>National Celebrated List</h3></div>
+          <p class="msec-sub">Recognizing students who demonstrated exceptional performance and achievement.</p>
+          <table class="mtable">
+            <tr><th>Name</th><th>School</th><th>City</th><th>Category / Grade</th></tr>
+            <tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:24px;">Data will be published soon.</td></tr>
+          </table>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">📋</span><h3>National Merit List</h3></div>
+          <p class="msec-sub">Students recognized for outstanding performance at the national level.</p>
+          <table class="mtable">
+            <tr><th>Name</th><th>School</th><th>City</th><th>Category / Grade</th></tr>
+            <tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:24px;">Data will be published soon.</td></tr>
+          </table>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🌐</span><h3>International Champions</h3></div>
+          <p class="msec-sub">COMPUDON Junior has also attracted outstanding young participants from outside India.</p>
+          <div class="placeholder">International Champions data will be published soon.</div>
+        </div>
+        <div class="thankyou">
+          <span style="font-size:1.5rem;">❤️</span>
+          <p>Thank you to all the students, teachers, and schools who continue to inspire a safer, smarter, and more responsible digital world.</p>
+        </div>
+      </div>
+      <div class="spanel" id="s4">
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🏆</span><h3>India Champions &amp; Gold Medalists</h3></div>
+          <p class="msec-sub">Top national rank holders who demonstrated exceptional knowledge and skills.</p>
+          <div class="cgrid"><div class="wcard reveal">
+              <span class="badge gold">National Champion</span>
+              <div class="photo"><img src="assets/img/winners/udbhavtiwari22oct2010-1-300x300.jpg" alt="Udbhav Tiwari"></div>
+              <h4>Udbhav Tiwari</h4>
+              <p class="sch">City Montessori School</p>
+              <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 6+</span></div>
+            </div><div class="wcard reveal">
+              <span class="badge gold">National Champion</span>
+              <div class="photo"><span class="init">ZC</span></div>
+              <h4>Zahaan C Dumasia</h4>
+              <p class="sch">Seth Anandram Jaipuria School</p>
+              <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 6+</span></div>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🥈</span><h3>1st Runners-Up &amp; Silver Medalists</h3></div>
+          <div class="cgrid"><div class="wcard reveal">
+              <span class="badge silver">National Runner-Up</span>
+              <div class="photo"><img src="assets/img/winners/prashast-prajapati-300x300.jpg" alt="Prashast Prajapati"></div>
+              <h4>Prashast Prajapati</h4>
+              <p class="sch">The Sanskaar Valley School</p>
+              <div class="tags"><span class="tag city">Bhopal</span><span class="tag grade">Grade 6+</span></div>
+            </div><div class="wcard reveal">
+              <span class="badge silver">National Runner-Up</span>
+              <div class="photo"><span class="init">IB</span></div>
+              <h4>Iraj Bhumbuck</h4>
+              <p class="sch">Pushp Vihar</p><p class="loc">Amity International School</p>
+              <div class="tags"><span class="tag city">New Delhi</span><span class="tag grade">Grade 6+</span></div>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🥉</span><h3>2nd Runners-Up &amp; Bronze Medalists</h3></div>
+          <div class="cgrid"><div class="wcard reveal">
+              <span class="badge bronze">National 3rd Place</span>
+              <div class="photo"><span class="init">SS</span></div>
+              <h4>Satvik Sengupta</h4>
+              <p class="sch">Gems International School</p>
+              <div class="tags"><span class="tag city"></span><span class="tag grade">Grade 6+</span></div>
+            </div><div class="wcard reveal">
+              <span class="badge bronze">National 3rd Place</span>
+              <div class="photo"><span class="init">AK</span></div>
+              <h4>Akira Khanduri</h4>
+              <p class="sch">Bluebells School International</p>
+              <div class="tags"><span class="tag city">New Delhi</span><span class="tag grade">Grade 6+</span></div>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🌍</span><h3>Regional Champions</h3></div>
+          <p class="msec-sub">Students who achieved top positions at the regional level.</p>
+          <div class="cgrid five"><div class="wcard">
+              <span class="badge region">North India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">South India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">East India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">West India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">Central India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">⭐</span><h3>National Celebrated List</h3></div>
+          <p class="msec-sub">Recognizing students who demonstrated exceptional performance and achievement.</p>
+          <table class="mtable">
+            <tr><th>Name</th><th>School</th><th>City</th><th>Category / Grade</th></tr>
+            <tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:24px;">Data will be published soon.</td></tr>
+          </table>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">📋</span><h3>National Merit List</h3></div>
+          <p class="msec-sub">Students recognized for outstanding performance at the national level.</p>
+          <table class="mtable">
+            <tr><th>Name</th><th>School</th><th>City</th><th>Category / Grade</th></tr>
+            <tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:24px;">Data will be published soon.</td></tr>
+          </table>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🌐</span><h3>International Champions</h3></div>
+          <p class="msec-sub">COMPUDON Junior has also attracted outstanding young participants from outside India.</p>
+          <div class="placeholder">International Champions data will be published soon.</div>
+        </div>
+        <div class="thankyou">
+          <span style="font-size:1.5rem;">❤️</span>
+          <p>Thank you to all the students, teachers, and schools who continue to inspire a safer, smarter, and more responsible digital world.</p>
+        </div>
+      </div>
+      <div class="spanel" id="s3">
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🏆</span><h3>India Champions &amp; Gold Medalists</h3></div>
+          <p class="msec-sub">Top national rank holders who demonstrated exceptional knowledge and skills.</p>
+          <div class="cgrid"><div class="wcard reveal">
+              <span class="badge gold">National Champion</span>
+              <div class="photo"><span class="init">AR</span></div>
+              <h4>Aliya Riaz</h4>
+              <p class="sch">City Montessori School</p>
+              <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 6+</span></div>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🥈</span><h3>1st Runners-Up &amp; Silver Medalists</h3></div>
+          <div class="cgrid"><div class="wcard reveal">
+              <span class="badge silver">National Runner-Up</span>
+              <div class="photo"><img src="assets/img/winners/udbhavtiwari22oct2010-1-300x300.jpg" alt="Udbhav Tiwari"></div>
+              <h4>Udbhav Tiwari</h4>
+              <p class="sch">City Montessori School</p>
+              <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 6+</span></div>
+            </div><div class="wcard reveal">
+              <span class="badge silver">National Runner-Up</span>
+              <div class="photo"><img src="assets/img/winners/prashast-prajapati-300x300.jpg" alt="Prashast Prajapati"></div>
+              <h4>Prashast Prajapati</h4>
+              <p class="sch">The Sanskaar Valley School</p>
+              <div class="tags"><span class="tag city">Bhopal</span><span class="tag grade">Grade 6+</span></div>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🥉</span><h3>2nd Runners-Up &amp; Bronze Medalists</h3></div>
+          <div class="cgrid"><div class="wcard reveal">
+              <span class="badge bronze">National 3rd Place</span>
+              <div class="photo"><img src="assets/img/winners/arav-arora-300x294.png" alt="Arav Arora"></div>
+              <h4>Arav Arora</h4>
+              <p class="sch">Pathania Public School</p>
+              <div class="tags"><span class="tag city"></span><span class="tag grade">Grade 6+</span></div>
+            </div><div class="wcard reveal">
+              <span class="badge bronze">National 3rd Place</span>
+              <div class="photo"><span class="init">SS</span></div>
+              <h4>Satvik Sengupta</h4>
+              <p class="sch">Gems International School</p>
+              <div class="tags"><span class="tag city"></span><span class="tag grade">Grade 6+</span></div>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🌍</span><h3>Regional Champions</h3></div>
+          <p class="msec-sub">Students who achieved top positions at the regional level.</p>
+          <div class="cgrid five"><div class="wcard">
+              <span class="badge region">North India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">South India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">East India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">West India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div><div class="wcard">
+              <span class="badge region">Central India</span>
+              <div class="photo"><span class="init">—</span></div>
+              <h4>Coming Soon</h4>
+              <p class="sch">Regional Champion</p>
+              <p class="viewall">View All →</p>
+            </div></div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">⭐</span><h3>National Celebrated List</h3></div>
+          <p class="msec-sub">Recognizing students who demonstrated exceptional performance and achievement.</p>
+          <table class="mtable">
+            <tr><th>Name</th><th>School</th><th>City</th><th>Category / Grade</th></tr>
+            <tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:24px;">Data will be published soon.</td></tr>
+          </table>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">📋</span><h3>National Merit List</h3></div>
+          <p class="msec-sub">Students recognized for outstanding performance at the national level.</p>
+          <table class="mtable">
+            <tr><th>Name</th><th>School</th><th>City</th><th>Category / Grade</th></tr>
+            <tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:24px;">Data will be published soon.</td></tr>
+          </table>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🌐</span><h3>International Champions</h3></div>
+          <p class="msec-sub">COMPUDON Junior has also attracted outstanding young participants from outside India.</p>
+          <div class="placeholder">International Champions data will be published soon.</div>
+        </div>
+        <div class="thankyou">
+          <span style="font-size:1.5rem;">❤️</span>
+          <p>Thank you to all the students, teachers, and schools who continue to inspire a safer, smarter, and more responsible digital world.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <script>
+  function showS(id,btn){
+    document.querySelectorAll('.spanel').forEach(function(p){p.classList.remove('active')});
+    document.querySelectorAll('.stab').forEach(function(t){t.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+  </script>
 </main>
   <footer class="site-footer">
     <div class="wrap">
