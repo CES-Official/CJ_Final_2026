@@ -71,6 +71,12 @@
     .stab.active{color:#0B2545;border-bottom-color:#1E88E5;}
     .spanel{display:none;}
     .spanel.active{display:block;}
+    .gtoggle{display:flex;gap:8px;justify-content:center;margin:0 0 28px;flex-wrap:wrap;}
+    .gftab{padding:8px 18px;font-size:.82rem;font-weight:700;color:#5A6472;cursor:pointer;border:2px solid #E2E8F0;background:#fff;border-radius:20px;transition:all .2s;font-family:inherit;}
+    .gftab:hover{border-color:#1E88E5;color:#0B2545;}
+    .gftab.active{background:#1E88E5;border-color:#1E88E5;color:#fff;}
+    .wcard[data-grade]{display:none;}
+    .spanel .wcard[data-grade].gshow{display:block;}
     .msec{margin-bottom:32px;}
     .msec-head{display:flex;align-items:center;gap:10px;margin:0 0 6px;justify-content:center;}
     .msec-head h3{font-size:1.05rem;font-weight:800;color:#0B2545;margin:0;text-transform:uppercase;letter-spacing:.04em;}
@@ -87,7 +93,7 @@
     .wcard .badge.silver{background:#F5F5F5;color:#616161;border:1px solid #E0E0E0;}
     .wcard .badge.bronze{background:#FBE9E7;color:#8D6E63;border:1px solid #FFCCBC;}
     .wcard .badge.region{background:#E3F2FD;color:#1565C0;border:1px solid #BBDEFB;}
-    .wcard .photo{width:100px;height:100px;border-radius:50%;margin:0 auto 10px;overflow:hidden;border:3px solid #E2E8F0;background:#EFF6FF;display:flex;align-items:center;justify-content:center;}
+    .wcard .photo{width:100px;height:100px;border-radius:50%;margin:0 auto 10px;overflow:hidden;border:4px solid #D4AF37;box-shadow:0 0 0 1px #F5E3A8;background:#EFF6FF;display:flex;align-items:center;justify-content:center;}
     .wcard .photo img{width:100%;height:100%;object-fit:cover;}
     .wcard .photo .init{font-size:24px;font-weight:700;color:#1E88E5;}
     .wcard h4{font-size:.9rem;font-weight:700;color:#0B2545;margin:0 0 4px;}
@@ -136,7 +142,7 @@
     .intl-card .photo{width:120px;height:120px;border-radius:12px;overflow:hidden;flex-shrink:0;border:3px solid rgba(255,255,255,.2);}
     .intl-card .photo img{width:100%;height:100%;object-fit:cover;}
     .intl-card h4{font-size:1.2rem;margin:0 0 4px;}
-    .intl-card .role{color:#1E88E5;font-weight:600;font-size:.85rem;margin:0 0 8px;}
+    .intl-card .role{color:#1E88E5;font-weight:600;font-size:1rem;margin:0 0 8px;}
     .intl-card .det{font-size:.85rem;color:rgba(255,255,255,.75);margin:0;}
     .intl-card .flag{font-size:1.2rem;margin-top:8px;}
     .thankyou{display:flex;align-items:center;gap:12px;margin:40px 0 0;padding:20px;background:#FFF8E1;border-radius:10px;border:1px solid #FFE082;}
@@ -165,26 +171,26 @@
         <div class="msec">
           <div class="msec-head"><span style="font-size:1.3rem;">🏆</span><h3>India Champions &amp; Gold Medalists</h3></div>
           <p class="msec-sub">Top national rank holders who demonstrated exceptional knowledge and skills.</p>
-          <div class="cgrid"><div class="wcard reveal">
+          <div class="cgrid"><div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge gold">National Champion</span>
               <div class="photo"><img src="assets/img/winners/garvit.jpg" alt="Garvit Verma"></div>
               <h4>Garvit Verma</h4>
               <p class="sch">Gomti Nagar Extension</p><p class="loc">City Montessori School</p>
               <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 6+</span></div>
-            </div><div class="wcard reveal">
+            </div><div class="wcard reveal gshow" data-grade="3to5">
               <span class="badge gold">National Champion</span>
               <div class="photo"><img src="assets/img/winners/manit.png" alt="Manit Kapur"></div>
               <h4>Manit Kapur</h4>
               <p class="sch">Sushant Golf City, Shaheed Path</p>
               <p class="loc">Seth Anandram Jaipuria School</p>
               <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 3–5</span></div>
-            </div><div class="wcard reveal">
+            </div><div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge gold">Champion Digital Literacy</span>
               <div class="photo"><img src="assets/img/winners/arnav.jpg" alt="Arnav Jain"></div>
               <h4>Arnav Jain</h4>
               <p class="sch">Sector 6, Vasundhara</p><p class="loc">Amity International School</p>
               <div class="tags"><span class="tag city">Ghaziabad</span><span class="tag grade">Grade 6+</span></div>
-            </div><div class="wcard reveal">
+            </div><div class="wcard reveal gshow" data-grade="3to5">
               <span class="badge gold">Champion Digital Literacy</span>
               <div class="photo"><img src="assets/img/winners/zainab.jpg" alt="Zainab Khan"></div>
               <h4>Zainab Khan</h4>
@@ -197,7 +203,7 @@
           <div class="msec-head"><span style="font-size:1.3rem;">🌍</span><h3>Regional Champions</h3></div>
           <p class="msec-sub">Gold medalists from each region who topped their zone.</p>
           <div class="cgrid">
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge region">North India</span>
               <div class="photo"><img src="assets/img/winners/regional/north_1of2_6andabove-CJ.jpg" alt="Priyansh Shukla"></div>
               <h4>Priyansh Shukla</h4>
@@ -205,7 +211,7 @@
               <p class="loc">Lucknow</p>
               <div class="tags"><span class="tag city">North</span><span class="tag grade">Grade 6+</span></div>
             </div>
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge region">Central India</span>
               <div class="photo"><img src="assets/img/winners/regional/central_1_6andabove-CJ.jpg" alt="Prashast Prajapati"></div>
               <h4>Prashast Prajapati</h4>
@@ -213,7 +219,7 @@
               <p class="loc">Bhopal</p>
               <div class="tags"><span class="tag city">Central</span><span class="tag grade">Grade 6+</span></div>
             </div>
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge region">South India</span>
               <div class="photo"><img src="assets/img/winners/regional/south_1_6andabove-CJ.jpg" alt="Kunj Vimal Bhut"></div>
               <h4>Kunj Vimal Bhut</h4>
@@ -221,7 +227,7 @@
               <p class="loc">Bangalore</p>
               <div class="tags"><span class="tag city">South</span><span class="tag grade">Grade 6+</span></div>
             </div>
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge region">West India</span>
               <div class="photo"><img src="assets/img/winners/regional/west_gold-CJ.jpg" alt="Gaurang Naidu"></div>
               <h4>Gaurang Naidu</h4>
@@ -329,18 +335,23 @@
         </div>
       </div>
       <div class="spanel" id="s5">
+        <div class="gtoggle">
+          <button class="gftab active" onclick="filterGrade('s5','all',this)">All Grades</button>
+          <button class="gftab" onclick="filterGrade('s5','3to5',this)">Explorers (Grade 3–5)</button>
+          <button class="gftab" onclick="filterGrade('s5','6plus',this)">Navigators (Grade 6+)</button>
+        </div>
         <div class="msec">
           <div class="msec-head"><span style="font-size:1.3rem;">🏆</span><h3>India Champions &amp; Gold Medalists</h3></div>
           <p class="msec-sub">Top national rank holders who demonstrated exceptional knowledge and skills.</p>
           <div class="cgrid two">
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge gold">National Champion</span>
               <div class="photo"><img src="assets/img/champs/6andabove_champion.jpg" alt="Saesha Mishra"></div>
               <h4>Saesha Mishra</h4>
               <p class="sch">Amity International School, Noida</p>
               <div class="tags"><span class="tag city">Noida</span><span class="tag grade">Grade 6+</span></div>
             </div>
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="3to5">
               <span class="badge gold">National Champion</span>
               <div class="photo"><img src="assets/img/champs/3to5_champion.jpg" alt="Aarna Lalwani"></div>
               <h4>Aarna Lalwani</h4>
@@ -353,14 +364,14 @@
           <div class="msec-head"><span style="font-size:1.3rem;">🥈</span><h3>1st Runners-Up &amp; Silver Medalists</h3></div>
           <p class="msec-sub">Students who earned the silver medal at the national level.</p>
           <div class="cgrid two">
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge silver">1st Runner-Up</span>
               <div class="photo"><img src="assets/img/champs/6andabove_SILVER.jpg" alt="Ishant Kumar"></div>
               <h4>Ishant Kumar</h4>
               <p class="sch">City Montessori School, Mahanagar, Lucknow</p>
               <div class="tags"><span class="tag city">Lucknow</span><span class="tag grade">Grade 6+</span></div>
             </div>
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="3to5">
               <span class="badge silver">1st Runner-Up</span>
               <div class="photo"><img src="assets/img/champs/3to5_SILVER.jpg" alt="Nimrah Zahra"></div>
               <h4>Nimrah Zahra</h4>
@@ -373,38 +384,26 @@
           <div class="msec-head"><span style="font-size:1.3rem;">🥉</span><h3>2nd Runners-Up &amp; Bronze Medalists</h3></div>
           <p class="msec-sub">Students who earned the bronze medal at the national level.</p>
           <div class="cgrid three">
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge bronze">2nd Runner-Up</span>
               <div class="photo"><img src="assets/img/champs/6andabove_BRONZE2of2-1.jpg" alt="Ananya Sharma"></div>
               <h4>Ananya Sharma</h4>
               <p class="sch">Amity International School, Sector 46, Gurugram</p>
               <div class="tags"><span class="tag city">Gurugram</span><span class="tag grade">Grade 6+</span></div>
             </div>
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="6plus">
               <span class="badge bronze">2nd Runner-Up</span>
               <div class="photo"><img src="assets/img/champs/6andabove_BRONZE1of2.jpg" alt="Hardik Goyal"></div>
               <h4>Hardik Goyal</h4>
               <p class="sch">Maharaja Agrasen Model School, Pitampura, New Delhi</p>
               <div class="tags"><span class="tag city">New Delhi</span><span class="tag grade">Grade 6+</span></div>
             </div>
-            <div class="wcard reveal">
+            <div class="wcard reveal gshow" data-grade="3to5">
               <span class="badge bronze">2nd Runner-Up</span>
               <div class="photo"><img src="assets/img/champs/3to5_BRONZE.jpg" alt="Smayan Mishra"></div>
               <h4>Smayan Mishra</h4>
               <p class="sch">Amity International School, Noida</p>
               <div class="tags"><span class="tag city">Noida</span><span class="tag grade">Grade 3–5</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="msec">
-          <div class="msec-head"><span style="font-size:1.3rem;">🌐</span><h3>International Champions</h3></div>
-          <p class="msec-sub">COMPUDON Junior has also attracted outstanding young participants from outside India.</p>
-          <div class="intl-card">
-            <div class="photo"><img src="assets/img/winners/john_usa.jpg" alt="John"></div>
-            <div>
-              <p class="role">🇺🇸 USA National Champion / Gold Medalist</p>
-              <h4>John</h4>
-              <p class="det">Thomas Edison EnergySmart Charter School, New Jersey (USA)</p>
             </div>
           </div>
         </div>
@@ -463,7 +462,7 @@
               <div class="photo"><img src="assets/img/past_winners/Satvik-Sengupta-1-300x300.jpg" alt="Satvik Sengupta"></div>
               <h4>Satvik Sengupta</h4>
               <p class="sch">Gems International School</p>
-              <div class="tags"></div>
+              <div class="tags"><span class="tag city">Gurugram, Haryana</span></div>
             </div>
             <div class="wcard reveal">
               <span class="badge bronze">2nd Runner-Up</span>
@@ -471,6 +470,18 @@
               <h4>Akira Khanduri</h4>
               <p class="sch">Bluebells School International, New Delhi</p>
               <div class="tags"><span class="tag city">New Delhi</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="msec">
+          <div class="msec-head"><span style="font-size:1.3rem;">🌐</span><h3>International Champions</h3></div>
+          <p class="msec-sub">COMPUDON Junior has also attracted outstanding young participants from outside India.</p>
+          <div class="intl-card">
+            <div class="photo"><img src="assets/img/winners/john_usa.jpg" alt="John"></div>
+            <div>
+              <p class="role">🇺🇸 USA National Champion / Gold Medalist</p>
+              <h4>John</h4>
+              <p class="det">Thomas Edison EnergySmart Charter School (TEECS)</p>
             </div>
           </div>
         </div>
@@ -483,7 +494,7 @@
         <div class="msec">
           <div class="msec-head"><span style="font-size:1.3rem;">🏆</span><h3>India Champion &amp; Gold Medalist</h3></div>
           <p class="msec-sub">Top national rank holder who demonstrated exceptional knowledge and skills.</p>
-          <div class="cgrid two">
+          <div class="cgrid two" style="grid-template-columns:minmax(0,280px);justify-content:center;">
             <div class="wcard reveal">
               <span class="badge gold">National Champion</span>
               <div class="photo"><img src="assets/img/past_winners/Aliya.Riaz_StationRoad.jpeg-1-2-300x300.jpg" alt="Aliya Riaz"></div>
@@ -529,7 +540,7 @@
               <div class="photo"><img src="assets/img/past_winners/Satvik-Sengupta-1-300x300.jpg" alt="Satvik Sengupta"></div>
               <h4>Satvik Sengupta</h4>
               <p class="sch">Gems International School</p>
-              <div class="tags"></div>
+              <div class="tags"><span class="tag city">Gurugram, Haryana</span></div>
             </div>
           </div>
         </div>
@@ -555,6 +566,14 @@
     panel.querySelectorAll('.gtab').forEach(function(t){t.classList.remove('active')});
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
+  }
+  function filterGrade(panelId,grade,btn){
+    var panel = document.getElementById(panelId);
+    panel.querySelectorAll('.gftab').forEach(function(t){t.classList.remove('active')});
+    btn.classList.add('active');
+    panel.querySelectorAll('.wcard[data-grade]').forEach(function(c){
+      c.classList.toggle('gshow', grade==='all' || c.getAttribute('data-grade')===grade);
+    });
   }
   </script>
 
