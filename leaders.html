@@ -12,12 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/compudon.min.css">
   <style>
-    .leader-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; padding:48px 0; }
-    .leader-card { background:#fff; border:1px solid var(--border,#E5E7EB); border-radius:12px; overflow:hidden; }
+    .leader-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:22px; padding:40px 0; max-width:1080px; margin:0 auto; }
+    .leader-card { background:#fff; border:1px solid var(--border,#E5E7EB); border-radius:12px; overflow:hidden; transition:box-shadow .25s ease, transform .25s ease; }
+    .leader-card:hover { box-shadow:0 8px 24px rgba(11,31,58,.10); transform:translateY(-2px); }
     .leader-video { position:relative; }
     .leader-video img { width:100%; display:block; aspect-ratio:16/9; object-fit:cover; }
-    .leader-video .play-badge { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:52px; height:52px; background:rgba(0,0,0,.55); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s; }
-    .leader-video .play-badge:hover { background:var(--green,#2E7D32); }
+    .leader-video .play-badge { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; background:rgba(11,31,58,.62); backdrop-filter:blur(2px); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s ease, transform .2s ease; }
+    .leader-video .play-badge:hover { background:var(--green,#2E7D32); transform:translate(-50%,-50%) scale(1.08); }
     .leader-video .vframe { display:none; }
     .leader-video.playing .play-badge { display:none; }
     .leader-video.playing .vframe { display:block; }
@@ -25,11 +26,11 @@
     .leader-photo-placeholder { width:100%; aspect-ratio:16/9; background:linear-gradient(135deg,#E8F0FE,#C5D8F8); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
     .leader-photo-placeholder .initials { width:72px; height:72px; border-radius:50%; background:var(--navy,#1F3A5F); color:#fff; font-size:1.5rem; font-weight:700; display:flex; align-items:center; justify-content:center; font-family:Arial,sans-serif; }
     .leader-photo-placeholder .ph-label { font-size:.72rem; color:var(--muted,#5E6E7E); font-family:Arial,sans-serif; }
-    .leader-info { padding:20px; }
-    .leader-quote { font-size:.88rem; color:var(--ink,#13243B); line-height:1.65; font-style:italic; margin-bottom:14px; border-left:3px solid var(--teal,#2C7A7B); padding-left:12px; }
+    .leader-info { padding:16px 18px 18px; }
+    .leader-quote { font-size:.84rem; color:var(--ink,#13243B); line-height:1.6; font-style:italic; margin-bottom:12px; border-left:3px solid var(--teal,#2C7A7B); padding-left:11px; }
     .leader-name { font-weight:700; font-size:.95rem; color:var(--ink,#13243B); margin-bottom:3px; }
     .leader-title { font-size:.78rem; color:var(--teal,#2C7A7B); font-weight:600; margin-bottom:4px; }
-    .leader-bio { font-size:.78rem; color:var(--muted,#5E6E7E); line-height:1.5; }
+    .leader-bio { font-size:.76rem; color:var(--muted,#5E6E7E); line-height:1.5; }
 
     .founder-section { background:var(--navy,#1F3A5F); padding:72px 0; }
     .founder-grid { display:grid; grid-template-columns:280px 1fr; gap:56px; align-items:start; }
@@ -94,15 +95,15 @@
           <!-- Dr. Vinnie Jauhari -->
           <div class="leader-card reveal">
             <div class="leader-video" id="vc1">
-              <img src="https://img.youtube.com/vi/7ZjNMnIuc04/hqdefault.jpg" alt="Dr. Vinnie Jauhari" loading="lazy">
+              <img src="https://img.youtube.com/vi/7ZjNMnIuc04/maxresdefault.jpg" data-fb2="https://img.youtube.com/vi/7ZjNMnIuc04/hqdefault.jpg" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://img.youtube.com/vi/7ZjNMnIuc04/hq720.jpg';}else{this.onerror=null;this.src=this.dataset.fb2;}" alt="Dr. Vinnie Jauhari" loading="lazy">
               <div class="play-badge" onclick="vcPlay('vc1','7ZjNMnIuc04')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc1','7ZjNMnIuc04')}">
-                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+                <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><polygon points="7,4.5 19,12 7,19.5"/></svg>
               </div>
               <div class="vframe"></div>
             </div>
             <div class="leader-info">
-              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
-                <div style="width:52px;height:52px;border-radius:50%;background:#E8F0FE;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:var(--navy,#1F3A5F);flex-shrink:0;font-family:Arial,sans-serif;">VJ</div>
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                <div style="width:44px;height:44px;border-radius:50%;background:#E8F0FE;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:var(--navy,#1F3A5F);flex-shrink:0;font-family:Arial,sans-serif;">VJ</div>
                 <div>
                   <div class="leader-name">Dr. Vinnie Jauhari</div>
                   <div class="leader-title">Global Higher Education Transformation Leader | Microsoft Education</div>
@@ -116,14 +117,14 @@
           <!-- Sanjay Khanna -->
           <div class="leader-card reveal">
             <div class="leader-video" id="vc3">
-              <img src="https://img.youtube.com/vi/RZfM0TeDOdQ/hqdefault.jpg" alt="Sanjay Khanna" loading="lazy">
+              <img src="https://img.youtube.com/vi/RZfM0TeDOdQ/maxresdefault.jpg" data-fb2="https://img.youtube.com/vi/RZfM0TeDOdQ/hqdefault.jpg" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://img.youtube.com/vi/RZfM0TeDOdQ/hq720.jpg';}else{this.onerror=null;this.src=this.dataset.fb2;}" alt="Sanjay Khanna" loading="lazy">
               <div class="play-badge" onclick="vcPlay('vc3','RZfM0TeDOdQ')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc3','RZfM0TeDOdQ')}">
-                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+                <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><polygon points="7,4.5 19,12 7,19.5"/></svg>
               </div>
               <div class="vframe"></div>
             </div>
             <div class="leader-info">
-              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
                 <div style="width:52px;height:52px;border-radius:50%;background:#FFF3E0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:#E65100;flex-shrink:0;font-family:Arial,sans-serif;">SK</div>
                 <div>
                   <div class="leader-name">Mr. Sanjay Khanna</div>
@@ -138,15 +139,15 @@
           <!-- David Saedi -->
           <div class="leader-card reveal">
             <div class="leader-video" id="vc4">
-              <img src="https://img.youtube.com/vi/wWF-6BtUtWY/hqdefault.jpg" alt="David Saedi" loading="lazy">
+              <img src="https://img.youtube.com/vi/wWF-6BtUtWY/maxresdefault.jpg" data-fb2="https://img.youtube.com/vi/wWF-6BtUtWY/hqdefault.jpg" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://img.youtube.com/vi/wWF-6BtUtWY/hq720.jpg';}else{this.onerror=null;this.src=this.dataset.fb2;}" alt="David Saedi" loading="lazy">
               <div class="play-badge" onclick="vcPlay('vc4','wWF-6BtUtWY')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc4','wWF-6BtUtWY')}">
-                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+                <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><polygon points="7,4.5 19,12 7,19.5"/></svg>
               </div>
               <div class="vframe"></div>
             </div>
             <div class="leader-info">
-              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
-                <div style="width:52px;height:52px;border-radius:50%;background:#E8F0FE;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:var(--navy,#1F3A5F);flex-shrink:0;font-family:Arial,sans-serif;">DS</div>
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                <div style="width:44px;height:44px;border-radius:50%;background:#E8F0FE;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:var(--navy,#1F3A5F);flex-shrink:0;font-family:Arial,sans-serif;">DS</div>
                 <div>
                   <div class="leader-name">Mr. David Saedi</div>
                   <div class="leader-title">Founder &amp; CEO, Certiport, Inc.</div>
@@ -160,14 +161,14 @@
           <!-- Andrew Blandford-Williams -->
           <div class="leader-card reveal">
             <div class="leader-video" id="vc5">
-              <img src="https://img.youtube.com/vi/sdMh31dKmXM/hqdefault.jpg" alt="Andrew Blandford-Williams" loading="lazy">
+              <img src="https://img.youtube.com/vi/sdMh31dKmXM/maxresdefault.jpg" data-fb2="https://img.youtube.com/vi/sdMh31dKmXM/hqdefault.jpg" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://img.youtube.com/vi/sdMh31dKmXM/hq720.jpg';}else{this.onerror=null;this.src=this.dataset.fb2;}" alt="Andrew Blandford-Williams" loading="lazy">
               <div class="play-badge" onclick="vcPlay('vc5','sdMh31dKmXM')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc5','sdMh31dKmXM')}">
-                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+                <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><polygon points="7,4.5 19,12 7,19.5"/></svg>
               </div>
               <div class="vframe"></div>
             </div>
             <div class="leader-info">
-              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
                 <div style="width:52px;height:52px;border-radius:50%;background:#E8F5E9;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:var(--green,#2E7D32);flex-shrink:0;font-family:Arial,sans-serif;">AB</div>
                 <div>
                   <div class="leader-name">Mr. Andrew Blandford-Williams</div>
@@ -182,14 +183,14 @@
           <!-- Sudip Mukherjee -->
           <div class="leader-card reveal">
             <div class="leader-video" id="vc6">
-              <img src="https://img.youtube.com/vi/O54pmUwToDI/hqdefault.jpg" alt="Sudip Mukherjee" loading="lazy">
+              <img src="https://img.youtube.com/vi/O54pmUwToDI/maxresdefault.jpg" data-fb2="https://img.youtube.com/vi/O54pmUwToDI/hqdefault.jpg" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://img.youtube.com/vi/O54pmUwToDI/hq720.jpg';}else{this.onerror=null;this.src=this.dataset.fb2;}" alt="Sudip Mukherjee" loading="lazy">
               <div class="play-badge" onclick="vcPlay('vc6','O54pmUwToDI')" role="button" tabindex="0" aria-label="Play video" onkeydown="if(event.key==='Enter'){vcPlay('vc6','O54pmUwToDI')}">
-                <svg viewBox="0 0 24 24" fill="#fff" width="22" height="22"><polygon points="6,4 20,12 6,20"/></svg>
+                <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><polygon points="7,4.5 19,12 7,19.5"/></svg>
               </div>
               <div class="vframe"></div>
             </div>
             <div class="leader-info">
-              <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
                 <div style="width:52px;height:52px;border-radius:50%;background:#FFF3E0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;color:#E65100;flex-shrink:0;font-family:Arial,sans-serif;">SM</div>
                 <div>
                   <div class="leader-name">Mr. Sudip Mukherjee</div>

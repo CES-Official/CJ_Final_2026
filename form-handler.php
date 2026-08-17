@@ -40,7 +40,7 @@ define('SMTP_HOST', 'smtpout.secureserver.net');
 define('SMTP_PORT', 465);
 define('SMTP_SECURE', 'ssl'); // GoDaddy uses SSL on port 465 (use 'tls' + port 587 if 465 is blocked)
 define('SMTP_USERNAME', 'connect@compudonjunior.com'); // the mailbox that sends these emails
-define('SMTP_PASSWORD', ''); // ← fill this in with that mailbox's actual password
+define('SMTP_PASSWORD', 'Chatur@246'); // ← fill this in with that mailbox's actual password
 
 // ── Zoho CRM integration (optional — leave ZOHO_ENABLED false until you have credentials) ──
 define('ZOHO_ENABLED', true); // Zoho CRM lead creation is now live
@@ -137,6 +137,103 @@ if (!empty($_POST['website'])) {
     die('Thank you for your submission.');
 }
 
+// ── Step 3b: Same-origin check ─────────────────────────────────
+// Legitimate submissions come from a page on our own domain. Bots that POST
+// directly to this script usually send no Referer/Origin, or a foreign one.
+// We only reject when a header IS present and points elsewhere, because some
+// browsers and privacy tools strip Referer entirely on genuine requests.
+$origin_raw = $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_REFERER'] ?? '';
+if ($origin_raw !== '') {
+    $origin_host = strtolower(parse_url($origin_raw, PHP_URL_HOST) ?? '');
+    $allowed_hosts = ['compudonjunior.com', 'www.compudonjunior.com', 'localhost'];
+    if ($origin_host !== '' && !in_array($origin_host, $allowed_hosts, true)) {
+        http_response_code(403);
+        die('This form can only be submitted from the COMPUDON Junior website.');
+    }
+}
+
+// ── Step 3c: Server-side validation and spam heuristics ────────
+// Everything here runs on the server, so it still applies even if a bot skips
+// our JavaScript and posts straight to this file.
+$internal_keys   = ['recaptcha_token', 'website', 'form_name', 'request_timestamp_utc'];
+$payload         = array_diff_key($_POST, array_flip($internal_keys));
+$validation_fail = '';
+
+// (a) Reject empty submissions — these only ever create junk CRM leads.
+$has_content = false;
+foreach ($payload as $v) {
+    if (!is_array($v) && trim($v) !== '') { $has_content = true; break; }
+}
+if (!$has_content) {
+    $validation_fail = 'empty submission';
+}
+
+// (b) Length caps. Free-text gets more room; everything else stays short.
+if ($validation_fail === '') {
+    foreach ($payload as $k => $v) {
+        if (is_array($v)) continue;
+        $limit = (stripos($k, 'message') !== false || stripos($k, 'comment') !== false) ? 3000 : 200;
+        // mbstring is not enabled on every host, so fall back to strlen.
+        $len = function_exists('mb_strlen') ? mb_strlen($v) : strlen($v);
+        if ($len > $limit) { $validation_fail = "field '{$k}' too long"; break; }
+    }
+}
+
+// (c) Email must be a real address if one was supplied.
+if ($validation_fail === '') {
+    foreach ($payload as $k => $v) {
+        if (is_array($v) || trim($v) === '') continue;
+        if (stripos($k, 'email') !== false && !filter_var(trim($v), FILTER_VALIDATE_EMAIL)) {
+            $validation_fail = 'invalid email address';
+            break;
+        }
+    }
+}
+
+// (d) Phone must be a plausible number if one was supplied.
+if ($validation_fail === '') {
+    foreach (['mobile_number', 'mobile', 'phone_number', 'phone', 'whatsapp'] as $pk) {
+        if (!empty($payload[$pk]) && !is_array($payload[$pk])) {
+            $digits = preg_replace('/\D/', '', $payload[$pk]);
+            if (strlen($digits) < 7 || strlen($digits) > 15) {
+                $validation_fail = 'invalid phone number';
+            }
+            break;
+        }
+    }
+}
+
+// (e) Links and markup do not belong in short identity fields. This is the
+// single strongest signal of automated spam, which almost always carries a URL.
+if ($validation_fail === '') {
+    $no_link_fields = ['school_name', 'contact_name', 'coordinator_name', 'full_name',
+                       'city', 'state', 'designation', 'board', 'branch_campus', 'subject'];
+    foreach ($no_link_fields as $nk) {
+        if (empty($payload[$nk]) || is_array($payload[$nk])) continue;
+        if (preg_match('~(https?://|www\.|\[url|</?a\s|\bviagra\b|\bcasino\b|\bcrypto\s*wallet\b)~i', $payload[$nk])) {
+            $validation_fail = "link or markup in '{$nk}'";
+            break;
+        }
+    }
+}
+
+// (f) A genuine enquiry rarely needs more than two links in the message body.
+if ($validation_fail === '') {
+    foreach ($payload as $k => $v) {
+        if (is_array($v)) continue;
+        if (preg_match_all('~https?://~i', $v) > 2) {
+            $validation_fail = "too many links in '{$k}'";
+            break;
+        }
+    }
+}
+
+if ($validation_fail !== '') {
+    error_log('Form submission rejected (' . $validation_fail . ') from IP ' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown'));
+    http_response_code(422);
+    die('Some details did not look right, so we could not submit the form. Please check your entries and try again, or email us at connect@compudonjunior.com.');
+}
+
 // ── Step 4: Basic rate limiting (simple file-based, per IP) ─────
 $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
 $rate_limit_file = sys_get_temp_dir() . '/cj_ratelimit_' . md5($ip) . '.txt';
@@ -178,10 +275,46 @@ foreach ($_POST as $key => $value) {
     if (stripos($key, 'email') !== false && filter_var($value, FILTER_VALIDATE_EMAIL)) {
         $submitter_email = $value;
     }
-    // Try to auto-detect a name field for personalising the acknowledgement
-    if (stripos($key, 'name') !== false && empty($submitter_name)) {
-        $submitter_name = $value;
+}
+
+// ── Step 5a: Work out WHO submitted (person), not the organisation ──
+// Important: a naive "does the key contain 'name'?" test matches school_name,
+// company_name, etc. Those are organisations, not people — using them would
+// greet the school by name and put it in Zoho's Last_Name field. So we look
+// for person-name keys in priority order and never fall back to an org field.
+$person_name_keys = [
+    'contact_name', 'coordinator_name', 'full_name', 'your_name',
+    'parent_name', 'guardian_name', 'teacher_name', 'principal_name',
+    'student_name', 'first_name', 'name',
+];
+$org_name_keys = ['school_name', 'company_name', 'organisation_name', 'organization_name', 'branch_name'];
+
+foreach ($person_name_keys as $pk) {
+    if (!empty($_POST[$pk])) { $submitter_name = trim($_POST[$pk]); break; }
+}
+// Last resort: any *name* key that clearly isn't an organisation
+if (empty($submitter_name)) {
+    foreach ($_POST as $key => $value) {
+        if (in_array($key, $exclude_fields) || in_array($key, $org_name_keys)) continue;
+        if (stripos($key, 'name') !== false && !empty($value) && !is_array($value)) {
+            $submitter_name = trim($value);
+            break;
+        }
     }
+}
+
+/**
+ * Returns the first non-empty value from $arr matching any key in $keys.
+ * Used so field-name variations across forms (mobile_number vs mobile vs
+ * phone) all map to the right Zoho field instead of silently landing empty.
+ */
+function cj_first_nonempty(array $arr, array $keys) {
+    foreach ($keys as $k) {
+        if (isset($arr[$k]) && !is_array($arr[$k]) && trim($arr[$k]) !== '') {
+            return trim($arr[$k]);
+        }
+    }
+    return '';
 }
 
 // ── Step 5b: Push lead into Zoho CRM (best-effort — never blocks the form) ──
@@ -230,14 +363,14 @@ function push_lead_to_zoho($form_name, $fields, $submitter_email, $submitter_nam
     }
 
     // 4. Try to pick up a school/organisation name if the form had one
-    $company = $fields['school_name'] ?? $fields['school'] ?? $fields['company'] ?? SITE_NAME . ' Website Lead';
+    $company = cj_first_nonempty($fields, ['school_name', 'school', 'institution', 'company_name', 'company']) ?: SITE_NAME . ' Website Lead';
 
     $lead_payload = [
         'data' => [[
             'Last_Name'   => $last_name,
             'First_Name'  => $first_name,
             'Email'       => $submitter_email,
-            'Phone'       => $fields['phone'] ?? $fields['mobile'] ?? $fields['whatsapp'] ?? '',
+            'Phone'       => cj_first_nonempty($fields, ['mobile_number', 'mobile', 'phone_number', 'phone', 'whatsapp', 'contact_number', 'telephone']),
             'Company'     => $company,
             'Lead_Source' => 'Website - ' . $form_name,
             'Description' => implode("\n", $description_lines),
@@ -276,6 +409,13 @@ $zoho_status = push_lead_to_zoho($form_name, $clean_fields, $submitter_email, $s
 
 // ── Step 6: Send notification email to the support team ────────
 $notify_subject = "New {$form_name} Submission — " . SITE_NAME;
+// For callback requests, surface the requested slot in the subject so whoever
+// triages the inbox knows when to ring without opening the email.
+if (!empty($_POST['preferred_callback_time'])) {
+    $slot = htmlspecialchars(trim($_POST['preferred_callback_time']));
+    $who  = !empty($submitter_name) ? $submitter_name : ($_POST['school_name'] ?? '');
+    $notify_subject = "Callback request" . ($who ? " — {$who}" : "") . " — {$slot}";
+}
 
 $notify_body = "
 <html><body style='font-family:Arial,sans-serif;color:#333;'>
@@ -342,6 +482,9 @@ if (!empty($submitter_email)) {
 // exactly what happened. Delete this block (and the file) once everything works.
 $debug_log = "=== " . date('d M Y, h:i:s A') . " ===\n";
 $debug_log .= "Form: {$form_name}\n";
+if (SMTP_PASSWORD === '') {
+    $debug_log .= "*** SMTP_PASSWORD is blank in form-handler.php — no email can be sent until it is filled in. ***\n";
+}
 $debug_log .= "Submitter email detected: " . ($submitter_email ?: '(none found)') . "\n";
 $debug_log .= "Zoho CRM Status: {$zoho_status}\n";
 $debug_log .= "Notify email sent: " . ($notify_sent ? 'YES' : 'NO — ' . $notify_error) . "\n";
