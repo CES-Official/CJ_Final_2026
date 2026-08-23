@@ -28,6 +28,9 @@ h2{color:var(--navy);font-size:1.35rem;font-weight:700;margin:40px 0 14px;paddin
 p{margin-bottom:12px;color:var(--ink);}
 ul{margin:0 0 16px 20px;}
 li{margin-bottom:8px;}
+.sec-band{display:flex;align-items:center;gap:0;margin:40px 0 18px;border-radius:8px;overflow:hidden;}
+.sec-band .num{background:var(--orange,#D2502A);color:#fff;font-weight:800;font-size:1.05rem;padding:12px 18px;flex-shrink:0;}
+.sec-band .txt{background:var(--navy);color:#fff;font-weight:700;font-size:1.1rem;padding:12px 20px;flex:1;}
 .card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:16px;}
 table.benefits{width:100%;border-collapse:collapse;margin-bottom:8px;}
 table.benefits th{text-align:left;background:var(--navy);color:#fff;padding:10px 14px;font-size:.85rem;}
@@ -37,10 +40,11 @@ table.benefits tr:last-child td{border-bottom:none;}
 .badge-note{background:#FFF8E6;border:1px solid #F3D98B;border-radius:8px;padding:14px 18px;font-size:.9rem;color:#7A5C00;margin-bottom:16px;}
 .conduct{border-left:4px solid #D64545;background:#FDF2F2;padding:16px 20px;border-radius:6px;}
 .contact{background:var(--navy);color:#fff;border-radius:10px;padding:28px 24px;text-align:center;}
+.contact p{color:#fff;}
 .contact a{color:#8FD0FF;text-decoration:none;}
 .contact ul{list-style:none;margin:16px 0 0;}
 .contact li{margin-bottom:6px;color:#DCE6F5;}
-footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:40px;}
+main footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:40px;}
 .apply-cta{text-align:center;margin:44px 0 16px;}
 .apply-cta a{display:inline-block;background:var(--navy);color:#fff;font-size:1.05rem;font-weight:600;padding:16px 36px;border-radius:8px;text-decoration:none;transition:background .2s;}
 .apply-cta a:hover{background:#0d3060;}
@@ -121,19 +125,22 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:40px;}
       </a>
       <ul class="nav-links">
         <li><a id="nav-home" href="index.html">Home</a></li>
-        <li><a id="nav-objectives" href="objectives.html">Objectives</a></li>
         <li><a id="nav-schools" href="schools.html">Schools</a></li>
         <li><a id="nav-parents" href="parents.html">Parents</a></li>
-        <li><a id="nav-hall" href="hall-of-fame.html">Leaders & Educators</a></li>
+        <li><a id="nav-leaders-speak" href="leaders.html">Global Leaders Speak</a></li>
         <li class="has-drop">
           <a href="#" aria-haspopup="true" class="hof-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;margin-right:4px;vertical-align:-2px;"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 01-10 0V4z" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 6H4a2 2 0 002 4M17 6h3a2 2 0 01-2 4" stroke-linecap="round" stroke-linejoin="round"/></svg>Hall of Fame</a>
           <ul class="drop">
+            <li><a id="nav-hall" href="hall-of-fame.html">Education Leaders</a></li>
             <li><a href="winners.html">Past Winners</a></li>
             <li><a href="ambassadors.html">Student Ambassadors</a></li>
+            <li><a href="student-ambassadors-gallery.html">Meet Our Ambassadors</a></li>
+            <li><a href="alumni.html">Notable Alumni</a></li>
           </ul>
         </li>
         <li><a id="nav-advisory" href="advisory-board-new.html">Advisory Board</a></li>
-        <li><a id="nav-prizes" href="prizes.html">Prizes</a></li>
+        <li><a id="nav-prizes" class="res-link" href="prizes.html">Awards</a></li>
+        <li><a id="nav-resources" class="res-link" href="digital-readiness-resources.html">Resources</a></li>
       </ul>
       <a class="btn btn-primary nav-cta" href="registration.html">Register</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
@@ -144,201 +151,101 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:40px;}
 <header class="hero">
   <img src="assets/img/ambassador-header.png" alt="COMPUDON Junior Student Ambassador — Champions of Digital Citizenship, Season VII 2026">
   <div class="meta-bar">
-    <span>Official Program Document</span>
-    <span>Effective August 15, 2026</span>
-    <span>Annual Renewal Cycle</span>
+    <a href="student-ambassadors-gallery.html" style="color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;">MEET OUR STUDENT AMBASSADORS <span style="font-size:1.1rem;">&rarr;</span></a>
   </div>
 </header>
 
 <main id="main">
   <div class="wrap" style="max-width:880px;padding-top:48px;padding-bottom:80px;">
 
-  <h2>1. Program Overview</h2>
-  <p>The COMPUDON Junior Student Ambassador Program recognizes exceptional young achievers who demonstrate leadership, responsible digital citizenship and a passion for making a positive difference. Ambassadors inspire peers, represent COMPUDON Junior at events and activities, and help build a stronger community of digitally responsible young leaders across India.</p>
+  <div class="sec-band"><span class="num">1</span><span class="txt">Program Overview</span></div>
+  <p>The COMPUDON Junior Student Ambassador Program recognises aspiring young leaders who inspire others, promote responsible digital citizenship, and help build a stronger community of digitally responsible students.</p>
+  <p>Founding Ambassadors are selected by COMPUDON Junior on the basis of achievement, participation, effort, enthusiasm, leadership potential, and a demonstrated interest in promoting responsible digital citizenship. Competition results are considered, but selection is not based on competition results alone.</p>
 
-  <h2>2. Eligibility Criteria</h2>
-  <p>Candidates must meet all of the following requirements to be considered for appointment:</p>
+  <div class="sec-band"><span class="num">2</span><span class="txt">Eligibility Criteria</span></div>
+  <p>A candidate should meet the following:</p>
   <ul>
-    <li>Must be a current or past Winner at regional or national level</li>
-    <li>Enrolled as a student (Grade 6 and above, or equivalent) at the time of appointment</li>
-    <li>Demonstrates strong communication, leadership, and representational qualities</li>
-    <li>Nominated by a school authority or COMPUDON Junior</li>
-    <li>Reviewed and approved by the COMPUDON Junior Ambassador Selection Committee</li>
+    <li>Current or past COMPUDON Junior winner at the regional or national level. Non-winning students may be considered on school recommendation.</li>
+    <li>In Grade 6 or above at the time of appointment.</li>
+    <li>Shows communication, leadership, enthusiasm, and responsible digital citizenship.</li>
+    <li>Nominated by their school or by COMPUDON Junior.</li>
   </ul>
 
-  <h3 style="color:var(--navy);font-size:1.05rem;font-weight:600;margin-bottom:10px;">Selection</h3>
-  <p>Founding Ambassadors are selected by COMPUDON Junior based on a combination of achievement, participation, effort, enthusiasm, leadership potential, and demonstrated interest in promoting responsible digital citizenship. Competition results may be considered, but selection is not based solely on competition results. Appointment is subject to written parental consent.</p>
-
-  <h2>3. Appointment &amp; Renewal</h2>
+  <div class="sec-band"><span class="num">3</span><span class="txt">Appointment &amp; Renewal</span></div>
   <div class="card">
-    <p><strong>Initial Term:</strong> One (1) year, commencing August 15 each year</p>
-    <p><strong>Renewal Cycle:</strong> Annual review conducted each July</p>
-    <p><strong>Maximum Tenure:</strong> Up to three (3) consecutive one-year terms</p>
-    <p style="margin-bottom:0;"><strong>Term Start Date:</strong> August 15, 2026</p>
+    <p><strong>Initial Term:</strong> 15 August to 14 August of the following year</p>
+    <p><strong>Applications &amp; Renewal:</strong> Fresh enrolments and an annual review each July; renewal applications are due by 7 August each year</p>
+    <p style="margin-bottom:0;"><strong>Maximum Tenure:</strong> Up to three (3) consecutive one-year terms</p>
   </div>
   <p>Renewal is subject to the following conditions:</p>
   <ul>
     <li>Ambassador remains enrolled as a student in good academic standing</li>
     <li>Satisfactory participation record (events, content, mentoring) for the term</li>
     <li>No conduct violations or disciplinary actions during the term</li>
-    <li>Submission of the annual renewal application by July 7</li>
+    <li>Submission of the annual renewal application by 7 August</li>
   </ul>
 
-  <h2>4. Student Ambassador Expectations</h2>
+  <div class="sec-band"><span class="num">4</span><span class="txt">Student Ambassador Expectations</span></div>
   <ul>
-    <li>Represent COMPUDON Junior at school events, virtual events, or online activities organized by COMPUDON Junior, as reasonably available</li>
-    <li>Participate in the Annual Award Ceremony, where applicable</li>
-    <li>Support and encourage fellow students, including mentoring at least one junior participant during the competition season</li>
-    <li>Create or contribute to at least one piece of original content, such as a blog or video, during the year promoting digital literacy, cyber safety, or responsible digital citizenship</li>
-    <li>Stay responsive to reasonable communications from the COMPUDON Junior team</li>
+    <li>Encourages and supports fellow students</li>
+    <li>Mentors at least one junior participant during the competition season</li>
+    <li>Creates or contributes to at least one piece of original video content each year</li>
+    <li>Communicates responsibly with the COMPUDON Junior team</li>
   </ul>
   <p>These expectations do not apply during school examinations, pre-arranged school events, or other significant academic commitments. Student Ambassadors are expected to prioritize their education and well-being.</p>
 
-  <h2>5. Ambassador Benefits</h2>
+  <div class="sec-band"><span class="num">5</span><span class="txt">Ambassador Benefits</span></div>
   <div class="badge-note">★ Website photo feature is a marquee benefit. High-resolution photos should be submitted within 14 days of appointment.</div>
   <table class="benefits">
     <tr><th></th><th>Benefit</th><th>Details</th></tr>
-    <tr><td class="icon">📸</td><td><strong>Official Website Profile ★</strong></td><td>Official profile featuring the Ambassador's photograph, name, school, and Ambassador bio on the COMPUDON Junior website for the duration of the appointment.</td></tr>
-    <tr><td class="icon">📜</td><td>Official Ambassador Appointment Certificate</td><td>Official digital certificate and appointment letter issued upon induction.</td></tr>
-    <tr><td class="icon">🪪</td><td>Ambassador Kit</td><td>Official COMPUDON Junior Ambassador ID card, enamel lapel pin, and Ambassador kit.</td></tr>
-    <tr><td class="icon">🎫</td><td>Priority Event Access</td><td>Priority registration and complimentary access to selected COMPUDON Junior national finals and flagship events.</td></tr>
-    <tr><td class="icon">🤝</td><td>Ambassador Community</td><td>Access to the COMPUDON Junior Ambassador community, including selected mentor interactions, guest sessions, and networking opportunities.</td></tr>
-    <tr><td class="icon">🌟</td><td>Ambassador Recognition</td><td>Featured recognition at selected COMPUDON Junior events, publications, or social media channels.</td></tr>
-    <tr><td class="icon">✉️</td><td>Ambassador Recognition Letter</td><td>Official letters confirming the student's Ambassador appointment and contributions, available upon request.</td></tr>
+    <tr><td class="icon">📸</td><td><strong>Official Website Profile ★</strong></td><td>An official profile featuring the Ambassador's photograph, name, school, and a short bio on the COMPUDON Junior website for the duration of the appointment.</td></tr>
+    <tr><td class="icon">📜</td><td>Appointment Certificate</td><td>An official certificate and appointment letter issued upon induction.</td></tr>
+    <tr><td class="icon">🪪</td><td>Ambassador Recognition</td><td>Featured recognition with an official digital Ambassador badge across selected COMPUDON Junior platforms and at the India Finals Award Ceremony.</td></tr>
+    <tr><td class="icon">🎫</td><td>Priority Event Access</td><td>Priority registration and invitations to COMPUDON Junior and flagship events.</td></tr>
+    <tr><td class="icon">🎥</td><td>Ambassador Spotlight</td><td>Selected Ambassador videos may be featured on the official COMPUDON Junior portal and digital channels.</td></tr>
+    <tr><td class="icon">✉️</td><td>Recommendation Letter</td><td>Official recommendation letters confirming the student's appointment and contributions, available on request.</td></tr>
   </table>
 
-  <h2>6. Code of Conduct</h2>
+  <div class="sec-band"><span class="num">6</span><span class="txt">Code of Conduct</span></div>
   <p>Being a COMPUDON Junior Ambassador is an opportunity to lead, inspire, and have fun while making a positive difference. Ambassadors are expected to:</p>
   <div class="conduct">
     <ul style="margin-bottom:0;">
-      <li>Be kind, respectful, and welcoming to others</li>
+      <li>Be kind, respectful, and welcoming to all</li>
       <li>Be honest and play fair</li>
       <li>Use digital platforms responsibly and safely</li>
       <li>Represent COMPUDON Junior positively</li>
       <li>Treat fellow students, teachers, and event teams with respect</li>
+      <li>Complete assigned responsibilities within agreed timelines</li>
     </ul>
   </div>
   <p style="margin-top:12px;">Serious or repeated behavior that goes against these values may result in the Ambassador role being withdrawn.</p>
 
-  <h2>7. Apply Now</h2>
-  <div id="app-form">
+  <div class="sec-band"><span class="num">7</span><span class="txt">Apply Now</span></div>
+  <p>To apply, or to receive the application form and full program information, contact us using either option below. We'll send you the Student Ambassador Application &amp; Parental Consent Form along with a program information sheet for parents.</p>
 
-    <!-- Progress bar -->
-    <div class="progress-bar">
-      <div class="progress-step active" data-step="1"><span>1</span> Student</div>
-      <div class="progress-step" data-step="2"><span>2</span> Details</div>
-      <div class="progress-step" data-step="3"><span>3</span> Consent</div>
-      <div class="progress-step" data-step="4"><span>4</span> Verify</div>
-    </div>
-
-    <!-- STEP 1: Student Details -->
-    <div class="form-step active" id="fs1">
-      <h3 class="form-section-title">A. Student Details</h3>
-      <div class="form-grid">
-        <div class="form-group full"><label>Student's Full Name <em>*</em></label><input type="text" id="f_name" required></div>
-        <div class="form-group"><label>Class / Grade (6+) <em>*</em></label><input type="text" id="f_grade" required></div>
-        <div class="form-group"><label>Age <em>*</em></label><input type="number" id="f_age" min="10" max="19"></div>
-        <div class="form-group"><label>Date of Birth</label><input type="date" id="f_dob"></div>
-        <div class="form-group full"><label>School Name <em>*</em></label><input type="text" id="f_school" required></div>
-        <div class="form-group full"><label>City / State <em>*</em></label><input type="text" id="f_city" required></div>
-      </div>
-      <div class="form-nav"><button class="btn-next" onclick="goFormStep(2)">Next →</button></div>
-    </div>
-
-    <!-- STEP 2: Participation + Statement -->
-    <div class="form-step" id="fs2">
-      <h3 class="form-section-title">B. COMPUDON Junior Participation</h3>
-      <label class="form-label-light">Please mention any previous COMPUDON Junior participation, achievements, or awards.</label>
-      <textarea id="f_participation" rows="3"></textarea>
-
-      <h3 class="form-section-title" style="margin-top:24px;">C. Why I Want to Be an Ambassador</h3>
-      <label class="form-label-light">In a few sentences, tell us why you would like to be a COMPUDON Junior Ambassador.</label>
-      <textarea id="f_statement" rows="4" required></textarea>
-
-      <h3 class="form-section-title" style="margin-top:24px;">D. School Recommendation (Optional)</h3>
-      <label class="form-label-light">If your school has provided a recommendation letter, upload it here. Alternatively, the school can email it to connect@compudonjunior.com.</label>
-      <input type="file" id="f_school_rec" accept=".pdf,.jpg,.png,.docx" style="margin-top:8px;">
-
-      <div class="form-nav"><button class="btn-back" onclick="goFormStep(1)">← Back</button><button class="btn-next" onclick="goFormStep(3)">Next →</button></div>
-    </div>
-
-    <!-- STEP 3: Parent Consent -->
-    <div class="form-step" id="fs3">
-      <h3 class="form-section-title">E. Parent / Guardian Consent &amp; Declaration</h3>
-      <p class="form-intro">To be completed by the parent/legal guardian of the student named above.</p>
-
-      <div class="form-grid">
-        <div class="form-group full"><label>Parent / Guardian Full Name <em>*</em></label><input type="text" id="f_parent_name" required></div>
-        <div class="form-group"><label>Relationship to Student <em>*</em></label><input type="text" id="f_relationship" required></div>
-        <div class="form-group"><label>Contact Number (for OTP) <em>*</em></label><input type="tel" id="f_phone" required></div>
-        <div class="form-group full"><label>Email <em>*</em></label><input type="email" id="f_parent_email" required></div>
-      </div>
-
-      <div class="consent-group">
-        <h4>Participation &amp; Conduct</h4>
-        <label class="consent-check"><input type="checkbox" id="c1" required> I consent to my child's participation in the COMPUDON Junior Student Ambassador Program as described on this page.</label>
-        <label class="consent-check"><input type="checkbox" id="c2" required> I have read and understood the program expectations and code of conduct.</label>
-        <label class="consent-check"><input type="checkbox" id="c3" required> I understand that the Ambassador role is honorary and voluntary, and that my child's education and well-being take priority at all times.</label>
-      </div>
-
-      <div class="consent-group">
-        <h4>Media &amp; Publicity (Optional — Unbundled Consent)</h4>
-        <label class="consent-check"><input type="checkbox" id="c4"> <strong>Website Publication:</strong> I consent to my child's name, photograph, school name, and class being published on the COMPUDON Junior website for the duration of the appointment.</label>
-        <label class="consent-check"><input type="checkbox" id="c5"> <strong>Social Media &amp; Event Materials:</strong> I consent to my child being featured in COMPUDON Junior social media posts, event materials, or publications.</label>
-      </div>
-
-      <div class="consent-group">
-        <h4>Data Protection &amp; Legal Undertakings</h4>
-        <label class="consent-check"><input type="checkbox" id="c6" required> I have read the <a href="#data-notice" style="color:var(--sky);">Data Handling Notice</a> and understand how personal data will be collected, processed, and protected.</label>
-        <label class="consent-check"><input type="checkbox" id="c7" required> <strong>Verifiable Parental Consent:</strong> I confirm that I am the legal parent/guardian and consent to identity verification via email OTP as required under Section 9(1) of the Digital Personal Data Protection Act, 2023.</label>
-        <label class="consent-check"><input type="checkbox" id="c8" required> I understand that COMPUDON Junior will not track, profile, or serve targeted advertising to my child. I may withdraw consent at any time by emailing <a href="mailto:privacy@compudonjunior.com" style="color:var(--sky);">privacy@compudonjunior.com</a>.</label>
-      </div>
-
-      <div class="form-nav"><button class="btn-back" onclick="goFormStep(2)">← Back</button><button class="btn-next" onclick="submitAndSendOTP()">Submit &amp; Verify →</button></div>
-    </div>
-
-    <!-- STEP 4: OTP Verification -->
-    <div class="form-step" id="fs4">
-      <div class="otp-card">
-        <div class="otp-icon">🔒</div>
-        <h3 class="form-section-title" style="text-align:center;">Parental Consent Verification</h3>
-        <p class="form-intro" style="text-align:center;">A 6-digit verification code has been sent to <strong id="otp-email-display"></strong>.<br>Please enter it below to complete your application.</p>
-        <input type="text" id="f_otp" class="otp-input" maxlength="6" placeholder="------" inputmode="numeric" autocomplete="one-time-code">
-        <div id="otp-timer" class="otp-timer"></div>
-        <button class="btn-next" style="max-width:320px;margin:0 auto;display:block;" onclick="verifyOTP()">Verify &amp; Complete</button>
-        <div class="otp-resend"><button id="btnResend" onclick="resendOTP()" disabled>Resend Code</button></div>
-        <div id="otp-msg" class="form-msg"></div>
-      </div>
-    </div>
-
-    <!-- STEP 5: Success -->
-    <div class="form-step" id="fs5">
-      <div class="success-card">
-        <div class="success-icon">✅</div>
-        <h3 style="color:var(--green);margin-bottom:8px;">Application Submitted &amp; Consent Verified</h3>
-        <p>Thank you! Your application for the COMPUDON Junior Student Ambassador Program has been submitted and parental consent has been verified.</p>
-        <p class="ref-label">Reference ID</p>
-        <span class="ref-code" id="ref-display"></span>
-        <p style="font-size:.85rem;color:#888;margin-top:16px;">Please save this reference. A confirmation email has been sent to the parent/guardian.</p>
-      </div>
-    </div>
-
-    <div id="form-error" class="form-msg"></div>
+  <div class="apply-cta">
+    <a href="mailto:connect@compudonjunior.com?subject=Student%20Ambassador%20Program%20%E2%80%94%20Application%20Request&body=Hi%2C%0A%0AWe%2FI%20would%20like%20to%20apply%20for%20the%20COMPUDON%20Junior%20Student%20Ambassador%20Program.%20Please%20send%20the%20application%20form%20and%20program%20information.%0A%0AStudent%20name%3A%20%0AGrade%2FSchool%3A%20%0ACity%2FState%3A%20%0AParent%2FGuardian%20name%3A%20%0AContact%20number%3A%20">Email Us to Apply</a>
+    <span class="note">connect@compudonjunior.com</span>
   </div>
+  <div class="apply-cta" style="margin-top:8px;">
+    <a href="https://wa.me/918383056545?text=Hi%2C%20we%E2%80%99d%20like%20to%20apply%20for%20the%20COMPUDON%20Junior%20Student%20Ambassador%20Program.%20Please%20send%20the%20application%20form%20and%20program%20information.%0A%0AStudent%20name%3A%20%0AGrade%2FSchool%3A%20%0ACity%2FState%3A%20%0AParent%2FGuardian%20name%3A%20" target="_blank" rel="noopener" style="background:var(--green,#2E7D32);">Message Us on WhatsApp</a>
+    <span class="note">+91 83830 56545</span>
+  </div>
+
+
 
   <!-- Data Handling Notice (inline, linkable) -->
   <div id="data-notice" style="margin-top:40px;">
-    <h2>Data Handling Notice</h2>
-    <p>This notice explains how CyberLearning Educational Society (Regd.) ("Data Fiduciary") and India CyberLearning Pvt. Ltd. ("Data Processor") handle personal data collected through the Student Ambassador Program in compliance with the Digital Personal Data Protection Act, 2023.</p>
-    <p><strong>Data We Collect:</strong> Student's name, class/grade, age, date of birth, school name, city/state; parent/guardian's name, relationship, contact details; student's photograph (if appointed); school representative's details.</p>
-    <p><strong>Purpose:</strong> Evaluating eligibility, administering program communications, issuing certificates, and publishing profiles (subject to separate media consent).</p>
-    <p><strong>Prohibition on Tracking &amp; Profiling (Section 9(3)):</strong> We shall not engage in behavioral tracking, online activity monitoring, targeted advertising, or profiling directed at children.</p>
-    <p><strong>Data Access:</strong> Restricted to authorized representatives of CyberLearning Educational Society (Regd.) and India CyberLearning Pvt. Ltd. Data will never be sold or shared for marketing purposes.</p>
-    <p><strong>Security &amp; Retention:</strong> Data is stored using access-controlled, encrypted digital platforms and retained for the appointment duration plus one year, then securely deleted.</p>
-    <p><strong>Your Rights:</strong> Access, correct, or delete personal data; withdraw consent at any time (resulting in data deletion within 30 days). Contact our Privacy Officer, Ms. Shital Rai, at <a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a>. If unsatisfied, you may file a complaint with the Data Protection Board of India (DPBI).</p>
+    <div class="sec-band" style="margin-top:0;"><span class="num">i</span><span class="txt">Data Handling Notice</span></div>
+    <p>This notice explains how CyberLearning Educational Society (CES, Regd.), Regn. No. 53095/2005, registered office C-3/2, 1st Floor, Krishan Nagar, Delhi 110051, handles personal data collected through the Student Ambassador Program in compliance with the Digital Personal Data Protection Act, 2023.</p>
+    <p><strong>What we collect and why:</strong> We collect only the details needed to assess the application, verify parental consent, and administer the Ambassador role &mdash; student name, class/grade, date of birth, school, city/state; parent/guardian name, relationship, and contact details; and the student's photograph (if appointed and where media consent is given).</p>
+    <p><strong>No Tracking or Profiling (Section 9(3)):</strong> We do not track, behaviourally monitor, profile, or serve targeted advertising to children, and we do not sell or monetise student data.</p>
+    <p><strong>Data Access:</strong> Restricted to authorized representatives of CyberLearning Educational Society (Regd.). Data is never sold or shared for marketing purposes.</p>
+    <p><strong>Your Rights:</strong> You may review, update, or request deletion of your child's data, or withdraw consent, at any time. Withdrawing consent for media publication will remove your child's profile from our platforms.</p>
+    <p><strong>Grievance Officer:</strong> To exercise any right or raise a concern, contact Ms. Shital Rai, Grievance Officer, at <a href="mailto:privacy@compudonjunior.com">privacy@compudonjunior.com</a>. If you are not satisfied with our response, you have the right to complain to the Data Protection Board of India (DPBI) under the DPDP Act, 2023.</p>
   </div>
 
-  <h2>8. Contact &amp; Administration</h2>
+  <div class="sec-band"><span class="num">8</span><span class="txt">Contact &amp; Administration</span></div>
   <div class="contact">
     <p>For nominations, applications, and program queries:</p>
     <ul>
@@ -366,26 +273,29 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:40px;}
           <p style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:14px;">Microsoft Global Training Partner</p>
           <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
             <img src="assets/img/GTP_Landscape.png" alt="Microsoft in Education Global Training Partner" style="height:44px;width:auto;background:#fff;border-radius:6px;padding:4px 9px;flex-shrink:0;">
-            <a href="mailto:connect@compudonjunior.com" title="connect@compudonjunior.com" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Register</a>
-            <a href="mailto:privacy@compudonjunior.com" title="privacy@compudonjunior.com" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Privacy</a>
-            <a href="tel:+918383056545" title="+91 83830 56545" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Phone</a>
+            <a href="registration.html" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Register</a>
+            <a href="privacy-policy.html" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Privacy</a>
           </div>
         </div>
         <div>
           <h4>Program</h4>
           <ul>
             <li><a href="about.html">About COMPUDON Junior</a></li>
+            <li><a href="objectives.html">Objectives</a></li>
             <li><a href="cbse-mapping.html">CBSE Alignment</a></li>
             <li><a href="winners.html">Past Winners</a></li>
             <li><a href="pledge.html">Cyber Safety Pledge</a></li>
             <li><a href="beliefs.html">Our Beliefs</a></li>
+            <li><a href="digital-readiness-resources.html">Digital Readiness Resources</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="press-kit.html">Press Kit</a></li>
           </ul>
         </div>
         <div>
           <h4>For Schools</h4>
           <ul>
             <li><a href="schools.html">Schools Overview</a></li>
-            <li><a href="returning-schools.html">Returning Schools</a></li>
+            <li><a href="registration.html">Returning Schools</a></li>
             <li><a href="registration.html">Register Your School</a></li>
             <li><a href="digital-readiness-benchmark.html">Digital Readiness Benchmark</a></li>
             <!-- <li><a href="guides.html">Coordinator Guides</a></li> -->
@@ -398,8 +308,9 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:40px;}
           <ul>
             <li><a href="students.html">Students</a></li>
             <li><a href="ambassadors.html">Student Ambassadors</a></li>
+            <li><a href="alumni.html">Notable Alumni</a></li>
             <li><a href="parents.html">Parents</a></li>
-            <li><a href="leaders.html">Leaders &amp; Endorsers</a></li>
+            <li><a href="leaders.html">Global Leaders Speak</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
             <li><a href="cookie-policy.html">Cookie Policy</a></li>
             <li><a href="terms.html">Terms of Use</a></li>
@@ -416,9 +327,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:40px;}
           <a href="championship-rules.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Rules</a>
           <a href="child-safety.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Child Safety</a>
           <a href="contact-us.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Contact Us</a>
-          <a href="faq.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">FAQs</a>
           <a href="trust-and-transparency.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Trust &amp; Transparency</a>
-          <a href="press-kit.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Press Kit</a>
         <a href="sitemap.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Sitemap</a>
         </div>
       </div>
@@ -428,208 +337,6 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:40px;}
 <script>
 document.getElementById("navToggle").addEventListener("click",function(){document.getElementById("nav").classList.toggle("open");this.setAttribute("aria-expanded",this.getAttribute("aria-expanded")==="true"?"false":"true")});
 document.getElementById('year').textContent=new Date().getFullYear();
-</script>
-<script>
-let timerInterval;
-
-function goFormStep(n) {
-  // Validate current step before advancing
-  const current = document.querySelector('.form-step.active');
-  const currentNum = parseInt(current.id.replace('fs',''));
-  if (n > currentNum && !validateStep(currentNum)) return;
-
-  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-  document.getElementById('fs' + n).classList.add('active');
-
-  document.querySelectorAll('.progress-step').forEach(s => {
-    const sn = parseInt(s.dataset.step);
-    s.classList.remove('active','done');
-    if (sn < n) s.classList.add('done');
-    else if (sn === n) s.classList.add('active');
-  });
-
-  document.getElementById('app-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  clearFormMsg();
-}
-
-function validateStep(step) {
-  if (step === 1) {
-    const fields = ['f_name','f_grade','f_school','f_city'];
-    for (const id of fields) {
-      if (!document.getElementById(id).value.trim()) {
-        showFormMsg('Please fill in all required fields.', 'error');
-        document.getElementById(id).focus();
-        return false;
-      }
-    }
-    const grade = parseInt(document.getElementById('f_grade').value);
-    if (!isNaN(grade) && grade < 6) {
-      showFormMsg('The Ambassador Program is open to students in Grade 6 and above.', 'error');
-      document.getElementById('f_grade').focus();
-      return false;
-    }
-  }
-  if (step === 2) {
-    if (!document.getElementById('f_statement').value.trim()) {
-      showFormMsg('Please write a brief statement of intent.', 'error');
-      document.getElementById('f_statement').focus();
-      return false;
-    }
-  }
-  if (step === 3) {
-    const reqFields = ['f_parent_name','f_relationship','f_phone','f_parent_email'];
-    for (const id of reqFields) {
-      if (!document.getElementById(id).value.trim()) {
-        showFormMsg('Please fill in all parent/guardian details.', 'error');
-        document.getElementById(id).focus();
-        return false;
-      }
-    }
-    const reqChecks = ['c1','c2','c3','c6','c7','c8'];
-    for (const id of reqChecks) {
-      if (!document.getElementById(id).checked) {
-        showFormMsg('Please confirm all required consent checkboxes to proceed.', 'error');
-        return false;
-      }
-    }
-  }
-  return true;
-}
-
-function showFormMsg(text, type) {
-  const el = document.getElementById('form-error');
-  el.className = 'form-msg ' + type;
-  el.textContent = text;
-  el.style.display = 'block';
-}
-
-function clearFormMsg() {
-  const el = document.getElementById('form-error');
-  el.style.display = 'none';
-  const el2 = document.getElementById('otp-msg');
-  if (el2) el2.style.display = 'none';
-}
-
-async function submitAndSendOTP() {
-  if (!validateStep(3)) return;
-
-  const btn = document.querySelector('#fs3 .btn-next');
-  btn.disabled = true;
-  btn.textContent = 'Submitting…';
-  clearFormMsg();
-
-  const email = document.getElementById('f_parent_email').value.trim();
-  const studentName = document.getElementById('f_name').value.trim();
-
-  try {
-    const res = await fetch('consent/send-otp.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, student_name: studentName }),
-    });
-    const data = await res.json();
-
-    if (data.ok) {
-      document.getElementById('otp-email-display').textContent = email.replace(/(.{3}).*@/, '$1***@');
-      goFormStep(4);
-      startOTPTimer(600);
-      document.getElementById('f_otp').focus();
-    } else {
-      showFormMsg(data.error || 'Could not send verification code. Please try again.', 'error');
-    }
-  } catch (e) {
-    showFormMsg('Network error. Please check your connection and try again.', 'error');
-  }
-
-  btn.disabled = false;
-  btn.textContent = 'Submit & Verify →';
-}
-
-function startOTPTimer(seconds) {
-  const el = document.getElementById('otp-timer');
-  const resendBtn = document.getElementById('btnResend');
-  resendBtn.disabled = true;
-  let remaining = seconds;
-
-  clearInterval(timerInterval);
-  timerInterval = setInterval(() => {
-    const m = Math.floor(remaining / 60);
-    const s = remaining % 60;
-    el.textContent = `Code expires in ${m}:${String(s).padStart(2, '0')}`;
-    remaining--;
-    if (remaining < 0) {
-      clearInterval(timerInterval);
-      el.textContent = 'Code expired. Please resend.';
-      resendBtn.disabled = false;
-    }
-  }, 1000);
-}
-
-async function resendOTP() {
-  const email = document.getElementById('f_parent_email').value.trim();
-  const studentName = document.getElementById('f_name').value.trim();
-
-  try {
-    const res = await fetch('consent/send-otp.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, student_name: studentName }),
-    });
-    const data = await res.json();
-    if (data.ok) {
-      startOTPTimer(600);
-      showOTPMsg('New code sent.', 'success');
-    } else {
-      showOTPMsg(data.error, 'error');
-    }
-  } catch (e) {
-    showOTPMsg('Network error.', 'error');
-  }
-}
-
-async function verifyOTP() {
-  const code = document.getElementById('f_otp').value.trim();
-  if (code.length !== 6) { showOTPMsg('Please enter the full 6-digit code.', 'error'); return; }
-
-  const btn = document.querySelector('#fs4 .btn-next');
-  btn.disabled = true;
-  btn.textContent = 'Verifying…';
-
-  try {
-    const res = await fetch('consent/verify-otp.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ code }),
-    });
-    const data = await res.json();
-
-    if (data.ok) {
-      clearInterval(timerInterval);
-      document.getElementById('ref-display').textContent = data.ref || '—';
-      goFormStep(5);
-    } else {
-      showOTPMsg(data.error, 'error');
-    }
-  } catch (e) {
-    showOTPMsg('Network error.', 'error');
-  }
-
-  btn.disabled = false;
-  btn.textContent = 'Verify & Complete';
-}
-
-function showOTPMsg(text, type) {
-  const el = document.getElementById('otp-msg');
-  el.className = 'form-msg ' + type;
-  el.textContent = text;
-  el.style.display = 'block';
-}
-
-// Auto-submit on 6 digits
-document.getElementById('f_otp').addEventListener('input', function() {
-  this.value = this.value.replace(/\D/g, '');
-  if (this.value.length === 6) verifyOTP();
-});
 </script>
 </body>
 </html>

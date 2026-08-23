@@ -16,39 +16,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/compudon.min.css">
   <style>
-  /* ── Beliefs page — contemplative treatment ── */
+  /* ── Beliefs page — editorial treatment ── */
   .beliefs-hero {
-    padding: 100px 0 60px;
+    background: var(--ink);
+    color: #fff;
+    padding: 64px 0 56px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
+  .beliefs-hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(55% 60% at 50% 0, rgba(71,178,228,.16), transparent 70%),
+                radial-gradient(50% 55% at 100% 100%, rgba(15,110,86,.16), transparent 70%);
+    pointer-events: none;
+  }
+  .beliefs-hero .wrap { position: relative; }
+  .beliefs-hero .breadcrumbs { justify-content: center; display: flex; margin-bottom: 18px; }
+  .beliefs-hero .eyebrow { color: #7ecfcf; }
   .beliefs-hero h1 {
     font-size: clamp(2rem, 4.5vw, 3.2rem);
     font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 16px;
+    color: #fff;
+    margin: 14px 0 16px;
     letter-spacing: -0.02em;
   }
   .beliefs-hero .subtitle {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 1.1rem;
-    color: var(--muted);
+    font-size: 1.15rem;
+    color: rgba(255,255,255,.8);
     font-style: italic;
-    max-width: 36ch;
+    max-width: 40ch;
     margin: 0 auto;
     line-height: 1.7;
   }
   .beliefs-divider {
     width: 48px;
-    height: 2px;
-    background: var(--green);
-    margin: 40px auto;
+    height: 3px;
+    background: var(--sky);
+    margin: 32px auto 0;
     border: none;
+    border-radius: 2px;
   }
 
+  .beliefs-band { background: var(--paper-2); }
+  .beliefs-band.alt { background: var(--paper); }
+
   .beliefs-body {
-    max-width: 680px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 0 24px 80px;
+    padding: 64px 24px;
   }
   .beliefs-body p {
     font-family: 'Source Serif 4', Georgia, serif;
@@ -57,60 +75,77 @@
     color: var(--ink);
     margin-bottom: 22px;
   }
-  .beliefs-body p.short {
-    margin-bottom: 10px;
-  }
+  .beliefs-body p.short,
   .beliefs-body p.last-short {
-    margin-bottom: 32px;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--navy-700);
+    border-left: 3px solid var(--sky);
+    padding-left: 18px;
+    margin-bottom: 8px;
   }
-  .beliefs-body hr.section-divider {
-    border: none;
-    border-top: 1px solid var(--line);
-    width: 100%;
-    margin: 56px 0 0;
-  }
+  .beliefs-body p.last-short { margin-bottom: 30px; }
   .beliefs-body p.short strong,
   .beliefs-body p.last-short strong {
     font-weight: 600;
+    color: var(--ink);
+    font-style: normal;
   }
   .beliefs-body .beliefs-list {
     max-width: 100%;
     margin: 0 0 28px;
     padding: 0;
     list-style: none;
+    display: grid;
+    gap: 12px;
   }
   .beliefs-body .beliefs-list li {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 1.15rem;
-    line-height: 1.85;
+    font-size: 1.1rem;
+    line-height: 1.6;
     color: var(--ink);
-    margin-bottom: 6px;
-    padding-left: 26px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 18px;
   }
-  .beliefs-body .beliefs-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 14px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--green);
+  .beliefs-band .beliefs-list li { background: var(--paper-2); }
+  .beliefs-body .beliefs-list .li-ico {
+    flex-shrink: 0;
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--green-tint); color: var(--green);
   }
   .beliefs-body .beliefs-list strong {
     font-weight: 600;
+    font-family: var(--body);
+  }
+  .beliefs-section-head {
+    display: flex; align-items: center; gap: 12px;
+    margin: 0 0 24px;
+  }
+  .beliefs-section-head .num {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: var(--navy);
+    color: #fff;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
   }
   .beliefs-body h2 {
     font-family: var(--display);
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
     font-weight: 700;
     color: var(--ink);
-    margin: 64px 0 24px;
     letter-spacing: -0.01em;
-  }
-  .beliefs-body h2:first-of-type {
-    margin-top: 0;
+    margin: 0;
   }
   .beliefs-body .emphasis {
     font-weight: 500;
@@ -120,16 +155,15 @@
   .beliefs-coda {
     max-width: 680px;
     margin: 0 auto;
-    padding: 40px 24px 80px;
+    padding: 56px 24px 76px;
     text-align: center;
-    border-top: 1px solid var(--line);
   }
   .beliefs-coda p {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--muted);
     line-height: 1.8;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   .beliefs-coda a {
     font-family: var(--body);
@@ -138,36 +172,37 @@
     font-size: .95rem;
   }
 
-  /* Declaration section */
+  /* Declaration section — manifesto card */
   .declaration {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 48px 32px;
-    border: 1px solid var(--line);
+    padding: 52px 40px;
     border-radius: var(--radius);
-    background: var(--paper-2);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--ink) 100%);
     text-align: center;
-    margin-bottom: 80px;
+    color: #fff;
+    box-shadow: var(--shadow-lg);
   }
   .declaration .eyebrow {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--green);
+    color: #7ecfcf;
     display: block;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
   .declaration h3 {
     font-family: var(--display);
-    font-size: 1.5rem;
-    color: var(--ink);
-    margin-bottom: 20px;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: #fff;
+    margin-bottom: 26px;
+    line-height: 1.3;
   }
   .declaration p {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 1.05rem;
-    color: var(--muted);
+    font-size: 1.08rem;
+    color: rgba(255,255,255,.72);
     line-height: 1.8;
     margin-bottom: 10px;
   }
@@ -175,15 +210,16 @@
     margin-bottom: 0;
   }
   .declaration .emphasis {
-    font-weight: 500;
-    color: var(--ink);
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.18rem;
   }
 
   @media (max-width: 768px) {
-    .beliefs-hero { padding: 72px 0 40px; }
-    .beliefs-body { padding: 0 20px 60px; }
+    .beliefs-hero { padding: 48px 0 40px; }
+    .beliefs-body { padding: 48px 20px; }
     .beliefs-body p { font-size: 1.05rem; }
-    .declaration { margin-left: 20px; margin-right: 20px; padding: 32px 24px; }
+    .declaration { margin-left: 20px; margin-right: 20px; padding: 36px 26px; }
   }
   </style>
 
@@ -203,19 +239,22 @@
       </a>
       <ul class="nav-links">
         <li><a id="nav-home" class="active" href="index.html">Home</a></li>
-        <li><a id="nav-objectives" href="objectives.html">Objectives</a></li>
         <li><a id="nav-schools" href="schools.html">Schools</a></li>
         <li><a id="nav-parents" href="parents.html">Parents</a></li>
-        <li><a id="nav-hall" href="hall-of-fame.html">Leaders & Educators</a></li>
+        <li><a id="nav-leaders-speak" href="leaders.html">Global Leaders Speak</a></li>
         <li class="has-drop">
           <a href="#" aria-haspopup="true" class="hof-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;margin-right:4px;vertical-align:-2px;"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 01-10 0V4z" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 6H4a2 2 0 002 4M17 6h3a2 2 0 01-2 4" stroke-linecap="round" stroke-linejoin="round"/></svg>Hall of Fame</a>
           <ul class="drop">
+            <li><a id="nav-hall" href="hall-of-fame.html">Education Leaders</a></li>
             <li><a href="winners.html">Past Winners</a></li>
             <li><a href="ambassadors.html">Student Ambassadors</a></li>
+            <li><a href="student-ambassadors-gallery.html">Meet Our Ambassadors</a></li>
+            <li><a href="alumni.html">Notable Alumni</a></li>
           </ul>
         </li>
         <li><a id="nav-advisory" href="advisory-board-new.html">Advisory Board</a></li>
-        <li><a id="nav-prizes" href="prizes.html">Prizes</a></li>
+        <li><a id="nav-prizes" class="res-link" href="prizes.html">Awards</a></li>
+        <li><a id="nav-resources" class="res-link" href="digital-readiness-resources.html">Resources</a></li>
       </ul>
       <a class="btn btn-primary nav-cta" href="registration.html">Register</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
@@ -228,6 +267,8 @@
   <!-- Hero -->
   <section class="beliefs-hero">
     <div class="wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html" style="color:rgba(255,255,255,.85);">Home</a><span class="sep" style="color:rgba(255,255,255,.4);">/</span><span style="color:rgba(255,255,255,.6);">Our Beliefs</span></nav>
+      <span class="eyebrow">A Reflection</span>
       <h1>Every Generation Has Its Calling</h1>
       <p class="subtitle">A reflection on preparing children for life in a digital world.</p>
       <hr class="beliefs-divider">
@@ -235,7 +276,8 @@
   </section>
 
   <!-- Essay body -->
-  <div class="beliefs-body">
+  <div class="beliefs-band">
+    <div class="beliefs-body">
 
     <p>Every generation of educators has prepared children for a world that was changing.</p>
 
@@ -246,9 +288,16 @@
 
     <p>Schools have always done more than prepare students for examinations. They prepare young people to become thoughtful citizens, compassionate human beings, and responsible members of society. That mission remains as important today as it has ever been.</p>
 
-    <!-- Section 2 -->
-    <hr class="section-divider">
-    <h2>Technology Should Never Replace Judgment</h2>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="beliefs-band alt">
+    <div class="beliefs-body">
+    <div class="beliefs-section-head reveal">
+      <span class="num">01</span>
+      <h2>Technology Should Never Replace Judgment</h2>
+    </div>
 
     <p>Throughout history, every great invention has expanded what people could do.</p>
 
@@ -264,9 +313,16 @@
     <p class="short">Technology may change how we work.</p>
     <p class="last-short"><strong>Education must continue to shape who we become.</strong></p>
 
-    <!-- Section 3 -->
-    <hr class="section-divider">
-    <h2>Childhood Deserves Wonder</h2>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="beliefs-band">
+    <div class="beliefs-body">
+    <div class="beliefs-section-head reveal">
+      <span class="num">02</span>
+      <h2>Childhood Deserves Wonder</h2>
+    </div>
 
     <p>Childhood has always been a time for questions.</p>
 
@@ -280,18 +336,25 @@
 
     <p><strong>The future belongs not simply to those who know more, but to those who continue to wonder.</strong></p>
 
-    <!-- Section 4 -->
-    <hr class="section-divider">
-    <h2>It Takes All of Us</h2>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="beliefs-band alt">
+    <div class="beliefs-body">
+    <div class="beliefs-section-head reveal">
+      <span class="num">03</span>
+      <h2>It Takes All of Us</h2>
+    </div>
 
     <p>Preparing children for tomorrow has never been the responsibility of schools alone.</p>
 
     <ul class="beliefs-list">
-      <li><strong>Parents</strong> shape values.</li>
-      <li><strong>Teachers</strong> inspire curiosity.</li>
-      <li><strong>Schools</strong> create opportunity.</li>
-      <li><strong>Communities</strong> build belonging.</li>
-      <li><strong>Technology companies</strong> influence daily life.</li>
+      <li><span class="li-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="7" r="4"/></svg></span><span><strong>Parents</strong> shape values.</span></li>
+      <li><span class="li-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 4-9 4-9-4 9-4Z" stroke-linejoin="round"/><path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Teachers</strong> inspire curiosity.</span></li>
+      <li><span class="li-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Schools</strong> create opportunity.</span></li>
+      <li><span class="li-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Communities</strong> build belonging.</span></li>
+      <li><span class="li-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M8 20h8M12 16v4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Technology companies</strong> influence daily life.</span></li>
     </ul>
 
     <p>Each has a role to play.</p>
@@ -302,16 +365,19 @@
 
     <p><strong>That shared commitment is the spirit in which COMPUDON Junior was created.</strong></p>
 
+    </div>
   </div>
 
   <!-- Declaration -->
-  <div class="declaration reveal">
-    <span class="eyebrow">The Declaration for the Digital Generation</span>
-    <h3>Preparing children for tomorrow is one of the greatest responsibilities we share.</h3>
-    <p class="short">Technology will continue to evolve.</p>
-    <p class="short">Childhood should not lose its curiosity.</p>
-    <p class="short">Education should not lose its humanity.</p>
-    <p class="last emphasis">Character should remain more important than technology.</p>
+  <div class="beliefs-band" style="padding:64px 24px;">
+    <div class="declaration reveal">
+      <span class="eyebrow">The Declaration for the Digital Generation</span>
+      <h3>Preparing children for tomorrow is one of the greatest responsibilities we share.</h3>
+      <p class="short">Technology will continue to evolve.</p>
+      <p class="short">Childhood should not lose its curiosity.</p>
+      <p class="short">Education should not lose its humanity.</p>
+      <p class="last emphasis">Character should remain more important than technology.</p>
+    </div>
   </div>
 
   <!-- Quiet coda -->
@@ -334,26 +400,29 @@
           <p style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:14px;">Microsoft Global Training Partner</p>
           <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
             <img src="assets/img/GTP_Landscape.png" alt="Microsoft in Education Global Training Partner" style="height:44px;width:auto;background:#fff;border-radius:6px;padding:4px 9px;flex-shrink:0;">
-            <a href="mailto:connect@compudonjunior.com" title="connect@compudonjunior.com" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Register</a>
-            <a href="mailto:privacy@compudonjunior.com" title="privacy@compudonjunior.com" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Privacy</a>
-            <a href="tel:+918383056545" title="+91 83830 56545" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Phone</a>
+            <a href="registration.html" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Register</a>
+            <a href="privacy-policy.html" style="font-size:13px;font-weight:600;color:#fff;border-bottom:1px dotted rgba(255,255,255,.4);padding-bottom:2px;">Privacy</a>
           </div>
         </div>
         <div>
           <h4>Program</h4>
           <ul>
             <li><a href="about.html">About COMPUDON Junior</a></li>
+            <li><a href="objectives.html">Objectives</a></li>
             <li><a href="cbse-mapping.html">CBSE Alignment</a></li>
             <li><a href="winners.html">Past Winners</a></li>
             <li><a href="pledge.html">Cyber Safety Pledge</a></li>
             <li><a href="beliefs.html">Our Beliefs</a></li>
+            <li><a href="digital-readiness-resources.html">Digital Readiness Resources</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="press-kit.html">Press Kit</a></li>
           </ul>
         </div>
         <div>
           <h4>For Schools</h4>
           <ul>
             <li><a href="schools.html">Schools Overview</a></li>
-            <li><a href="returning-schools.html">Returning Schools</a></li>
+            <li><a href="registration.html">Returning Schools</a></li>
             <li><a href="registration.html">Register Your School</a></li>
             <li><a href="digital-readiness-benchmark.html">Digital Readiness Benchmark</a></li>
             <!-- <li><a href="guides.html">Coordinator Guides</a></li> -->
@@ -366,8 +435,9 @@
           <ul>
             <li><a href="students.html">Students</a></li>
             <li><a href="ambassadors.html">Student Ambassadors</a></li>
+            <li><a href="alumni.html">Notable Alumni</a></li>
             <li><a href="parents.html">Parents</a></li>
-            <li><a href="leaders.html">Leaders &amp; Endorsers</a></li>
+            <li><a href="leaders.html">Global Leaders Speak</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
             <li><a href="cookie-policy.html">Cookie Policy</a></li>
             <li><a href="terms.html">Terms of Use</a></li>
@@ -384,9 +454,7 @@
           <a href="championship-rules.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Rules</a>
           <a href="child-safety.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Child Safety</a>
           <a href="contact-us.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Contact Us</a>
-          <a href="faq.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">FAQs</a>
           <a href="trust-and-transparency.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Trust &amp; Transparency</a>
-          <a href="press-kit.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Press Kit</a>
         <a href="sitemap.html" style="color:rgba(255,255,255,.55);font-size:12.5px;">Sitemap</a>
         </div>
       </div>
